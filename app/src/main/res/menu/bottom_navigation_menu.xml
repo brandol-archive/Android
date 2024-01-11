@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<item
+        android:id="@+id/page_home"
+        android:icon="@drawable/ic_home"
+        android:title="홈"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/page_search"
+        android:icon="@drawable/ic_search"
+        android:title="검색"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/page_point"
+        android:icon="@drawable/ic_point"
+        android:title="포인트"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/page_abata"
+        android:icon="@drawable/ic_abata"
+        android:title="아바타"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/page_mypage"
+        android:icon="@drawable/ic_mypage"
+        android:title="마이페이지"
+        android:enabled="true"/>
+
+
+</menu>
