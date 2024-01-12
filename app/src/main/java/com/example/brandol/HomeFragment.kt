@@ -1,50 +1,77 @@
 package com.example.brandol
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var mainBannerViewPager: ViewPager2
+    private lateinit var subBannerViewPager: ViewPager2
+    private lateinit var mainBannerAdapter: BannerAdapter
+    private lateinit var subBannerAdapter: BannerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // 메인 배너 뷰페이저 초기화
+        mainBannerViewPager = view.findViewById(R.id.viewPager_main)
+        mainBannerAdapter = BannerAdapter()
+        mainBannerViewPager.adapter = mainBannerAdapter
+
+        // 메인 배너 아이템 추가
+        mainBannerAdapter.addBannerItem(R.drawable.ic_launcher_foreground)
+        mainBannerAdapter.addBannerItem(R.drawable.ic_launcher_background)
+
+        // 서브 배너 뷰페이저 초기화
+        subBannerViewPager = view.findViewById(R.id.viewPager_sub)
+        subBannerAdapter = BannerAdapter()
+        subBannerViewPager.adapter = subBannerAdapter
+
+        // 서브 배너 아이템 추가
+        subBannerAdapter.addBannerItem(R.drawable.ic_launcher_foreground)
+        subBannerAdapter.addBannerItem(R.drawable.ic_launcher_background)
+
+        return view
     }
 
-    companion object {
+    // ViewPager2에 사용될 어댑터
+    inner class BannerAdapter : RecyclerView.Adapter<BannerAdapter.BannerViewHolder>() {
 
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        private val bannerItems = mutableListOf<Int>()
+
+        fun addBannerItem(bannerItem: Int) {
+            bannerItems.add(bannerItem)
+            notifyDataSetChanged()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.fragment_home, parent, false)
+            return BannerViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
+            val bannerItem = bannerItems[position]
+            holder.bind(bannerItem)
+        }
+
+        override fun getItemCount(): Int {
+            return bannerItems.size
+        }
+
+        inner class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            fun bind(bannerItem: Int) {
+                // 원하는 작업 수행 (예: 이미지 로딩 등)
+                itemView.setBackgroundResource(bannerItem)
             }
+        }
     }
 }
