@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //바텀 네비게이션
         initBottomnavigation()
     }
 
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.page_abata -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, AbataFragment())
+                        .replace(R.id.main_frm, AvartarFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

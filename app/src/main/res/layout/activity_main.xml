@@ -14,12 +14,16 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/brightgray"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_bnv"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#D163FF"
+        android:background="@color/white"
         app:itemTextColor="@color/black"
         app:itemIconSize="40dp"
         app:itemIconTint="@color/black"
