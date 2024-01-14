@@ -1,36 +1,34 @@
 package com.example.brandol
 
 import ButtonAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.GridLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.brandol.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+
+    lateinit var binding: FragmentHomeBinding
 
     private lateinit var mainBannerViewPager: ViewPager2
     private lateinit var subBannerViewPager: ViewPager2
     private lateinit var mainBannerAdapter: BannerAdapter
     private lateinit var subBannerAdapter: BannerAdapter
 
-    private lateinit var brandListTextView: TextView
-    private lateinit var manageButton: Button
-    private lateinit var addButton: Button
     private lateinit var recyclerView: RecyclerView
-    private lateinit var gridLayoutButtons: GridLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = binding.root
 
         // 메인 배너 뷰페이저 초기화
         mainBannerViewPager = view.findViewById(R.id.viewPager_main)
@@ -50,12 +48,7 @@ class HomeFragment : Fragment() {
         subBannerAdapter.addBannerItem(R.drawable.ic_launcher_foreground)
         subBannerAdapter.addBannerItem(R.drawable.ic_launcher_background)
 
-
-        brandListTextView = view.findViewById(R.id.brandList_tv)
-        manageButton = view.findViewById(R.id.manage_btn)
-        //addButton = view.findViewById(R.id.btnAdd)
         recyclerView = view.findViewById(R.id.recyclerView)
-        //gridLayoutButtons = view.findViewById(R.id.gridLayoutButtons)
 
         // 리사이클러뷰 초기화 및 어댑터 설정
         val adapter = ButtonAdapter()
@@ -73,12 +66,9 @@ class HomeFragment : Fragment() {
         adapter.addButton("Brand 7")
         adapter.addButton("Brand 8")
 
-
-//        val manageButton = view.findViewById<Button>(R.id.btnManage)
-//        manageButton.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_anotherFragment)
-//        }
-
+        binding.manageTv.setOnClickListener {
+            startActivity(Intent(activity, BrandManagementActivity::class.java))
+        }
 
         return view
     }

@@ -15,7 +15,7 @@ class ButtonAdapter : RecyclerView.Adapter<ButtonAdapter.ButtonViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ButtonViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.brand_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.brand_item_home, parent, false)
         return ButtonViewHolder(view)
     }
 
