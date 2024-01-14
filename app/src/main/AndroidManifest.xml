@@ -22,9 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".BrandManagementActivity"
-            android:exported="true"/>
+        <activity android:name=".BrandManagementActivity" />
 
     </application>
 
