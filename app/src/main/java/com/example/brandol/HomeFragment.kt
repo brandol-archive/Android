@@ -62,9 +62,6 @@ class HomeFragment : Fragment() {
         adapter.addButton("Brand 3")
         adapter.addButton("Brand 4")
         adapter.addButton("Brand 5")
-        adapter.addButton("Brand 6")
-        adapter.addButton("Brand 7")
-        adapter.addButton("Brand 8")
 
         binding.manageTv.setOnClickListener {
             startActivity(Intent(activity, BrandManagementActivity::class.java))
