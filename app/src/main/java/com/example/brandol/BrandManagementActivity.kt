@@ -3,6 +3,7 @@ package com.example.brandol
 import BrandListAdapter
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +28,7 @@ class BrandManagementActivity : AppCompatActivity() {
         val brandList = listOf("Brand 1", "Brand 2", "Brand 3", "Brand 4", "Brand 5")
 
         // 어댑터 초기화 및 리사이클러뷰에 설정
-        brandListAdapter = BrandListAdapter(brandList)
+        brandListAdapter = BrandListAdapter(brandList.toMutableList())
         recyclerView.adapter = brandListAdapter
 
 
@@ -36,5 +37,9 @@ class BrandManagementActivity : AppCompatActivity() {
             // 원하는 동작을 여기에 추가
             finish()
         }
+
+        // ItemTouchHelper를 RecyclerView에 연결
+        brandListAdapter.attachItemTouchHelper(recyclerView)
+
     }
 }
