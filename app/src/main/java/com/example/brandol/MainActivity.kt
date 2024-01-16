@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.page_abata -> {
+                R.id.page_avartar -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, AvartarFragment())
                         .commitAllowingStateLoss()
