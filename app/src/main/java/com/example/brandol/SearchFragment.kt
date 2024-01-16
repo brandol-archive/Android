@@ -68,10 +68,42 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.R
 
+//브랜드 카테고리
+//class SearchFragment : Fragment() {
+//
+//    private lateinit var recyclerView: RecyclerView
+//    private lateinit var adapter: BrandCategoryAdapter
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        val view = inflater.inflate(R.layout.fragment_search, container, false)
+//
+//        // RecyclerView 초기화
+//        recyclerView = view.findViewById(R.id.brand_categoty_rv)
+//        recyclerView.layoutManager = LinearLayoutManager(context)
+//
+//        // Adapter 초기화
+//        adapter = BrandCategoryAdapter()
+//        recyclerView.adapter = adapter
+//
+//        // RecyclerView에 더미 데이터 추가
+//        for (i in 1..10) {
+//            adapter.addItem("Brand $i")
+//        }
+//
+//        return view
+//    }
+//}
+
+
+
+//유저 카테고리
 class SearchFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: BrandCategoryAdapter
+    private lateinit var userAdapter: UserCategoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,14 +115,14 @@ class SearchFragment : Fragment() {
         recyclerView = view.findViewById(R.id.brand_categoty_rv)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        // Adapter 초기화
-        adapter = BrandCategoryAdapter()
-        recyclerView.adapter = adapter
+        // RecyclerView 설정
+        userAdapter = UserCategoryAdapter()
+        recyclerView.adapter = userAdapter
 
-        // RecyclerView에 더미 데이터 추가
-        for (i in 1..10) {
-            adapter.addItem("Brand $i")
-        }
+        // 데이터 추가 예시 (실제 데이터 추가 방법에 맞게 수정)
+        userAdapter.addItem("User1")
+        userAdapter.addItem("User2")
+        userAdapter.addItem("User3")
 
         return view
     }
