@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager2.widget.ViewPager2
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +34,16 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_search, container, false)
+
+        // ViewPager2 초기화
+        val viewPager: ViewPager2 = view.findViewById(R.id.catagory_content_vp)
+        val adapter = SearchPagerAdapter(childFragmentManager, lifecycle)
+        viewPager.adapter = adapter
+
+        return view
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        //return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
     companion object {
