@@ -6,7 +6,7 @@
 
 <item
         android:id="@+id/page_home"
-        android:icon="@drawable/ic_home2"
+        android:icon="@drawable/ic_home"
         android:title="홈"
         android:enabled="true"/>
 
@@ -22,8 +22,8 @@
         android:enabled="true"/>
 
     <item
-        android:id="@+id/page_abata"
-        android:icon="@drawable/ic_abata"
+        android:id="@+id/page_avartar"
+        android:icon="@drawable/ic_avartar"
         android:title="아바타"
         android:enabled="true"/>
     <item
