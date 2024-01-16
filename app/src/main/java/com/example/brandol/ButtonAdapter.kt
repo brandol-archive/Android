@@ -5,7 +5,6 @@ import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.R
 
-
 class ButtonAdapter : RecyclerView.Adapter<ButtonAdapter.ButtonViewHolder>() {
 
     private val buttonItems = mutableListOf<String>()
@@ -58,6 +57,7 @@ class ButtonAdapter : RecyclerView.Adapter<ButtonAdapter.ButtonViewHolder>() {
             VIEW_TYPE_BUTTON
         }
     }
+
 
     inner class ButtonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val button: Button = itemView.findViewById(R.id.button)
