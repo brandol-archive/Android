@@ -100,30 +100,72 @@ import com.example.brandol.R
 
 
 //유저 카테고리
+//class SearchFragment : Fragment() {
+//
+//    private lateinit var recyclerView: RecyclerView
+//    private lateinit var userAdapter: UserCategoryAdapter
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        val view = inflater.inflate(R.layout.fragment_search, container, false)
+//
+//        // RecyclerView 초기화
+//        recyclerView = view.findViewById(R.id.brand_categoty_rv)
+//        recyclerView.layoutManager = LinearLayoutManager(context)
+//
+//        // RecyclerView 설정
+//        userAdapter = UserCategoryAdapter()
+//        recyclerView.adapter = userAdapter
+//
+//        // 데이터 추가 예시 (실제 데이터 추가 방법에 맞게 수정)
+//        userAdapter.addItem("User1")
+//        userAdapter.addItem("User2")
+//        userAdapter.addItem("User3")
+//
+//        return view
+//    }
+//}
+
+
+//유저 카테고리
 class SearchFragment : Fragment() {
 
+    private lateinit var contentAdapter: ContentCategoryAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var userAdapter: UserCategoryAdapter
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_search, container, false)
+        return inflater.inflate(R.layout.fragment_search, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 더미 데이터 생성
+        val dummyDataList = generateDummyData()
 
         // RecyclerView 초기화
+        contentAdapter = ContentCategoryAdapter(dummyDataList)
         recyclerView = view.findViewById(R.id.brand_categoty_rv)
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = contentAdapter
 
-        // RecyclerView 설정
-        userAdapter = UserCategoryAdapter()
-        recyclerView.adapter = userAdapter
+        // 검색 기능 구현 (예: EditText에 텍스트 입력 시 필터링)
+//        searchEditText.setOnKeyListener { _, _, _ ->
+//            filterContentList(searchEditText.text.toString())
+//            false
+//        }
+    }
 
-        // 데이터 추가 예시 (실제 데이터 추가 방법에 맞게 수정)
-        userAdapter.addItem("User1")
-        userAdapter.addItem("User2")
-        userAdapter.addItem("User3")
-
-        return view
+    private fun generateDummyData(): List<ContentModel> {
+        return listOf(
+            ContentModel("Brand1", "Post Title 1", "Post Content 1", "좋아요 / 댓글 / 시간 / 작성자"),
+            ContentModel("Brand2", "Post Title 2", "Post Content 2", "좋아요 / 댓글 / 시간 / 작성자"),
+            ContentModel("Brand3", "Post Title 3", "Post Content 3", "좋아요 / 댓글 / 시간 / 작성자"),
+            // Add more dummy data as needed
+        )
     }
 }
