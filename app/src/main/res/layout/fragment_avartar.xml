@@ -59,7 +59,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/ic_shoppingbag"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_c경onstraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -69,6 +69,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="scrollable"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorHeight="5dp"
+        app:tabSelectedTextColor="@color/purple"
+        app:tabIndicatorColor="@color/purple"
         app:tabGravity="fill"/>
 
     <androidx.viewpager2.widget.ViewPager2
