@@ -1,5 +1,6 @@
 package com.example.brandol
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,17 +15,30 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class AvartarFragment : Fragment() {
     lateinit var binding: FragmentAvartarBinding
-    var tabFragment: AvartarTabFragment? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAvartarBinding.inflate(inflater,container,false)
-        var view : View = binding.root
 
 
-        var tabElement = arrayOf("전체","헤어","피부","한벌","싱의","하의","신발")
+        //아이템리스트 보여주기
+        showtablayout()
+
+        val intent = Intent(activity,MessageActivity::class.java)
+
+
+        binding.abataChattingBtn.setOnClickListener {
+            startActivity(intent)
+        }
+        //채팅 온 갯수 앞으로 보내기
+        binding.abataChattingQuantity.bringToFront()
+
+        return binding.root
+    }
+
+    private fun showtablayout() {
+        var tabElement = arrayOf("전체", "헤어", "피부", "한벌", "싱의", "하의", "신발")
 
         //ViewPager2에 TabFragments 전달(Adapter pattern)
         val fragments: List<Fragment> = ArrayList()
@@ -37,19 +51,15 @@ class AvartarFragment : Fragment() {
             AvartarTabFragment.newInstance(tabElement[5])
             AvartarTabFragment.newInstance(tabElement[6])
         }
-
+        //뷰페이저 어댑터 연결
         val pagerAdapter = AvartarVPAdapter(childFragmentManager, lifecycle)
         binding.avartarItemlistVp.adapter = pagerAdapter
 
-        TabLayoutMediator(binding.avartarCategoryTl,binding.avartarItemlistVp) { tab, position ->
+        //탭 레이아웃과 뷰페이저 연동
+        TabLayoutMediator(binding.avartarCategoryTl, binding.avartarItemlistVp) { tab, position ->
             // 탭의 텍스트 설정
             tab.text = tabElement[position]
         }.attach()
-
-        //채팅 온 갯수 앞으로 보내기
-        binding.abataChattingQuantity.bringToFront()
-
-        return view
     }
 
 

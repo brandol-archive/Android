@@ -1,15 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="20dp"
     tools:context=".MypageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/mypage_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="마이페이지"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/mypage_setting_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_setting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/mypage_profile_iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypage_tv" />
+
+    <TextView
+        android:id="@+id/mypage_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="박준용님"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/mypage_profile_iv"
+        app:layout_constraintTop_toTopOf="@id/mypage_profile_iv" />
+
+    <TextView
+        android:id="@+id/mypage_point_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="포인트"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/mypage_profile_iv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_profile_iv" />
+
+    <TextView
+        android:id="@+id/mypage_point_quantity_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="5000 P"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypage_point_tv" />
+
+    <View
+        android:id="@+id/mypage_v"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/brightgray"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="@id/mypage_point_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_point_quantity_tv" />
+
+
+    <TextView
+        android:id="@+id/mypage_anouncement_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:gravity="left"
+        android:text="공지사항"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/mypage_v" />
+
+    <TextView
+        android:id="@+id/mypage_feedback_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="left"
+        android:text="피드백 게시판"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/mypage_anouncement_tv" />
+
+
+    <View
+        android:id="@+id/mypage_v2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/brightgray"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="@id/mypage_feedback_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_feedback_tv" />
+
+    <TextView
+        android:id="@+id/mypage_termuse_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:gravity="left"
+        android:text="이용약관"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/mypage_v2" />
+
+    <TextView
+        android:id="@+id/mypage_versioninfo_tv"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="left"
+        android:text="버전 정보"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/mypage_termuse_tv" />
+
+    <TextView
+        android:id="@+id/mypage_logout_tv"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="left"
+        android:text="로그아웃"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/mypage_versioninfo_tv" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MypageFragment"
-        android:textSize="50sp"/>
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="left"
+        android:text="계정탈퇴"
+        android:layout_marginTop="20dp"
+        android:textColor="#FF0000"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/mypage_logout_tv" />
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
