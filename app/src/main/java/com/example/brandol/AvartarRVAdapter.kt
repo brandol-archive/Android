@@ -8,9 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 
 class AvartarRVAdapter(private val stuffList: List<Stuff>) : RecyclerView.Adapter<AvartarRVAdapter.MyViewHolder>() {
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    var itemClickListener: ItemClickListener? = null
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // ViewHolder에서 사용할 뷰들을 정의
-        val image: ImageView = itemView.findViewById(R.id.item_stuff_image)
+        val image: ImageView = itemView.findViewById(R.id.item_stuff_image_iv)
+
+        init {
+            itemView.setOnClickListener{
+                itemClickListener?.onItemClick(adapterPosition)
+            }
+        }
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,

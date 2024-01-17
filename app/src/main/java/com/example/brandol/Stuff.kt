@@ -3,7 +3,7 @@ package com.example.brandol
 import android.service.quicksettings.Tile
 
 data class Stuff(
-    var tile: String? = "",
-    var image: Int? = null,
-    var descrp: String? =""
+    var title: String? = "",
+    var image: Int = 0,
+    var descrp: String?=""
 )

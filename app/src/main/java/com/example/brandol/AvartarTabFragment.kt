@@ -1,17 +1,25 @@
 package com.example.brandol
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.databinding.FragmentAvartarTabBinding
 
 class AvartarTabFragment : Fragment() {
 
     lateinit var binding: FragmentAvartarTabBinding
-    private var items = ArrayList<Stuff>()
+    private var stuffList = ArrayList<Stuff>()
+    private var avartarAdapter = AvartarRVAdapter(stuffList)
+    private var handler = Handler(Looper.getMainLooper())
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -19,28 +27,74 @@ class AvartarTabFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentAvartarTabBinding.inflate(inflater,container,false)
         var view : View = binding.root
-        items.apply {
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
-            add(Stuff("데모",R.drawable.justexp,"데모"))
+        initStuffList()
+        avartarAdapter.itemClickListener = object : ItemClickListener{
+            override fun onItemClick(position: Int) {
+                val stuff = stuffList[position]
+                val avartarTabFragment = AvartarTabFragment()
+                val bundle = Bundle()
+                bundle.putInt("profile",stuff.image)
+                avartarTabFragment.arguments = bundle
+                Toast.makeText(activity,"${stuff.title}",Toast.LENGTH_SHORT).show()
+            }
         }
         binding.avartartabItemlistRv.layoutManager = GridLayoutManager(activity,4)
-        binding.avartartabItemlistRv.adapter = AvartarRVAdapter(items)
+        binding.avartartabItemlistRv.adapter = avartarAdapter
 
+        binding.avartartabItemlistRv.addOnItemTouchListener(object :RecyclerView.OnItemTouchListener{
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                val childView: View? = rv.findChildViewUnder(e.x, e.y)
+                val position = rv.getChildAdapterPosition(childView?:view)
+                when(e.actionMasked){
+                    MotionEvent.ACTION_DOWN->{
+                        handler.postDelayed({
+                            AlertDialog.Builder(context)
+                                .setTitle("${stuffList[position].title}")
+                                .setMessage("${stuffList[position].descrp}")
+                                .show() },1000)
+                        true
+                    }
+
+                    MotionEvent.ACTION_UP,MotionEvent.ACTION_CANCEL ->{
+                        handler.removeCallbacksAndMessages(null)
+                        true
+                    }
+                    else -> false
+                }
+                return false
+            }
+
+            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
+
+            }
+
+            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
+
+            }
+
+        })
         return view
+    }
+
+    private fun initStuffList() {
+        stuffList.apply {
+            add(Stuff("신발", R.drawable.shoes, "멋진 신발이다"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+            add(Stuff("데모", R.drawable.justexp, "데모"))
+        }
     }
 
     companion object {

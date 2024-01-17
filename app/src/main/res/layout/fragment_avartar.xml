@@ -14,37 +14,47 @@
         android:padding="20dp">
 
         <ImageView
-            android:id="@+id/abata_back_arrow_btn"
+            android:id="@+id/avartar_real_avartar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shoes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/avartar_back_arrow_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_arrow_back"
+            android:src="@drawable/arrow_back_btn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
-            android:id="@+id/abata_chatting_btn"
+            android:id="@+id/avartar_chatting_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_chatting"
-            app:layout_constraintEnd_toStartOf="@id/abata_shop_btn"
+            android:src="@drawable/chatting_btn"
+            app:layout_constraintEnd_toStartOf="@id/avartar_shop_btn"
             app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
-            android:id="@+id/abata_chatting_quantity"
+            android:id="@+id/avartar_chatting_quantity"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/circle"
-            app:layout_constraintBottom_toBottomOf="@id/abata_chatting_btn"
-            app:layout_constraintEnd_toEndOf="@id/abata_chatting_btn">
+            android:background="@drawable/circle2"
+            app:layout_constraintBottom_toBottomOf="@id/avartar_chatting_btn"
+            app:layout_constraintEnd_toEndOf="@id/avartar_chatting_btn">
 
             <TextView
-                android:id="@+id/abata_chatting_quantity_tv"
+                android:id="@+id/avartar_chatting_quantity_tv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/circle"
                 android:gravity="center"
                 android:text="1"
                 android:textColor="@color/white"
@@ -53,13 +63,13 @@
         </FrameLayout>
 
         <ImageView
-            android:id="@+id/abata_shop_btn"
+            android:id="@+id/avartar_shop_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_shoppingbag"
+            android:src="@drawable/shoppingbag_btn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_c경onstraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,18 +21,19 @@ class AvartarFragment : Fragment() {
     ): View? {
         binding = FragmentAvartarBinding.inflate(inflater,container,false)
 
-
+        val profile = arguments?.getInt("profile")
         //아이템리스트 보여주기
         showtablayout()
 
         val intent = Intent(activity,MessageActivity::class.java)
-
-
-        binding.abataChattingBtn.setOnClickListener {
+        binding.avartarChattingBtn.setOnClickListener {
             startActivity(intent)
         }
+        if(profile != null) {
+            binding.avartarRealAvartar.setImageResource(profile)
+        }
         //채팅 온 갯수 앞으로 보내기
-        binding.abataChattingQuantity.bringToFront()
+        binding.avartarChattingQuantity.bringToFront()
 
         return binding.root
     }
