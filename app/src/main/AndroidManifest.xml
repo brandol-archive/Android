@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Brandol"
         tools:targetApi="31">
         <activity
+            android:name=".OpponentAvartarActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChattingActivity"
             android:exported="false" />
         <activity
