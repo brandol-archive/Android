@@ -9,39 +9,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/btn_search_bar_ib"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="30dp"
-            android:background="@drawable/btn_search_bar"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:outlineProvider="background"
-            android:clipToOutline="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <FrameLayout
+            android:id="@+id/btn_search_bar_Fl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:id="@+id/btn_search_glasses_ib"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="300dp"
-            android:src="@drawable/btn_search_glasses"
-            app:layout_constraintTop_toTopOf="@id/btn_search_bar_ib"
-            app:layout_constraintStart_toStartOf="@id/btn_search_bar_ib"
-            app:layout_constraintEnd_toEndOf="@id/btn_search_bar_ib"
-            app:layout_constraintBottom_toBottomOf="@id/btn_search_bar_ib"/>
+            <ImageButton
+                android:id="@+id/btn_search_bar_ib"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/btn_search_bar"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:outlineProvider="background"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
+            <ImageView
+                android:id="@+id/btn_search_glasses_ib"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="340dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/btn_search_glasses" />
+
+
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/btn_search_bar_ib"
+            app:layout_constraintTop_toBottomOf="@id/btn_search_bar_Fl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
