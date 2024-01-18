@@ -20,12 +20,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/mypage_setting_iv"
+    <ImageButton
+        android:id="@+id/mypage_setting_btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@color/white"
         android:src="@drawable/setting_btn"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
