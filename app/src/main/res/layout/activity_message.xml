@@ -13,12 +13,13 @@
         android:orientation="horizontal">
 
 
-        <ImageView
+        <ImageButton
             android:id="@+id/message_back_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
+            android:background="@color/white"
             android:scaleType="fitXY"
             android:src="@drawable/arrow_back_btn"
             app:layout_constraintStart_toStartOf="parent"
