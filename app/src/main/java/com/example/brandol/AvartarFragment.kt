@@ -20,8 +20,8 @@ class AvartarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAvartarBinding.inflate(inflater,container,false)
-
         val profile = arguments?.getInt("profile")
+
         //아이템리스트 보여주기
         showtablayout()
 
