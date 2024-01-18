@@ -24,11 +24,12 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <ImageView
+        <ImageButton
             android:id="@+id/avartar_back_arrow_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:scaleType="fitXY"
+            android:background="@color/white"
             android:src="@drawable/arrow_back_btn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
