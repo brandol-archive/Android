@@ -33,7 +33,7 @@ class BrandManagementActivity : AppCompatActivity() {
 
 
         // move_iv 클릭 동작 설정
-        binding.btnBack.setOnClickListener {
+        binding.btnBackBrandManagement.setOnClickListener {
             // 원하는 동작을 여기에 추가
             finish()
         }

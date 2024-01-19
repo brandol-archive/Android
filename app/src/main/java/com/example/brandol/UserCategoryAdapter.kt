@@ -17,7 +17,7 @@ class UserCategoryAdapter : RecyclerView.Adapter<UserCategoryAdapter.UserViewHol
 
     // 뷰홀더 생성
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.user_category, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user_category, parent, false)
         return UserViewHolder(view)
     }
 

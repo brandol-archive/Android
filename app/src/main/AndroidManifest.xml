@@ -24,6 +24,12 @@
 
         <activity android:name=".BrandManagementActivity" />
 
+        <activity android:name=".BrandCategoryActivity"/>
+
+        <activity android:name=".UserCategoryActivity"/>
+
+        <activity android:name=".ContentsCategoryActivity"/>
+
     </application>
 
 </manifest>

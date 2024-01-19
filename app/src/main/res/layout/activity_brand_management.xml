@@ -17,7 +17,7 @@
 
         <!-- 뒤로가기 버튼 -->
         <ImageButton
-            android:id="@+id/btn_back"
+            android:id="@+id/btn_back_brandManagement"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_home"

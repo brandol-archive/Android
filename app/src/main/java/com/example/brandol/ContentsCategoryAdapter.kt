@@ -8,7 +8,7 @@ import com.example.brandol.R
 class ContentCategoryAdapter(private val contentList: List<ContentModel>) : RecyclerView.Adapter<ContentCategoryAdapter.ContentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.contents_category, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_contents_category, parent, false)
         return ContentViewHolder(view)
     }
 

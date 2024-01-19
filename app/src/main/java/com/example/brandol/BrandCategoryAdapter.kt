@@ -15,7 +15,7 @@ class BrandCategoryAdapter : RecyclerView.Adapter<BrandCategoryAdapter.BrandView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrandViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.brand_categoty, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_brand_categoty, parent, false)
         return BrandViewHolder(view)
     }
 

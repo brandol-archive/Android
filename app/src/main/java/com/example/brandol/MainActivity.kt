@@ -1,6 +1,5 @@
 package com.example.brandol
 
-import SearchFragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.brandol.databinding.ActivityMainBinding

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/btn_back_abartaCategory"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_home"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/btn_search_bar_ib"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="58dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:outlineProvider="background"
+            android:clipToOutline="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@+id/btn_search_bar_ib" />
+
+
+        <!-- 20%의 투명도 -->
+        <View
+            android:id="@+id/background_v"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="20dp"
+            android:background="#33000000"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/btn_search_bar_ib"/>
+
+        <!-- 20%의 투명도 -->
+        <View
+            android:id="@+id/character_v"
+            android:layout_width="60dp"
+            android:layout_height="130dp"
+            android:background="#33000000"
+            tools:ignore="MissingConstraints"
+            android:layout_marginTop="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_search_bar_ib"/>
+
+        <TextView
+            android:id="@+id/point_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="포인트 : 7,000 P"
+            android:textStyle="bold"
+            android:textColorLink="@color/black"
+            android:textColor="?android:attr/textColorPrimary"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/character_v" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorFullWidth="false"
+            app:tabSelectedTextColor="#3f3fff"
+            app:tabIndicatorColor="#3f3fff"
+            app:tabRippleColor="#00ff0000"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/background_v"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/album_content_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/tabs"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
