@@ -17,13 +17,13 @@ class MessageActivity : AppCompatActivity() {
         binding = ActivityMessageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         backbtn()
         initMessageList()
         clickMessageEvent()
 
         binding.messageChattinglistRv.layoutManager = LinearLayoutManager(this)
         binding.messageChattinglistRv.adapter = messageAdapter
+
     }
 
     // 메세지 클릭 이벤트 기능 구현

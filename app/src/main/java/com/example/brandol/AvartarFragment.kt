@@ -6,10 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.viewpager2.widget.ViewPager2
 import com.example.brandol.databinding.FragmentAvartarBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -34,7 +31,6 @@ class AvartarFragment : Fragment() {
         }
         //채팅 온 갯수 앞으로 보내기
         binding.avartarChattingQuantity.bringToFront()
-
         return binding.root
     }
 

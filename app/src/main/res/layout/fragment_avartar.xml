@@ -18,18 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/shoes"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <ImageView
-            android:id="@+id/avartar_back_arrow_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/arrow_back_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,12 +69,12 @@
         android:id="@+id/avartar_category_tl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="scrollable"
-        app:tabTextColor="@color/black"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#BB18FF"
         app:tabIndicatorHeight="5dp"
-        app:tabSelectedTextColor="@color/purple"
-        app:tabIndicatorColor="@color/purple"
-        app:tabGravity="fill"/>
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="#BB18FF"
+        app:tabTextColor="@color/black" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/avartar_itemlist_vp"

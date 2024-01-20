@@ -1,5 +1,6 @@
 package com.example.brandol
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.brandol.databinding.ActivityChattingBinding
@@ -11,7 +12,10 @@ class ChattingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChattingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.button.setOnClickListener {
+            val intent = Intent(this,OpponentAvartarActivity::class.java)
+            startActivity(intent)
+        }
         backbtn()
         binding.chattingNameTv.text = intent.getStringExtra("messagekey")
     }
