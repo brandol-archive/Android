@@ -30,6 +30,8 @@
 
         <activity android:name=".ContentsCategoryActivity"/>
 
+        <activity android:name=".AvatarStoreCategoryActivity"/>
+
     </application>
 
 </manifest>
