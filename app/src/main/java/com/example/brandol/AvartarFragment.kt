@@ -1,46 +1,63 @@
 package com.example.brandol
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.brandol.databinding.FragmentAvartarBinding
-
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 class AvartarFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
     lateinit var binding: FragmentAvartarBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAvartarBinding.inflate(inflater,container,false)
-        binding.abataChattingQuantity.bringToFront()
+        val profile = arguments?.getInt("profile")
+
+        //아이템리스트 보여주기
+        showtablayout()
+
+        val intent = Intent(activity,MessageActivity::class.java)
+        binding.avartarChattingBtn.setOnClickListener {
+            startActivity(intent)
+        }
+        if(profile != null) {
+            binding.avartarRealAvartar.setImageResource(profile)
+        }
+        //채팅 온 갯수 앞으로 보내기
+        binding.avartarChattingQuantity.bringToFront()
         return binding.root
     }
 
-    companion object {
+    private fun showtablayout() {
+        var tabElement = arrayOf("전체", "헤어", "피부", "한벌", "싱의", "하의", "신발")
 
-        fun newInstance(param1: String, param2: String) =
-            AvartarFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        //ViewPager2에 TabFragments 전달(Adapter pattern)
+        val fragments: List<Fragment> = ArrayList()
+        fragments.apply {
+            AvartarTabFragment.newInstance(tabElement[0])
+            AvartarTabFragment.newInstance(tabElement[1])
+            AvartarTabFragment.newInstance(tabElement[2])
+            AvartarTabFragment.newInstance(tabElement[3])
+            AvartarTabFragment.newInstance(tabElement[4])
+            AvartarTabFragment.newInstance(tabElement[5])
+            AvartarTabFragment.newInstance(tabElement[6])
+        }
+        //뷰페이저 어댑터 연결
+        val pagerAdapter = AvartarVPAdapter(childFragmentManager, lifecycle)
+        binding.avartarItemlistVp.adapter = pagerAdapter
+
+        //탭 레이아웃과 뷰페이저 연동
+        TabLayoutMediator(binding.avartarCategoryTl, binding.avartarItemlistVp) { tab, position ->
+            // 탭의 텍스트 설정
+            tab.text = tabElement[position]
+        }.attach()
     }
+
+
 }
