@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/brandlist_brandinfo_ll"
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:background="#dddddd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/brandlist_back_btn"
+        android:layout_width="27.23dp"
+        android:layout_height="21dp"
+        android:src="@drawable/ic_back"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/brandlist_link_btn"
+        android:layout_width="29.99dp"
+        android:layout_height="29.99dp"
+        android:src="@drawable/ic_link"
+        android:layout_marginEnd="7.01dp"
+        android:layout_marginTop="7dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/brandlist_brand_cv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="14dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/brandlist_brandinfo_ll" >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:background="#aaaaaa"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/brandlist_fancnt_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FAN : "
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toEndOf="@+id/brandlist_brand_cv"
+        app:layout_constraintTop_toTopOf="@+id/brandlist_brand_cv" />
+
+    <TextView
+        android:id="@+id/brandlist_fancntnum_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toEndOf="@+id/brandlist_fancnt_tv"
+        app:layout_constraintTop_toTopOf="@+id/brandlist_brand_cv" />
+
+    <TextView
+        android:id="@+id/brandlist_brandintro_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한 줄 소개, 카피"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@+id/brandlist_brand_cv"
+        app:layout_constraintTop_toBottomOf="@+id/brandlist_fancnt_tv" />
+
+    <TextView
+        android:id="@+id/brandlist_brandname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="브랜드 명"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toEndOf="@+id/brandlist_brand_cv"
+        app:layout_constraintTop_toBottomOf="@+id/brandlist_brandintro_tv" />
+
+    <LinearLayout
+        android:id="@+id/brandlist_addlist_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/border_1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/brandlist_brandinfo_ll"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/brandlist_addlist_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="브랜드 리스트 추가하기"
+            android:textSize="14sp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/brandlist_categorynav_tl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/brandlist_category_vp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/brandlist_category_vp"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/brandlist_addlist_btn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
