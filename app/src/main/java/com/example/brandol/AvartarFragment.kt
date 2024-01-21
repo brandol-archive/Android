@@ -29,7 +29,7 @@ class AvartarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAvartarBinding.inflate(inflater,container,false)
-        //binding.abataChattingQuantity.bringToFront()
+        binding.abataChattingQuantity.bringToFront()
         return binding.root
     }
 
