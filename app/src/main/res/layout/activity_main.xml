@@ -24,9 +24,9 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/white"
-        app:itemTextColor="@color/black"
         app:itemIconSize="40dp"
         app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_navigation_menu" />
 

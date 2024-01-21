@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/linktree_back_btn"
+        android:layout_width="27.23dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/linktree_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="브랜드 링크트리"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/linktree_homepage_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="22dp"
+        android:text="브랜드 홈페이지"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linktree_title_tv" />
+
+    <ImageView
+        android:id="@+id/linktree_homepage_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/ic_homepage"
+        app:layout_constraintStart_toStartOf="@id/linktree_homepage_tv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_homepage_tv" />
+
+    <TextView
+        android:id="@+id/linktree_homepagelink_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="9dp"
+        android:text="홈페이지 링크"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/linktree_homepage_iv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_homepage_tv" />
+
+    <TextView
+        android:id="@+id/linktree_sns_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="34dp"
+        android:text="브랜드 SNS"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linktree_homepagelink_tv" />
+
+    <ImageView
+        android:id="@+id/linktree_insta_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/ic_insta"
+        app:layout_constraintStart_toStartOf="@id/linktree_sns_tv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_sns_tv" />
+
+    <TextView
+        android:id="@+id/linktree_instalink_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="7dp"
+        android:text="인스타 링크"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/linktree_insta_iv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_sns_tv" />
+
+    <ImageView
+        android:id="@+id/linktree_twitter_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_twitter"
+        app:layout_constraintStart_toStartOf="@id/linktree_insta_iv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_insta_iv" />
+
+    <TextView
+        android:id="@+id/linktree_twitterlink_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:text="트위터 링크"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/linktree_twitter_iv"
+        app:layout_constraintStart_toEndOf="@id/linktree_twitter_iv"
+        app:layout_constraintTop_toTopOf="@id/linktree_twitter_iv" />
+
+    <ImageView
+        android:id="@+id/linktree_youtube_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:src="@drawable/ic_youtube"
+        app:layout_constraintStart_toStartOf="@id/linktree_insta_iv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_twitter_iv" />
+
+    <TextView
+        android:id="@+id/linktree_youtubelink_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="12dp"
+        android:text="유튜브 링크"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/linktree_youtube_iv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_twitterlink_tv" />
+
+    <TextView
+        android:id="@+id/linktree_download_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="26dp"
+        android:text="다운로드"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linktree_youtubelink_tv" />
+
+    <ImageView
+        android:id="@+id/linktree_download_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_download"
+        app:layout_constraintStart_toStartOf="@id/linktree_download_tv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_download_tv" />
+
+    <TextView
+        android:id="@+id/linktree_downloadlink_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="6dp"
+        android:text="다운로드 링크"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/linktree_download_iv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_download_tv" />
+
+    <TextView
+        android:id="@+id/linktree_store_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="21dp"
+        android:text="스토어"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linktree_downloadlink_tv" />
+
+    <ImageView
+        android:id="@+id/linktree_store_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_store"
+        app:layout_constraintStart_toStartOf="@id/linktree_store_tv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_store_tv" />
+
+    <TextView
+        android:id="@+id/linktree_storelink_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="6dp"
+        android:text="스토어 링크"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/linktree_store_iv"
+        app:layout_constraintTop_toBottomOf="@id/linktree_store_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
