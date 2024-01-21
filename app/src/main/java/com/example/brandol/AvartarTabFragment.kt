@@ -24,41 +24,43 @@ class AvartarTabFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         binding = FragmentAvartarTabBinding.inflate(inflater,container,false)
         var view : View = binding.root
+
         initStuffList()
-        avartarAdapter.itemClickListener = object : ItemClickListener{
-            override fun onItemClick(position: Int) {
-                val stuff = stuffList[position]
-                val avartarTabFragment = AvartarTabFragment()
-                val bundle = Bundle()
-                bundle.putInt("profile",stuff.image)
-                avartarTabFragment.arguments = bundle
-                Toast.makeText(activity,"${stuff.title}",Toast.LENGTH_SHORT).show()
-            }
-        }
+        clickStuffListener()
+        touchStuffListener(view)
+        //리사이클러뷰 연결
         binding.avartartabItemlistRv.layoutManager = GridLayoutManager(activity,4)
         binding.avartartabItemlistRv.adapter = avartarAdapter
 
-        binding.avartartabItemlistRv.addOnItemTouchListener(object :RecyclerView.OnItemTouchListener{
+
+        return view
+    }
+
+    private fun touchStuffListener(view: View) {
+        binding.avartartabItemlistRv.addOnItemTouchListener(object :
+            RecyclerView.OnItemTouchListener {
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
                 val childView: View? = rv.findChildViewUnder(e.x, e.y)
-                val position = rv.getChildAdapterPosition(childView?:view)
-                when(e.actionMasked){
-                    MotionEvent.ACTION_DOWN->{
+                val position = rv.getChildAdapterPosition(childView ?: view)
+                when (e.actionMasked) {
+                    MotionEvent.ACTION_DOWN -> {
                         handler.postDelayed({
                             AlertDialog.Builder(context)
                                 .setTitle("${stuffList[position].title}")
                                 .setMessage("${stuffList[position].descrp}")
-                                .show() },1000)
+                                .show()
+                        }, 1000)
                         true
                     }
 
-                    MotionEvent.ACTION_UP,MotionEvent.ACTION_CANCEL ->{
+                    MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                         handler.removeCallbacksAndMessages(null)
                         true
                     }
+
                     else -> false
                 }
                 return false
@@ -73,7 +75,19 @@ class AvartarTabFragment : Fragment() {
             }
 
         })
-        return view
+    }
+
+    private fun clickStuffListener() {
+        avartarAdapter.itemClickListener = object : ItemClickListener {
+            override fun onItemClick(position: Int) {
+                val stuff = stuffList[position]
+                val avartarTabFragment = AvartarTabFragment()
+                val bundle = Bundle()
+                bundle.putInt("profile", stuff.image)
+                avartarTabFragment.arguments = bundle
+                Toast.makeText(activity, "${stuff.title}", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun initStuffList() {
