@@ -13,7 +13,6 @@ class ChattingActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         backbtn()
-        binding.chattingNameTv.text = intent.getStringExtra("messagekey")
     }
 
     private fun backbtn() {
