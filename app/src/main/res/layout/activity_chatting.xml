@@ -75,7 +75,12 @@
             android:scaleType="fitXY"
             android:src="@drawable/arrow_up_btn"/>
 
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:text=""
+        android:layout_height="100dp"/>
 
 </LinearLayout>

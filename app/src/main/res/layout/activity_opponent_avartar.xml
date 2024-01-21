@@ -14,36 +14,45 @@
         android:padding="20dp">
 
         <ImageView
-            android:id="@+id/avartar_real_avartar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/shoes"
-            android:visibility="invisible"
+            android:id="@+id/opponent_avartar_real_avartar"
+            android:layout_width="40dp"
+            android:layout_height="90dp"
+            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/opponent_avartar_back_arrow_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/arrow_back_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <ImageView
-            android:id="@+id/avartar_chatting_btn"
+            android:id="@+id/opponent_avartar_chatting_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitXY"
             android:src="@drawable/chatting_btn"
-            app:layout_constraintEnd_toStartOf="@id/avartar_shop_btn"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
-            android:id="@+id/avartar_chatting_quantity"
+            android:id="@+id/opponent_avartar_chatting_quantity"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:background="@drawable/circle2"
-            app:layout_constraintBottom_toBottomOf="@id/avartar_chatting_btn"
-            app:layout_constraintEnd_toEndOf="@id/avartar_chatting_btn">
+            app:layout_constraintBottom_toBottomOf="@id/opponent_avartar_chatting_btn"
+            app:layout_constraintEnd_toEndOf="@id/opponent_avartar_chatting_btn">
 
             <TextView
-                android:id="@+id/avartar_chatting_quantity_tv"
+                android:id="@+id/opponent_avartar_chatting_quantity_tv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -53,31 +62,21 @@
                 android:textStyle="bold" />
         </FrameLayout>
 
-        <ImageView
-            android:id="@+id/avartar_shop_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/shoppingbag_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/avartar_category_tl"
+        android:id="@+id/opponent_avartar_category_tl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabGravity="fill"
         app:tabIndicatorColor="#BB18FF"
         app:tabIndicatorHeight="5dp"
-        app:tabMode="scrollable"
         app:tabSelectedTextColor="#BB18FF"
         app:tabTextColor="@color/black" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/avartar_itemlist_vp"
+        android:id="@+id/opponent_avartar_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
