@@ -1,6 +1,6 @@
 package com.example.brandol
 
-data class Item(
+data class OpItem(
     val brandname: String,
     val itemname: String,
     val explain: String,

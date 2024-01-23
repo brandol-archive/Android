@@ -17,9 +17,6 @@ class MypageFragment : Fragment() {
         val intent = Intent(activity,SettingActivity::class.java)
 
         binding = FragmentMypageBinding.inflate(inflater,container,false)
-        binding.mypageSettingBtn.setOnClickListener {
-            startActivity(intent)
-        }
         return binding.root
     }
 

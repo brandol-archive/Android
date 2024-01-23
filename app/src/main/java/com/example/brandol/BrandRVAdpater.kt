@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class BrandRVAdpater(private val brandlist:List<Brand>): RecyclerView.Adapter<BrandRVAdpater.BrandViewHolder>() {
+class BrandRVAdpater(private val brandlist:List<OpBrand>): RecyclerView.Adapter<BrandRVAdpater.BrandViewHolder>() {
 
     inner class BrandViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.item_brand_name_tv)

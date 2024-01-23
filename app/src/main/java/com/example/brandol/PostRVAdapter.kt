@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PostRVAdapter(private val postList: List<Post>) :
+class PostRVAdapter(private val opPostList: List<OpPost>) :
     RecyclerView.Adapter<PostRVAdapter.PostViewHolder>() {
 
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,13 +22,13 @@ class PostRVAdapter(private val postList: List<Post>) :
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.name.text = postList.get(position).name
-        holder.contents.text = postList.get(position).contents
-        holder.noticeBoard.text = postList.get(position).noticeBoard
+        holder.name.text = opPostList.get(position).name
+        holder.contents.text = opPostList.get(position).contents
+        holder.noticeBoard.text = opPostList.get(position).noticeBoard
     }
 
     override fun getItemCount(): Int {
-        return postList.size
+        return opPostList.size
     }
 
 }

@@ -11,21 +11,21 @@ import com.example.brandol.databinding.FragmentPostListBinding
 class PostListFragment : Fragment() {
 
     lateinit var binding: FragmentPostListBinding
-    private var postList = ArrayList<Post>()
-    private var postAdapter = PostRVAdapter(postList)
+    private var opPostList = ArrayList<OpPost>()
+    private var postAdapter = PostRVAdapter(opPostList)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPostListBinding.inflate(inflater,container,false)
-        postList.apply {
-            add(Post("게시물 이름","게시물 내용","게시판 이름"))
-            add(Post("게시물 이름","게시물 내용","게시판 이름"))
-            add(Post("게시물 이름","게시물 내용","게시판 이름"))
-            add(Post("게시물 이름","게시물 내용","게시판 이름"))
-            add(Post("게시물 이름","게시물 내용","게시판 이름"))
-            add(Post("게시물 이름","게시물 내용","게시판 이름"))
-            add(Post("게시물 이름","게시물 내용","게시판 이름"))
+        opPostList.apply {
+            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
+            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
+            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
+            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
+            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
+            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
+            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
         }
         binding.postListRv.adapter = postAdapter
         binding.postListRv.layoutManager = LinearLayoutManager(activity)

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemRVAdapter(private val itemList:List<Item>) : RecyclerView.Adapter<ItemRVAdapter.ItemViewHolder>(){
+class ItemRVAdapter(private val opItemList:List<OpItem>) : RecyclerView.Adapter<ItemRVAdapter.ItemViewHolder>(){
 
     inner class ItemViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val itemname : TextView = itemView.findViewById(R.id.item_wear_avartar_item_name_tv)
@@ -22,14 +22,14 @@ class ItemRVAdapter(private val itemList:List<Item>) : RecyclerView.Adapter<Item
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.itemname.text = itemList.get(position).itemname
-        holder.brandname.text = itemList.get(position).brandname
-        holder.explain.text = itemList.get(position).explain
-        holder.point.text = itemList.get(position).point
-        holder.image.setImageResource(itemList.get(position).image)
+        holder.itemname.text = opItemList.get(position).itemname
+        holder.brandname.text = opItemList.get(position).brandname
+        holder.explain.text = opItemList.get(position).explain
+        holder.point.text = opItemList.get(position).point
+        holder.image.setImageResource(opItemList.get(position).image)
     }
 
     override fun getItemCount(): Int {
-        return itemList.size
+        return opItemList.size
     }
 }

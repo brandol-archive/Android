@@ -1,6 +1,6 @@
 package com.example.brandol
 
-data class Post(
+data class OpPost(
     val name : String,
     val contents: String,
     val noticeBoard : String
