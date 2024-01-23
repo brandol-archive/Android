@@ -24,10 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/white"
-        app:itemTextColor="@color/black"
         app:itemIconSize="40dp"
-        app:itemIconTint="@color/black"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:itemIconTint="@drawable/menu_selector_color"
+        app:itemTextColor="@drawable/menu_selector_color"
+        app:menu="@menu/bottom_navigation_menu"/>
 
 </LinearLayout>
