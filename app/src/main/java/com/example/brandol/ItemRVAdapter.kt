@@ -17,7 +17,7 @@ class ItemRVAdapter(private val opItemList:List<OpItem>) : RecyclerView.Adapter<
         val point : TextView = itemView.findViewById(R.id.item_wear_avartar_point_tv)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_wear_avartar, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_opponent_avartar, parent, false)
         return ItemViewHolder(itemView)
     }
 
