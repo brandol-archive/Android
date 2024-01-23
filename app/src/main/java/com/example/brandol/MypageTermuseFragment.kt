@@ -5,19 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.brandol.databinding.FragmentMypagePushalarmBinding
+import com.example.brandol.databinding.FragmentMypageTermuseBinding
 
-class MypagePushalarmFragment : Fragment() {
-
-    lateinit var binding: FragmentMypagePushalarmBinding
+class MypageTermuseFragment : Fragment() {
+    lateinit var binding: FragmentMypageTermuseBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMypagePushalarmBinding.inflate(inflater,container,false)
-        binding.mypagePushAlarmBackBtn.setOnClickListener {
+        binding = FragmentMypageTermuseBinding.inflate(inflater,container,false)
+        binding.mypageTermuseBackBtn.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm,MypageFragment())
+                .addToBackStack(null)
                 .commit()
         }
         return binding.root

@@ -14,9 +14,38 @@ class MypageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val intent = Intent(activity,SettingActivity::class.java)
 
         binding = FragmentMypageBinding.inflate(inflater,container,false)
+
+
+        binding.mypageUserinfoTv.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm,MypageUserinfoFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.mypagePushAlarmTv.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm,MypagePushalarmFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.mypageBlacklistTv.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm,MypageBlacklistFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.mypageTermuseTv.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm,MypageTermuseFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
         return binding.root
     }
 
