@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:src="@drawable/justexp"
+        android:src="@drawable/demo_avartar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,23 +39,14 @@
         app:layout_constraintStart_toStartOf="@id/item_message_name_tv"
         app:layout_constraintTop_toBottomOf="@id/item_message_name_tv" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/brightgray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
     <TextView
         android:id="@+id/item_message_time_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="오후 3:35"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/item_message_name_tv" />
 
@@ -64,18 +55,20 @@
         android:layout_height="20dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_message_time_tv">
+        app:layout_constraintBottom_toBottomOf="@id/item_message_profile_iv">
 
         <TextView
             android:id="@+id/item_message_quantity_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/circle2"
+            android:background="@drawable/circle"
             android:gravity="center"
             android:text="1"
             android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/item_message_profile_iv"/>
     </FrameLayout>
 
 

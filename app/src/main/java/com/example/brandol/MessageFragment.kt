@@ -1,34 +1,34 @@
 package com.example.brandol
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.brandol.databinding.ActivityMessageBinding
+import com.example.brandol.databinding.FragmentMessageBinding
 
-class MessageActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMessageBinding
+class MessageFragment : Fragment() {
+    lateinit var binding: FragmentMessageBinding
     private var messageList = ArrayList<Message>()
     private val messageAdapter = MessageRVAdapter(messageList)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMessageBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentMessageBinding.inflate(inflater, container, false)
         backbtn()
         initMessageList()
         clickMessageEvent()
-
-        binding.messageChattinglistRv.layoutManager = LinearLayoutManager(this)
+        binding.messageChattinglistRv.layoutManager = LinearLayoutManager(activity)
         binding.messageChattinglistRv.adapter = messageAdapter
-
+        return binding.root
     }
 
-    // 메세지 클릭 이벤트 기능 구현
     private fun clickMessageEvent() {
-        val intent = Intent(this, ChattingActivity::class.java)
+        val intent = Intent(activity, ChattingActivity::class.java)
         messageAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int) {
                 val message = messageList[position]
@@ -38,7 +38,6 @@ class MessageActivity : AppCompatActivity() {
         }
     }
 
-    //메세지 리스트 초기화
     private fun initMessageList() {
         messageList.apply {
             add(
@@ -56,10 +55,11 @@ class MessageActivity : AppCompatActivity() {
         }
     }
 
-    //백 버튼 기능 구현
     private fun backbtn() {
         binding.messageBackBtn.setOnClickListener {
-            finish()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, AvartarFragment())
+                .commit()
         }
     }
 }

@@ -43,24 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
-            android:id="@+id/opponent_avartar_chatting_quantity"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/circle2"
-            app:layout_constraintBottom_toBottomOf="@id/opponent_avartar_chatting_btn"
-            app:layout_constraintEnd_toEndOf="@id/opponent_avartar_chatting_btn">
 
-            <TextView
-                android:id="@+id/opponent_avartar_chatting_quantity_tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </FrameLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

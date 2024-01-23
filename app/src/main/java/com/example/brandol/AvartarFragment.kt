@@ -21,10 +21,11 @@ class AvartarFragment : Fragment() {
 
         //아이템리스트 보여주기
         showtablayout()
-
-        val intent = Intent(activity,MessageActivity::class.java)
         binding.avartarChattingBtn.setOnClickListener {
-            startActivity(intent)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm,MessageFragment())
+                .addToBackStack(null)
+                .commit()
         }
         if(profile != null) {
             binding.avartarRealAvartar.setImageResource(profile)
