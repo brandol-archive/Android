@@ -10,35 +10,45 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:background="@color/brightgray"
-        android:padding="20dp">
+        android:background="@color/white"
+        android:padding="15dp">
 
         <ImageView
             android:id="@+id/opponent_avartar_real_avartar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:src="@drawable/demo_avartar"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/opponent_avartar_name_tv" />
 
         <ImageButton
             android:id="@+id/opponent_avartar_back_arrow_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/arrow_back_btn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/opponent_avartar_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="김춘추"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
+        <ImageButton
             android:id="@+id/opponent_avartar_chatting_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
             android:scaleType="fitXY"
+            android:background="@color/white"
             android:src="@drawable/chatting_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,6 +65,7 @@
         app:tabGravity="fill"
         app:tabIndicatorColor="#BB18FF"
         app:tabIndicatorHeight="5dp"
+        android:background="@color/white"
         app:tabSelectedTextColor="#BB18FF"
         app:tabTextColor="@color/black" />
 

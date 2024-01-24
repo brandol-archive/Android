@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PostRVAdapter(private val opPostList: List<OpPost>) :
-    RecyclerView.Adapter<PostRVAdapter.PostViewHolder>() {
+class OpPostRVAdapter(private val opPostList: List<OpPost>) :
+    RecyclerView.Adapter<OpPostRVAdapter.PostViewHolder>() {
 
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.item_post_name_tv)

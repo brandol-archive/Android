@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemRVAdapter(private val opItemList:List<OpItem>) : RecyclerView.Adapter<ItemRVAdapter.ItemViewHolder>(){
+class OpItemRVAdapter(private val opItemList:List<OpItem>) : RecyclerView.Adapter<OpItemRVAdapter.ItemViewHolder>(){
 
     inner class ItemViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val itemname : TextView = itemView.findViewById(R.id.item_wear_avartar_item_name_tv)
