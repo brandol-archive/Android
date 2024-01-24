@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     tools:context=".MypageTermuseFragment">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,17 +14,19 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="54dp"
+            android:background="@color/white">
 
 
             <ImageButton
                 android:id="@+id/mypage_termuse_back_btn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="15dp"
                 android:background="@color/white"
                 android:scaleType="fitXY"
                 android:src="@drawable/arrow_back_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,98 +35,120 @@
                 android:layout_height="wrap_content"
                 android:text="이용약관"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/mypage_termuse_back_btn" />
-
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BRANDOL 이용약관 동의"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/brightgray">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="BRANDOL 이용약관 동의"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/termuse_use_agree" />
-        </ScrollView>
+                android:layout_height="180dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mypage_rounded_rectangle">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="개인정보 수집 및 약관동의"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/termuse_use_agree" />
+            </ScrollView>
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="개인정보 수집 및 약관동의"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="ㅎㅎ" />
-        </ScrollView>
+                android:layout_height="180dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mypage_rounded_rectangle">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="개인정보 처리 방침"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/termuse_use_agree" />
+            </ScrollView>
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="개인정보 처리 방침"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="ㅎㅎ" />
-        </ScrollView>
+                android:layout_height="180dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mypage_rounded_rectangle">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="개인정보 제 3자 제공 동의"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/termuse_use_agree" />
+            </ScrollView>
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="개인정보 제 3자 제공 동의"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="ㅎㅎ" />
-        </ScrollView>
+                android:layout_height="180dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mypage_rounded_rectangle">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="앱 푸시 알림 설정 동의"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/termuse_use_agree" />
+            </ScrollView>
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="앱 푸시 알림 설정 동의"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="ㅎㅎ" />
-        </ScrollView>
+                android:layout_height="180dp"
+                android:layout_marginTop="5dp"
+
+                android:background="@drawable/mypage_rounded_rectangle">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/termuse_use_agree" />
+            </ScrollView>
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

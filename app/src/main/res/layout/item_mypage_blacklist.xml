@@ -22,10 +22,13 @@
         android:textStyle="bold" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="44dp"
+        android:layout_height="19dp"
         android:layout_gravity="center"
         android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_switch_track_on"
+        android:textColor="@color/white"
+        android:textSize="12sp"
         android:text="해제" />
 
 

@@ -14,7 +14,7 @@ class MypageUserinfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMypageUserinfoBinding.inflate(inflater,container,false)
-        binding.messageBackBtn.setOnClickListener {
+        binding.mypageUserinfoBackBtn.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm,MypageFragment())
                 .addToBackStack(null)
