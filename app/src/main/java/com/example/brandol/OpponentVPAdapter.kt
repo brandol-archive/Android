@@ -14,9 +14,9 @@ class OpponentVPAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) 
     override fun createFragment(position: Int): Fragment {
         // 각 탭에 해당하는 프래그먼트를 반환
         return when (position) {
-            0 -> BrandListFragment()
-            1 -> ItemListFragment()
-            2 -> PostListFragment()
+            0 -> OpBrandListFragment()
+            1 -> OpItemListFragment()
+            2 -> OpPostListFragment()
             else -> throw IllegalArgumentException("Invalid position")
         }
     }

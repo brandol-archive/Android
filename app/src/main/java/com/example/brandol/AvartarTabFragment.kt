@@ -92,22 +92,11 @@ class AvartarTabFragment : Fragment() {
 
     private fun initStuffList() {
         avartarList.apply {
-            add(Avartar("신발", R.drawable.shoes, "멋진 신발이다"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
-            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("신발", R.drawable.demo_shoes, "멋진 신발이다"))
+            add(Avartar("데모", R.drawable.demo_pants, "데모"))
+            add(Avartar("데모", R.drawable.demo_hair, "데모"))
+            add(Avartar("데모", R.drawable.demo_skin, "데모"))
+            add(Avartar("데모", R.drawable.demo_shirts, "데모"))
         }
     }
 

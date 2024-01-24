@@ -42,16 +42,16 @@ class MessageFragment : Fragment() {
         messageList.apply {
             add(
                 Message(
-                    R.drawable.justexp,
+                    R.drawable.demo_avartar,
                     "이호진",
                     "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
                     "4:58",
                     5
                 )
             )
-            add(Message(R.drawable.justexp, "김용기", "나 좀 잘생기지 않았냐ㅋㅋ", "4:58", 4))
-            add(Message(R.drawable.justexp, "박준용", "안녕하세요~", "4:58", 16))
-            add(Message(R.drawable.justexp, "임경진", " ", "4:58", 15))
+            add(Message(R.drawable.demo_avartar2, "김용기", "나 좀 잘생기지 않았냐ㅋㅋ", "4:58", 4))
+            add(Message(R.drawable.demo_avartar3, "박준용", "안녕하세요~", "4:58", 16))
+            add(Message(R.drawable.demo_avartar4, "임경진", " ", "4:58", 15))
         }
     }
 
