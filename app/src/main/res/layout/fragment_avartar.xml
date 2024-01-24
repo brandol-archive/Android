@@ -38,7 +38,7 @@
             android:id="@+id/avartar_chatting_quantity"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/circle2"
+            android:background="@drawable/circle"
             app:layout_constraintBottom_toBottomOf="@id/avartar_chatting_btn"
             app:layout_constraintEnd_toEndOf="@id/avartar_chatting_btn">
 

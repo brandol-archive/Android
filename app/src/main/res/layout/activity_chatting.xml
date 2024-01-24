@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brightpurple"
     android:orientation="vertical"
     tools:context=".ChattingActivity">
 
@@ -20,8 +19,8 @@
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
+            android:background="@android:color/transparent"
             android:scaleType="fitXY"
-            android:background="@color/brightpurple"
             android:src="@drawable/arrow_back_btn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,48 +38,33 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chattin_contents_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-    
+        android:layout_weight="1" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
-        
-        <ImageButton
-            android:id="@+id/chatting_plus_btn"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/plus_btn2"
-            android:scaleType="fitXY"
-            android:background="@color/brightpurple"/>
+
 
         <EditText
             android:id="@+id/chatting_edittext_et"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/edittext_rounded_rectangle">
+            android:background="@drawable/edittext_rounded_rectangle" />
 
-        </EditText>
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:background="@color/brightpurple"
-            android:scaleType="fitXY"
-            android:src="@drawable/arrow_up_btn"/>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
-        android:text=""
-        android:layout_height="100dp"/>
+        android:layout_height="100dp" />
 
 </LinearLayout>
