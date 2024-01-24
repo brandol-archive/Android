@@ -18,7 +18,7 @@ class BrandRVAdpater(private val brandlist:List<OpBrand>): RecyclerView.Adapter<
         parent: ViewGroup,
         viewType: Int
     ): BrandViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_brand, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_opponent_brand, parent, false)
         return BrandViewHolder(itemView)
     }
 
