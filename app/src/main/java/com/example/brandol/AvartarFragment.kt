@@ -5,17 +5,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
+import com.example.brandol.databinding.FragmentAbataBinding
+
 import androidx.fragment.app.Fragment
 import com.example.brandol.databinding.FragmentAvartarBinding
+
 import com.google.android.material.tabs.TabLayoutMediator
 
 
 class AvartarFragment : Fragment() {
     lateinit var binding: FragmentAvartarBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentAvartarBinding.inflate(inflater,container,false)
         val profile = arguments?.getInt("profile")
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Add this dimension for dialog width -->
+    <dimen name="dialog_width">300dp</dimen>
+    <!-- Add this dimension for dialog height -->
+    <dimen name="dialog_height">350dp</dimen>
+</resources>

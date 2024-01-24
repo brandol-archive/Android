@@ -33,6 +33,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".BrandManagementActivity" />
+
+        <activity android:name=".BrandCategoryActivity"/>
+
+        <activity android:name=".UserCategoryActivity"/>
+
+        <activity android:name=".ContentsCategoryActivity"/>
+
+        <activity android:name=".AvatarStoreCategoryActivity"/>
+
     </application>
 
 </manifest>
