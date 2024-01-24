@@ -1,5 +1,6 @@
 package com.example.brandol
 
+import CustomDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -45,7 +46,20 @@ class MypageFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
-
+        binding.mypageLogoutTv.setOnClickListener {
+            val dialog = CustomDialog(
+                binding.mypageLogoutTv.context,
+                "로그아웃 하시겠습니까?",
+                {
+                    // 확인 버튼 클릭 시 동작
+                    activity?.finish()
+                },
+                {
+                    // 취소 버튼 클릭 시 동작
+                }
+            )
+            dialog.show()
+        }
         return binding.root
     }
 
