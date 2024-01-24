@@ -17,19 +17,19 @@
         android:layout_width="27.23dp"
         android:layout_height="21dp"
         android:src="@drawable/ic_back"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="7dp"
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/brandlist_link_btn"
-        android:layout_width="29.99dp"
-        android:layout_height="29.99dp"
+        android:layout_width="21.01dp"
+        android:layout_height="21.01dp"
         android:src="@drawable/ic_link"
-        android:layout_marginEnd="7.01dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginEnd="8.99dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -45,9 +45,10 @@
         app:layout_constraintBottom_toBottomOf="@id/brandlist_brandinfo_ll" >
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/brandlist_brandlogo_iv"
             android:layout_width="78dp"
             android:layout_height="78dp"
-            android:background="#aaaaaa"/>
+            android:background="#aaaaaa" />
 
     </androidx.cardview.widget.CardView>
 
@@ -142,6 +143,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/brandlist_addlist_btn" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

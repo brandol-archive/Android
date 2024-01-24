@@ -14,7 +14,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 class BrandlistFragment: AppCompatActivity() {
     lateinit var binding: FragmentBrandlistBinding
     private lateinit var callback : OnBackPressedCallback
-    lateinit var moveButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,16 +22,21 @@ class BrandlistFragment: AppCompatActivity() {
 
         initViewPager()
 
+        //브랜드 배경 사진 및 로고 설정
+        binding.brandlistBrandinfoLl.setImageResource(R.drawable.iv_brandinfo_ex)
+        binding.brandlistBrandlogoIv.setImageResource(R.drawable.iv_brandlogo_ex)
+
         binding.brandlistAddlistBtn.setOnClickListener {
-            //list 추가 날짜 및 팬 번호 텍스트 변경
+            //list 추가 날짜 및 팬 번호 텍스트 변경 -> 추후에 날짜와 팬 순서 숫자 받아서 다시 해야 함
             binding.brandlistAddlistTv.text = "2024년 01월 06일  |  6번째 팬"
+            binding.brandlistAddlistBtn.setBackgroundColor(getColor(R.color.selectedpurple))
         }
 
         binding.brandlistLinkBtn.setOnClickListener {
             // LinktreeFragment로 전환
             val linktreeFragment = LinktreeFragment()
             supportFragmentManager.beginTransaction()
-                .replace(android.R.id.content, linktreeFragment)  // android.R.id.content는 전체 화면을 나타냅니다.
+                .replace(android.R.id.content, linktreeFragment)  // android.R.id.content는 전체 화면을 나타냄
                 .addToBackStack(null)
                 .commit()
         }
@@ -54,7 +58,7 @@ class BrandlistFragment: AppCompatActivity() {
     }
 
     private fun initViewPager() {
-        //ViewPager2 Adapter 셋팅
+        //ViewPager2 Adapter setting
         var categoryAdapter = CategoryAdapter(this)
         categoryAdapter.addFragment(FandomFragment())
         categoryAdapter.addFragment(ContentsFragment())

@@ -78,22 +78,22 @@
 
     <LinearLayout
         android:id="@+id/item_comment_btns_ll"
-        android:layout_width="75dp"
+        android:layout_width="wrap_content"
         android:layout_height="15dp"
         android:background="@drawable/comment_btns_background"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="10.89dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/item_comment_profile_iv"
         android:orientation="horizontal">
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_comment_comment"
-            android:background="@android:color/transparent"
-            android:layout_marginStart="12dp"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="3dp"/>
+            android:layout_marginBottom="3dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_comment_comment" />
 
         <TextView
             android:id="@+id/item_comment_division1_tv"
@@ -127,11 +127,11 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_comment_more"
             android:background="@android:color/transparent"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="3dp"/>
+            android:layout_marginBottom="3dp"
+            android:padding="5dp"/>
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
