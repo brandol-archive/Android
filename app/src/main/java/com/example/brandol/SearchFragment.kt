@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.brandol.databinding.FragmentSearchBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -38,9 +40,7 @@ class SearchFragment : Fragment() {
         binding = FragmentSearchBinding.inflate(inflater, container, false)  // 데이터 바인딩 초기화
 
         // ViewPager2 초기화
-        val viewPager = binding.catagoryContentVp
-        val adapter = SearchPagerAdapter(childFragmentManager, lifecycle)
-        viewPager.adapter = adapter
+        binding.catagoryContentVp.adapter = CategoryPagerAdapter(requireActivity())
 
         // 검색 버튼 클릭 이벤트 처리
         binding.btnSearchBarIb.setOnClickListener {
@@ -55,6 +55,19 @@ class SearchFragment : Fragment() {
         return binding.root
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_search, container, false)
+    }
+    private inner class CategoryPagerAdapter(fragmentActivity: FragmentActivity) :
+        FragmentStateAdapter(fragmentActivity) {
+
+        override fun getItemCount(): Int {
+            // Return the number of fragments/pages
+            return 1
+        }
+
+        override fun createFragment(position: Int): Fragment {
+            // Return the fragment associated with the specified position
+            return CatagoryFragment() // Assuming CategoryFragment is the fragment_catagory.xml fragment
+        }
     }
 
 

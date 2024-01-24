@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -21,10 +22,10 @@
                 android:id="@+id/brand_catagory_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:text="브랜드"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -33,7 +34,7 @@
                 android:id="@+id/brand_plus_iv"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="275dp"
+                android:layout_marginStart="315dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/img_plus"
                 app:layout_constraintStart_toEndOf="@id/brand_catagory_tv"
@@ -43,52 +44,168 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
-            <ImageView
-                android:id="@+id/brand_box1_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
-                app:layout_constraintStart_toStartOf="parent"/>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/brand_box2_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
-                app:layout_constraintStart_toStartOf="@id/brand_box1_iv"/>
+                <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+                <ImageView
+                    android:id="@+id/brand_box1_iv"
+                    android:layout_width="395dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/object_default_backgroud"
+                    app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            <ImageView
-                android:id="@+id/brand_box3_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
-                app:layout_constraintStart_toStartOf="@id/brand_box2_iv"/>
+                <ImageView
+                    android:id="@+id/drandol_logo1_iv"
+                    android:layout_width="95dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="27dp"
+                    android:src="@drawable/img_brandol_logo"/>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginStart="135dp"
+                    android:src="@drawable/img_line_l"/>
+
+                <TextView
+                    android:id="@+id/brand_name1_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginStart="145dp"
+                    android:text="BRANDOL"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/brand_name1_detail_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="38dp"
+                    android:layout_marginStart="145dp"
+                    android:text="브랜드 팬덤 커뮤니티"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+                <ImageView
+                    android:id="@+id/brand_box2_iv"
+                    android:layout_width="395dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/object_default_backgroud"
+                    app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/drandol_logo2_iv"
+                    android:layout_width="95dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="27dp"
+                    android:src="@drawable/img_brandol_logo"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginStart="135dp"
+                    android:src="@drawable/img_line_l"/>
+
+                <TextView
+                    android:id="@+id/brand_name2_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginStart="145dp"
+                    android:text="BRANDOL"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/brand_name2_detail_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="38dp"
+                    android:layout_marginStart="145dp"
+                    android:text="브랜드 팬덤 커뮤니티"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+                <ImageView
+                    android:id="@+id/brand_box3_iv"
+                    android:layout_width="395dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/object_default_backgroud"
+                    app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/drandol_logo3_iv"
+                    android:layout_width="95dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="27dp"
+                    android:src="@drawable/img_brandol_logo"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginStart="135dp"
+                    android:src="@drawable/img_line_l"/>
+
+                <TextView
+                    android:id="@+id/brand_name3_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginStart="145dp"
+                    android:text="BRANDOL"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/brand_name3_detail_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="38dp"
+                    android:layout_marginStart="145dp"
+                    android:text="브랜드 팬덤 커뮤니티"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
         </LinearLayout>
 
-
-        <ImageView
-            android:id="@+id/catagory_line1_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/img_line"
-            app:layout_constraintTop_toBottomOf="@id/brand_box1_iv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,73 +216,131 @@
                 android:id="@+id/user_catagory_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:text="유저"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/catagory_line1_iv"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
                 android:id="@+id/user_plus_iv"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="292dp"
+                android:layout_marginStart="315dp"
                 android:src="@drawable/img_plus"
                 app:layout_constraintStart_toEndOf="@id/user_catagory_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/catagory_line1_iv"/>
+                app:layout_constraintEnd_toEndOf="parent" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/user_box1_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
-                app:layout_constraintStart_toStartOf="parent"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/user_box2_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
-                app:layout_constraintStart_toStartOf="@id/user_box1_iv"/>
+                <ImageView
+                    android:id="@+id/user_box1_iv"
+                    android:layout_width="130dp"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/img_box"
+                    app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            <ImageView
-                android:id="@+id/user_box3_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
-                app:layout_constraintStart_toStartOf="@id/user_box2_iv"/>
+                <ImageView
+                    android:id="@+id/user_char1_iv"
+                    android:layout_width="71dp"
+                    android:layout_height="71dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="45dp"
+                    android:src="@drawable/img_user_char"/>
+
+                <TextView
+                    android:id="@+id/user_char1_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginStart="50dp"
+                    android:text="서혀닝"
+                    android:textSize="10dp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/user_box2_iv"
+                    android:layout_width="130dp"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/img_box"
+                    app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/user_char2_iv"
+                    android:layout_width="71dp"
+                    android:layout_height="71dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="45dp"
+                    android:src="@drawable/img_user_char"/>
+
+                <TextView
+                    android:id="@+id/user_char2_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginStart="50dp"
+                    android:text="서혀닝"
+                    android:textSize="10dp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/user_box3_iv"
+                    android:layout_width="130dp"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/img_box"
+                    app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/user_char3_iv"
+                    android:layout_width="71dp"
+                    android:layout_height="71dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="45dp"
+                    android:src="@drawable/img_user_char"/>
+
+                <TextView
+                    android:id="@+id/user_char3_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginStart="50dp"
+                    android:text="서혀닝"
+                    android:textSize="10dp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
         </LinearLayout>
-
-
-        <ImageView
-            android:id="@+id/catagory_line2_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/img_line"
-            app:layout_constraintTop_toBottomOf="@id/user_box1_iv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
 
 
         <LinearLayout
@@ -177,262 +352,382 @@
                 android:id="@+id/content_catagory_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:text="콘텐츠"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/catagory_line2_iv" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
                 android:id="@+id/content_plus_iv"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="273dp"
+                android:layout_marginStart="315dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/img_plus"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/content_catagory_tv"
-                app:layout_constraintTop_toBottomOf="@id/catagory_line2_iv" />
+                app:layout_constraintStart_toEndOf="@id/content_catagory_tv" />
 
         </LinearLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/content_image_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="top|start"
+            android:src="@drawable/img_brandol" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/content_box1_iv"
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/img_long_box"
-                app:layout_constraintTop_toBottomOf="@id/content_catagory_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-
-            <ImageView
-                android:id="@+id/content_image_iv"
+                android:id="@+id/mini_char_iv"
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="25dp"
-                android:layout_gravity="top|start"
-                android:src="@drawable/img_content_img"
-                app:layout_constraintEnd_toEndOf="@id/content_box1_iv"
-                app:layout_constraintStart_toStartOf="@id/content_box1_iv" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/img_mini_char"/>
 
             <TextView
-                android:id="@+id/content1_title_tv"
+                android:id="@+id/content1_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:textSize="13dp"
                 android:textStyle="bold"
-                android:text="게시물 제목" />
-
-            <TextView
-                android:id="@+id/content1_content_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="13dp"
-                android:text="게시물 내용" />
-
-            <TextView
-                android:id="@+id/content1_like_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="120dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="10dp"
-                android:text="좋아요 / 댓글 / 시간 / 작성자" />
-
-
-        </FrameLayout>
+                android:text="BRANDOL" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/content_brand_name1_tv"
+            android:id="@+id/content1_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="30dp"
-            android:text="브랜드 명 - 콘텐츠 카테고리"
-            android:textSize="13dp"/>
+            android:layout_marginEnd="20dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="게시물 내용" />
+
+        <TextView
+            android:id="@+id/content1_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="15dp"
+            android:text="브랜드 추구 방향성 문화" />
 
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/content1_recent_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="10dp"
+            android:text="최근 게시글 들어감"
+            android:textSize="15dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/content_box2_iv"
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:id="@+id/content1_like_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/img_long_box"
-                app:layout_constraintTop_toBottomOf="@id/content_box1_iv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:src="@drawable/btn_like"/>
+
+            <TextView
+                android:id="@+id/content1_like_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="5dp"
+                android:text="20"
+                android:textSize="13dp"
+                android:textColor="@color/red"/>
 
             <ImageView
-                android:id="@+id/content2_image_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:layout_gravity="top|start"
-                android:src="@drawable/img_content_img"
-                app:layout_constraintEnd_toEndOf="@id/content_box2_iv"
-                app:layout_constraintStart_toStartOf="@id/content_box2_iv" />
-
-            <TextView
-                android:id="@+id/content2_title_tv"
+                android:id="@+id/content1_chat_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="13dp"
-                android:textStyle="bold"
-                android:text="게시물 제목" />
-
-            <TextView
-                android:id="@+id/content2_content_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="13dp"
-                android:text="게시물 내용" />
-
-            <TextView
-                android:id="@+id/content2_like_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="120dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="10dp"
-                android:text="좋아요 / 댓글 / 시간 / 작성자" />
-
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/content_brand_name2_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="30dp"
-            android:text="브랜드 명 - 콘텐츠 카테고리"
-            android:textSize="13dp"/>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/content_box3_iv"
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/img_long_box"
-                app:layout_constraintTop_toBottomOf="@id/content_box3_iv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <ImageView
-                android:id="@+id/content3_image_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:layout_gravity="top|start"
-                android:src="@drawable/img_content_img"
-                app:layout_constraintEnd_toEndOf="@id/content_box3_iv"
-                app:layout_constraintStart_toStartOf="@id/content_box3_iv" />
+                android:layout_marginTop="11dp"
+                android:src="@drawable/btn_chat"/>
 
             <TextView
-                android:id="@+id/content3_title_tv"
+                android:id="@+id/content1_chat_count_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="5dp"
+                android:text="2"
                 android:textSize="13dp"
-                android:textStyle="bold"
-                android:text="게시물 제목" />
+                android:textColor="@color/blue"/>
 
             <TextView
-                android:id="@+id/content3_content_tv"
+                android:id="@+id/content1_date_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="13dp"
-                android:text="게시물 내용" />
-
-            <TextView
-                android:id="@+id/content3_like_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="120dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="10dp"
-                android:text="좋아요 / 댓글 / 시간 / 작성자" />
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:text="|   2023.12.10"
+                android:textSize="10dp"/>
 
 
+        </LinearLayout>
 
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/content_brand_name3_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="30dp"
-            android:text="브랜드 명 - 콘텐츠 카테고리"
-            android:textSize="13dp"/>
 
         <ImageView
-            android:id="@+id/catagory_line3_iv"
+            android:id="@+id/content2_image_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="top|start"
+            android:src="@drawable/img_brandol" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/mini_char2_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/img_mini_char"/>
+
+            <TextView
+                android:id="@+id/content2_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:text="BRANDOL" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/content2_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/img_line"
-            app:layout_constraintTop_toBottomOf="@id/brand_box1_iv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="게시물 내용" />
+
+        <TextView
+            android:id="@+id/content2_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="15dp"
+            android:text="브랜드 추구 방향성 문화" />
+
+
+        <TextView
+            android:id="@+id/content2_recent_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="10dp"
+            android:text="최근 게시글 들어감"
+            android:textSize="15dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/content2_like_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/btn_like"/>
+
+            <TextView
+                android:id="@+id/content2_like_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="5dp"
+                android:text="20"
+                android:textSize="13dp"
+                android:textColor="@color/red"/>
+
+            <ImageView
+                android:id="@+id/content2_chat_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="11dp"
+                android:src="@drawable/btn_chat"/>
+
+            <TextView
+                android:id="@+id/content2_chat_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="5dp"
+                android:text="2"
+                android:textSize="13dp"
+                android:textColor="@color/blue"/>
+
+            <TextView
+                android:id="@+id/content2_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:text="|   2023.12.10"
+                android:textSize="10dp"/>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/content3_image_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="top|start"
+            android:src="@drawable/img_brandol" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/mini_char3_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/img_mini_char"/>
+
+            <TextView
+                android:id="@+id/content3_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:text="BRANDOL" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/content3_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="게시물 내용" />
+
+        <TextView
+            android:id="@+id/content3_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="15dp"
+            android:text="브랜드 추구 방향성 문화" />
+
+
+        <TextView
+            android:id="@+id/content3_recent_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="10dp"
+            android:text="최근 게시글 들어감"
+            android:textSize="15dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/content3_like_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/btn_like"/>
+
+            <TextView
+                android:id="@+id/content3_like_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="5dp"
+                android:text="20"
+                android:textSize="13dp"
+                android:textColor="@color/red"/>
+
+            <ImageView
+                android:id="@+id/content3_chat_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="11dp"
+                android:src="@drawable/btn_chat"/>
+
+            <TextView
+                android:id="@+id/content3_chat_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="5dp"
+                android:text="2"
+                android:textSize="13dp"
+                android:textColor="@color/blue"/>
+
+            <TextView
+                android:id="@+id/content3_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:text="|   2023.12.10"
+                android:textSize="10dp"/>
+
+
+        </LinearLayout>
 
 
         <LinearLayout
@@ -444,10 +739,10 @@
                 android:id="@+id/avartar_catagory_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:text="아바타 스토어"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -456,7 +751,7 @@
                 android:id="@+id/avartar_plus_iv"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="210dp"
+                android:layout_marginStart="270dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/img_plus"
                 app:layout_constraintStart_toEndOf="@id/brand_catagory_tv"
@@ -466,104 +761,179 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+                <ImageView
+                    android:id="@+id/avartar_box1_iv"
+                    android:layout_width="395dp"
+                    android:layout_height="115dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/object_default_backgroud"
+                    app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/avartar_store_item1_iv"
+                    android:layout_width="63dp"
+                    android:layout_height="63dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="27dp"
+                    android:src="@drawable/avartar_store_item1"/>
 
 
-            <ImageView
-                android:id="@+id/avartar_box1_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
-                app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                    android:id="@+id/avartar_store_item1_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="100dp"
+                    android:text="실리카겔 - 김춘추의 창백한 피부"
+                    android:textSize="13dp"
+                    android:textStyle="bold"/>
 
-            <ImageView
-                android:id="@+id/avartar_box2_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
-                app:layout_constraintStart_toStartOf="@id/brand_box1_iv"/>
+                <TextView
+                    android:id="@+id/avartar_store_item1_type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="100dp"
+                    android:text="분류 : 피부"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
 
-            <ImageView
-                android:id="@+id/avartar_box3_iv"
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/img_box"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
-                app:layout_constraintStart_toStartOf="@id/brand_box2_iv"/>
+                <TextView
+                    android:id="@+id/avartar_store_item1_content_tv"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="100dp"
+                    android:text="김춘추가 촬영 오기 전에 급히 김밥을먹다가 체하는 바람에 창백해 졌다.
+                    그의 피부에서 착안했다."
+                    android:textSize="11dp" />
 
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+                <ImageView
+                    android:id="@+id/avartar_box2_iv"
+                    android:layout_width="395dp"
+                    android:layout_height="115dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/object_default_backgroud"
+                    app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/avartar_store_item2_iv"
+                    android:layout_width="63dp"
+                    android:layout_height="63dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="27dp"
+                    android:src="@drawable/avartar_store_item1"/>
+
+
+                <TextView
+                    android:id="@+id/avartar_store_item2_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="100dp"
+                    android:text="실리카겔 - 김춘추의 창백한 피부"
+                    android:textSize="13dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/avartar_store_item2_type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="100dp"
+                    android:text="분류 : 피부"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/avartar_store_item2_content_tv"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="100dp"
+                    android:text="김춘추가 촬영 오기 전에 급히 김밥을먹다가 체하는 바람에 창백해 졌다.
+                    그의 피부에서 착안했다."
+                    android:textSize="11dp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+                <ImageView
+                    android:id="@+id/avartar_box3_iv"
+                    android:layout_width="395dp"
+                    android:layout_height="115dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/object_default_backgroud"
+                    app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/avartar_store_item3_iv"
+                    android:layout_width="63dp"
+                    android:layout_height="63dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="27dp"
+                    android:src="@drawable/avartar_store_item1"/>
+
+
+                <TextView
+                    android:id="@+id/avartar_store_item3_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="100dp"
+                    android:text="실리카겔 - 김춘추의 창백한 피부"
+                    android:textSize="13dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/avartar_store_item3_type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="100dp"
+                    android:text="분류 : 피부"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/avartar_store_item3_content_tv"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="100dp"
+                    android:text="김춘추가 촬영 오기 전에 급히 김밥을먹다가 체하는 바람에 창백해 졌다.
+                    그의 피부에서 착안했다."
+                    android:textSize="11dp" />
+
+            </FrameLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/item_name1_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:textSize="13dp"
-                android:text="아이템 이름"/>
-
-
-            <TextView
-                android:id="@+id/item_name2_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="75dp"
-                android:textSize="13dp"
-                android:text="아이템 이름" />
-
-            <TextView
-                android:id="@+id/item_name3_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="65dp"
-                android:textSize="13dp"
-                android:text="아이템 이름" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/item_price1_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:textSize="13dp"
-                android:text="아이템 가격"/>
-
-
-            <TextView
-                android:id="@+id/item_price2_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="75dp"
-                android:textSize="13dp"
-                android:text="아이템 가격"/>
-
-            <TextView
-                android:id="@+id/item_price3_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="65dp"
-                android:textSize="13dp"
-                android:text="아이템 가격"/>
-        </LinearLayout>
-
 
 
     </LinearLayout>

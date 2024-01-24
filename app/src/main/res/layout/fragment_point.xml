@@ -60,7 +60,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:context=".PointFragment">
 
             <TextView
                 android:id="@+id/point_use_tv"
@@ -75,7 +76,7 @@
                 android:layout_width="25dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="200dp"
-                android:src="@drawable/btn_point_use"/>
+                android:src="@drawable/btn_point_use" />
 
         </LinearLayout>
 
@@ -98,7 +99,7 @@
             android:id="@+id/point_mision1_iv"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/img_point_mission"/>
+            android:src="@drawable/img_brandol"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -166,7 +167,7 @@
             android:id="@+id/point_mision2_iv"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/img_point_mission"/>
+            android:src="@drawable/img_brandol"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

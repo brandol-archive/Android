@@ -34,7 +34,8 @@ class SearchBarFragment : Fragment() {
         viewPager.adapter = adapter
 
         // TabLayout에 ViewPager2 연결
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+        TabLayoutMediator(binding.searchBarTb, binding.searchBarVp) {
+            tab, position ->
             tab.text = tabTitles[position]
         }.attach()
 

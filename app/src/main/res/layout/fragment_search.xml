@@ -51,11 +51,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- 상단 테두리만 그릴 View -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/black" />
 
             <!-- ViewPager2 -->
             <androidx.viewpager2.widget.ViewPager2

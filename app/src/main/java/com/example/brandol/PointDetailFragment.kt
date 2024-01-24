@@ -1,3 +1,5 @@
+//package com.example.brandol
+import PointDetailVPAdapter
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
