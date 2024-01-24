@@ -17,8 +17,8 @@ import com.example.brandol.databinding.FragmentAvartarTabBinding
 class AvartarTabFragment : Fragment() {
 
     lateinit var binding: FragmentAvartarTabBinding
-    private var stuffList = ArrayList<Stuff>()
-    private var avartarAdapter = AvartarRVAdapter(stuffList)
+    private var avartarList = ArrayList<Avartar>()
+    private var avartarAdapter = AvartarRVAdapter(avartarList)
     private var handler = Handler(Looper.getMainLooper())
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,8 +49,8 @@ class AvartarTabFragment : Fragment() {
                     MotionEvent.ACTION_DOWN -> {
                         handler.postDelayed({
                             AlertDialog.Builder(context)
-                                .setTitle("${stuffList[position].title}")
-                                .setMessage("${stuffList[position].descrp}")
+                                .setTitle("${avartarList[position].title}")
+                                .setMessage("${avartarList[position].descrp}")
                                 .show()
                         }, 1000)
                         true
@@ -80,7 +80,7 @@ class AvartarTabFragment : Fragment() {
     private fun clickStuffListener() {
         avartarAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int) {
-                val stuff = stuffList[position]
+                val stuff = avartarList[position]
                 val avartarTabFragment = AvartarTabFragment()
                 val bundle = Bundle()
                 bundle.putInt("profile", stuff.image)
@@ -91,23 +91,23 @@ class AvartarTabFragment : Fragment() {
     }
 
     private fun initStuffList() {
-        stuffList.apply {
-            add(Stuff("신발", R.drawable.shoes, "멋진 신발이다"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
-            add(Stuff("데모", R.drawable.justexp, "데모"))
+        avartarList.apply {
+            add(Avartar("신발", R.drawable.shoes, "멋진 신발이다"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
+            add(Avartar("데모", R.drawable.justexp, "데모"))
         }
     }
 
