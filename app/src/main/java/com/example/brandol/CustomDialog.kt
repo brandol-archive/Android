@@ -1,3 +1,4 @@
+
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
@@ -37,4 +38,5 @@ class CustomDialog(
             dismiss()
         }
     }
+
 }
