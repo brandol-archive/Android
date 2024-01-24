@@ -22,17 +22,20 @@ class AvartarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentAvartarBinding.inflate(inflater,container,false)
+        binding = FragmentAvartarBinding.inflate(inflater, container, false)
+
+
         val profile = arguments?.getInt("profile")
 
         //아이템리스트 보여주기
         showtablayout()
-
-        val intent = Intent(activity,MessageActivity::class.java)
         binding.avartarChattingBtn.setOnClickListener {
-            startActivity(intent)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm,MessageFragment())
+                .addToBackStack(null)
+                .commit()
         }
-        if(profile != null) {
+        if (profile != null) {
             binding.avartarRealAvartar.setImageResource(profile)
         }
         //채팅 온 갯수 앞으로 보내기

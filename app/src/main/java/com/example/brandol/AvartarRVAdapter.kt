@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-class AvartarRVAdapter(private val stuffList: List<Stuff>) : RecyclerView.Adapter<AvartarRVAdapter.MyViewHolder>() {
+class AvartarRVAdapter(private val avartarList: List<Avartar>) : RecyclerView.Adapter<AvartarRVAdapter.MyViewHolder>() {
 
     var itemClickListener: ItemClickListener? = null
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -23,16 +23,16 @@ class AvartarRVAdapter(private val stuffList: List<Stuff>) : RecyclerView.Adapte
         parent: ViewGroup,
         viewType: Int
     ): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_stuff, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_avartar, parent, false)
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: AvartarRVAdapter.MyViewHolder, position: Int) {
-        holder.image.setImageResource(stuffList.get(position).image!!)
+        holder.image.setImageResource(avartarList.get(position).image!!)
     }
 
     override fun getItemCount(): Int {
-       return stuffList.size
+       return avartarList.size
     }
 
 

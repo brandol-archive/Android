@@ -10,57 +10,50 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:background="@color/brightgray"
-        android:padding="20dp">
+        android:background="@color/white"
+        android:padding="15dp">
 
         <ImageView
             android:id="@+id/opponent_avartar_real_avartar"
-            android:layout_width="40dp"
-            android:layout_height="90dp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/demo_avartar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/opponent_avartar_name_tv" />
 
         <ImageButton
             android:id="@+id/opponent_avartar_back_arrow_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/arrow_back_btn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/opponent_avartar_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="김춘추"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
+        <ImageButton
             android:id="@+id/opponent_avartar_chatting_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
             android:scaleType="fitXY"
+            android:background="@color/white"
             android:src="@drawable/chatting_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
-            android:id="@+id/opponent_avartar_chatting_quantity"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/circle2"
-            app:layout_constraintBottom_toBottomOf="@id/opponent_avartar_chatting_btn"
-            app:layout_constraintEnd_toEndOf="@id/opponent_avartar_chatting_btn">
 
-            <TextView
-                android:id="@+id/opponent_avartar_chatting_quantity_tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </FrameLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -72,6 +65,7 @@
         app:tabGravity="fill"
         app:tabIndicatorColor="#BB18FF"
         app:tabIndicatorHeight="5dp"
+        android:background="@color/white"
         app:tabSelectedTextColor="#BB18FF"
         app:tabTextColor="@color/black" />
 
