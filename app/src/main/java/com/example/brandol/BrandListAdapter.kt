@@ -10,7 +10,6 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.BrandData
-import com.example.brandol.HomeFragment
 import com.example.brandol.R
 import java.util.Collections
 
@@ -72,7 +71,7 @@ class BrandListAdapter(private val brandList: MutableList<BrandData>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrandViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.brand_item_management, parent, false)
+            .inflate(R.layout.item_brand_management, parent, false)
         return BrandViewHolder(view)
     }
 

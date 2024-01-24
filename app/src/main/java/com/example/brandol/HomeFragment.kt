@@ -73,6 +73,10 @@ class HomeFragment : Fragment() {
             startActivity(Intent(activity, BrandManagementActivity::class.java))
         }
 
+        binding.brandListTv.setOnClickListener {
+            startActivity(Intent(activity, BrandCategoryActivity::class.java))
+        }
+
         return view
     }
 
