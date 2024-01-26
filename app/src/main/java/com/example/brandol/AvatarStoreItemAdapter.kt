@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 data class ItemModel(
     val brandLogoRes: Int,
     val brandName: String,
-    val classification: String,
+    val tabCategory: String,
     val itemName: String,
     val itemInfo: String,
     val itemPoint: String
@@ -24,10 +24,10 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val brandLogo: ImageView = itemView.findViewById(R.id.brand_logo_store_iv)
         val brandName: TextView = itemView.findViewById(R.id.brand_name_store_tv)
-        val classification: TextView = itemView.findViewById(R.id.classification_tv)
+        val tabCategory: TextView = itemView.findViewById(R.id.tab_category_tv)
         val itemName: TextView = itemView.findViewById(R.id.item_name_store_tv)
         val itemInfo: TextView = itemView.findViewById(R.id.item_info_store_tv)
-        val itemPoint: TextView = itemView.findViewById(R.id.item_point_tv)
+        val itemPoint: TextView = itemView.findViewById(R.id.item_purchase_button)
         val purchaseButton: Button = itemView.findViewById(R.id.item_purchase_button)
     }
 
@@ -42,7 +42,7 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         // 아이템 데이터를 뷰에 설정
         holder.brandLogo.setImageResource(currentItem.brandLogoRes)
         holder.brandName.text = currentItem.brandName
-        holder.classification.text = currentItem.classification
+        holder.tabCategory.text = currentItem.tabCategory
         holder.itemName.text = currentItem.itemName
         holder.itemInfo.text = currentItem.itemInfo
         holder.itemPoint.text = currentItem.itemPoint
