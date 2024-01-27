@@ -1,10 +1,15 @@
 package com.example.brandol
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.example.brandol.databinding.FragmentPointBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,12 +26,15 @@ class PointFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentPointBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -34,7 +42,23 @@ class PointFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_point, container, false)
+        binding = FragmentPointBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        /**
+        binding.pointUseIv.setOnClickListener {
+        startActivity(Intent(activity,PointDetailFragment::class.java))
+        }**/
+
+        // "Go to PointDetailFragment" 버튼 클릭 시
+        binding.pointUseIv.setOnClickListener {
+            // 화면 전환
+            findNavController().navigate(R.id.action_pointFragment_to_pointDetailFragment3)
+        }
     }
 
     companion object {
