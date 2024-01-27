@@ -33,19 +33,19 @@
                 android:id="@+id/avartar_base_avartar_pants"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:src="@drawable/base_item_pants" />
+                android:src="@drawable/no1_item_pants" />
 
             <ImageView
                 android:id="@+id/avartar_base_avartar_shirts"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:src="@drawable/base_item_shirts" />
+                android:src="@drawable/no1_item_shirts" />
 
             <ImageView
                 android:id="@+id/avartar_base_avartar_hair"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:src="@drawable/no1_item_man_hair" />
+                android:src="@drawable/no1_item_woman_hair" />
 
             <ImageView
                 android:id="@+id/avartar_base_avartar_shoes"

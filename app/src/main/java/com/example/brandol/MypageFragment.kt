@@ -64,6 +64,9 @@ class MypageFragment : Fragment() {
         binding.mypageAccountDeleteTv.setOnClickListener {
             val dialog = CustomAccountDialog(
                 binding.mypageAccountDeleteTv.context,
+                "정말로 계정을 탈퇴하시겠습니까?\n" +
+                        "탈퇴를 계속하기 원하신다면\n" +
+                        "닉네임 입력 후 확인을 눌러주세요.",
                 {
                     // 확인 버튼 클릭 시 동작
                     activity?.finish()
