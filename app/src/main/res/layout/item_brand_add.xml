@@ -8,7 +8,7 @@
         android:id="@+id/plus_button"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:background="@drawable/btn_plus_brand"
+        android:background="@drawable/plus_btn"
         tools:ignore="MissingConstraints"/>
 
 
