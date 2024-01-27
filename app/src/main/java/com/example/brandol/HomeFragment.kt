@@ -2,6 +2,7 @@ package com.example.brandol
 
 import BrandButtonAdapter
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -73,9 +74,7 @@ class HomeFragment : Fragment() {
             startActivity(Intent(activity, BrandManagementActivity::class.java))
         }
 
-        binding.brandListTv.setOnClickListener {
-            startActivity(Intent(activity, AvatarStoreCategoryActivity::class.java))
-        }
+        binding.manageTv.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
         return view
     }

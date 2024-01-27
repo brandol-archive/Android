@@ -1,4 +1,5 @@
 // BrandListAdapter.kt
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,8 @@ class BrandListAdapter(private val brandList: MutableList<BrandData>) :
             brandNameTextView.text = brandData.brandName
             brandInfoTextView.text = brandData.brandInfo
 
+            deleteTextView.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+
             // 삭제 텍스트를 클릭했을 때의 동작 설정
             deleteTextView.setOnClickListener {
                 showDeleteDialog(brandData)
@@ -55,12 +58,12 @@ class BrandListAdapter(private val brandList: MutableList<BrandData>) :
 
             // 확인 버튼 클릭 시 동작
             noButton.setOnClickListener {
-                removeItem(brandData)
                 dialog.dismiss()
             }
 
             // 취소 버튼 클릭 시 동작
             yesButton.setOnClickListener {
+                removeItem(brandData)
                 dialog.dismiss()
             }
 

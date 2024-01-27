@@ -38,9 +38,9 @@ class ContentsCategoryActivity : AppCompatActivity() {
 
     private fun generateDummyData(): List<ContentModel> {
         return listOf(
-            ContentModel("Brand1", "Post Title 1", "Post Content 1", "좋아요 / 댓글 / 시간 / 작성자"),
-            ContentModel("Brand2", "Post Title 2", "Post Content 2", "좋아요 / 댓글 / 시간 / 작성자"),
-            ContentModel("Brand3", "Post Title 3", "Post Content 3", "좋아요 / 댓글 / 시간 / 작성자"),
+            ContentModel("BRANDOL", "게시물 제목", "브랜드 추구 방향성, 문화 \n" + "최근 게시글이 들어감글글글글글", "2023.12.10"),
+            ContentModel("Brand1", "Post Title 1", "Post Content 1", "0000.00.00"),
+            ContentModel("Brand2", "Post Title 2", "Post Content 2", "0000.00.00"),
             // Add more dummy data as needed
         )
     }
