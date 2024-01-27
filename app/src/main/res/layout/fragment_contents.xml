@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F4F4F4"
+    tools:context=".ContentsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/contents_event_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이벤트"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="27dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/comtents_plus1_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/plus_btn"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="7dp"
+            app:layout_constraintEnd_toEndOf="@id/contents_post1_cl"
+            app:layout_constraintBottom_toTopOf="@id/contents_post1_cl" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_post1_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/post_background"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="9dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents_event_tv">
+
+            <ImageView
+                android:id="@+id/contents_profile1_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_avatar_ex"
+                android:background="#C8C8C8"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_usernick1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="작성자"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/contents_profile1_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_posttitle1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="게시물 제목"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_profile1_iv" />
+
+
+            <TextView
+                android:id="@+id/contents_postcontent1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_posttitle1_tv" />
+
+            <Button
+                android:id="@+id/contents_like1_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_like"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent1_tv" />
+
+            <TextView
+                android:id="@+id/contents_likecnt1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="#FF7575"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like1_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent1_tv" />
+
+            <Button
+                android:id="@+id/contents_comment1_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_comment"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like1_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent1_tv" />
+
+            <TextView
+                android:id="@+id/contents_commentcnt1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#6B68FF"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_comment1_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent1_tv" />
+
+            <TextView
+                android:id="@+id/contents_division1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toEndOf="@id/contents_commentcnt1_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent1_tv" />
+
+            <TextView
+                android:id="@+id/contents_posttime1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2023.12.10"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_division1_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent1_tv" />
+
+            <ImageView
+                android:id="@+id/contents_image1_iv"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="#D9D9D9"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_post2_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/post_background"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="11dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents_post1_cl">
+
+            <ImageView
+                android:id="@+id/contents_profile2_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_avatar_ex"
+                android:background="#C8C8C8"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_usernick2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="작성자"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/contents_profile2_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_posttitle2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="게시물 제목"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_profile2_iv" />
+
+
+            <TextView
+                android:id="@+id/contents_postcontent2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_posttitle2_tv" />
+
+            <Button
+                android:id="@+id/contents_like2_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_like"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent2_tv" />
+
+            <TextView
+                android:id="@+id/contents_likecnt2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="#FF7575"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like2_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent2_tv" />
+
+            <Button
+                android:id="@+id/contents_comment2_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_comment"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like2_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent2_tv" />
+
+            <TextView
+                android:id="@+id/contents_commentcnt2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#6B68FF"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_comment2_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent2_tv" />
+
+            <TextView
+                android:id="@+id/contents_division2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toEndOf="@id/contents_commentcnt2_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent2_tv" />
+
+            <TextView
+                android:id="@+id/contents_posttime2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2023.12.10"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_division2_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent2_tv" />
+
+            <ImageView
+                android:id="@+id/contents_image2_iv"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="#D9D9D9"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/contents_cardnews_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="카드뉴스"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contents_post2_cl" />
+
+        <ImageButton
+            android:id="@+id/comtents_plus2_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/plus_btn"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="7dp"
+            app:layout_constraintEnd_toEndOf="@id/contents_post3_cl"
+            app:layout_constraintBottom_toTopOf="@id/contents_post3_cl" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_post3_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/post_background"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="11dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents_cardnews_tv">
+
+            <ImageView
+                android:id="@+id/contents_profile3_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_avatar_ex"
+                android:background="#C8C8C8"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_usernick3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="작성자"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/contents_profile3_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_posttitle3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="게시물 제목"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_profile3_iv" />
+
+
+            <TextView
+                android:id="@+id/contents_postcontent3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_posttitle3_tv" />
+
+            <Button
+                android:id="@+id/contents_like3_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_like"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent3_tv" />
+
+            <TextView
+                android:id="@+id/contents_likecnt3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="#FF7575"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like3_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent3_tv" />
+
+            <Button
+                android:id="@+id/contents_comment3_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_comment"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like3_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent3_tv" />
+
+            <TextView
+                android:id="@+id/contents_commentcnt3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#6B68FF"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_comment3_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent3_tv" />
+
+            <TextView
+                android:id="@+id/contents_division3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toEndOf="@id/contents_commentcnt3_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent3_tv" />
+
+            <TextView
+                android:id="@+id/contents_posttime3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2023.12.10"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_division3_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent3_tv" />
+
+            <ImageView
+                android:id="@+id/contents_image3_iv"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="#D9D9D9"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_post4_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/post_background"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="11dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents_post3_cl">
+
+            <ImageView
+                android:id="@+id/contents_profile4_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_avatar_ex"
+                android:background="#C8C8C8"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_usernick4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="작성자"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/contents_profile4_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_posttitle4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="게시물 제목"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_profile4_iv" />
+
+
+            <TextView
+                android:id="@+id/contents_postcontent4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_posttitle4_tv" />
+
+            <Button
+                android:id="@+id/contents_like4_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_like"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent4_tv" />
+
+            <TextView
+                android:id="@+id/contents_likecnt4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="#FF7575"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like4_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent4_tv" />
+
+            <Button
+                android:id="@+id/contents_comment4_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_comment"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like4_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent4_tv" />
+
+            <TextView
+                android:id="@+id/contents_commentcnt4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#6B68FF"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_comment4_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent4_tv" />
+
+            <TextView
+                android:id="@+id/contents_division4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toEndOf="@id/contents_commentcnt4_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent4_tv" />
+
+            <TextView
+                android:id="@+id/contents_posttime4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2023.12.10"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_division4_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent4_tv" />
+
+            <ImageView
+                android:id="@+id/contents_image4_iv"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="#D9D9D9"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/contents_video_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="동영상"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contents_post4_cl" />
+
+        <ImageButton
+            android:id="@+id/comtents_plus3_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/plus_btn"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="7dp"
+            app:layout_constraintEnd_toEndOf="@id/contents_post5_cl"
+            app:layout_constraintBottom_toTopOf="@id/contents_post5_cl" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_post5_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/post_background"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="11dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents_video_tv">
+
+            <ImageView
+                android:id="@+id/contents_profile5_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_avatar_ex"
+                android:background="#C8C8C8"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_usernick5_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="작성자"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/contents_profile5_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_posttitle5_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="게시물 제목"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_profile5_iv" />
+
+
+            <TextView
+                android:id="@+id/contents_postcontent5_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_posttitle5_tv" />
+
+            <Button
+                android:id="@+id/contents_like5_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_like"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent5_tv" />
+
+            <TextView
+                android:id="@+id/contents_likecnt5_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="#FF7575"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like5_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent5_tv" />
+
+            <Button
+                android:id="@+id/contents_comment5_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_comment"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like5_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent5_tv" />
+
+            <TextView
+                android:id="@+id/contents_commentcnt5_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#6B68FF"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_comment5_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent5_tv" />
+
+            <TextView
+                android:id="@+id/contents_division5_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toEndOf="@id/contents_commentcnt5_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent5_tv" />
+
+            <TextView
+                android:id="@+id/contents_posttime5_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2023.12.10"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_division5_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent5_tv" />
+
+            <ImageView
+                android:id="@+id/contents_image5_iv"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="#D9D9D9"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_post6_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/post_background"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="11dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents_post5_cl">
+
+            <ImageView
+                android:id="@+id/contents_profile6_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_avatar_ex"
+                android:background="#C8C8C8"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_usernick6_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="작성자"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/contents_profile6_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_posttitle6_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="게시물 제목"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_profile6_iv" />
+
+
+            <TextView
+                android:id="@+id/contents_postcontent6_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_posttitle6_tv" />
+
+            <Button
+                android:id="@+id/contents_like6_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_like"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent6_tv" />
+
+            <TextView
+                android:id="@+id/contents_likecnt6_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="#FF7575"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like6_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent6_tv" />
+
+            <Button
+                android:id="@+id/contents_comment6_btn"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                android:background="@drawable/ic_comment"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_like6_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent6_tv" />
+
+            <TextView
+                android:id="@+id/contents_commentcnt6_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#6B68FF"
+                android:textSize="9sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_comment6_btn"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent6_tv" />
+
+            <TextView
+                android:id="@+id/contents_division6_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toEndOf="@id/contents_commentcnt6_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent6_tv" />
+
+            <TextView
+                android:id="@+id/contents_posttime6_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2023.12.10"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toEndOf="@id/contents_division6_tv"
+                app:layout_constraintTop_toBottomOf="@id/contents_postcontent6_tv" />
+
+            <ImageView
+                android:id="@+id/contents_image6_iv"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="#D9D9D9"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
