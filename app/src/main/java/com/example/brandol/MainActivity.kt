@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.page_home -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, HomeFragment())
+                        //.replace(R.id.main_frm, BrandManagementHome())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.page_abata -> {
+                R.id.page_avartar -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, AvartarFragment())
                         .commitAllowingStateLoss()

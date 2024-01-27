@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/contents_iv"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/ic_launcher_foreground"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/content_brand_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="브랜드 명"
+        android:textStyle="bold"
+        android:textColorLink="@color/black"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="13dp"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contents_iv" />
+
+    <TextView
+        android:id="@+id/post_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="게시물 제목"
+        android:textStyle="bold"
+        android:textColorLink="@color/black"
+        android:layout_marginLeft="13dp"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_brand_name_tv" />
+
+    <TextView
+        android:id="@+id/post_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="게시물 내용 (더보기)"
+        android:textColorLink="@color/black"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="1dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_title_tv" />
+
+    <TextView
+        android:id="@+id/content_info_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="좋아요 / 댓글 / 시간 / 작성자"
+        android:textSize="10dp"
+        android:textColorLink="@color/black"
+        android:layout_marginLeft="13dp"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/gray_6" />
+
+    <!-- 20%의 투명도 -->
+    <View
+        android:id="@+id/gray_6"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#33000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contents_iv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

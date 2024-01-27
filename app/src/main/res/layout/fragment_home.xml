@@ -1,15 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="HomeFragment"
-        android:textSize="50sp"/>
+        android:orientation="vertical">
 
+        <!-- 메인 배너 뷰페이저 -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager_main"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_gravity="center" />
+
+        <!-- 간격 추가 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@android:color/transparent" />
+
+        <!-- 서브 배너 뷰페이저 -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager_sub"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center" />
+
+        <!-- 브랜드 리스트 텍스트와 버튼을 수평으로 배치하는 레이아웃 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp">
+
+            <!-- 브랜드 리스트 텍스트 -->
+            <TextView
+                android:id="@+id/brandList_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textSize="17dp"
+                android:text="브랜드 리스트"
+                android:layout_weight="0.5"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/manage_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="관리"
+                android:textSize="14dp"
+                android:textColor="@android:color/darker_gray" />
+
+        </LinearLayout>
+
+        <!-- 리사이클러뷰 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+    </LinearLayout>
 </FrameLayout>

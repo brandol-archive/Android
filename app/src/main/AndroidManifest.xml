@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Brandol"
         tools:targetApi="31">
         <activity
+            android:name=".SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OpponentAvartarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChattingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -21,6 +33,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".BrandManagementActivity" />
+
+        <activity android:name=".BrandCategoryActivity"/>
+
+        <activity android:name=".UserCategoryActivity"/>
+
+        <activity android:name=".ContentsCategoryActivity"/>
+
+        <activity android:name=".AvatarStoreCategoryActivity"/>
+
     </application>
 
 </manifest>
