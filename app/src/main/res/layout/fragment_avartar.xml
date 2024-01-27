@@ -13,23 +13,55 @@
         android:background="@color/white"
         android:padding="20dp">
 
-        <ImageView
-            android:id="@+id/avartar_real_avartar"
+        <FrameLayout
+            android:id="@+id/avartar_base_avartar_fl"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/demo_avartar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_skin"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/no1_item_skin" />
+
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_pants"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/base_item_pants" />
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_shirts"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/base_item_shirts" />
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_hair"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/no1_item_man_hair" />
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/no1_item_shoes"/>
+
+        </FrameLayout>
 
 
         <ImageButton
             android:id="@+id/avartar_chatting_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:scaleType="fitXY"
             android:background="@android:color/transparent"
+            android:scaleType="fitXY"
             android:src="@drawable/chatting_btn"
             app:layout_constraintEnd_toStartOf="@id/avartar_shop_btn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,8 +89,8 @@
             android:id="@+id/avartar_shop_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:scaleType="fitXY"
             android:background="@android:color/transparent"
+            android:scaleType="fitXY"
             android:src="@drawable/shoppingbag_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

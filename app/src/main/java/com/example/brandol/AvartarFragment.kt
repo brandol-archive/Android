@@ -35,7 +35,7 @@ class AvartarFragment : Fragment() {
                 .commit()
         }
         if (profile != null) {
-            binding.avartarRealAvartar.setImageResource(profile)
+            binding.avartarBaseAvartarShoes.setImageResource(profile)
         }
         //채팅 온 갯수 앞으로 보내기
         binding.avartarChattingQuantity.bringToFront()

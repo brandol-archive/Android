@@ -60,6 +60,20 @@ class MypageFragment : Fragment() {
             )
             dialog.show()
         }
+
+        binding.mypageAccountDeleteTv.setOnClickListener {
+            val dialog = CustomAccountDialog(
+                binding.mypageAccountDeleteTv.context,
+                {
+                    // 확인 버튼 클릭 시 동작
+                    activity?.finish()
+                },
+                {
+                    // 취소 버튼 클릭 시 동작
+                }
+            )
+            dialog.show()
+        }
         return binding.root
     }
 
