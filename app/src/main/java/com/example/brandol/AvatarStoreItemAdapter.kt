@@ -77,14 +77,14 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
 
 
         // 확인 버튼 클릭 시 동작
-        noButton.setOnClickListener {
+        yesButton.setOnClickListener {
             //removeItem(brandData)
             dialog.dismiss()
             showPurchaseDialog(currentItem, itemView)
         }
 
         // 취소 버튼 클릭 시 동작
-        yesButton.setOnClickListener {
+        noButton.setOnClickListener {
             dialog.dismiss()
         }
 
@@ -113,6 +113,10 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         okButton.setOnClickListener {
             dialog.dismiss()
         }
+
+        // 취소 버튼 제거
+        val cancelButton: AppCompatButton = dialogView.findViewById(R.id.dialog_no_btn)
+        cancelButton.visibility = View.GONE
 
         // 다이얼로그 표시
         dialog.show()

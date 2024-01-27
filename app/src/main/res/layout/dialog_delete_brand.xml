@@ -25,7 +25,7 @@
         android:background="#000000">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/dialog_no_btn"
+            android:id="@+id/dialog_yes_btn"
             android:layout_width="0dp"
             android:layout_height="41dp"
             android:layout_marginStart="1dp"
@@ -41,7 +41,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/dialog_yes_btn"
+            android:id="@+id/dialog_no_btn"
             android:layout_width="0dp"
             android:layout_height="41dp"
             android:layout_weight="1"
