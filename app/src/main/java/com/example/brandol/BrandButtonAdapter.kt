@@ -17,6 +17,7 @@ class BrandButtonAdapter : RecyclerView.Adapter<BrandButtonAdapter.ButtonViewHol
 //        private const val VIEW_TYPE_BUTTON = 2
     }
 
+
     fun addButton(buttonData: HomeFragment.DummyData) {
         buttonItems.add(buttonData)
         notifyDataSetChanged()
