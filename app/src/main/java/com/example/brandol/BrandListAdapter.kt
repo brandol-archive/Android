@@ -1,4 +1,5 @@
 // BrandListAdapter.kt
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,6 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.BrandData
-import com.example.brandol.HomeFragment
 import com.example.brandol.R
 import java.util.Collections
 
@@ -28,6 +28,8 @@ class BrandListAdapter(private val brandList: MutableList<BrandData>) :
             brandImageView.setImageResource(brandData.brandImageResourceId)
             brandNameTextView.text = brandData.brandName
             brandInfoTextView.text = brandData.brandInfo
+
+            deleteTextView.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
             // 삭제 텍스트를 클릭했을 때의 동작 설정
             deleteTextView.setOnClickListener {
@@ -56,12 +58,12 @@ class BrandListAdapter(private val brandList: MutableList<BrandData>) :
 
             // 확인 버튼 클릭 시 동작
             noButton.setOnClickListener {
-                removeItem(brandData)
                 dialog.dismiss()
             }
 
             // 취소 버튼 클릭 시 동작
             yesButton.setOnClickListener {
+                removeItem(brandData)
                 dialog.dismiss()
             }
 
@@ -72,7 +74,7 @@ class BrandListAdapter(private val brandList: MutableList<BrandData>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrandViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.brand_item_management, parent, false)
+            .inflate(R.layout.item_brand_management, parent, false)
         return BrandViewHolder(view)
     }
 
