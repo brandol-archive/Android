@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+            <ImageView
+                android:id="@+id/search_A_brand_box1_iv"
+                android:layout_width="395dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/object_default_backgroud"
+                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/search_A_drandol_logo1_iv"
+                android:layout_width="95dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="27dp"
+                android:src="@drawable/img_brandol_logo"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="135dp"
+                android:src="@drawable/img_line_l"/>
+
+            <TextView
+                android:id="@+id/search_A_brand_name1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="145dp"
+                android:text="BRANDOL"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/search_A_brand_name1_detail_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:layout_marginStart="145dp"
+                android:text="브랜드 팬덤 커뮤니티"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+            <ImageView
+                android:id="@+id/search_A_brand_box2_iv"
+                android:layout_width="395dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/object_default_backgroud"
+                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/search_A_drandol_logo2_iv"
+                android:layout_width="95dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="27dp"
+                android:src="@drawable/img_brandol_logo"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="135dp"
+                android:src="@drawable/img_line_l"/>
+
+            <TextView
+                android:id="@+id/search_A_brand_name2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="145dp"
+                android:text="BRANDOL"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/search_A_brand_name2_detail_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:layout_marginStart="145dp"
+                android:text="브랜드 팬덤 커뮤니티"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+            <ImageView
+                android:id="@+id/search_A_brand_box3_iv"
+                android:layout_width="395dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/object_default_backgroud"
+                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/search_A_drandol_logo3_iv"
+                android:layout_width="95dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="27dp"
+                android:src="@drawable/img_brandol_logo"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="135dp"
+                android:src="@drawable/img_line_l"/>
+
+            <TextView
+                android:id="@+id/search_A_brand_name3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="145dp"
+                android:text="BRANDOL"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/search_A_brand_name3_detail_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:layout_marginStart="145dp"
+                android:text="브랜드 팬덤 커뮤니티"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+    </LinearLayout>
+
+
+</ScrollView>

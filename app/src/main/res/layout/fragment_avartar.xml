@@ -10,25 +10,57 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:background="@color/brightgray"
+        android:background="@color/white"
         android:padding="20dp">
 
-        <ImageView
-            android:id="@+id/avartar_real_avartar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/shoes"
-            android:visibility="invisible"
+        <FrameLayout
+            android:id="@+id/avartar_base_avartar_fl"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_skin"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/no1_item_skin" />
 
 
-        <ImageView
+            <ImageView
+                android:id="@+id/avartar_base_avartar_pants"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/no1_item_pants" />
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_shirts"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/no1_item_shirts" />
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_hair"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/no1_item_woman_hair" />
+
+            <ImageView
+                android:id="@+id/avartar_base_avartar_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/no1_item_shoes"/>
+
+        </FrameLayout>
+
+
+        <ImageButton
             android:id="@+id/avartar_chatting_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/chatting_btn"
             app:layout_constraintEnd_toStartOf="@id/avartar_shop_btn"
@@ -38,7 +70,7 @@
             android:id="@+id/avartar_chatting_quantity"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/circle2"
+            android:background="@drawable/circle"
             app:layout_constraintBottom_toBottomOf="@id/avartar_chatting_btn"
             app:layout_constraintEnd_toEndOf="@id/avartar_chatting_btn">
 
@@ -53,10 +85,11 @@
                 android:textStyle="bold" />
         </FrameLayout>
 
-        <ImageView
+        <ImageButton
             android:id="@+id/avartar_shop_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/shoppingbag_btn"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,11 +102,12 @@
         android:id="@+id/avartar_category_tl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         app:tabGravity="fill"
-        app:tabIndicatorColor="#BB18FF"
+        app:tabIndicatorColor="@color/purple"
         app:tabIndicatorHeight="5dp"
         app:tabMode="scrollable"
-        app:tabSelectedTextColor="#BB18FF"
+        app:tabSelectedTextColor="@color/purple"
         app:tabTextColor="@color/black" />
 
     <androidx.viewpager2.widget.ViewPager2
