@@ -29,6 +29,9 @@ class AvartarRVAdapter(private val avartarList: List<Avartar>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: AvartarRVAdapter.MyViewHolder, position: Int) {
         holder.image.setImageResource(avartarList.get(position).image!!)
+        holder.itemView.setOnClickListener{
+            holder.image.setBackgroundResource(R.drawable.selector_item)
+        }
     }
 
     override fun getItemCount(): Int {

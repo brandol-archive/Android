@@ -4,10 +4,12 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -29,7 +31,9 @@ class AvartarTabFragment : Fragment() {
         var view : View = binding.root
 
         initStuffList()
+        //클릭했을때 로직 구현
         clickStuffListener()
+        //꾹 눌렀을 때 로직 구현
         touchStuffListener(view)
         //리사이클러뷰 연결
         binding.avartartabItemlistRv.layoutManager = GridLayoutManager(activity,4)
@@ -45,13 +49,23 @@ class AvartarTabFragment : Fragment() {
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
                 val childView: View? = rv.findChildViewUnder(e.x, e.y)
                 val position = rv.getChildAdapterPosition(childView ?: view)
+                //터치리스너를 중간에 가져와서 기능 구현
                 when (e.actionMasked) {
                     MotionEvent.ACTION_DOWN -> {
                         handler.postDelayed({
-                            AlertDialog.Builder(context)
-                                .setTitle("${avartarList[position].title}")
-                                .setMessage("${avartarList[position].descrp}")
-                                .show()
+                            val context = context
+                            val dialog = CustomDetailInfoDialog(context!!)
+                            dialog.setContentView(R.layout.dialog_detail_info)
+                            //다이얼로그 위치 조정
+                            val params = dialog.window?.attributes
+                            params?.gravity = Gravity.TOP or Gravity.LEFT// 원하는 위치로 변경합니다.
+                            params?.x = 100 // x 위치 조정
+                            params?.y = 100 // y 위치 조정
+                            dialog.window?.setAttributes(params);
+                            dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                            dialog.show()
+
+
                         }, 1000)
                         true
                     }
@@ -81,10 +95,7 @@ class AvartarTabFragment : Fragment() {
         avartarAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int) {
                 val stuff = avartarList[position]
-                val avartarTabFragment = AvartarTabFragment()
-                val bundle = Bundle()
-                bundle.putInt("profile", stuff.image)
-                avartarTabFragment.arguments = bundle
+                stuff.image
                 Toast.makeText(activity, "${stuff.title}", Toast.LENGTH_SHORT).show()
             }
         }

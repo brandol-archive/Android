@@ -1,15 +1,13 @@
 package com.example.brandol
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import com.example.brandol.databinding.FragmentAvartarBinding
-
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -20,27 +18,45 @@ class AvartarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentAvartarBinding.inflate(inflater, container, false)
 
-
-        val profile = arguments?.getInt("profile")
-
+        //짧은 다이얼로그 보여주기
+        showShortDialog()
         //아이템리스트 보여주기
         showtablayout()
+        //메시지 화면으로 전환
+        goMessage()
+        //채팅 온 갯수 앞으로 보내기
+        bringFront()
+        return binding.root
+    }
+
+    private fun bringFront() {
+        binding.avartarChattingQuantity.bringToFront()
+    }
+
+    private fun goMessage() {
         binding.avartarChattingBtn.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.main_frm,MessageFragment())
+                .replace(R.id.main_frm, MessageFragment())
                 .addToBackStack(null)
                 .commit()
         }
-        if (profile != null) {
-            binding.avartarBaseAvartarShoes.setImageResource(profile)
-        }
-        //채팅 온 갯수 앞으로 보내기
-        binding.avartarChattingQuantity.bringToFront()
-        return binding.root
     }
+
+    private fun showShortDialog() {
+        val dialog = CustomAvartarInfoDialog(binding.avartarChattingQuantityTv.context)
+        dialog.setContentView(R.layout.dialog_announce_info)
+
+        val params = dialog.window?.attributes
+        params?.gravity = Gravity.TOP or Gravity.LEFT // 원하는 위치로 변경합니다.
+        params?.x = 100 // x 위치 조정
+        params?.y = 450 // y 위치 조정
+        dialog.window?.setAttributes(params);
+        dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        dialog.show()
+    }
+
 
     private fun showtablayout() {
         var tabElement = arrayOf("전체", "헤어", "피부", "한벌", "싱의", "하의", "신발")
