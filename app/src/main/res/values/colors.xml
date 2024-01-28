@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="brightgray">#D9D9D9</color>
     <color name="selectedpurple">#BB18FF</color>
@@ -9,4 +9,5 @@
     <color name="red">#FF7575</color>
     <color name="blue">#6B68FF</color>
     <color name="background">#F9F9F9</color>
+    <color name="brightblack">#73000000</color>
 </resources>
