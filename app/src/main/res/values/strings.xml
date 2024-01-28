@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="userinfo">*연락처는 회원정보 분실에 사용됩니다.\n*연락처는 마케팅 수단으로 활용될 수 있습니다.\n*광고성 알림 수신 거절은 설정에서 비활성화 할 수 있습니다.</string>
     <string name="termuse_use_agree">제 1 장 총칙\n</string>
+    <string name="close">
+        <u>닫기</u>
+    </string>
 </resources>

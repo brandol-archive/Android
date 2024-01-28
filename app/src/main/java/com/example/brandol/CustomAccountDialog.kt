@@ -1,14 +1,13 @@
 package com.example.brandol
-
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Window
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatButton
+import android.widget.Toast
 
 class CustomAccountDialog(
     context: Context,
@@ -18,25 +17,37 @@ class CustomAccountDialog(
 ) : Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.dialog_delete_account)
-
-
+        //다이얼로그 둥글게 만들기
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        val messageTextView:TextView = findViewById(R.id.dialog_delete_account_tv)
-        val confirmButton: Button = findViewById(R.id.dialog_account_yes_btn)
-        val cancelButton: Button = findViewById(R.id.dialog_account_no_btn)
 
-        messageTextView.text = message
-        confirmButton.setOnClickListener {
-            onConfirm.invoke()
-            dismiss()
+        val acTextView:TextView = findViewById(R.id.dialog_delete_account_tv)
+
+        val acyesButton: Button = findViewById(R.id.dialog_account_yes_btn)
+        val acnoButton: Button = findViewById(R.id.dialog_account_no_btn)
+
+
+        val editText : EditText = findViewById(R.id.dialog_account_et)
+
+
+        acTextView.text = message
+
+
+        acyesButton.setOnClickListener {
+
+            if(editText.text.trim().isEmpty()) {
+                Toast.makeText(context,"닉네임을 적어 주세요",Toast.LENGTH_SHORT).show()
+            }else {
+                onConfirm.invoke()
+                dismiss()
+            }
+
         }
 
-        cancelButton.setOnClickListener {
+        acnoButton.setOnClickListener {
             onCancel.invoke()
             dismiss()
         }
+
     }
 
 }
