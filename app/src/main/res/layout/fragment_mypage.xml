@@ -179,6 +179,7 @@
             app:layout_constraintTop_toBottomOf="@id/mypage_termuse_tv" />
 
         <TextView
+            android:id="@+id/mypage_account_delete_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
