@@ -19,6 +19,7 @@ data class ItemModel(
     val itemPoint: String
 )
 
+
 class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.ViewHolder>(ItemModelDiffCallback()) {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
