@@ -2,29 +2,43 @@ package com.example.brandol
 
 import BrandListAdapter
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.brandol.databinding.ActivityBrandManagementBinding
+import com.example.brandol.databinding.FragmentBrandManagementBinding
+
+
+// BrandManagementFragment.kt
 
 data class BrandData(
     val brandName: String,
     val brandInfo: String,
     val brandImageResourceId: Int
 )
-class BrandManagementActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityBrandManagementBinding
+
+
+class BrandManagementFragment : Fragment() {
+    private lateinit var binding: FragmentBrandManagementBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var brandListAdapter: BrandListAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityBrandManagementBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentBrandManagementBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // 리사이클러뷰 초기화 및 레이아웃 매니저 설정
         recyclerView = binding.rvBrandList
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // 더미 데이터 생성
         val brandDataList = listOf(
@@ -39,8 +53,8 @@ class BrandManagementActivity : AppCompatActivity() {
 
         // move_iv 클릭 동작 설정
         binding.btnBackBrandManagement.setOnClickListener {
-            // 원하는 동작을 여기에 추가
-            finish()
+            // 이전 화면으로 돌아가기
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         // ItemTouchHelper를 RecyclerView에 연결
@@ -50,3 +64,4 @@ class BrandManagementActivity : AppCompatActivity() {
         brandListAdapter.setBrandList(brandDataList)
     }
 }
+
