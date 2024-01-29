@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 class OpBrandRVAdpater(private val brandlist:List<OpBrand>): RecyclerView.Adapter<OpBrandRVAdpater.BrandViewHolder>() {
 
     inner class BrandViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val name : TextView = itemView.findViewById(R.id.item_brand_name_tv)
-        val explain : TextView = itemView.findViewById(R.id.item_brand_explain_tv)
-        val image : ImageView = itemView.findViewById(R.id.item_brand_img_iv)
+        val name : TextView = itemView.findViewById(R.id.brand_name_tv)
+        val explain : TextView = itemView.findViewById(R.id.brand_info_tv)
+        val image : ImageView = itemView.findViewById(R.id.brand_iv)
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): BrandViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_opponent_brand, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_brand_home, parent, false)
         return BrandViewHolder(itemView)
     }
 

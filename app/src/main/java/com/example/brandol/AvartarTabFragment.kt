@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.databinding.FragmentAvartarTabBinding
 
-class AvartarTabFragment : Fragment() {
+class AvartarTabFragment : Fragment() , ItemClickListener{
 
     lateinit var binding: FragmentAvartarTabBinding
     private var avartarList = ArrayList<Avartar>()
-    private var avartarAdapter = AvartarRVAdapter(avartarList)
+    private var avartarAdapter = AvartarRVAdapter(avartarList,this)
     private var handler = Handler(Looper.getMainLooper())
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,74 +31,29 @@ class AvartarTabFragment : Fragment() {
         var view : View = binding.root
 
         initStuffList()
-        //클릭했을때 로직 구현
-        clickStuffListener()
+
         //꾹 눌렀을 때 로직 구현
-        touchStuffListener(view)
+        //touchStuffListener(view)
         //리사이클러뷰 연결
         binding.avartartabItemlistRv.layoutManager = GridLayoutManager(activity,4)
         binding.avartartabItemlistRv.adapter = avartarAdapter
 
-
         return view
     }
 
-    private fun touchStuffListener(view: View) {
-        binding.avartartabItemlistRv.addOnItemTouchListener(object :
-            RecyclerView.OnItemTouchListener {
-            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
-                val childView: View? = rv.findChildViewUnder(e.x, e.y)
-                val position = rv.getChildAdapterPosition(childView ?: view)
-                //터치리스너를 중간에 가져와서 기능 구현
-                when (e.actionMasked) {
-                    MotionEvent.ACTION_DOWN -> {
-                        handler.postDelayed({
-                            val context = context
-                            val dialog = CustomDetailInfoDialog(context!!)
-                            dialog.setContentView(R.layout.dialog_detail_info)
-                            //다이얼로그 위치 조정
-                            val params = dialog.window?.attributes
-                            params?.gravity = Gravity.TOP or Gravity.LEFT// 원하는 위치로 변경합니다.
-                            params?.x = 100 // x 위치 조정
-                            params?.y = 100 // y 위치 조정
-                            dialog.window?.setAttributes(params);
-                            dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-                            dialog.show()
 
-
-                        }, 1000)
-                        true
-                    }
-
-                    MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                        handler.removeCallbacksAndMessages(null)
-                        true
-                    }
-
-                    else -> false
-                }
-                return false
-            }
-
-            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
-
-            }
-
-            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
-
-            }
-
-        })
-    }
-
-    private fun clickStuffListener() {
-        avartarAdapter.itemClickListener = object : ItemClickListener {
-            override fun onItemClick(position: Int) {
-                val stuff = avartarList[position]
-                stuff.image
-                Toast.makeText(activity, "${stuff.title}", Toast.LENGTH_SHORT).show()
-            }
-        }
+    override fun showCustomDialog(position: Int) {
+        val context = context
+        val dialog = CustomDetailInfoDialog(context!!)
+        dialog.setContentView(R.layout.dialog_detail_info)
+        //다이얼로그 위치 조정
+        val params = dialog.window?.attributes
+        params?.gravity = Gravity.TOP or Gravity.LEFT// 원하는 위치로 변경합니다.
+        params?.x = 100 // x 위치 조정
+        params?.y = 100 // y 위치 조정
+        dialog.window?.setAttributes(params);
+        dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        dialog.show()
     }
 
     private fun initStuffList() {

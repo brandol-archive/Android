@@ -1,5 +1,6 @@
 package com.example.brandol
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -19,7 +20,8 @@ class AvartarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAvartarBinding.inflate(inflater, container, false)
-
+        //저장하기 버튼 로직
+        saveButtonLogic()
         //짧은 다이얼로그 보여주기
         showShortDialog()
         //아이템리스트 보여주기
@@ -29,6 +31,14 @@ class AvartarFragment : Fragment() {
         //채팅 온 갯수 앞으로 보내기
         bringFront()
         return binding.root
+    }
+
+    private fun saveButtonLogic() {
+        binding.avartarSaveBtn.setOnClickListener {
+            val dialog = CustomDetailInfoDialog(binding.avartarChattingQuantityTv.context)
+                dialog.setContentView(R.layout.dialog_save_avartar)
+                dialog.show()
+        }
     }
 
     private fun bringFront() {

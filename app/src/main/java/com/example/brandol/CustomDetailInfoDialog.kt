@@ -14,6 +14,5 @@ class CustomDetailInfoDialog(
         super.onCreate(savedInstanceState)
         //다이얼로그 둥글게 만들기
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
     }
 }

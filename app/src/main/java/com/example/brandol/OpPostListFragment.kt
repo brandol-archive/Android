@@ -19,13 +19,14 @@ class OpPostListFragment : Fragment() {
     ): View? {
         binding = FragmentOpPostListBinding.inflate(inflater,container,false)
         opPostList.apply {
-            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
-            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
-            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
-            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
-            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
-            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
-            add(OpPost("게시물 이름","게시물 내용","게시판 이름"))
+            add(OpPost(R.drawable.demo_avartar,"작성자","게시물 이름","브랜드 추구 방향성, 문화 \n" +
+                    "최근 게시글이 들어감글글글글글"))
+            add(OpPost(R.drawable.demo_avartar2,"작성자","게시물 이름","브랜드 추구 방향성, 문화 \n" +
+                    "최근 게시글이 들어감글글글글글"))
+            add(OpPost(R.drawable.demo_avartar3,"작성자","게시물 이름","브랜드 추구 방향성, 문화 \n" +
+                    "최근 게시글이 들어감글글글글글"))
+            add(OpPost(R.drawable.demo_avartar4,"작성자","게시물 이름","브랜드 추구 방향성, 문화 \n" +
+                    "최근 게시글이 들어감글글글글글"))
         }
         binding.postListRv.adapter = postAdapter
         binding.postListRv.layoutManager = LinearLayoutManager(activity)

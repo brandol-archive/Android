@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/post_background"
+    android:background="@drawable/object_default_background"
     android:layout_marginStart="9dp"
     android:layout_marginEnd="9dp"
     android:layout_marginTop="11dp"
@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/item_profile4_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/ic_avatar_ex"
         android:background="#C8C8C8"
         android:layout_marginStart="18dp"

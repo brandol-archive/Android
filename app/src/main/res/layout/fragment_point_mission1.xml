@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             android:layout_height="450dp"
-            android:src="@drawable/object_default_backgroud"/>
+            android:src="@drawable/object_default_background"/>
 
         <TextView
             android:id="@+id/mission1_name_tv"

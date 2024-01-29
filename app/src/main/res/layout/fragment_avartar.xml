@@ -33,25 +33,25 @@
                 android:id="@+id/avartar_base_avartar_pants"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:src="@drawable/no1_item_pants" />
+                android:src="@drawable/base_item_pants" />
 
             <ImageView
                 android:id="@+id/avartar_base_avartar_shirts"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:src="@drawable/no1_item_shirts" />
+                android:src="@drawable/base_item_shirts" />
 
             <ImageView
                 android:id="@+id/avartar_base_avartar_hair"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:src="@drawable/no1_item_woman_hair" />
+                android:src="@drawable/base_item_hair" />
 
             <ImageView
                 android:id="@+id/avartar_base_avartar_shoes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/no1_item_shoes"/>
+                android:src="@drawable/no1_item_shoes" />
 
         </FrameLayout>
 
@@ -110,9 +110,23 @@
         app:tabSelectedTextColor="@color/selectedpurple"
         app:tabTextColor="@color/black" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/avartar_itemlist_vp"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/avartar_itemlist_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/avartar_save_btn"
+            android:layout_width="100dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/selector_saved_btn" />
+
+    </FrameLayout>
 
 </LinearLayout>
