@@ -104,10 +104,10 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/purple"
+        app:tabIndicatorColor="@color/selectedpurple"
         app:tabIndicatorHeight="5dp"
         app:tabMode="scrollable"
-        app:tabSelectedTextColor="@color/purple"
+        app:tabSelectedTextColor="@color/selectedpurple"
         app:tabTextColor="@color/black" />
 
     <androidx.viewpager2.widget.ViewPager2

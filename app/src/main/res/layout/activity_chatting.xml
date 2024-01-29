@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/purple"
+        android:background="@color/selectedpurple"
         android:orientation="horizontal"
         android:padding="10dp"
         android:gravity="center">
