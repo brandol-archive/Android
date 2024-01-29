@@ -43,14 +43,14 @@ class SearchFragment : Fragment() {
         binding.catagoryContentVp.adapter = CategoryPagerAdapter(requireActivity())
 
         // 검색 버튼 클릭 이벤트 처리
-        binding.btnSearchBarIb.setOnClickListener {
+       /* binding.btnSearchBarIb.setOnClickListener {
             // SearchBarFragment로 직접 화면 전환
             val searchBarFragment = SearchBarFragment()
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.btn_search_bar_Fl, searchBarFragment)
             //transaction.addToBackStack(null)
             transaction.commit()
-        }
+        }*/
 
         return binding.root
         // Inflate the layout for this fragment
