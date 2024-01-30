@@ -13,15 +13,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-data class ItemModel(
-    val brandLogoRes: Int,
-    val brandName: String,
-    val tabCategory: String,
-    val itemName: String,
-    val itemInfo: String,
-    val itemPoint: String
-)
-
 
 class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.ViewHolder>(ItemModelDiffCallback()) {
 
