@@ -1,77 +1,116 @@
 package com.example.brandol
 
-import android.app.AlertDialog
+
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.databinding.FragmentAvartarTabBinding
 
-class AvartarTabFragment : Fragment() , ItemClickListener{
+
+class AvartarTabFragment : Fragment(), ItemClickListener {
+
 
     lateinit var binding: FragmentAvartarTabBinding
-    private var avartarList = ArrayList<Avartar>()
-    private var avartarAdapter = AvartarRVAdapter(avartarList,this)
-    private var handler = Handler(Looper.getMainLooper())
+    private var itemList = ArrayList<ItemModel>()
+    private var category: String? = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentAvartarTabBinding.inflate(inflater, container, false)
+        //카테고리에 따라 탭레이아웃 분배
+        splitByCategory()
 
-        binding = FragmentAvartarTabBinding.inflate(inflater,container,false)
-        var view : View = binding.root
-
-        initStuffList()
-
-        //꾹 눌렀을 때 로직 구현
-        //touchStuffListener(view)
         //리사이클러뷰 연결
-        binding.avartartabItemlistRv.layoutManager = GridLayoutManager(activity,4)
-        binding.avartartabItemlistRv.adapter = avartarAdapter
+        binding.avartartabItemlistRv.layoutManager = GridLayoutManager(context, 4)
 
-        return view
+
+        return binding.root
     }
 
+    private fun splitByCategory() {
+        category = arguments?.getString("category")
+        when (category) {
+            "전체" -> setAllItemTab()
+            "피부" -> setTabByCategory("피부")
+            "헤어" -> setTabByCategory("헤어")
+            "한벌" -> setTabByCategory("한벌")
+            "상의" -> setTabByCategory("상의")
+            "하의" -> setTabByCategory("하의")
+            "신발" -> setTabByCategory("신발")
+            "기타" -> setTabByCategory("기타")
+        }
+    }
 
+    //아바타 옷입히는 로직 구현
+    override fun onItemClick(position: Int) {
+        //클릭시 이름을 보내서 이름을 매개로 정보를 받게
+        val itemobject = itemList.get(position)
+        val itemName = itemobject.itemName
+        // Use the Kotlin extension in the fragment-ktx artifact.
+        parentFragmentManager.setFragmentResult("requestKey", bundleOf("bundleKey" to itemName))
+
+    }
     override fun showCustomDialog(position: Int) {
+        val itemobject = itemList.get(position)
         val context = context
-        val dialog = CustomDetailInfoDialog(context!!)
-        dialog.setContentView(R.layout.dialog_detail_info)
+        val dialog = CustomDetailInfoDialog(context!!,itemobject.itemName,itemobject.brandLogoRes,)
         //다이얼로그 위치 조정
         val params = dialog.window?.attributes
         params?.gravity = Gravity.TOP or Gravity.LEFT// 원하는 위치로 변경합니다.
         params?.x = 100 // x 위치 조정
         params?.y = 100 // y 위치 조정
         dialog.window?.setAttributes(params);
+        //배경 어두워지는 효과 제거
         dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         dialog.show()
     }
 
-    private fun initStuffList() {
-        avartarList.apply {
-            add(Avartar("신발", R.drawable.demo_shoes, "멋진 신발이다"))
-            add(Avartar("데모", R.drawable.demo_pants, "데모"))
-            add(Avartar("데모", R.drawable.demo_hair, "데모"))
-            add(Avartar("데모", R.drawable.demo_skin, "데모"))
-            add(Avartar("데모", R.drawable.demo_shirts, "데모"))
+    private fun setAllItemTab() {
+        itemList.clear()
+        itemList.apply {
+            add(ItemModel(R.drawable.demo_shoes, "Brand1", "신발", "신발", "item1_info", "100p"))
+            add(ItemModel(R.drawable.demo_pants, "Brand1", "바지", "하의", "item1_info", "100p"))
+            add(ItemModel(R.drawable.demo_hair, "Brand1", "헤어", "헤어", "item1_info", "100p"))
+            add(ItemModel(R.drawable.demo_skin, "Brand1", "피부", "피부", "item1_info", "100p"))
+            add(ItemModel(R.drawable.demo_shirts, "Brand1", "피부", "상의", "item1_info", "100p"))
+            add(ItemModel(R.drawable.no1_item_skin, "Brand1", "피부", "피부1", "item1_info", "100p"))
+            add(ItemModel(R.drawable.no2_item_skin, "Brand1", "피부", "피부2", "item1_info", "100p"))
+            add(ItemModel(R.drawable.no3_item_skin, "Brand1", "피부", "피부3", "item1_info", "100p"))
+            add(ItemModel(R.drawable.no4_item_skin, "Brand1", "피부", "피부4", "item1_info", "100p"))
+            add(ItemModel(R.drawable.no5_item_skin, "Brand1", "상의", "피부5", "item1_info", "100p"))
         }
+        var avartarAdapter = AvartarRVAdapter(itemList, this)
+        binding.avartartabItemlistRv.adapter =avartarAdapter
+        avartarAdapter.notifyDataSetChanged()
     }
-
+    private fun setTabByCategory(category: String) {
+        itemList.clear()
+        when (category) { //여기에 나중에 category와 같은 분류를 같고 있는 데이터를 가져오는 로직 구현하면 될듯
+            "피부"-> itemList.add(ItemModel(R.drawable.demo_hair, "Brand1", "피부", "Item1", "item1_info", "100p"))
+            "헤어"->itemList.add(ItemModel(R.drawable.demo_skin, "Brand1", "헤어", "Item1", "item1_info", "100p"))
+            "한벌"->itemList.add(ItemModel(R.drawable.demo_hair, "Brand1", "헤어", "Item1", "item1_info", "100p"))
+            "상의"->itemList.add(ItemModel(R.drawable.demo_shirts, "Brand1", "상의", "Item1", "item1_info", "100p"))
+            "하의"->itemList.add(ItemModel(R.drawable.demo_pants, "Brand1", "하의", "Item1", "item1_info", "100p"))
+            "신발"->itemList.add(ItemModel(R.drawable.demo_shoes, "Brand1", "신발", "Item1", "item1_info", "100p"))
+            "기타"->itemList.add(ItemModel(R.drawable.item_flushing_etc_, "Brand1", "기타", "Item1", "item1_info", "100p"))
+        }
+        var avartarAdapter = AvartarRVAdapter(itemList, this)
+        binding.avartartabItemlistRv.adapter =avartarAdapter
+        avartarAdapter.notifyDataSetChanged()
+    }
     companion object {
-        fun newInstance(category: String):AvartarTabFragment{
+        fun newInstance(category: String): AvartarTabFragment {
             var fragment = AvartarTabFragment()
             var args = Bundle()
             args.putString("category", category)
-            fragment.setArguments(args)
+            fragment.arguments = args
 
             return fragment
         }

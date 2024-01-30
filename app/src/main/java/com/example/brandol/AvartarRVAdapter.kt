@@ -11,42 +11,45 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-class AvartarRVAdapter(private val avartarList: List<Avartar>,private val listener: ItemClickListener) : RecyclerView.Adapter<AvartarRVAdapter.MyViewHolder>() {
+class AvartarRVAdapter(private val itemList: List<ItemModel>,private val listener: ItemClickListener) : RecyclerView.Adapter<AvartarRVAdapter.MyViewHolder>() {
+
     private var handler = Handler(Looper.getMainLooper())
-    private var ischeck : Boolean = false
+
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // ViewHolder에서 사용할 뷰들을 정의
         val image: ImageView = itemView.findViewById(R.id.item_stuff_image_iv)
-        val backgorund : ImageView = itemView.findViewById(R.id.item_stuff_image_iv)
+
+        private var ischeck : Boolean = false
         init {
+            //클릭이벤트 구현
             itemView.setOnClickListener {
                 if (ischeck == false) {
-                    backgorund.setBackgroundResource(R.drawable.selector_click_item)
+                    image.setBackgroundResource(R.drawable.selector_click_item)
                     ischeck = true
                 } else {
-                    backgorund.setBackgroundResource(R.drawable.object_default_background)
+                    image.setBackgroundResource(R.drawable.object_default_background)
                     ischeck = false
                 }
-                listener.onItemClick(adapterPosition)
+                listener?.onItemClick(adapterPosition)
             }
 
-
+            //터치 이벤트 구
             itemView.setOnTouchListener { v, event ->
                 when(event.actionMasked){
                     MotionEvent.ACTION_DOWN -> {
                         val startTime = System.currentTimeMillis()
                         v.tag = startTime // 시작 시간을 View의 tag에 저장
                         handler.postDelayed({
-                            backgorund.setBackgroundResource(R.drawable.selector_touch_item)
-                        },50)
+                            image.setBackgroundResource(R.drawable.selector_touch_item)
+                        },1)
                         handler.postDelayed({
-                            listener.showCustomDialog(position)
+                            listener.showCustomDialog(adapterPosition)
                         }, 1000)
                     }
                     MotionEvent.ACTION_UP -> {
                         handler.removeCallbacksAndMessages(null)
-                        backgorund.setBackgroundResource(R.drawable.object_default_background)
+                        image.setBackgroundResource(R.drawable.object_default_background)
                         val endTime = System.currentTimeMillis()
                         val startTime = v.tag as? Long ?: 0
                         val duration = endTime - startTime
@@ -70,11 +73,11 @@ class AvartarRVAdapter(private val avartarList: List<Avartar>,private val listen
     }
 
     override fun onBindViewHolder(holder: AvartarRVAdapter.MyViewHolder, position: Int) {
-        holder.image.setImageResource(avartarList.get(position).image!!)
+        holder.image.setImageResource(itemList.get(position).brandLogoRes!!)
     }
 
     override fun getItemCount(): Int {
-       return avartarList.size
+       return itemList.size
     }
 
 

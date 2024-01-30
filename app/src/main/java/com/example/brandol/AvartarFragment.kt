@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import com.example.brandol.databinding.FragmentAvartarBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-
 class AvartarFragment : Fragment() {
     lateinit var binding: FragmentAvartarBinding
 
@@ -30,14 +29,36 @@ class AvartarFragment : Fragment() {
         goMessage()
         //채팅 온 갯수 앞으로 보내기
         bringFront()
+        //아바타에 옷힙히기 로직
+        wearitem()
+
         return binding.root
+    }
+
+    private fun wearitem() {
+        childFragmentManager.setFragmentResultListener(
+            "requestKey",
+            viewLifecycleOwner
+        ) { key, bundle ->
+            val itemName = bundle.getString("bundleKey")
+            when (itemName) {
+                "상의" -> binding.avartarBaseAvartarShirts.setImageResource(R.drawable.no1_item_shirts)
+                "하의" -> binding.avartarBaseAvartarPants.setImageResource(R.drawable.no1_item_pants)
+                "신발" -> binding.avartarBaseAvartarShoes.setImageResource(R.drawable.no1_item_shoes)
+                "헤어" -> binding.avartarBaseAvartarHair.setImageResource(R.drawable.no1_item_woman_hair)
+                "피부1" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no1_item_skin)
+                "피부2" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no2_item_skin)
+                "피부3" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no3_item_skin)
+                "피부4" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no4_item_skin)
+                "피부5" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no5_item_skin)
+            }
+        }
     }
 
     private fun saveButtonLogic() {
         binding.avartarSaveBtn.setOnClickListener {
-            val dialog = CustomDetailInfoDialog(binding.avartarChattingQuantityTv.context)
-                dialog.setContentView(R.layout.dialog_save_avartar)
-                dialog.show()
+            val dialog = CustomSaveDialog(binding.avartarChattingQuantityTv.context)
+            dialog.show()
         }
     }
 
@@ -50,6 +71,7 @@ class AvartarFragment : Fragment() {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, MessageFragment())
                 .addToBackStack(null)
+                .setReorderingAllowed(true)
                 .commit()
         }
     }
@@ -69,21 +91,10 @@ class AvartarFragment : Fragment() {
 
 
     private fun showtablayout() {
-        var tabElement = arrayOf("전체", "헤어", "피부", "한벌", "싱의", "하의", "신발")
+        val tabElement = arrayOf("전체", "피부", "헤어", "한벌", "상의", "하의", "신발", "기타")
 
-        //ViewPager2에 TabFragments 전달(Adapter pattern)
-        val fragments: List<Fragment> = ArrayList()
-        fragments.apply {
-            AvartarTabFragment.newInstance(tabElement[0])
-            AvartarTabFragment.newInstance(tabElement[1])
-            AvartarTabFragment.newInstance(tabElement[2])
-            AvartarTabFragment.newInstance(tabElement[3])
-            AvartarTabFragment.newInstance(tabElement[4])
-            AvartarTabFragment.newInstance(tabElement[5])
-            AvartarTabFragment.newInstance(tabElement[6])
-        }
         //뷰페이저 어댑터 연결
-        val pagerAdapter = AvartarVPAdapter(childFragmentManager, lifecycle)
+        val pagerAdapter = AvartarVPAdapter(childFragmentManager,lifecycle)
         binding.avartarItemlistVp.adapter = pagerAdapter
 
         //탭 레이아웃과 뷰페이저 연동

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class OpBrandRVAdpater(private val brandlist:List<OpBrand>): RecyclerView.Adapter<OpBrandRVAdpater.BrandViewHolder>() {
+class OpBrandRVAdpater(private val brandlist:List<BrandData>): RecyclerView.Adapter<OpBrandRVAdpater.BrandViewHolder>() {
 
     inner class BrandViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.brand_name_tv)
@@ -23,9 +23,9 @@ class OpBrandRVAdpater(private val brandlist:List<OpBrand>): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: BrandViewHolder, position: Int) {
-        holder.name.text = brandlist.get(position).name
-        holder.explain.text = brandlist.get(position).explain
-        holder.image.setImageResource(brandlist.get(position).image)
+        holder.name.text = brandlist.get(position).brandName
+        holder.explain.text = brandlist.get(position).brandInfo
+        holder.image.setImageResource(brandlist.get(position).brandImageResourceId)
     }
 
     override fun getItemCount(): Int {

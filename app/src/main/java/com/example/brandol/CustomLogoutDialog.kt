@@ -16,6 +16,7 @@ class CustomLogoutDialog(
 ) : Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.dialog_logout)
         //다이얼로그 둥글게 만들기
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 

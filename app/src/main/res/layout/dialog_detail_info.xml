@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="320dp"
+    android:layout_width="330dp"
     android:layout_height="130dp"
     android:background="@drawable/dialog_avartar_info">
 
@@ -10,11 +10,12 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/item_wear_avartar_image_iv"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:id="@+id/dialog_item_image_iv"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
             android:layout_gravity="center"
-            android:background="@drawable/object_default_background"
+            android:padding="5dp"
+            android:background="@drawable/selector_touch_item"
             android:src="@drawable/demo_skin" />
 
         <LinearLayout
@@ -30,7 +31,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/item_wear_avartar_brand_name_tv"
+                    android:id="@+id/dialog_brand_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="[실리카겔"
@@ -47,7 +48,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/item_wear_avartar_item_name_tv"
+                    android:id="@+id/dialog_item_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -58,7 +59,7 @@
 
 
             <TextView
-                android:id="@+id/item_wear_avartar_explain_tv"
+                android:id="@+id/dialog_item_info_tv"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
