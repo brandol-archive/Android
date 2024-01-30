@@ -47,7 +47,8 @@ class SearchFragment : Fragment() {
             // SearchBarFragment로 직접 화면 전환
             val searchBarFragment = SearchBarFragment()
             val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.btn_search_bar_Fl, searchBarFragment)
+            transaction.replace(R.id.btn_search_bar_ib, searchBarFragment)
+            //transaction.replace(R.id.btn_search_bar_Fl, searchBarFragment)
             //transaction.addToBackStack(null)
             transaction.commit()
         }*/

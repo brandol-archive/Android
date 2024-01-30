@@ -113,6 +113,7 @@
             app:tabSelectedTextColor="#BB18FF"
             app:tabIndicatorColor="#BB18FF"
             app:tabRippleColor="#00ff0000"
+            app:tabMode="scrollable"
             app:layout_constraintTop_toBottomOf="@+id/background_v"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

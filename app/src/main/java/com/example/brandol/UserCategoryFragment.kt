@@ -2,35 +2,43 @@ package com.example.brandol
 
 import UserCategoryAdapter
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.brandol.databinding.ActivityUserCategoryBinding
+import com.example.brandol.databinding.FragmentUserCategoryBinding
 
 data class UserData(
     val userName: String,
     val userImageResourceId: Int
 )
 
-class UserCategoryActivity : AppCompatActivity() {
+class UserCategoryFragment : Fragment() {
 
-    private lateinit var binding: ActivityUserCategoryBinding
+    private lateinit var binding: FragmentUserCategoryBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var userAdapter: UserCategoryAdapter
 
-    //@SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityUserCategoryBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentUserCategoryBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // RecyclerView 초기화
-        recyclerView = findViewById(R.id.user_categoty_rv)
+        recyclerView = binding.userCategotyRv
 
         // RecyclerView 설정
         userAdapter = UserCategoryAdapter(mutableListOf())
         recyclerView.adapter = userAdapter
-        recyclerView.layoutManager = GridLayoutManager(this, 2) // 2개의 열로 구성
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2) // 2개의 열로 구성
         recyclerView.setHasFixedSize(true) // 옵션: 아이템 크기 고정
 
         // 더미 데이터 생성
@@ -50,8 +58,8 @@ class UserCategoryActivity : AppCompatActivity() {
 
         // 뒤로가기 버튼
         binding.btnBackUserCategory.setOnClickListener {
-            // 원하는 동작을 여기에 추가
-            finish()
+            // 이전 화면으로 돌아가기
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 }

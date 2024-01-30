@@ -1,38 +1,41 @@
-package com.example.brandol
-
-import ContentCategoryAdapter
-import ContentModel
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.brandol.databinding.ActivityContentsCategoryBinding
+import com.example.brandol.databinding.FragmentContentsCategoryBinding
 
-class ContentsCategoryActivity : AppCompatActivity() {
+class ContentsCategoryFragment : Fragment() {
 
     private lateinit var contentAdapter: ContentCategoryAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var binding: ActivityContentsCategoryBinding
+    private lateinit var binding: FragmentContentsCategoryBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //setContentView(R.layout.acticvity_contents_category)
-        binding = ActivityContentsCategoryBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentContentsCategoryBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // 더미 데이터 생성
         val dummyDataList = generateDummyData()
 
         // RecyclerView 초기화
         contentAdapter = ContentCategoryAdapter(dummyDataList)
-        recyclerView = findViewById(R.id.contents_categoty_rv) // Use findViewById to find views in the activity's layout
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView = binding.contentsCategotyRv
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = contentAdapter
 
-        // move_iv 클릭 동작 설정
         binding.btnBackContentsCategory.setOnClickListener {
-            // 원하는 동작을 여기에 추가
-            finish()
+            // 이전 화면으로 돌아가기
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 
@@ -44,5 +47,4 @@ class ContentsCategoryActivity : AppCompatActivity() {
             // Add more dummy data as needed
         )
     }
-
 }
