@@ -6,10 +6,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatButton
-import org.w3c.dom.Text
 
-class CustomAvartarInfoDialog(
+class CustomAnnonceInfoDialog(
     context: Context,
 ) : Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {

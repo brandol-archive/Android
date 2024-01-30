@@ -13,7 +13,7 @@ class ChattingActivity : AppCompatActivity() {
         binding = ActivityChattingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.button.setOnClickListener {
-            val intent = Intent(this,OpponentAvartarActivity::class.java)
+            val intent = Intent(this,OpponentAvatarActivity::class.java)
             startActivity(intent)
         }
         backbtn()

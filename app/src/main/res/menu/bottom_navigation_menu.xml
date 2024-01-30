@@ -21,8 +21,8 @@
         android:enabled="true"/>
 
     <item
-        android:id="@+id/page_avartar"
-        android:icon="@drawable/ic_avartar"
+        android:id="@+id/page_avatar"
+        android:icon="@drawable/ic_avatar"
         android:title="아바타"
         android:enabled="true"/>
     <item

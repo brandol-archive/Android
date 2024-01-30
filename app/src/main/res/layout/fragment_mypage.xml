@@ -34,7 +34,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
         android:scaleType="fitXY"
-        android:src="@drawable/demo_avartar"
+        android:src="@drawable/demo_avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mypage_tv" />
 
