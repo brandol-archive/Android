@@ -4,11 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.brandol.HairFragment
-import com.example.brandol.OutfitFragment
-import com.example.brandol.OverallFragment
-import com.example.brandol.SkinFragment
-import com.example.brandol.TopFragment
+import com.example.brandol.AvatarStoreTabFragment
 import com.example.brandol.databinding.FragmentAvatarstoreCategoryBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -32,11 +28,21 @@ class AvatarStoreCategoryFragment : Fragment() {
         val tabLayout: TabLayout = binding.avatarStoreTabs
 
         val adapter = AvatarStoreAdapter(requireActivity())
-        adapter.addFragment(OverallFragment(), "전체")
-        adapter.addFragment(HairFragment(), "헤어")
-        adapter.addFragment(SkinFragment(), "피부")
-        adapter.addFragment(OutfitFragment(), "한 벌")
-        adapter.addFragment(TopFragment(), "상의")
+
+        // 탭 프래그먼트를 하나로 하고 서버에서 정보 받아올 때 다르게 할 예정
+        adapter.addFragment(AvatarStoreTabFragment(), "전체")
+        adapter.addFragment(AvatarStoreTabFragment(), "헤어")
+        adapter.addFragment(AvatarStoreTabFragment(), "피부")
+        adapter.addFragment(AvatarStoreTabFragment(), "한 벌")
+        adapter.addFragment(AvatarStoreTabFragment(), "상의")
+        adapter.addFragment(AvatarStoreTabFragment(), "하의")
+        adapter.addFragment(AvatarStoreTabFragment(), "신발")
+        adapter.addFragment(AvatarStoreTabFragment(), "배경")
+//        adapter.addFragment(OverallFragment(), "전체")
+//        adapter.addFragment(HairFragment(), "헤어")
+//        adapter.addFragment(SkinFragment(), "피부")
+//        adapter.addFragment(OutfitFragment(), "한 벌")
+//        adapter.addFragment(TopFragment(), "상의")
 
         viewPager.adapter = adapter
 
