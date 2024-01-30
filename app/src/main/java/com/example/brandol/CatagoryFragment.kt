@@ -28,6 +28,13 @@ class CatagoryFragment : Fragment() {
             transaction.commit()
         }
 
+        binding.userPlusIv.setOnClickListener {
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, UserCategoryFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
 
         //return inflater.inflate(R.layout.fragment_catagory, container, false)
         return view
