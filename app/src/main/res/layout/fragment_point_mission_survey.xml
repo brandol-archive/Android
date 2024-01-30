@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <!-- Your header content goes here -->
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Your content goes here -->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/point_mission_back_btn_iv"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/btn_back"/>
+
+                <TextView
+                    android:id="@+id/point_mission_brand_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="165dp"
+                    android:text="배달의 민족"
+                    android:textSize="16dp"/>
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/mission_background_iv"
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_height="450dp"
+                android:src="@drawable/object_default_backgroud"/>
+
+            <TextView
+                android:id="@+id/mission1_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="11dp"
+                android:text="간단 설문조사 참여하면"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:text="포인트 1000P 획득!"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/selectedpurple"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="150dp">
+
+            <TextView
+                android:id="@+id/q1_start_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:text="Q1. "
+                android:textSize="16dp"
+                android:textColor="@color/selectedpurple"/>
+
+            <TextView
+                android:id="@+id/q1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRANDOL의 지윤을 알고 있었나요?"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="12dp">
+
+                <ImageButton
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/btn_point_mission_survey_o"
+                    android:background="@drawable/object_default_background"
+                    android:layout_weight="1"/>
+
+                <ImageButton
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/btn_point_mission_survey_x"
+                    android:background="@drawable/object_default_background" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/q2_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q2. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q2_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BRANDOL의  아연의 첫인상은 어땠나요?"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/q3_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q3. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q3_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="승헌이는 몇 년생일까요?"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/q3_1st_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="a."
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/object_default_background"
+                android:buttonTint="@color/selectedpurple"/>
+
+            <RadioButton
+                android:id="@+id/q3_2nd_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="b."
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/object_default_background"
+                android:buttonTint="@color/selectedpurple"/>
+
+            <RadioButton
+                android:id="@+id/q3_3rd_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="c."
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/object_default_background"
+                android:buttonTint="@color/selectedpurple"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/point_mission_survey_before_ib"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginStart="11dp"
+                    android:src="@drawable/btn_mission_before"/>
+
+                <TextView
+                    android:id="@+id/point_mision_survey_before_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="응답 완료!"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="14dp"
+                    android:textStyle="bold"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/point_mission_survey_ing_ib"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="11dp"
+                        android:layout_marginStart="11dp"
+                        android:src="@drawable/btn_mission_ing"/>
+
+                    <TextView
+                        android:id="@+id/point_mision_survey_ing_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="33dp"
+                        android:layout_marginStart="160dp"
+                        android:text="1 / 3 응답 중.."
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/point_mission_finish_ib"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="11dp"
+                        android:layout_marginStart="11dp"
+                        android:src="@drawable/btn_mission_before"/>
+
+                    <TextView
+                        android:id="@+id/point_mision_finish_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="33dp"
+                        android:layout_marginStart="170dp"
+                        android:text="미션 완료!"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"
+                        android:textStyle="bold"/>
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/point_mission_survey_refer_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="11dp"
+                android:text="*앱 최초 참여시에만 쿠키가 지급됩니다."
+                android:textSize="12dp"
+                android:textColor="@color/brightblack"/>
+
+            <TextView
+                android:id="@+id/point_mission_survey_refer2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:text="*지급받은 포인트는 아바타를 구입할 수 있습니다."
+                android:textSize="12dp"
+                android:textColor="@color/brightblack"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

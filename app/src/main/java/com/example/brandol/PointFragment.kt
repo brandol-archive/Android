@@ -1,7 +1,9 @@
 package com.example.brandol
 
+import PointMissionSurveyFragment
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -43,6 +45,16 @@ class PointFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentPointBinding.inflate(inflater, container, false)
+
+
+        binding.missionPointBox2Iv.setOnClickListener {
+            // 테스트용 포인트미션 설문조사형 프래그먼트로 전환
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, PointMissionSurveyFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
         return binding.root
     }
 
