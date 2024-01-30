@@ -1,5 +1,6 @@
 package com.example.brandol
 
+import AvatarStoreCategoryFragment
 import BrandCategoryFragment
 import ContentsCategoryFragment
 import android.os.Bundle
@@ -39,6 +40,13 @@ class CatagoryFragment : Fragment() {
         binding.contentPlusIv.setOnClickListener {
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.main_frm, ContentsCategoryFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        binding.avartarPlusIv.setOnClickListener {
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, AvatarStoreCategoryFragment())
             transaction.addToBackStack(null)
             transaction.commit()
         }

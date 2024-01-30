@@ -42,7 +42,7 @@
 
         <activity android:name=".ContentsCategoryFragment"/>
 
-        <activity android:name=".AvatarStoreCategoryActivity"/>
+        <activity android:name=".AvatarStoreCategoryFragment"/>
 
     </application>
 
