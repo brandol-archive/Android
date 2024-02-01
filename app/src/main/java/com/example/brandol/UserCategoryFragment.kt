@@ -15,6 +15,7 @@ data class UserData(
     val userImageResourceId: Int
 )
 
+
 class UserCategoryFragment : Fragment() {
 
     private lateinit var binding: FragmentUserCategoryBinding
