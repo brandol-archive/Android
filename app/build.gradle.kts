@@ -52,4 +52,10 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation ("androidx.fragment:fragment-ktx:1.3.6")
 
+    // ViewPager2
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+
+    // Glide
+    implementation ("com.github.bumptech.glide:glide:4.9.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.9.0")
 }
