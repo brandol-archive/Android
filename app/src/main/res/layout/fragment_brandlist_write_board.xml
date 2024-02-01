@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -52,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="855dp"
         android:layout_marginTop="54dp"
+        android:paddingHorizontal="17dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -64,8 +66,6 @@
             android:textSize="14sp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="13dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginEnd="17dp"
             android:layout_marginTop="7dp"
             android:background="@drawable/comment_write_background"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,224 +80,33 @@
             android:textSize="14sp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="12dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginEnd="17dp"
             android:layout_marginTop="7dp"
             android:background="@drawable/comment_write_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/write_title_et"
             android:gravity="top"/>
-        
-        <ScrollView
-            android:id="@+id/write_images_sv"
+            
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/write_images_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="108dp"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/write_content_et"
-            android:visibility="gone">
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="2dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="104dp"
-                        android:layout_height="104dp"
-                        android:background="#dddddd"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:layout_width="104dp"
-                        android:layout_height="24dp"
-                        android:background="#aaaaaa"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent">
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_left"
-                            android:layout_marginStart="7dp"
-                            android:layout_marginTop="3dp" />
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_cancel"
-                            android:layout_marginStart="26dp"
-                            android:layout_marginTop="3dp" />
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_right"
-                            android:layout_marginStart="26dp"
-                            android:layout_marginTop="3dp" />
-
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp">
-
-                    <ImageView
-                        android:layout_width="104dp"
-                        android:layout_height="104dp"
-                        android:background="#dddddd"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:layout_width="104dp"
-                        android:layout_height="24dp"
-                        android:background="#aaaaaa"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent">
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_left"
-                            android:layout_marginStart="7dp"
-                            android:layout_marginTop="3dp" />
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_cancel"
-                            android:layout_marginStart="26dp"
-                            android:layout_marginTop="3dp" />
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_right"
-                            android:layout_marginStart="26dp"
-                            android:layout_marginTop="3dp" />
-
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp">
-
-                    <ImageView
-                        android:layout_width="104dp"
-                        android:layout_height="104dp"
-                        android:background="#dddddd"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:layout_width="104dp"
-                        android:layout_height="24dp"
-                        android:background="#aaaaaa"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent">
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_left"
-                            android:layout_marginStart="7dp"
-                            android:layout_marginTop="3dp" />
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_cancel"
-                            android:layout_marginStart="26dp"
-                            android:layout_marginTop="3dp" />
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_right"
-                            android:layout_marginStart="26dp"
-                            android:layout_marginTop="3dp" />
-
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp">
-
-                    <ImageView
-                        android:layout_width="104dp"
-                        android:layout_height="104dp"
-                        android:background="#dddddd"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:layout_width="104dp"
-                        android:layout_height="24dp"
-                        android:background="#aaaaaa"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent">
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_left"
-                            android:layout_marginStart="7dp"
-                            android:layout_marginTop="3dp" />
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_cancel"
-                            android:layout_marginStart="26dp"
-                            android:layout_marginTop="3dp" />
-
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_right"
-                            android:layout_marginStart="26dp"
-                            android:layout_marginTop="3dp" />
-
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </LinearLayout>
-            
-        </ScrollView>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_board_image"
+            android:visibility="gone" />
 
         <ScrollView
             android:id="@+id/write_rules_sv"
             android:layout_width="match_parent"
             android:layout_height="401dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginEnd="17dp"
             android:layout_marginTop="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/write_images_sv">
+            app:layout_constraintTop_toBottomOf="@id/write_images_rv">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
