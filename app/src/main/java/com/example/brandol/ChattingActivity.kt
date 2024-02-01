@@ -25,11 +25,11 @@ class ChattingActivity : AppCompatActivity() {
         binding.chattingContentsRv.adapter = adapterForChat
 
         chatList.apply {
-            add(Chat("w","ㅋㅋㅋㅋㅋ",R.drawable.demo_avartar3,"용기리우스"))
+            add(Chat("w","ㅋㅋㅋㅋㅋ",R.drawable.demo_avatar3,"용기리우스"))
         }
         binding.chattingSendBtn.setOnClickListener {
             var chattext = binding.chattingEdittextEt.text.toString()
-            chatList.add(Chat(email,chattext,R.drawable.demo_avartar3,"호진"))
+            chatList.add(Chat(email,chattext,R.drawable.demo_avatar3,"호진"))
             // 메시지 보내고 받는 시간 받기
             val calendar: Calendar = Calendar.getInstance() // 캘린더 객체 인스턴스 calendar
             val dateFormat = SimpleDateFormat("yyyy-dd-MMM HH:mm:ss") // SimpleDataFormat 이라는 날짜와 시간을 출력하는 객체 생성, hh을 HH로 변경했더니 24시각제로 바뀜

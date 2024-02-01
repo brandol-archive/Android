@@ -10,7 +10,7 @@
         android:layout_height="40dp"
         android:background="@drawable/object_default_background"
         android:padding="5dp"
-        android:src="@drawable/demo_avartar3"
+        android:src="@drawable/demo_avatar3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
