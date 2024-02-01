@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="42dp"
+    android:background="@drawable/dialog_avatar_info">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:gravity="center|left"
+        android:text="아이템을 길게 누르면 상세정보를 볼 수 있습니다."
+        android:textColor="@color/white"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/dialog_announce_info_close_tv"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginEnd="5dp"
+        android:text="@string/close"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="11sp" />
+
+
+</LinearLayout>

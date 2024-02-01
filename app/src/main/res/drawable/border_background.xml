@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="0dp" /> <!-- 테두리의 모서리를 둥글게 만들지 않습니다. -->
+    <solid android:color="@color/gray" /> <!-- 내부를 채우는 색상을 검정으로 지정합니다. -->
+    <padding
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp"
+        android:bottom="2dp" /> <!-- 테두리의 두께를 지정합니다. -->
+</shape>

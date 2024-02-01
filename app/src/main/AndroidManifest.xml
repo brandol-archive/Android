@@ -16,7 +16,7 @@
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".OpponentAvartarActivity"
+            android:name=".OpponentAvatarActivity"
             android:exported="false" />
         <activity
             android:name=".ChattingActivity"
@@ -40,9 +40,9 @@
 
         <activity android:name=".UserCategoryActivity"/>
 
-        <activity android:name=".ContentsCategoryActivity"/>
+        <activity android:name=".ContentsCategoryFragment"/>
 
-        <activity android:name=".AvatarStoreCategoryActivity"/>
+        <activity android:name=".AvatarStoreCategoryFragment"/>
 
     </application>
 

@@ -3,12 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="75dp">
 
-    <ImageView
+    <FrameLayout
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:src="@drawable/demo_avartar" />
+        android:layout_marginStart="5dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/no1_item_skin" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/base_item_hair" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/base_item_pants" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/base_item_shirts" />
+
+
+    </FrameLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,9 +49,9 @@
         android:layout_gravity="center"
         android:layout_marginEnd="10dp"
         android:background="@drawable/shape_switch_track_on"
+        android:text="해제"
         android:textColor="@color/white"
-        android:textSize="12sp"
-        android:text="해제" />
+        android:textSize="12sp" />
 
 
 </LinearLayout>

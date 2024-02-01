@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/avatar_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/object_default_background"
+        android:padding="5dp"
+        android:src="@drawable/demo_avatar3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="용기리우스"
+        android:textColor="@color/black"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="@id/chat_tv"
+        app:layout_constraintTop_toTopOf="@id/avatar_iv" />
+
+    <TextView
+        android:id="@+id/chat_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/object_default_background"
+        android:lineSpacingExtra="-3sp"
+        android:maxWidth="230dp"
+        android:minHeight="25sp"
+        android:padding="5dp"
+        android:text="그대 내 1호 팬이 되어 준다고 했잖소. 근대 어찌
+그렇게 무심하게 넘어가냐 말이오!\n그리고 방금 차단하려 한 거 같은데...\n미안하네"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/avatar_iv"
+        app:layout_constraintTop_toBottomOf="@id/name_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

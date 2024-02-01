@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="251dp"
+    android:layout_height="71dp"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialog_rewrite_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="삭제"
+        android:textColor="@android:color/black"
+        android:background="@android:color/black"
+        android:backgroundTint="@android:color/white"
+        android:gravity="center"
+        android:outlineProvider="background"
+        android:stateListAnimator="@null" />
+
+</LinearLayout>

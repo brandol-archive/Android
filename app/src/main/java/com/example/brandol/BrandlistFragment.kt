@@ -29,7 +29,7 @@ class BrandlistFragment: AppCompatActivity() {
         binding.brandlistAddlistBtn.setOnClickListener {
             //list 추가 날짜 및 팬 번호 텍스트 변경 -> 추후에 날짜와 팬 순서 숫자 받아서 다시 해야 함
             binding.brandlistAddlistTv.text = "2024년 01월 06일  |  6번째 팬"
-            binding.brandlistAddlistBtn.setBackgroundColor(getColor(R.color.selectedpurple))
+            binding.brandlistAddlistBtn.setBackgroundColor(getColor(R.color.white))
         }
 
         binding.brandlistLinkBtn.setOnClickListener {

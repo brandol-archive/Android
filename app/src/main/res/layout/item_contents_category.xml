@@ -6,12 +6,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="android:text=&quot;2&quot;&#xA;        android:textSize=&quot;13dp&quot;" />
+
     <ImageView
         android:id="@+id/contents_iv"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:layout_height="250dp"
+        android:background="@drawable/img_main_banner"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/brand_profile_iv"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:background="@drawable/img_user_character_1"
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contents_iv"/>
 
 
     <TextView
@@ -21,10 +38,10 @@
         android:text="브랜드 명"
         android:textStyle="bold"
         android:textColorLink="@color/black"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
         android:textColor="?android:attr/textColorPrimary"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/brand_profile_iv"
         app:layout_constraintTop_toBottomOf="@id/contents_iv" />
 
     <TextView
@@ -33,6 +50,7 @@
         android:layout_height="wrap_content"
         android:text="게시물 제목"
         android:textStyle="bold"
+        android:layout_marginTop="5dp"
         android:textColorLink="@color/black"
         android:layout_marginLeft="13dp"
         android:textColor="?android:attr/textColorPrimary"
@@ -43,7 +61,7 @@
         android:id="@+id/post_content_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="게시물 내용 (더보기)"
+        android:text="게시물 내용"
         android:textColorLink="@color/black"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="1dp"
@@ -51,29 +69,223 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_title_tv" />
 
+    <View
+        android:id="@+id/v_1"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contents_iv" />
+
+    <ImageView
+        android:id="@+id/content_like_iv"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginBottom="11dp"
+        android:src="@drawable/btn_like"
+        app:layout_constraintStart_toStartOf="@+id/post_content_tv"
+        app:layout_constraintBottom_toBottomOf="@+id/v_1"/>
+
+    <TextView
+        android:id="@+id/content_like_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="20"
+        android:textSize="13dp"
+        android:textColor="#FF7575"
+        app:layout_constraintStart_toEndOf="@+id/content_like_iv"
+        app:layout_constraintTop_toTopOf="@+id/content_like_iv"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/content_chat_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/btn_chat"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintStart_toEndOf="@+id/content_like_count_tv"
+        app:layout_constraintTop_toTopOf="@+id/content_like_iv"/>
+
+    <TextView
+        android:id="@+id/content_chat_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="2"
+        android:textSize="13dp"
+        android:textColor="#6B68FF"
+        app:layout_constraintStart_toEndOf="@+id/content_chat_iv"
+        app:layout_constraintTop_toTopOf="@+id/content_like_count_tv"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/classification_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="|"
+        android:textSize="10dp"
+        android:textColorLink="@color/black"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/content_chat_count_tv"
+        app:layout_constraintBottom_toBottomOf="@+id/v_1" />
+
     <TextView
         android:id="@+id/content_info_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="좋아요 / 댓글 / 시간 / 작성자"
+        android:text="2023.12.10"
         android:textSize="10dp"
         android:textColorLink="@color/black"
-        android:layout_marginLeft="13dp"
+        android:layout_marginLeft="6dp"
         android:layout_marginBottom="8dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/gray_6" />
-
-    <!-- 20%의 투명도 -->
-    <View
-        android:id="@+id/gray_6"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#33000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/contents_iv" />
-
+        app:layout_constraintStart_toEndOf="@+id/classification_tv"
+        app:layout_constraintBottom_toBottomOf="@+id/v_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+    <!--<ScrollView-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/content_image_iv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="300dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_gravity="top|start"-->
+<!--            android:src="@drawable/img_brandol" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/mini_char_iv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:src="@drawable/img_mini_char"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/content1_name_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="top|start"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="BRANDOL" />-->
+<!--        </LinearLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/content1_title_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="top|start"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:textSize="15dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:text="게시물 내용" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/content1_content_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="top|start"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:textSize="15dp"-->
+<!--            android:text="브랜드 추구 방향성 문화" />-->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/content1_recent_text_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text="최근 게시글 들어감"-->
+<!--            android:textSize="15dp"/>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/content1_like_iv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:src="@drawable/btn_like"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/content1_like_count_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:text="20"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textColor="@color/red"/>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/content1_chat_iv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="11dp"-->
+<!--                android:src="@drawable/btn_chat"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/content1_chat_count_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:text="2"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textColor="@color/blue"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/content1_date_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:text="|   2023.12.10"-->
+<!--                android:textSize="10dp"/>-->
+
+
+<!--        </LinearLayout>-->
+
+
+
+<!--    </LinearLayout>-->
+
+
+<!--</ScrollView>-->
 

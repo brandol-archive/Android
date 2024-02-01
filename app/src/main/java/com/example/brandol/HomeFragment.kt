@@ -2,6 +2,7 @@ package com.example.brandol
 
 import BrandButtonAdapter
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.brandol.databinding.FragmentHomeBinding
+
 
 class HomeFragment : Fragment() {
 
@@ -69,9 +71,22 @@ class HomeFragment : Fragment() {
         }
 
 
+//        binding.manageTv.setOnClickListener {
+//            startActivity(Intent(activity, BrandManagementActivity::class.java))
+//        }
+
         binding.manageTv.setOnClickListener {
-            startActivity(Intent(activity, BrandManagementActivity::class.java))
+            // 브랜드 관리 프래그먼트로 전환
+            val brandManagementFragment = BrandManagementFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, brandManagementFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
+
+
+
+        binding.manageTv.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
         return view
     }
