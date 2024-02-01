@@ -9,13 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.brandol.databinding.FragmentMessageBinding
 
-data class Message(
-    var profile: Int?,
-    var name: String?,
-    var contents: String?,
-    var time: String?,
-    var quantity: Int?
-)
 class MessageFragment : Fragment() {
     lateinit var binding: FragmentMessageBinding
     private var messageList = ArrayList<Message>()
