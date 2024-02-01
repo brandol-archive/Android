@@ -2,20 +2,20 @@ package com.example.brandol
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.brandol.databinding.ActivityOpponentAvartarBinding
+import com.example.brandol.databinding.ActivityOpponentAvatarBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class OpponentAvartarActivity : AppCompatActivity() {
+class OpponentAvatarActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityOpponentAvartarBinding
+    lateinit var binding : ActivityOpponentAvatarBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOpponentAvartarBinding.inflate(layoutInflater)
+        binding = ActivityOpponentAvatarBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val pagerAdapter = OpponentVPAdapter(supportFragmentManager,lifecycle)
-        binding.opponentAvartarVp.adapter = pagerAdapter
+        binding.opponentAvatarVp.adapter = pagerAdapter
 
-        TabLayoutMediator(binding.opponentAvartarCategoryTl,binding.opponentAvartarVp){ tab, position ->
+        TabLayoutMediator(binding.opponentAvatarCategoryTl,binding.opponentAvatarVp){ tab, position ->
             when(position){
                 0->tab.text = "브랜드 리스트"
                 1->tab.text = "착용 아바타"

@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.brandol.databinding.DialogDeleteAccountBinding
 
 class CustomAccountDialog(
     context: Context,
@@ -17,6 +18,7 @@ class CustomAccountDialog(
 ) : Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.dialog_delete_account)
         //다이얼로그 둥글게 만들기
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 

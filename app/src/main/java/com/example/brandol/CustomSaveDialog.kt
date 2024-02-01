@@ -5,24 +5,15 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatButton
-import org.w3c.dom.Text
 
-class CustomAvartarInfoDialog(
+
+class CustomSaveDialog (
     context: Context,
-) : Dialog(context) {
+    ) : Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.dialog_save_avatar)
         //다이얼로그 둥글게 만들기
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-
-
-        val closetext : TextView = findViewById(R.id.dialog_announce_info_close_tv)
-        closetext.setOnClickListener {
-            dismiss()
-        }
     }
-
 }

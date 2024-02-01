@@ -64,7 +64,6 @@ class MypageFragment : Fragment() {
 
                 }
             )
-            dialog.setContentView(R.layout.diaolog_logout)
             dialog.show()
         }
 
@@ -82,10 +81,8 @@ class MypageFragment : Fragment() {
 
                 }
             )
-            dialog.setContentView(R.layout.dialog_delete_account)
             dialog.show()
         }
-
 
         return binding.root
     }

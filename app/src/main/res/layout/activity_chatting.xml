@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/background"
+    android:orientation="vertical"
     tools:context=".ChattingActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,50 +23,73 @@
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/arrow_back_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/chatting_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="상대방 이름"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chattin_contents_rv"
+        android:id="@+id/chatting_contents_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:padding="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
         android:background="@color/selectedpurple"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:gravity="center">
+        android:padding="10dp">
 
-        <EditText
-            android:id="@+id/chatting_edittext_et"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="#73000000"
-            android:text="메시지 보내기..."
-            android:textSize="14sp"
-            android:background="@drawable/chatting_edittext" />
+            android:background="@drawable/chatting_edittext"
+            android:orientation="horizontal">
 
+            <EditText
+                android:id="@+id/chatting_edittext_et"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@android:color/transparent"
+                android:text="메시지 보내기..."
+                android:textColor="#73000000"
+                android:textSize="14sp" />
 
+            <View
+                android:layout_width="0.8dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:background="#33000000" />
+
+            <ImageButton
+                android:id="@+id/chatting_send_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/chatting_sending_btn" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <Button
