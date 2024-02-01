@@ -2,19 +2,39 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvChat"
+        android:id="@+id/chat_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginBottom="5dp"
-        android:padding="10dp"
         android:background="@drawable/border_mission_block_purple"
+        android:lineSpacingExtra="-3sp"
+        android:maxWidth="230dp"
+        android:minHeight="25sp"
+        android:padding="10dp"
+        android:text="(그냥 과자만 두고 사라졌으면..)"
+        android:textColor="@color/white"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/avatar_iv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/chat_tv"
+        app:layout_constraintTop_toTopOf="@id/avatar_iv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
