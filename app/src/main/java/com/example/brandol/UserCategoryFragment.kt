@@ -1,6 +1,7 @@
 package com.example.brandol
 
 import UserCategoryAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,11 +16,13 @@ data class UserData(
     val userImageResourceId: Int
 )
 
+
 class UserCategoryFragment : Fragment() {
 
     private lateinit var binding: FragmentUserCategoryBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var userAdapter: UserCategoryAdapter
+    private var userDataList = listOf<UserData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,11 +41,20 @@ class UserCategoryFragment : Fragment() {
         // RecyclerView 설정
         userAdapter = UserCategoryAdapter(mutableListOf())
         recyclerView.adapter = userAdapter
+        //호진이 만든 user 클릭리스너 구현
+        val intent = Intent(activity, OpponentAvatarActivity::class.java)
+        userAdapter.itemClickListener = object : ItemClickListener {
+            override fun onItemClick(position: Int) {
+                val userData = userDataList[position]
+                intent.putExtra("userNameKey", userData.userName)
+                startActivity(intent)
+            }
+        }
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2) // 2개의 열로 구성
         recyclerView.setHasFixedSize(true) // 옵션: 아이템 크기 고정
 
         // 더미 데이터 생성
-        val userDataList = listOf(
+        userDataList = listOf(
             UserData("주뇽이", R.drawable.img_user_character_1),
             UserData("지혀니", R.drawable.img_user_character_2),
             UserData("얌얌이", R.drawable.img_user_character_3),
