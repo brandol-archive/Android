@@ -16,7 +16,7 @@
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".OpponentAvartarActivity"
+            android:name=".OpponentAvatarActivity"
             android:exported="false" />
         <activity
             android:name=".ChattingActivity"

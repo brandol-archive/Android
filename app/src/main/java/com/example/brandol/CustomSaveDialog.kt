@@ -12,7 +12,7 @@ class CustomSaveDialog (
     ) : Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialog_save_avartar)
+        setContentView(R.layout.dialog_save_avatar)
         //다이얼로그 둥글게 만들기
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }

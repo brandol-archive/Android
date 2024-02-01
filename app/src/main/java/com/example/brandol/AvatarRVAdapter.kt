@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-class AvartarRVAdapter(private val itemList: List<ItemModel>,private val listener: ItemClickListener) : RecyclerView.Adapter<AvartarRVAdapter.MyViewHolder>() {
+class AvatarRVAdapter(private val itemList: List<ItemModel>, private val listener: ItemClickListener) : RecyclerView.Adapter<AvatarRVAdapter.MyViewHolder>() {
 
     private var handler = Handler(Looper.getMainLooper())
 
@@ -68,11 +68,11 @@ class AvartarRVAdapter(private val itemList: List<ItemModel>,private val listene
         parent: ViewGroup,
         viewType: Int
     ): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_avartar, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_avatar, parent, false)
         return MyViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: AvartarRVAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AvatarRVAdapter.MyViewHolder, position: Int) {
         holder.image.setImageResource(itemList.get(position).brandLogoRes!!)
     }
 

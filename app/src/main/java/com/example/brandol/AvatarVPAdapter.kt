@@ -1,12 +1,11 @@
 package com.example.brandol
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class AvartarVPAdapter(
+class AvatarVPAdapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
@@ -18,14 +17,14 @@ class AvartarVPAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0->AvartarTabFragment.newInstance(tabElement[0])
-            1->AvartarTabFragment.newInstance(tabElement[1])
-            2->AvartarTabFragment.newInstance(tabElement[2])
-            3->AvartarTabFragment.newInstance(tabElement[3])
-            4->AvartarTabFragment.newInstance(tabElement[4])
-            5->AvartarTabFragment.newInstance(tabElement[5])
-            6->AvartarTabFragment.newInstance(tabElement[6])
-            7->AvartarTabFragment.newInstance(tabElement[7])
+            0->AvatarTabFragment.newInstance(tabElement[0])
+            1->AvatarTabFragment.newInstance(tabElement[1])
+            2->AvatarTabFragment.newInstance(tabElement[2])
+            3->AvatarTabFragment.newInstance(tabElement[3])
+            4->AvatarTabFragment.newInstance(tabElement[4])
+            5->AvatarTabFragment.newInstance(tabElement[5])
+            6->AvatarTabFragment.newInstance(tabElement[6])
+            7->AvatarTabFragment.newInstance(tabElement[7])
             else -> throw IllegalArgumentException("Invalid position")
         }
     }

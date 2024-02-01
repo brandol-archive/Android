@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.page_avartar -> {
+                R.id.page_avatar -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, AvartarFragment())
+                        .replace(R.id.main_frm, AvatarFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

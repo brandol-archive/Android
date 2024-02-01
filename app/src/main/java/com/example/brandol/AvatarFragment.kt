@@ -1,6 +1,5 @@
 package com.example.brandol
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -8,17 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
-import com.example.brandol.databinding.FragmentAvartarBinding
+import com.example.brandol.databinding.FragmentAvatarBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class AvartarFragment : Fragment() {
-    lateinit var binding: FragmentAvartarBinding
+class AvatarFragment : Fragment() {
+    lateinit var binding: FragmentAvatarBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAvartarBinding.inflate(inflater, container, false)
+        binding = FragmentAvatarBinding.inflate(inflater, container, false)
         //저장하기 버튼 로직
         saveButtonLogic()
         //짧은 다이얼로그 보여주기
@@ -42,32 +41,32 @@ class AvartarFragment : Fragment() {
         ) { key, bundle ->
             val itemName = bundle.getString("bundleKey")
             when (itemName) {
-                "상의" -> binding.avartarBaseAvartarShirts.setImageResource(R.drawable.no1_item_shirts)
-                "하의" -> binding.avartarBaseAvartarPants.setImageResource(R.drawable.no1_item_pants)
-                "신발" -> binding.avartarBaseAvartarShoes.setImageResource(R.drawable.no1_item_shoes)
-                "헤어" -> binding.avartarBaseAvartarHair.setImageResource(R.drawable.no1_item_woman_hair)
-                "피부1" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no1_item_skin)
-                "피부2" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no2_item_skin)
-                "피부3" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no3_item_skin)
-                "피부4" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no4_item_skin)
-                "피부5" -> binding.avartarBaseAvartarSkin.setImageResource(R.drawable.no5_item_skin)
+                "상의" -> binding.avatarBaseAvatarShirts.setImageResource(R.drawable.no1_item_shirts)
+                "하의" -> binding.avatarBaseAvatarPants.setImageResource(R.drawable.no1_item_pants)
+                "신발" -> binding.avatarBaseAvatarShoes.setImageResource(R.drawable.no1_item_shoes)
+                "헤어" -> binding.avatarBaseAvatarHair.setImageResource(R.drawable.no1_item_woman_hair)
+                "피부1" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no1_item_skin)
+                "피부2" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no2_item_skin)
+                "피부3" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no3_item_skin)
+                "피부4" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no4_item_skin)
+                "피부5" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no5_item_skin)
             }
         }
     }
 
     private fun saveButtonLogic() {
-        binding.avartarSaveBtn.setOnClickListener {
-            val dialog = CustomSaveDialog(binding.avartarChattingQuantityTv.context)
+        binding.avatarSaveBtn.setOnClickListener {
+            val dialog = CustomSaveDialog(binding.avatarChattingQuantityTv.context)
             dialog.show()
         }
     }
 
     private fun bringFront() {
-        binding.avartarChattingQuantity.bringToFront()
+        binding.avatarChattingQuantity.bringToFront()
     }
 
     private fun goMessage() {
-        binding.avartarChattingBtn.setOnClickListener {
+        binding.avatarChattingBtn.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, MessageFragment())
                 .addToBackStack(null)
@@ -77,7 +76,7 @@ class AvartarFragment : Fragment() {
     }
 
     private fun showShortDialog() {
-        val dialog = CustomAvartarInfoDialog(binding.avartarChattingQuantityTv.context)
+        val dialog = CustomAnnonceInfoDialog(binding.avatarChattingQuantityTv.context)
         dialog.setContentView(R.layout.dialog_announce_info)
 
         val params = dialog.window?.attributes
@@ -94,11 +93,11 @@ class AvartarFragment : Fragment() {
         val tabElement = arrayOf("전체", "피부", "헤어", "한벌", "상의", "하의", "신발", "기타")
 
         //뷰페이저 어댑터 연결
-        val pagerAdapter = AvartarVPAdapter(childFragmentManager,lifecycle)
-        binding.avartarItemlistVp.adapter = pagerAdapter
+        val pagerAdapter = AvatarVPAdapter(childFragmentManager,lifecycle)
+        binding.avatarItemlistVp.adapter = pagerAdapter
 
         //탭 레이아웃과 뷰페이저 연동
-        TabLayoutMediator(binding.avartarCategoryTl, binding.avartarItemlistVp) { tab, position ->
+        TabLayoutMediator(binding.avatarCategoryTl, binding.avatarItemlistVp) { tab, position ->
             // 탭의 텍스트 설정
             tab.text = tabElement[position]
         }.attach()
