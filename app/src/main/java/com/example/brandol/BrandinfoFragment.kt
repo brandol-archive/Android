@@ -1,23 +1,20 @@
 package com.example.brandol
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.example.brandol.databinding.FragmentBrandlistBinding
-import com.example.brandol.databinding.FragmentLinktreeBinding
+import com.example.brandol.databinding.FragmentBrandinfoBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class BrandlistFragment: AppCompatActivity() {
-    lateinit var binding: FragmentBrandlistBinding
+class BrandinfoFragment: AppCompatActivity() {
+    lateinit var binding: FragmentBrandinfoBinding
     private lateinit var callback : OnBackPressedCallback
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentBrandlistBinding.inflate(layoutInflater)
+        binding = FragmentBrandinfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initViewPager()
