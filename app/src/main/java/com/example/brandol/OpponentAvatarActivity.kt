@@ -14,7 +14,7 @@ class OpponentAvatarActivity : AppCompatActivity() {
         setContentView(binding.root)
         val pagerAdapter = OpponentVPAdapter(supportFragmentManager,lifecycle)
         binding.opponentAvatarVp.adapter = pagerAdapter
-
+        binding.opponentAvatarNameTv.text = intent.getStringExtra("userNameKey")
         TabLayoutMediator(binding.opponentAvatarCategoryTl,binding.opponentAvatarVp){ tab, position ->
             when(position){
                 0->tab.text = "브랜드 리스트"
