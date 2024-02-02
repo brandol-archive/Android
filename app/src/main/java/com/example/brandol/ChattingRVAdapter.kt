@@ -9,10 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ChattingRVAdapter(private var chatList: List<Chat>, private val myemail: String) :
     RecyclerView.Adapter<ChattingRVAdapter.ChatViewHodler>() {
+
+    var itemClickListener: ItemClickListener? = null
     inner class ChatViewHodler(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val username: TextView = itemView.findViewById(R.id.name_tv)
         val userprofile: ImageView = itemView.findViewById(R.id.avatar_iv)
         val chattext: TextView = itemView.findViewById(R.id.chat_tv)
+
+        init {
+            userprofile.setOnClickListener {
+                itemClickListener?.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHodler {

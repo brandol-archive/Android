@@ -8,13 +8,23 @@ import com.google.android.material.tabs.TabLayoutMediator
 class OpponentAvatarActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityOpponentAvatarBinding
+    val pagerAdapter = OpponentVPAdapter(supportFragmentManager,lifecycle)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOpponentAvatarBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val pagerAdapter = OpponentVPAdapter(supportFragmentManager,lifecycle)
         binding.opponentAvatarVp.adapter = pagerAdapter
-        binding.opponentAvatarNameTv.text = intent.getStringExtra("userNameKey")
+        val intent = intent
+        val from = intent.getStringExtra("from")
+        var username : String = ""
+
+        if (from == "Chatting"){
+            username = intent.getStringExtra("chatkey").toString()
+            binding.opponentAvatarNameTv.text = username
+        }else if(from == "UserCategory"){
+            username=  intent.getStringExtra("userNameKey").toString()
+            binding.opponentAvatarNameTv.text = username
+        }
         TabLayoutMediator(binding.opponentAvatarCategoryTl,binding.opponentAvatarVp){ tab, position ->
             when(position){
                 0->tab.text = "브랜드 리스트"

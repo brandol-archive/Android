@@ -34,7 +34,7 @@ class AvatarRVAdapter(private val itemList: List<ItemModel>, private val listene
                 listener?.onItemClick(adapterPosition)
             }
 
-            //터치 이벤트 구
+            //터치 이벤트 구현
             itemView.setOnTouchListener { v, event ->
                 when(event.actionMasked){
                     MotionEvent.ACTION_DOWN -> {
@@ -55,7 +55,6 @@ class AvatarRVAdapter(private val itemList: List<ItemModel>, private val listene
                         val duration = endTime - startTime
                         if (duration < 1000) { // 터치 시간이 1초보다 작으면 클릭으로 처리
                             v.performClick() // 클릭 이벤트 발생
-
                         }
                     }
                 }

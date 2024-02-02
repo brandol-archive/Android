@@ -28,6 +28,15 @@ class ChattingActivity : AppCompatActivity() {
 
         binding.chattingContentsRv.layoutManager = LinearLayoutManager(this)
         binding.chattingContentsRv.adapter = adapterForChat
+        val intent = Intent(this,OpponentAvatarActivity::class.java)
+        adapterForChat.itemClickListener = object : ItemClickListener {
+            override fun onItemClick(position: Int) {
+                val userInfo = chatList[position]
+                intent.putExtra("from","Chatting")
+                intent.putExtra("chatkey", userInfo.name)
+                startActivity(intent)
+            }
+        }
         chatList.apply {
             add(Chat("w", "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", R.drawable.demo_avatar3, "용기리우스"))
         }
@@ -44,10 +53,6 @@ class ChattingActivity : AppCompatActivity() {
             val datetime: String = dateFormat.format(calendar.time)*/
         }
 
-        binding.button.setOnClickListener {
-            val intent = Intent(this, OpponentAvatarActivity::class.java)
-            startActivity(intent)
-        }
         backbtn()
     }
 

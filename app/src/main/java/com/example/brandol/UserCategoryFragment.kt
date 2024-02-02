@@ -46,6 +46,7 @@ class UserCategoryFragment : Fragment() {
         userAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int) {
                 val userData = userDataList[position]
+                intent.putExtra("from","UserCategory")
                 intent.putExtra("userNameKey", userData.userName)
                 startActivity(intent)
             }
