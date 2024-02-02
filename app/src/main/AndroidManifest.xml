@@ -22,10 +22,6 @@
         </activity>
 
         <activity
-            android:name=".SettingActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".SignupNicknameActivity"
             android:exported="false" />
 
@@ -44,22 +40,10 @@
             android:name=".ChattingActivity"
             android:exported="false" />
         <activity
-            android:name=".MessageActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false">
         </activity>
 
-        <activity android:name=".BrandManagementActivity" />
-
-        <activity android:name=".BrandCategoryActivity"/>
-
-        <activity android:name=".UserCategoryActivity"/>
-
-        <activity android:name=".ContentsCategoryFragment"/>
-
-        <activity android:name=".AvatarStoreCategoryFragment"/>
 
     </application>
 
