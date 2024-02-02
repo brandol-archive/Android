@@ -30,6 +30,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".TermsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".OpponentAvatarActivity"
             android:exported="false" />
         <activity
