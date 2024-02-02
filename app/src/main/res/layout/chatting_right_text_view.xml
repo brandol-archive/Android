@@ -17,7 +17,7 @@
         android:padding="10dp"
         android:text="(그냥 과자만 두고 사라졌으면..)"
         android:textColor="@color/white"
-        android:textSize="11sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
