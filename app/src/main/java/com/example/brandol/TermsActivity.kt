@@ -1,6 +1,7 @@
 // TermsActivity.kt
 package com.example.brandol
 
+import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import android.widget.CompoundButton
@@ -17,21 +18,21 @@ class TermsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // 약관보기 텍스트 언더라인 처리
-        binding.terms2Tv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        binding.terms3Tv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        binding.terms4Tv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        binding.terms5Tv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        binding.terms6Tv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        binding.terms2ViewTv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        binding.terms3ViewTv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        binding.terms4ViewTv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        binding.terms5ViewTv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        binding.terms6ViewTv.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
         binding.termsBackBtn.setOnClickListener {
             finish()
         }
 
-        // 약관 전체 동의하기 체크박스
-//        binding.checkbox.setOnCheckedChangeListener { _, _ ->
-//            // 모든 하위 체크박스들의 상태를 확인하여 다음 버튼을 표시하거나 숨김
-//            updateNextButtonVisibility()
-//        }
+
+        binding.termsNextOkB.setOnClickListener {
+            val intent = Intent(this, SignupNicknameActivity::class.java)
+            startActivity(intent)
+        }
 
         // 약관 전체 동의하기 체크박스
         binding.checkbox.setOnCheckedChangeListener { _, isChecked ->

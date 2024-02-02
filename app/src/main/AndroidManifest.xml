@@ -26,6 +26,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".SignupNicknameActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".LoginStartActivity"
             android:exported="false" />
 

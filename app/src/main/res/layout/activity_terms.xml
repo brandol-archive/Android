@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:orientation="vertical"
-    tools:context=".ChattingActivity">
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -52,12 +51,32 @@
             android:layout_marginLeft="25dp"
             tools:ignore="MissingConstraints">
 
-            <CheckBox
-                android:id="@+id/checkbox"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="약관 전체 동의하기" />
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/checkbox"
+                    android:layout_marginTop="10dp"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/terms_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약관 전체 동의하기"
+                    android:textSize="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
 
 
             <TextView
@@ -65,40 +84,77 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="_______________________________________________"
-                android:textColor="@color/gray"
+                android:textColor="#D5D3D3"
                 android:textSize="16sp"
-                android:layout_marginBottom="15dp"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <CheckBox
-                android:id="@+id/checkbox1"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="(필수)  만14세 이상입니다." />
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/checkbox"
+                    android:layout_marginTop="10dp"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/terms1_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(필수)  만14세 이상입니다."
+                    android:textSize="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/checkbox2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="(필수)  이용약관 동의" />
+                <CheckBox
+                    android:id="@+id/checkbox2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/checkbox"
+                    android:layout_marginTop="10dp"
+                    android:text="" />
 
-            <TextView
-                android:id="@+id/terms2_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="약관보기"
-                android:textSize="14dp"
-                android:layout_marginLeft="160dp"
-                android:textColor="@android:color/darker_gray" />
+                <TextView
+                    android:id="@+id/terms2_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(필수)  이용약관 동의"
+                    android:textSize="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="9"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/terms2_view_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약관보기"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp"
+                    android:layout_weight="0.5"
+                    android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
 
@@ -109,17 +165,33 @@
 
                 <CheckBox
                     android:id="@+id/checkbox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(필수)  개인정보 수집 및 이용 동의" />
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/checkbox"
+                    android:layout_marginTop="10dp"
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/terms3_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="약관보기"
+                    android:text="(필수)  개인정보 수집 및 이용 동의"
                     android:textSize="14dp"
-                    android:layout_marginLeft="84dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="9"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/terms3_view_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약관보기"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp"
+                    android:layout_weight="1"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -131,17 +203,33 @@
 
                 <CheckBox
                     android:id="@+id/checkbox4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(필수)  개인 정보 처리 방침" />
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/checkbox"
+                    android:layout_marginTop="10dp"
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/terms4_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="약관보기"
+                    android:text="(필수)  개인 정보 처리 방침"
                     android:textSize="14dp"
-                    android:layout_marginLeft="125dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="9"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/terms4_view_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약관보기"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp"
+                    android:layout_weight="0.8"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -153,17 +241,33 @@
 
                 <CheckBox
                     android:id="@+id/checkbox5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(필수)  개인정보 제3차 제공 동의" />
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/checkbox"
+                    android:layout_marginTop="10dp"
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/terms5_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="약관보기"
+                    android:text="(필수)  개인정보 제3차 제공 동의"
                     android:textSize="14dp"
-                    android:layout_marginLeft="91dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="9"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/terms5_view_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약관보기"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp"
+                    android:layout_weight="1"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -175,17 +279,33 @@
 
                 <CheckBox
                     android:id="@+id/checkbox6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(선택)  앱 푸시 알림 설정 동의" />
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/checkbox"
+                    android:layout_marginTop="10dp"
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/terms6_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="약관보기"
+                    android:text="(선택)  앱 푸시 알림 설정 동의"
                     android:textSize="14dp"
-                    android:layout_marginLeft="110dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="9"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/terms6_view_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약관보기"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp"
+                    android:layout_weight="1"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
