@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.brandol.databinding.FragmentMessageBinding
 
-class MessageFragment : Fragment() {
+class MessageFragment : Fragment(), ItemClickListener {
     lateinit var binding: FragmentMessageBinding
     private var messageList = ArrayList<Message>()
-    private val messageAdapter = MessageRVAdapter(messageList)
+    private val messageAdapter = MessageRVAdapter(messageList, this)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,22 +20,28 @@ class MessageFragment : Fragment() {
         binding = FragmentMessageBinding.inflate(inflater, container, false)
         backbtn()
         initMessageList()
-        clickMessageEvent()
         binding.messageChattinglistRv.layoutManager = LinearLayoutManager(activity)
         binding.messageChattinglistRv.adapter = messageAdapter
         return binding.root
     }
 
-    private fun clickMessageEvent() {
-        val intent = Intent(activity, ChattingActivity::class.java)
-        messageAdapter.itemClickListener = object : ItemClickListener {
-            override fun onItemClick(position: Int) {
-                val message = messageList[position]
-                intent.putExtra("messagekey", message.name)
-                startActivity(intent)
-            }
-        }
+    override fun showCustomDialog(position: Int) {
+        val context = context
+        val dialog = CustomChatroomDialog(context!!, messageList.get(position).name, {
+            messageList.removeAt(position)
+            messageAdapter.notifyItemRemoved(position)
+        }, {
+            //차단기능
+        })
+        dialog.show()
     }
+    override fun onItemClick(position: Int) {
+        val intent = Intent(activity, ChattingActivity::class.java)
+        val message = messageList[position]
+        intent.putExtra("messagekey", message.name)
+        startActivity(intent)
+    }
+
 
     private fun initMessageList() {
         messageList.apply {
