@@ -7,4 +7,25 @@
     <string name="close">
         <u>닫기</u>
     </string>
+
+    <string name="terms_of_service">약관 동의</string>
+    <string name="terms_of_service_content">여기에 약관 동의 내용을 작성하세요.</string>
+
+    <!-- 다른 약관들에 대한 문자열 리소스도 추가 -->
+    <string name="privacy_policy">개인정보 처리 방침</string>
+    <string name="privacy_policy_content">여기에 개인정보 처리 방침 내용을 작성하세요.</string>
+
+    <!-- 다른 약관들에 대한 문자열 리소스 추가 -->
+    <string name="third_party_consent">제3자 제공 동의</string>
+    <string name="third_party_consent_content">여기에 제3자 제공 동의 내용을 작성하세요.</string>
+
+    <!-- 다른 약관들에 대한 문자열 리소스 추가 -->
+    <string name="collect_and_use">개인정보 수집 및 이용 동의</string>
+    <string name="collect_and_use_content">여기에 개인정보 수집 및 이용 동의 내용을 작성하세요.</string>
+
+    <!-- 다른 약관들에 대한 문자열 리소스 추가 -->
+    <string name="push_notification">앱 푸시 알림 설정 동의</string>
+    <string name="push_notification_content">여기에 앱 푸시 알림 설정 동의 내용을 작성하세요.</string>
+
 </resources>
+

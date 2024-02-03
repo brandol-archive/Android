@@ -38,6 +38,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".TermsContentActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".OpponentAvatarActivity"
             android:exported="false" />
         <activity
