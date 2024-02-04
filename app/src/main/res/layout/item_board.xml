@@ -12,7 +12,7 @@
     android:paddingBottom="6dp">
 
     <ImageView
-        android:id="@+id/item_profile4_iv"
+        android:id="@+id/item_profile_iv"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:src="@drawable/ic_avatar_ex"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/item_usernick4_tv"
+        android:id="@+id/item_usernick_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="작성자"
@@ -32,11 +32,34 @@
         android:textStyle="bold"
         android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@id/item_profile4_iv"
+        app:layout_constraintStart_toEndOf="@id/item_profile_iv"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/item_manager_iv"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/ic_manager"
+        android:layout_marginStart="3dp"
+        app:layout_constraintStart_toEndOf="@id/item_usernick_tv"
+        app:layout_constraintTop_toTopOf="@id/item_usernick_tv"
+        app:layout_constraintBottom_toBottomOf="@id/item_usernick_tv"
+        android:visibility="gone" />
+
     <TextView
-        android:id="@+id/item_posttitle4_tv"
+        android:id="@+id/item_brandname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:text="BRANDOL"
+        android:textSize="9sp"
+        android:textColor="#8F8F8F"
+        android:layout_marginStart="2dp"
+        app:layout_constraintStart_toEndOf="@id/item_manager_iv"
+        app:layout_constraintTop_toTopOf="@id/item_manager_iv"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/item_posttitle_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="게시물 제목"
@@ -46,11 +69,11 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_profile4_iv" />
+        app:layout_constraintTop_toBottomOf="@id/item_profile_iv" />
 
 
     <TextView
-        android:id="@+id/item_postcontent4_tv"
+        android:id="@+id/item_postcontent_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
@@ -59,20 +82,20 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="1dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_posttitle4_tv" />
+        app:layout_constraintTop_toBottomOf="@id/item_posttitle_tv" />
 
     <Button
-        android:id="@+id/item_like4_btn"
+        android:id="@+id/item_like_btn"
         android:layout_width="14dp"
         android:layout_height="13dp"
         android:background="@drawable/ic_like"
         android:layout_marginStart="18dp"
         android:layout_marginTop="7dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_postcontent4_tv" />
+        app:layout_constraintTop_toBottomOf="@id/item_postcontent_tv" />
 
     <TextView
-        android:id="@+id/item_likecnt4_tv"
+        android:id="@+id/item_likecnt_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
@@ -80,21 +103,21 @@
         android:textSize="9sp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="7dp"
-        app:layout_constraintStart_toEndOf="@id/item_like4_btn"
-        app:layout_constraintTop_toBottomOf="@id/item_postcontent4_tv" />
+        app:layout_constraintStart_toEndOf="@id/item_like_btn"
+        app:layout_constraintTop_toBottomOf="@id/item_postcontent_tv" />
 
     <Button
-        android:id="@+id/item_comment4_btn"
+        android:id="@+id/item_comment_btn"
         android:layout_width="14dp"
         android:layout_height="13dp"
         android:background="@drawable/ic_comment"
         android:layout_marginStart="20dp"
         android:layout_marginTop="7dp"
-        app:layout_constraintStart_toEndOf="@id/item_like4_btn"
-        app:layout_constraintTop_toBottomOf="@id/item_postcontent4_tv" />
+        app:layout_constraintStart_toEndOf="@id/item_like_btn"
+        app:layout_constraintTop_toBottomOf="@id/item_postcontent_tv" />
 
     <TextView
-        android:id="@+id/item_commentcnt4_tv"
+        android:id="@+id/item_commentcnt_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20"
@@ -102,11 +125,11 @@
         android:textSize="9sp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="7dp"
-        app:layout_constraintStart_toEndOf="@id/item_comment4_btn"
-        app:layout_constraintTop_toBottomOf="@id/item_postcontent4_tv" />
+        app:layout_constraintStart_toEndOf="@id/item_comment_btn"
+        app:layout_constraintTop_toBottomOf="@id/item_postcontent_tv" />
 
     <TextView
-        android:id="@+id/item_division4_tv"
+        android:id="@+id/item_division_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="|"
@@ -114,11 +137,11 @@
         android:textSize="9sp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
-        app:layout_constraintStart_toEndOf="@id/item_commentcnt4_tv"
-        app:layout_constraintTop_toBottomOf="@id/item_postcontent4_tv" />
+        app:layout_constraintStart_toEndOf="@id/item_commentcnt_tv"
+        app:layout_constraintTop_toBottomOf="@id/item_postcontent_tv" />
 
     <TextView
-        android:id="@+id/item_posttime4_tv"
+        android:id="@+id/item_posttime_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2023.12.10"
@@ -126,11 +149,11 @@
         android:textSize="9sp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="7dp"
-        app:layout_constraintStart_toEndOf="@id/item_division4_tv"
-        app:layout_constraintTop_toBottomOf="@id/item_postcontent4_tv" />
+        app:layout_constraintStart_toEndOf="@id/item_division_tv"
+        app:layout_constraintTop_toBottomOf="@id/item_postcontent_tv" />
 
     <ImageView
-        android:id="@+id/item_image4_iv"
+        android:id="@+id/item_image_iv"
         android:layout_width="76dp"
         android:layout_height="76dp"
         android:background="#D9D9D9"

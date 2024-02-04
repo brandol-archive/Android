@@ -28,7 +28,7 @@
             android:id="@+id/commu_plus1_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/plus_btn"
+            android:background="@drawable/ic_plus"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="7dp"
             app:layout_constraintEnd_toEndOf="@id/commu_post1_cl"
@@ -70,6 +70,27 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@id/commu_profile1_iv"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/commu_manager_iv"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/ic_manager"
+                android:layout_marginStart="3dp"
+                app:layout_constraintStart_toEndOf="@id/commu_usernick1_tv"
+                app:layout_constraintTop_toTopOf="@id/commu_usernick1_tv"
+                app:layout_constraintBottom_toBottomOf="@id/commu_usernick1_tv" />
+
+            <TextView
+                android:id="@+id/commu_brandname_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:text="BRANDOL"
+                android:textSize="9sp"
+                android:textColor="#8F8F8F"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toEndOf="@id/commu_manager_iv"
+                app:layout_constraintTop_toTopOf="@id/commu_manager_iv" />
 
             <TextView
                 android:id="@+id/commu_posttitle1_tv"
@@ -214,6 +235,27 @@
                 app:layout_constraintStart_toEndOf="@id/commu_profile2_iv"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/commu_manager2_iv"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/ic_manager"
+                android:layout_marginStart="3dp"
+                app:layout_constraintStart_toEndOf="@id/commu_usernick2_tv"
+                app:layout_constraintTop_toTopOf="@id/commu_usernick2_tv"
+                app:layout_constraintBottom_toBottomOf="@id/commu_usernick2_tv" />
+
+            <TextView
+                android:id="@+id/commu_brandname2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:text="BRANDOL"
+                android:textSize="9sp"
+                android:textColor="#8F8F8F"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toEndOf="@id/commu_manager2_iv"
+                app:layout_constraintTop_toTopOf="@id/commu_manager2_iv" />
+
             <TextView
                 android:id="@+id/commu_posttitle2_tv"
                 android:layout_width="wrap_content"
@@ -337,7 +379,7 @@
             android:id="@+id/commu_plus2_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/plus_btn"
+            android:background="@drawable/ic_plus"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="7dp"
             app:layout_constraintEnd_toEndOf="@id/commu_post3_cl"
@@ -379,6 +421,27 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@id/commu_profile3_iv"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/commu_manager3_iv"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/ic_manager"
+                android:layout_marginStart="3dp"
+                app:layout_constraintStart_toEndOf="@id/commu_usernick3_tv"
+                app:layout_constraintTop_toTopOf="@id/commu_usernick3_tv"
+                app:layout_constraintBottom_toBottomOf="@id/commu_usernick3_tv" />
+
+            <TextView
+                android:id="@+id/commu_brandname3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:text="BRANDOL"
+                android:textSize="9sp"
+                android:textColor="#8F8F8F"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toEndOf="@id/commu_manager3_iv"
+                app:layout_constraintTop_toTopOf="@id/commu_manager3_iv" />
 
             <TextView
                 android:id="@+id/commu_posttitle3_tv"
@@ -522,6 +585,27 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@id/commu_profile4_iv"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/commu_manager4_iv"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/ic_manager"
+                android:layout_marginStart="3dp"
+                app:layout_constraintStart_toEndOf="@id/commu_usernick4_tv"
+                app:layout_constraintTop_toTopOf="@id/commu_usernick4_tv"
+                app:layout_constraintBottom_toBottomOf="@id/commu_usernick4_tv" />
+
+            <TextView
+                android:id="@+id/commu_brandname4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:text="BRANDOL"
+                android:textSize="9sp"
+                android:textColor="#8F8F8F"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toEndOf="@id/commu_manager4_iv"
+                app:layout_constraintTop_toTopOf="@id/commu_manager4_iv" />
 
             <TextView
                 android:id="@+id/commu_posttitle4_tv"

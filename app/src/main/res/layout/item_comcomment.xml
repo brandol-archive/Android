@@ -5,134 +5,146 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginStart="38dp"
-    android:paddingBottom="6dp">
+    android:paddingTop="4dp"
+    android:paddingStart="38dp"
+    android:paddingEnd="8dp">
 
-    <ImageView
-        android:id="@+id/item_comcomment_profile_iv"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_avatar_ex"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="7dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:background="@drawable/border_05dp_round5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/item_comcomment_usernick_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="작성자"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@id/item_comcomment_profile_iv"
-        app:layout_constraintTop_toTopOf="@id/item_comcomment_profile_iv" />
-
-    <TextView
-        android:id="@+id/item_comcomment_content_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="댓글 내용"
-        android:textColor="@color/black"
-        android:textSize="10dp"
-        android:layout_marginTop="7dp"
-        app:layout_constraintStart_toStartOf="@id/item_comcomment_profile_iv"
-        app:layout_constraintTop_toBottomOf="@id/item_comcomment_profile_iv" />
-
-    <TextView
-        android:id="@+id/item_comcomment_time_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="작성 날짜 및 시간"
-        android:textColor="@color/black"
-        android:textSize="6sp"
-        android:layout_marginTop="7dp"
-        app:layout_constraintStart_toStartOf="@id/item_comcomment_content_tv"
-        app:layout_constraintTop_toBottomOf="@id/item_comcomment_content_tv" />
-
-    <Button
-        android:id="@+id/item_comcomment_like_btn"
-        android:layout_width="14dp"
-        android:layout_height="13dp"
-        android:background="@drawable/ic_like"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@id/item_comcomment_time_tv"
-        app:layout_constraintTop_toBottomOf="@id/item_comcomment_content_tv" />
-
-    <TextView
-        android:id="@+id/item_comcomment_likecnt_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10"
-        android:textColor="#FF7575"
-        android:textSize="9sp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@id/item_comcomment_like_btn"
-        app:layout_constraintTop_toBottomOf="@id/item_comcomment_content_tv" />
-
-
-    <LinearLayout
-        android:id="@+id/item_comcomment_btns_ll"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:background="@drawable/comment_btns_background"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10.89dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/item_comcomment_profile_iv"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="3dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_comment_comment" />
-
-        <TextView
-            android:id="@+id/item_comcomment_division1_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="|"
-            android:textColor="#959595"
-            android:layout_marginStart="7dp"
-            android:layout_marginBottom="5dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_comment_like"
-            android:background="@android:color/transparent"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="3dp"/>
+        <ImageView
+            android:id="@+id/item_comcomment_profile_iv"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_avatar_ex"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/item_comcomment_division2_tv"
+            android:id="@+id/item_comcomment_usernick_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="|"
-            android:textColor="#959595"
-            android:layout_marginStart="7dp"
-            android:layout_marginBottom="5dp" />
+            android:text="작성자"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@id/item_comcomment_profile_iv"
+            app:layout_constraintTop_toTopOf="@id/item_comcomment_profile_iv" />
 
-        <ImageButton
+        <TextView
+            android:id="@+id/item_comcomment_content_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_comment_more"
-            android:background="@android:color/transparent"
+            android:text="댓글 내용"
+            android:textColor="@color/black"
+            android:textSize="10dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toStartOf="@id/item_comcomment_profile_iv"
+            app:layout_constraintTop_toBottomOf="@id/item_comcomment_profile_iv" />
+
+        <TextView
+            android:id="@+id/item_comcomment_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="작성 날짜 및 시간"
+            android:textColor="@color/black"
+            android:textSize="6sp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toStartOf="@id/item_comcomment_content_tv"
+            app:layout_constraintTop_toBottomOf="@id/item_comcomment_content_tv" />
+
+        <Button
+            android:id="@+id/item_comcomment_like_btn"
+            android:layout_width="14dp"
+            android:layout_height="13dp"
+            android:background="@drawable/ic_like"
             android:layout_marginStart="5dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="3dp"
-            android:padding="5dp"/>
+            app:layout_constraintStart_toEndOf="@id/item_comcomment_time_tv"
+            app:layout_constraintTop_toBottomOf="@id/item_comcomment_content_tv"
+            android:visibility="gone" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/item_comcomment_likecnt_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textColor="#FF7575"
+            android:textSize="9sp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@id/item_comcomment_like_btn"
+            app:layout_constraintTop_toBottomOf="@id/item_comcomment_content_tv"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/item_comcomment_btns_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:background="@drawable/comment_btns_background"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10.89dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_comcomment_profile_iv"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="3dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_comment_comment" />
+
+            <TextView
+                android:id="@+id/item_comcomment_division1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textColor="#959595"
+                android:layout_marginStart="7dp"
+                android:layout_marginBottom="5dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_comment_like"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="3dp"/>
+
+            <TextView
+                android:id="@+id/item_comcomment_division2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textColor="#959595"
+                android:layout_marginStart="7dp"
+                android:layout_marginBottom="5dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_comment_more"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="3dp"
+                android:padding="5dp"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
