@@ -11,10 +11,10 @@ class OpPostRVAdapter(private val opPostList: List<OpPost>) :
     RecyclerView.Adapter<OpPostRVAdapter.PostViewHolder>() {
 
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val username: TextView = itemView.findViewById(R.id.item_usernick4_tv)
-        val contents: TextView = itemView.findViewById(R.id.item_postcontent4_tv)
-        val postname: TextView = itemView.findViewById(R.id.item_posttitle4_tv)
-        val profile: ImageView = itemView.findViewById(R.id.item_profile4_iv)
+        val username: TextView = itemView.findViewById(R.id.item_usernick_tv)
+        val contents: TextView = itemView.findViewById(R.id.item_postcontent_tv)
+        val postname: TextView = itemView.findViewById(R.id.item_posttitle_tv)
+        val profile: ImageView = itemView.findViewById(R.id.item_profile_iv)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
