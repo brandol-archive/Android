@@ -62,7 +62,35 @@ class TermsActivity : AppCompatActivity() {
         // 초기 상태에서는 다음 버튼은 숨겨져 있어야 함
         binding.termsNextOkB.visibility = android.view.View.GONE
         binding.termsNextNoB.visibility = android.view.View.VISIBLE
+
+
+        // 각 약관보기 텍스트 클릭 시 해당 약관 내용을 보여주는 액티비티로 이동
+        binding.terms2ViewTv.setOnClickListener {
+            navigateToTermsContent(getString(R.string.terms_of_service))
+        }
+        binding.terms3ViewTv.setOnClickListener {
+            navigateToTermsContent(getString(R.string.privacy_policy))
+        }
+        binding.terms4ViewTv.setOnClickListener {
+            navigateToTermsContent(getString(R.string.third_party_consent))
+        }
+        binding.terms5ViewTv.setOnClickListener {
+            navigateToTermsContent(getString(R.string.collect_and_use))
+        }
+        binding.terms6ViewTv.setOnClickListener {
+            navigateToTermsContent(getString(R.string.push_notification))
+        }
+
     }
+
+
+    private fun navigateToTermsContent(title: String) {
+        val intent = Intent(this, TermsContentActivity::class.java)
+        // 약관 타이틀을 Intent에 추가
+        intent.putExtra(TermsContentActivity.EXTRA_CONTENT_TITLE, title)
+        startActivity(intent)
+    }
+
 
     private fun updateNextButtonVisibility() {
         // 모든 하위 체크박스들의 상태 확인

@@ -253,7 +253,7 @@
                     android:id="@+id/terms5_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="(필수)  개인정보 제3차 제공 동의"
+                    android:text="(필수)  개인정보 제3자 제공 동의"
                     android:textSize="14dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
