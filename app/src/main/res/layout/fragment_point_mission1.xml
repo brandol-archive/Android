@@ -68,7 +68,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="11dp"
                 android:layout_marginStart="11dp"
-                android:src="@drawable/btn_mission_before"/>
+                android:background="@drawable/object_default_background"
+                android:backgroundTint="@color/selectedpurple"/>
             
             <TextView
                 android:id="@+id/point_mision_before_tv"
@@ -120,7 +121,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="11dp"
                     android:layout_marginStart="11dp"
-                    android:src="@drawable/btn_mission_before"/>
+                    android:background="@drawable/object_default_background"
+                    android:backgroundTint="@color/selectedpurple"/>
 
                 <TextView
                     android:id="@+id/point_mision_finish_tv"
