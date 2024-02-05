@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -50,17 +51,29 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="165dp"
+                    android:textColor="@color/black"
                     android:text="배달의 민족"
                     android:textSize="16dp"/>
 
             </FrameLayout>
 
-            <ImageView
-                android:id="@+id/mission_background_iv"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="15dp"
                 android:layout_height="450dp"
-                android:src="@drawable/object_default_background"/>
+                android:background="#28BFBA">
+
+                <ImageView
+                    android:id="@+id/mission_background_iv"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/img_baemin_mission"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <TextView
                 android:id="@+id/mission1_name_tv"
@@ -86,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="150dp">
+            android:layout_marginTop="200dp">
 
             <TextView
                 android:id="@+id/q1_start_tv"
@@ -110,23 +123,39 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:orientation="horizontal"
-                android:layout_margin="12dp">
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/object_default_background">
 
-                <ImageButton
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:src="@drawable/btn_point_mission_survey_o"
-                    android:background="@drawable/object_default_background"
-                    android:layout_weight="1"/>
-
-                <ImageButton
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
+                <CheckBox
+                    android:id="@+id/q1_mission_o"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/survey_mission_o"
+                    android:layout_margin="30dp"
+                    android:button="@android:color/transparent"
                     android:layout_weight="1"
-                    android:src="@drawable/btn_point_mission_survey_x"
-                    android:background="@drawable/object_default_background" />
+                    android:text="" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:background="@color/brightgray"/>
+
+
+                <CheckBox
+                    android:id="@+id/q1_mission_x"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/survey_mission_x"
+                    android:layout_margin="30dp"
+                    android:layout_weight="1"
+                    android:text="" />
 
             </LinearLayout>
 
@@ -134,7 +163,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:orientation="horizontal">
 
 
@@ -158,14 +187,16 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/q2_edittext"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/object_default_background"
                 android:layout_margin="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -187,101 +218,74 @@
 
             </LinearLayout>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/q3_1st_b"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="a."
+                android:text="   a."
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/object_default_background"
-                android:buttonTint="@color/selectedpurple"/>
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/q3_2nd_b"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="b."
-                android:layout_marginTop="5dp"
+                android:text="   b."
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/object_default_background"
-                android:buttonTint="@color/selectedpurple"/>
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/q3_3rd_b"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="c."
-                android:layout_marginTop="5dp"
+                android:text="   c."
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/object_default_background"
-                android:buttonTint="@color/selectedpurple"/>
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="40dp">
+
 
                 <ImageView
-                    android:id="@+id/point_mission_survey_before_ib"
+                    android:id="@+id/point_mission_survey_ing_ib"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="11dp"
                     android:layout_marginStart="11dp"
-                    android:background="@drawable/object_default_background"
-                    android:backgroundTint="@color/selectedpurple"/>
+                    android:src="@drawable/btn_mission_ing"/>
 
                 <TextView
-                    android:id="@+id/point_mision_survey_before_tv"
+                    android:id="@+id/point_mission_survey_ing_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="응답 완료!"
+                    android:layout_marginTop="5dp"
                     android:layout_gravity="center"
-                    android:textColor="@color/white"
+                    android:text="응답 중.."
+                    android:textColor="@color/black"
                     android:textSize="14dp"
                     android:textStyle="bold"/>
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone">
+                    android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/point_mission_survey_ing_ib"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="11dp"
-                        android:layout_marginStart="11dp"
-                        android:src="@drawable/btn_mission_ing"/>
-
-                    <TextView
-                        android:id="@+id/point_mision_survey_ing_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="33dp"
-                        android:layout_marginStart="160dp"
-                        android:text="1 / 3 응답 중.."
-                        android:textColor="@color/black"
-                        android:textSize="14dp"
-                        android:textStyle="bold"/>
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:id="@+id/point_mission_finish_ib"
+                        android:id="@+id/point_mission_survey_before_ib"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="10dp"
@@ -291,12 +295,11 @@
                         android:backgroundTint="@color/selectedpurple"/>
 
                     <TextView
-                        android:id="@+id/point_mision_finish_tv"
+                        android:id="@+id/point_mission_survey_before_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="33dp"
-                        android:layout_marginStart="170dp"
-                        android:text="미션 완료!"
+                        android:text="응답 완료!"
+                        android:layout_gravity="center"
                         android:textColor="@color/white"
                         android:textSize="14dp"
                         android:textStyle="bold"/>
