@@ -104,7 +104,7 @@
             android:text="구매"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:backgroundTint="#BB18FF"
+            android:backgroundTint="@color/selectedpurple"
             android:background="@drawable/object_default_background"
             tools:ignore="MissingConstraints"
             app:layout_constraintBottom_toBottomOf="parent"

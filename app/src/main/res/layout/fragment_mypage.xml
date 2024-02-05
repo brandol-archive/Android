@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="500P"
-        android:textColor="#BB18FF"
+        android:textColor="@color/selectedpurple"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/mypage_point_tv"
