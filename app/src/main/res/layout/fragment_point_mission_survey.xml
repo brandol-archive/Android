@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -55,12 +56,23 @@
 
             </FrameLayout>
 
-            <ImageView
-                android:id="@+id/mission_background_iv"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="15dp"
                 android:layout_height="450dp"
-                android:background="#28BFBA"/>
+                android:background="#28BFBA">
+
+                <ImageView
+                    android:id="@+id/mission_background_iv"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/img_baemin_mission"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <TextView
                 android:id="@+id/mission1_name_tv"
@@ -110,30 +122,37 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:orientation="horizontal"
-                android:layout_marginLeft="22dp"
-                android:layout_marginRight="22dp">
-
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/object_default_background">
 
                 <CheckBox
                     android:id="@+id/q1_mission_o"
-                    android:layout_width="60dp"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/survey_mission_o"
-                    android:layout_marginTop="10dp"
+                    android:layout_margin="30dp"
                     android:button="@android:color/transparent"
                     android:layout_weight="1"
                     android:text="" />
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:background="@color/brightgray"/>
+
 
                 <CheckBox
                     android:id="@+id/q1_mission_x"
-                    android:layout_width="110dp"
-                    android:layout_height="140dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:button="@android:color/transparent"
                     android:background="@drawable/survey_mission_x"
-                    android:layout_marginTop="10dp"
+                    android:layout_margin="30dp"
                     android:layout_weight="1"
                     android:text="" />
 
