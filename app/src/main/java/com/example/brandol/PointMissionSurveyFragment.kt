@@ -27,28 +27,35 @@ class PointMissionSurveyFragment : Fragment() {
             requireActivity().supportFragmentManager.popBackStack()
         }
 
-        // 각 버튼에 대한 체크 상태 변경 리스너를 설정합니다.
+        // Q1 문제에 대한 체크 상태 변경 리스너
+        binding.q1MissionO.setOnCheckedChangeListener { group, isChecked ->
+            if (isChecked) {
+                binding.q1MissionX.isChecked=false
+            }
+        }
+        binding.q1MissionX.setOnCheckedChangeListener { group, isChecked ->
+            if (isChecked) {
+                binding.q1MissionO.isChecked=false
+            }
+        }
+
+        // Q3 문제에 대한 체크 상태 변경 리스너
         binding.q31stB.setOnCheckedChangeListener { group, isChecked ->
             if (isChecked) {
-                binding.q31stB.setTextColor(resources.getColor(R.color.white))
-                binding.q32ndB.setTextColor(resources.getColor(R.color.selectedpurple))
-                binding.q33rdB.setTextColor(resources.getColor(R.color.selectedpurple))
+                binding.q32ndB.isChecked=false
+                binding.q33rdB.isChecked=false
             }
         }
-
         binding.q32ndB.setOnCheckedChangeListener { group, isChecked ->
             if (isChecked) {
-                binding.q31stB.setTextColor(resources.getColor(R.color.selectedpurple))
-                binding.q32ndB.setTextColor(resources.getColor(R.color.white))
-                binding.q33rdB.setTextColor(resources.getColor(R.color.selectedpurple))
+                binding.q31stB.isChecked=false
+                binding.q33rdB.isChecked=false
             }
         }
-
         binding.q33rdB.setOnCheckedChangeListener { group, isChecked ->
             if (isChecked) {
-                binding.q31stB.setTextColor(resources.getColor(R.color.selectedpurple))
-                binding.q32ndB.setTextColor(resources.getColor(R.color.selectedpurple))
-                binding.q33rdB.setTextColor(resources.getColor(R.color.white))
+                binding.q32ndB.isChecked=false
+                binding.q31stB.isChecked=false
             }
         }
     }

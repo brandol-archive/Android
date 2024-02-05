@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginTop="15dp"
                 android:layout_height="450dp"
-                android:src="@drawable/object_default_background"/>
+                android:background="#28BFBA"/>
 
             <TextView
                 android:id="@+id/mission1_name_tv"
@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="150dp">
+            android:layout_marginTop="200dp">
 
             <TextView
                 android:id="@+id/q1_start_tv"
@@ -112,21 +112,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="12dp">
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp">
 
-                <ImageButton
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:src="@drawable/btn_point_mission_survey_o"
-                    android:background="@drawable/object_default_background"
-                    android:layout_weight="1"/>
 
-                <ImageButton
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
+                <CheckBox
+                    android:id="@+id/q1_mission_o"
+                    android:layout_width="60dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/survey_mission_o"
+                    android:layout_marginTop="10dp"
+                    android:button="@android:color/transparent"
                     android:layout_weight="1"
-                    android:src="@drawable/btn_point_mission_survey_x"
-                    android:background="@drawable/object_default_background" />
+                    android:text="" />
+
+
+                <CheckBox
+                    android:id="@+id/q1_mission_x"
+                    android:layout_width="110dp"
+                    android:layout_height="140dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/survey_mission_x"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="" />
 
             </LinearLayout>
 
@@ -134,7 +143,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:orientation="horizontal">
 
 
@@ -159,13 +168,14 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/object_default_background"
                 android:layout_margin="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -187,41 +197,41 @@
 
             </LinearLayout>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/q3_1st_b"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="a."
+                android:text="   a."
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/object_default_background"
-                android:buttonTint="@color/selectedpurple"/>
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/q3_2nd_b"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="b."
-                android:layout_marginTop="5dp"
+                android:text="   b."
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/object_default_background"
-                android:buttonTint="@color/selectedpurple"/>
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/q3_3rd_b"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="c."
-                android:layout_marginTop="5dp"
+                android:text="   c."
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/object_default_background"
-                android:buttonTint="@color/selectedpurple"/>
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
