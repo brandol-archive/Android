@@ -167,6 +167,7 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/q2_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/object_default_background"
@@ -236,62 +237,35 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="40dp">
+
 
                 <ImageView
-                    android:id="@+id/point_mission_survey_before_ib"
+                    android:id="@+id/point_mission_survey_ing_ib"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="11dp"
                     android:layout_marginStart="11dp"
-                    android:background="@drawable/object_default_background"
-                    android:backgroundTint="@color/selectedpurple"/>
+                    android:src="@drawable/btn_mission_ing"/>
 
                 <TextView
-                    android:id="@+id/point_mision_survey_before_tv"
+                    android:id="@+id/point_mission_survey_ing_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="응답 완료!"
+                    android:layout_marginTop="5dp"
                     android:layout_gravity="center"
-                    android:textColor="@color/white"
+                    android:text="응답 중.."
+                    android:textColor="@color/black"
                     android:textSize="14dp"
                     android:textStyle="bold"/>
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone">
+                    android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/point_mission_survey_ing_ib"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="11dp"
-                        android:layout_marginStart="11dp"
-                        android:src="@drawable/btn_mission_ing"/>
-
-                    <TextView
-                        android:id="@+id/point_mision_survey_ing_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="33dp"
-                        android:layout_marginStart="160dp"
-                        android:text="1 / 3 응답 중.."
-                        android:textColor="@color/black"
-                        android:textSize="14dp"
-                        android:textStyle="bold"/>
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:id="@+id/point_mission_finish_ib"
+                        android:id="@+id/point_mission_survey_before_ib"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="10dp"
@@ -301,12 +275,11 @@
                         android:backgroundTint="@color/selectedpurple"/>
 
                     <TextView
-                        android:id="@+id/point_mision_finish_tv"
+                        android:id="@+id/point_mission_survey_before_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="33dp"
-                        android:layout_marginStart="170dp"
-                        android:text="미션 완료!"
+                        android:text="응답 완료!"
+                        android:layout_gravity="center"
                         android:textColor="@color/white"
                         android:textSize="14dp"
                         android:textStyle="bold"/>
