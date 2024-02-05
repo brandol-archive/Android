@@ -52,4 +52,6 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation ("androidx.fragment:fragment-ktx:1.3.6")
 
+    implementation ("com.kakao.sdk:v2-user:2.0.1")
+
 }
