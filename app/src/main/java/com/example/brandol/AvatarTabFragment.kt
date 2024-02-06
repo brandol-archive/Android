@@ -40,11 +40,9 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
             "전체" -> setAllItemTab()
             "피부" -> setTabByCategory("피부")
             "헤어" -> setTabByCategory("헤어")
-            "한벌" -> setTabByCategory("한벌")
             "상의" -> setTabByCategory("상의")
             "하의" -> setTabByCategory("하의")
             "신발" -> setTabByCategory("신발")
-            "기타" -> setTabByCategory("기타")
         }
     }
 
@@ -95,11 +93,9 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
         when (category) { //여기에 나중에 category와 같은 분류를 같고 있는 데이터를 가져오는 로직 구현하면 될듯
             "피부"-> itemList.add(ItemModel(R.drawable.demo_hair, "Brand1", "피부", "Item1", "item1_info", "100p"))
             "헤어"->itemList.add(ItemModel(R.drawable.demo_skin, "Brand1", "헤어", "Item1", "item1_info", "100p"))
-            "한벌"->itemList.add(ItemModel(R.drawable.demo_hair, "Brand1", "헤어", "Item1", "item1_info", "100p"))
             "상의"->itemList.add(ItemModel(R.drawable.demo_shirts, "Brand1", "상의", "Item1", "item1_info", "100p"))
             "하의"->itemList.add(ItemModel(R.drawable.demo_pants, "Brand1", "하의", "Item1", "item1_info", "100p"))
             "신발"->itemList.add(ItemModel(R.drawable.demo_shoes, "Brand1", "신발", "Item1", "item1_info", "100p"))
-            "기타"->itemList.add(ItemModel(R.drawable.item_flushing_etc_, "Brand1", "기타", "Item1", "item1_info", "100p"))
         }
         var avatarAdapter = AvatarRVAdapter(itemList, this)
         binding.avatartabItemlistRv.adapter =avatarAdapter

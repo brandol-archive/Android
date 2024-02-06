@@ -9,10 +9,10 @@ class AvatarVPAdapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
-    val tabElement = arrayOf("전체", "헤어", "피부", "한벌", "상의", "하의", "신발", "기타")
+    val tabElement = arrayOf("전체", "헤어", "피부", "상의", "하의", "신발")
     //CategoryFragment 전환에 사용.
     override fun getItemCount(): Int {
-        return 8  // 탭의 수에 맞게 조절
+        return 6  // 탭의 수에 맞게 조절
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -23,8 +23,6 @@ class AvatarVPAdapter(
             3->AvatarTabFragment.newInstance(tabElement[3])
             4->AvatarTabFragment.newInstance(tabElement[4])
             5->AvatarTabFragment.newInstance(tabElement[5])
-            6->AvatarTabFragment.newInstance(tabElement[6])
-            7->AvatarTabFragment.newInstance(tabElement[7])
             else -> throw IllegalArgumentException("Invalid position")
         }
     }
