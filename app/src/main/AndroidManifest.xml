@@ -32,16 +32,11 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="oauth"
                     android:scheme="kakao6e018e03967e146926c7133da93cedaf" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".SettingActivity"
-            android:exported="false" />
 
         <activity
             android:name=".SignupNicknameActivity"
@@ -66,22 +61,10 @@
             android:name=".ChattingActivity"
             android:exported="false" />
         <activity
-            android:name=".MessageActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false">
         </activity>
 
-        <activity android:name=".BrandManagementActivity" />
-
-        <activity android:name=".BrandCategoryActivity"/>
-
-        <activity android:name=".UserCategoryActivity"/>
-
-        <activity android:name=".ContentsCategoryFragment"/>
-
-        <activity android:name=".AvatarStoreCategoryFragment"/>
 
     </application>
 
