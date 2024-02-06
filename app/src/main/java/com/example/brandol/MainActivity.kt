@@ -1,8 +1,16 @@
 package com.example.brandol
 
+import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import com.example.brandol.databinding.ActivityMainBinding
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -14,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         //바텀 네비게이션
         initBottomnavigation()
     }
+
 
     private fun initBottomnavigation() {
         supportFragmentManager.beginTransaction()
