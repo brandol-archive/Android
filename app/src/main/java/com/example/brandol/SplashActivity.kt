@@ -23,3 +23,4 @@ class SplashActivity : AppCompatActivity() {
         }, SPLASH_DELAY)
     }
 }
+
