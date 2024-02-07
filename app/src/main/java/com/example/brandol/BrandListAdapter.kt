@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.BrandData
+import com.example.brandol.CustomDeleteDialog
 import com.example.brandol.R
 import java.util.Collections
 
@@ -39,33 +40,13 @@ class BrandListAdapter(private val brandList: MutableList<BrandData>) :
 
         private fun showDeleteDialog(brandData: BrandData) {
             val context = itemView.context
-
             // 다이얼로그를 직접 생성하고 커스텀 레이아웃 설정
-            val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_delete_brand, null)
-            val dialog = AlertDialog.Builder(context)
-                .setView(dialogView)
-                .create()
-
-            // 커스텀 다이얼로그 레이아웃에서 각 뷰 가져오기
-            val deleteTextView: AppCompatTextView = dialogView.findViewById(R.id.dialog_delete_tv)
-            val noButton: AppCompatButton = dialogView.findViewById(R.id.dialog_no_btn)
-            val yesButton: AppCompatButton = dialogView.findViewById(R.id.dialog_yes_btn)
-
-            // 브랜드 데이터 정보를 다이얼로그에 설정
-            //deleteTextView.text = "정말로 ${brandData.brandName}을(를) 삭제하시겠습니까?"
-            deleteTextView.text = "정말로 브랜드 리스트에서\n 삭제하시겠습니까?"
-
-
-            // 확인 버튼 클릭 시 동작
-            noButton.setOnClickListener {
-                dialog.dismiss()
-            }
-
-            // 취소 버튼 클릭 시 동작
-            yesButton.setOnClickListener {
+            val dialog = CustomDeleteDialog(context,"정말로 브랜드 리스트에서\n" +
+                    "삭제하시겠습니까?",{
                 removeItem(brandData)
-                dialog.dismiss()
-            }
+            },{
+
+            })
 
             // 다이얼로그 표시
             dialog.show()

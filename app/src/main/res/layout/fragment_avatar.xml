@@ -22,12 +22,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
             <ImageView
                 android:id="@+id/avatar_base_avatar_skin"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:src="@drawable/no1_item_skin" />
-
 
             <ImageView
                 android:id="@+id/avatar_base_avatar_pants"
