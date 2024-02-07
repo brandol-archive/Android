@@ -1,11 +1,15 @@
 package com.example.brandol
 
+import LoginStartActivity
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.kakao.sdk.user.UserApiClient
+import android.util.Log
+import android.content.Intent
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
@@ -57,6 +61,19 @@ class MypageFragment : Fragment() {
             val dialog = CustomLogoutDialog(
                 context!!, "로그아웃 하시겠습니까?",
                 {
+                    UserApiClient.instance.logout { error ->
+                        if (error != null) {
+                            Log.d("카카오", "카카오 로그아웃 실패")
+                        } else {
+                            Log.d("카카오", "카카오 로그아웃 성공!")
+
+                            // 로그아웃 성공 시 LoginActivity로 이동
+                            val intent = Intent(context, LoginStartActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                            activity?.finish()
+                        }
+                    }
                     activity?.finish()
                 },
                 {
