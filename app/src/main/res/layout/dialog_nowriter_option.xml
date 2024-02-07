@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/dialog_rewrite_btn"
+        android:id="@+id/dialog_sendmessage_btn"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:text="메시지 보내기"
@@ -23,7 +23,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/dialog_delete_btn"
+        android:id="@+id/dialog_report_btn"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:text="신고"

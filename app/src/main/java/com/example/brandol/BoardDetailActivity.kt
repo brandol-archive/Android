@@ -10,12 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.brandol.databinding.ActivityBoardDetailBinding
+import com.example.brandol.databinding.ItemComcommentBinding
+import com.example.brandol.databinding.ItemCommentBinding
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
 
 class BoardDetailActivity : AppCompatActivity() {
     lateinit var binding: ActivityBoardDetailBinding
+    lateinit var _binding: ItemCommentBinding
+    lateinit var __binding: ItemComcommentBinding
     val myemail : String = "ww"
     private var userComment = ArrayList<Usercomment>()
     private val adapterForComment = DetailCommentRVAdapter(userComment, myemail)
@@ -71,10 +75,12 @@ class BoardDetailActivity : AppCompatActivity() {
         goBack()
         //더보기
         moreOption()
+        commentMoreOPtion()
         //글 작성자 아이디 색상 변경
         isWriter()
         //사진이 있을 경우 보여주기
         showPostImage()
+
     }
 
     private fun goBack() {
@@ -122,6 +128,7 @@ class BoardDetailActivity : AppCompatActivity() {
 
     private fun showPostImage() {
         val imageCount = intent.getIntExtra("imageCount", 0)
+
         if (imageCount == 1) {
             // 이미지의 개수가 1개인 경우
             binding.detailOneimageIv.visibility = View.VISIBLE
@@ -129,6 +136,7 @@ class BoardDetailActivity : AppCompatActivity() {
         } else if (imageCount >= 2) {
             // 이미지의 개수가 2개 이상인 경우
             binding.detailTwomoreimageRv.visibility = View.VISIBLE
+
             // item_detail_image.xml의 itemlist를 사용하여 이미지를 보여줍니다.
             for (i in 0 until imageCount) {
                 // item_detail_image.xml을 인플레이션하여 item을 생성합니다.
@@ -144,6 +152,47 @@ class BoardDetailActivity : AppCompatActivity() {
     }
 
     private fun commentMoreOPtion() {
-        //val isCommentWriter = userComment.any { it.userEmail == myemail }
+        //댓글 더보기 클릭 시 커스텀 dialog 띄우기
+        val isCommentWriter = userComment.any { it.userEmail == myemail }  //추후 댓글 작성자 이메일과 비교로 변경
+        val isComcommentWriter = userComment.any { it.userEmail == myemail }  //추후 대댓글 작성자 이메일과 비교로 변경
+
+        _binding.itemMoreBtn.setOnClickListener {
+            // 다이얼로그 인플레이션
+            val inflater = LayoutInflater.from(this)
+            val dialogView = if (isCommentWriter) {
+                // 댓글 작성자인 경우
+                inflater.inflate(R.layout.dialog_delete_comment, null)
+            } else {
+                // 댓글 작성자가 아닌 경우
+                inflater.inflate(R.layout.dialog_nowriter_option, null)
+            }
+
+            // AlertDialog.Builder를 사용하여 다이얼로그 생성
+            val builder = AlertDialog.Builder(this)
+            builder.setView(dialogView)
+            val dialog = builder.create()
+
+            // 다이얼로그 보이기
+            dialog.show()
+        }
+        //대댓글 더보기 버튼 클릭 시
+        __binding.itemComcomentMoreBtn.setOnClickListener {
+            val inflater = LayoutInflater.from(this)
+            val dialogView = if (isComcommentWriter) {
+                // 댓글 작성자인 경우
+                inflater.inflate(R.layout.dialog_delete_comment, null)
+            } else {
+                // 댓글 작성자가 아닌 경우
+                inflater.inflate(R.layout.dialog_nowriter_option, null)  //dialog 수정해야 함
+            }
+
+            // AlertDialog.Builder를 사용하여 다이얼로그 생성
+            val builder = AlertDialog.Builder(this)
+            builder.setView(dialogView)
+            val dialog = builder.create()
+
+            // 다이얼로그 보이기
+            dialog.show()
+        }
     }
 }
