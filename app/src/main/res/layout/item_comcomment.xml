@@ -99,6 +99,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/item_comcoment_btn"
                 android:layout_width="8dp"
                 android:layout_height="8dp"
                 android:layout_marginTop="4dp"
@@ -116,6 +117,7 @@
                 android:layout_marginBottom="5dp" />
 
             <ImageButton
+                android:id="@+id/item_like_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_comment_like"
@@ -134,6 +136,7 @@
                 android:layout_marginBottom="5dp" />
 
             <ImageButton
+                android:id="@+id/item_comcoment_more_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_comment_more"
