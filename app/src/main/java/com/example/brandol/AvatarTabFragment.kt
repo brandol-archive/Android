@@ -101,6 +101,7 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
         binding.avatartabItemlistRv.adapter =avatarAdapter
         avatarAdapter.notifyDataSetChanged()
     }
+
     companion object {
         fun newInstance(category: String): AvatarTabFragment {
             var fragment = AvatarTabFragment()
