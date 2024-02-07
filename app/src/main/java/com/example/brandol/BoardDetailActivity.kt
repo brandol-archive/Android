@@ -142,4 +142,8 @@ class BoardDetailActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun commentMoreOPtion() {
+        //val isCommentWriter = userComment.any { it.userEmail == myemail }
+    }
 }
