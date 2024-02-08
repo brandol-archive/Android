@@ -70,13 +70,54 @@ class SignupNicknameActivity : AppCompatActivity() {
                 } else if (user != null) {
                     Log.d("LHJ", "사용자 정보 요청 성공")
                     val email = user.kakaoAccount?.email
-                    val termIdlist : List<Long> = listOf(1,2,3,4,5,6)
-                    val nickName = "ggggg"
-                    val gender = "MALE"
-                    val age : Short = 23
-                    signupServer(email, termIdlist, nickName, gender, age)
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    Log.d("LHJ",email.toString())
+                    val termsIdList : List<Long> = listOf<Long>(1, 2, 3, 4, 5, 6)
+                    Log.d("LHJ",termsIdList.toString())
+                    val nickname : String= "hoho"
+                    Log.d("LHJ",nickname.toString())
+                    val gender : String = "MALE"
+                    val age = 23
+
+                    val call = RetrofitObject.getRetrofitService.signup(
+                        RetrofitClient2.RequestSignup(
+                            "test@test", termsIdList , "test1", "MALE", 23
+                        )
+                    )
+                    call.enqueue(object : Callback<RetrofitClient2.ResponseSignup> {
+                        override fun onResponse(
+                            call: Call<RetrofitClient2.ResponseSignup>,
+                            response: Response<RetrofitClient2.ResponseSignup>
+                        ) {
+                            Log.d("LHJ", response.toString())
+                            if (response.isSuccessful) {
+                                val response = response.body()
+                                Log.d("LHJ", response.toString())
+                                if (response != null) {
+                                    if (response.isSuccess) {
+                                        Log.d("LHJ", response.toString())
+                                        val memberId = response.result.memberId
+                                        val signUp = response.result.signUp
+                                    } else {
+                                        Toast.makeText(
+                                            this@SignupNicknameActivity,
+                                            response.message,
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                            }else{
+                                Log.d("LHJ",response.toString())
+                            }
+                        }
+
+                        override fun onFailure(
+                            call:
+                            Call<RetrofitClient2.ResponseSignup>, t: Throwable
+                        ) {
+                            val errorMessage = "Call Failed: ${t.message}"
+                            Log.d("LHJ", errorMessage)
+                        }
+                    })
                 }
             }
 
@@ -101,49 +142,4 @@ class SignupNicknameActivity : AppCompatActivity() {
         binding.signUpNoB.visibility = android.view.View.VISIBLE
     }
 
-    private fun signupServer(
-        email: String?,
-        termIdlist: List<Long>,
-        nickName: String,
-        gender: String,
-        age: Short
-    ) {
-        val call = RetrofitObject.getRetrofitService.signup(
-            RetrofitClient2.RequestSignup(
-                email!!, termIdlist, nickName, gender, age
-            )
-        )
-        call.enqueue(object : Callback<RetrofitClient2.ResponseSignup> {
-            override fun onResponse(
-                call: Call<RetrofitClient2.ResponseSignup>,
-                response: Response<RetrofitClient2.ResponseSignup>
-            ) {
-                Log.d("LHJ", response.toString())
-                if (response.isSuccessful) {
-                    val response = response.body()
-                    Log.d("LHJ", response.toString())
-                    if (response != null) {
-                        if (response.isSuccess) {
-                            val memberId = response.result.memberId
-                            val signUp = response.result.signUp
-                        } else {
-                            Toast.makeText(
-                                this@SignupNicknameActivity,
-                                response.code,
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-                }
-            }
-
-            override fun onFailure(
-                call:
-                Call<RetrofitClient2.ResponseSignup>, t: Throwable
-            ) {
-                val errorMessage = "Call Failed: ${t.message}"
-                Log.d("LHJ", errorMessage)
-            }
-        })
-    }
 }

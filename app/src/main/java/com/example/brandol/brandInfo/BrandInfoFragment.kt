@@ -31,7 +31,7 @@ class BrandInfoFragment: Fragment() {
 
         initViewPager()
         //브랜드 배경 사진 및 로고 설정
-        binding.brandinfoBrandinfoLl.setImageResource(R.drawable.iv_brandinfo_ex)
+        binding.brandinfoBrandinfoLl.setBackgroundResource(R.drawable.iv_brandinfo_ex)
         binding.brandinfoBrandlogoIv.setImageResource(R.drawable.iv_brandlogo_ex)
 
         //브랜드 정보 관련 텍스트 설정
