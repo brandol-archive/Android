@@ -1,13 +1,11 @@
 //package com.example.brandol
-import PointDetailVPAdapter
-import android.graphics.Color
+import com.example.brandol.adaptor.VP.PointDetailVPAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.brandol.databinding.FragmentPointDetailBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class PointDetailFragment : Fragment() {

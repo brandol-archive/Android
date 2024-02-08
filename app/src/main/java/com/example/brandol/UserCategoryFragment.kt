@@ -1,6 +1,6 @@
 package com.example.brandol
 
-import UserCategoryAdapter
+import com.example.brandol.adaptor.UserCategoryAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.databinding.FragmentUserCategoryBinding
+import com.example.brandol.opavatar.OpponentAvatarActivity
 
 data class UserData(
     val userName: String,

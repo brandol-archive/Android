@@ -1,7 +1,6 @@
 package com.example.brandol
 
-import BrandButtonAdapter
-import android.content.Intent
+import com.example.brandol.adaptor.BrandButtonAdapter
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.brandol.brandInfo.BrandInfoFragment
 import com.example.brandol.databinding.FragmentHomeBinding
 
 
@@ -65,6 +65,17 @@ class HomeFragment : Fragment() {
             DummyData("빙그레", "행복한 맛!", "2번째 팬", R.drawable.img_binggrae),
             DummyData("배달의민족", "대한민국 1등 배달앱", "168번째 팬", R.drawable.img_baemin)
         )
+        //브랜드 클릭해서 brandInfoFragment로 화면 전환
+        adapter.itemClickListener = object : ItemClickListener {
+            override fun onItemClick(position: Int) {
+                //클릭한 아이템 정보를 가져와서 넘겨줌
+                val brand = dummyDataList[position]
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.main_frm, BrandInfoFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
 
         dummyDataList.forEach { dummyData ->
             adapter.addButton(dummyData)

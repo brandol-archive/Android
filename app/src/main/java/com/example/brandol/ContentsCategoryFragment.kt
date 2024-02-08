@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.adaptor.ContentCategoryAdapter
+import com.example.brandol.adaptor.ContentModel
 import com.example.brandol.databinding.FragmentContentsCategoryBinding
 
 class ContentsCategoryFragment : Fragment() {

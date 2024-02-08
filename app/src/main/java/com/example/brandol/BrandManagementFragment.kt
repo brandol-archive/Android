@@ -1,6 +1,6 @@
 package com.example.brandol
 
-import BrandListAdapter
+import com.example.brandol.adaptor.BrandListAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,16 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.collection.BrandData
 import com.example.brandol.databinding.FragmentBrandManagementBinding
 
 
 // BrandManagementFragment.kt
-
-data class BrandData(
-    val brandName: String,
-    val brandInfo: String,
-    val brandImageResourceId: Int
-)
 
 
 class BrandManagementFragment : Fragment() {
@@ -50,6 +45,7 @@ class BrandManagementFragment : Fragment() {
         // 어댑터 초기화 및 리사이클러뷰에 설정
         brandListAdapter = BrandListAdapter(mutableListOf())
         recyclerView.adapter = brandListAdapter
+
 
         // move_iv 클릭 동작 설정
         binding.btnBackBrandManagement.setOnClickListener {

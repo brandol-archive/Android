@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F4F4"
-    tools:context=".FandomFragment">
+    tools:context=".brandInfo.FandomFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:id="@+id/fandom_post1_cl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/post_background"
+            android:background="@drawable/object_default_background"
             android:layout_marginStart="9dp"
             android:layout_marginEnd="9dp"
             android:layout_marginTop="9dp"
@@ -202,7 +202,7 @@
             android:id="@+id/fandom_post2_cl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/post_background"
+            android:background="@drawable/object_default_background"
             android:layout_marginStart="9dp"
             android:layout_marginEnd="9dp"
             android:layout_marginTop="11dp"
@@ -389,7 +389,7 @@
             android:id="@+id/fandom_post3_cl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/post_background"
+            android:background="@drawable/object_default_background"
             android:layout_marginStart="9dp"
             android:layout_marginEnd="9dp"
             android:layout_marginTop="11dp"
@@ -553,7 +553,7 @@
             android:id="@+id/fandom_post4_cl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/post_background"
+            android:background="@drawable/object_default_background"
             android:layout_marginStart="9dp"
             android:layout_marginEnd="9dp"
             android:layout_marginTop="11dp"
