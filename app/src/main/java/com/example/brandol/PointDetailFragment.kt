@@ -34,5 +34,10 @@ class PointDetailFragment : Fragment() {
             tab.text = tabTitles[position]
         }.attach()
 
+        // 뒤로가기 버튼 클릭 시 Fragment를 닫습니다.
+        binding.pointUsePageBackIv.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+
     }
 }

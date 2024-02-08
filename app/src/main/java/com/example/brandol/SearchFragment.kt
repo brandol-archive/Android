@@ -42,16 +42,13 @@ class SearchFragment : Fragment() {
         // ViewPager2 초기화
         binding.catagoryContentVp.adapter = CategoryPagerAdapter(requireActivity())
 
-        // 검색 버튼 클릭 이벤트 처리
-       /* binding.btnSearchBarIb.setOnClickListener {
-            // SearchBarFragment로 직접 화면 전환
-            val searchBarFragment = SearchBarFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.btn_search_bar_ib, searchBarFragment)
-            //transaction.replace(R.id.btn_search_bar_Fl, searchBarFragment)
-            //transaction.addToBackStack(null)
+        binding.btnSearchBarIb.setOnClickListener {
+            // 서치바 클릭시 서치바 프레그먼트로 화면 전환
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm,SearchBarFragment())
+            transaction.addToBackStack(null)
             transaction.commit()
-        }*/
+        }
 
         return binding.root
         // Inflate the layout for this fragment
