@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.brandol.AvatarStoreTabFragment
+import com.example.brandol.adaptor.AvatarStoreAdapter
 import com.example.brandol.databinding.FragmentAvatarstoreCategoryBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator

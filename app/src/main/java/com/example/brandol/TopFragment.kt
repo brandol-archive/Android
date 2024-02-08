@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.adaptor.AvatarStoreItemAdapter
+import com.example.brandol.collection.ItemModel
 
 
 class TopFragment : Fragment() {
