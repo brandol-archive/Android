@@ -31,14 +31,14 @@ class RetrofitClient2 {
     data class RequestSignup(
         @SerializedName("email")
         val email: String,
-        @SerializedName("termsIdlist")
+        @SerializedName("termsIdList")
         val termsIdList: List<Long>,
         @SerializedName("nickname")
         val nickname : String,
         @SerializedName("gender")
         val gender : String,
         @SerializedName("age")
-        val age: Short
+        val age: Int
     )
 
     data class ResponseSignup(
@@ -54,7 +54,7 @@ class RetrofitClient2 {
 
     data class SignupResult(
         @SerializedName("memberId")
-        val memberId: Int,
+        val memberId: Long,
         @SerializedName("signUp")
         val signUp: Boolean
     )
