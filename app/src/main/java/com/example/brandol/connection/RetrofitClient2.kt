@@ -34,9 +34,9 @@ class RetrofitClient2 {
         @SerializedName("termsIdList")
         val termsIdList: List<Long>,
         @SerializedName("nickname")
-        val nickname : String,
+        val nickname: String,
         @SerializedName("gender")
-        val gender : String,
+        val gender: String,
         @SerializedName("age")
         val age: Int
     )
@@ -58,4 +58,41 @@ class RetrofitClient2 {
         @SerializedName("signUp")
         val signUp: Boolean
     )
+
+    data class ResponseMyItem(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: ItemResult
+    )
+
+    data class ItemResult(
+        @SerializedName("myItemId")
+        val myItemId: Long,
+        @SerializedName("itemId")
+        val itemId: Long,
+        @SerializedName("brandId")
+        val brandId: Long,
+        @SerializedName("brandName")
+        val brandName : String,
+        @SerializedName("itemName")
+        val itemName : String,
+        @SerializedName("part")
+        val part : String,
+        @SerializedName("description")
+        val description : String,
+        @SerializedName("image")
+        val image : String,
+        @SerializedName("price")
+        val price : Int,
+        @SerializedName("createdAt")
+        val createdAt : String,
+        @SerializedName("wearing")
+        val wearing : Boolean,
+    )
+
 }

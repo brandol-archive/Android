@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         //바텀 네비게이션
         initBottomnavigation()
+
     }
 
     private fun loadUserInfo() {
