@@ -1,5 +1,6 @@
 package com.example.brandol.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -129,8 +130,9 @@ class LoginStartActivity : AppCompatActivity() {
                     Log.d("LHJ", response.toString())
                     if (response != null) {
                         if (response.isSuccess) {
-                            val token = response.result.accessToken
-                            val refreshtoken = response.result.refreshToken
+                            val accessToken = response.result.accessToken
+                            val refreshToken = response.result.refreshToken
+                            saveTokenInfo(this@LoginStartActivity,accessToken,refreshToken)
                             val intent = Intent(this@LoginStartActivity, MainActivity::class.java)
                             startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             finish()
@@ -163,10 +165,20 @@ class LoginStartActivity : AppCompatActivity() {
                 Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
             } else if (tokenInfo != null) {
                 Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                finish()
+//                val intent = Intent(this, MainActivity::class.java)
+//                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+//                finish()
             }
+        }
+    }
+    private fun saveTokenInfo(context: Context, accessToken: String?,refreshtoken:String?)
+    {
+        val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            accessToken?.let { putString("accessToken", it) }
+            Log.d("LHJ",accessToken.toString())
+            refreshtoken?.let { putString("refreshtoken", it) }
+            apply()
         }
     }
 }

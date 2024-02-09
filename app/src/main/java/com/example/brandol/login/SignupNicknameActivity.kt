@@ -1,6 +1,7 @@
 // NicknameActivity.kt
 package com.example.brandol.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -73,57 +74,19 @@ class SignupNicknameActivity : AppCompatActivity() {
                     Log.d("LHJ",email.toString())
                     val termsIdList : List<Long> = listOf<Long>(1, 2, 3, 4, 5, 6)
                     Log.d("LHJ",termsIdList.toString())
-                    val nickname : String= "hoho"
-                    Log.d("LHJ",nickname.toString())
+                    val nickname : String= binding.nicknameEt.text.toString()
+                    Log.d("LHJ",nickname)
                     val gender : String = "MALE"
                     val age = 23
-
-                    val call = RetrofitObject.getRetrofitService.signup(
-                        RetrofitClient2.RequestSignup(
-                            "test@test", termsIdList , "test1", "MALE", 23
-                        )
-                    )
-                    call.enqueue(object : Callback<RetrofitClient2.ResponseSignup> {
-                        override fun onResponse(
-                            call: Call<RetrofitClient2.ResponseSignup>,
-                            response: Response<RetrofitClient2.ResponseSignup>
-                        ) {
-                            Log.d("LHJ", response.toString())
-                            if (response.isSuccessful) {
-                                val response = response.body()
-                                Log.d("LHJ", response.toString())
-                                if (response != null) {
-                                    if (response.isSuccess) {
-                                        Log.d("LHJ", response.toString())
-                                        val memberId = response.result.memberId
-                                        val signUp = response.result.signUp
-                                    } else {
-                                        Toast.makeText(
-                                            this@SignupNicknameActivity,
-                                            response.message,
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                }
-                            }else{
-                                Log.d("LHJ",response.toString())
-                            }
-                        }
-
-                        override fun onFailure(
-                            call:
-                            Call<RetrofitClient2.ResponseSignup>, t: Throwable
-                        ) {
-                            val errorMessage = "Call Failed: ${t.message}"
-                            Log.d("LHJ", errorMessage)
-                        }
-                    })
+                    signupServer(email, termsIdList, nickname, gender, age)
+                    val intent = Intent(this@SignupNicknameActivity, LoginStartActivity::class.java)
+                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                    finish()
                 }
             }
 
-
-
         }
+
         // 에딧텍스트 클릭 시 힌트 텍스트 삭제
         binding.nicknameEt.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
@@ -141,5 +104,65 @@ class SignupNicknameActivity : AppCompatActivity() {
         binding.signUpOkB.visibility = android.view.View.GONE
         binding.signUpNoB.visibility = android.view.View.VISIBLE
     }
+
+    private fun signupServer(
+        email: String?,
+        termsIdList: List<Long>,
+        nickname: String,
+        gender: String,
+        age: Int
+    ) {
+        val call = RetrofitObject.getRetrofitService.signup(
+            RetrofitClient2.RequestSignup(
+                email!!, termsIdList, nickname, gender, age
+            )
+        )
+        call.enqueue(object : Callback<RetrofitClient2.ResponseSignup> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseSignup>,
+                response: Response<RetrofitClient2.ResponseSignup>
+            ) {
+                Log.d("LHJ", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("LHJ", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            Log.d("LHJ", response.toString())
+                            val memberId = response.result.memberId
+                            val signUp = response.result.signUp
+                            saveMemberInfo(this@SignupNicknameActivity,memberId,signUp)
+                        } else {
+                            Toast.makeText(
+                                this@SignupNicknameActivity,
+                                response.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                } else {
+                    Log.d("LHJ", response.toString())
+                }
+            }
+
+            override fun onFailure(
+                call:
+                Call<RetrofitClient2.ResponseSignup>, t: Throwable
+            ) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.d("LHJ", errorMessage)
+            }
+        })
+    }
+    private fun saveMemberInfo(context: Context, memberId: Long?,signUp: Boolean? )
+    {
+        val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            memberId?.let { putLong("memberId", it) }
+            signUp?.let { putBoolean("signUp", it) }
+            apply()
+        }
+    }
+
 
 }
