@@ -1,16 +1,26 @@
 package com.example.brandol
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.telecom.Call
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.brandol.adaptor.SearchPagerAdapter
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitClient2.*
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentSearchBarBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import okhttp3.Response
+import javax.security.auth.callback.Callback
 
 class SearchBarFragment : Fragment() {
 
@@ -67,5 +77,44 @@ class SearchBarFragment : Fragment() {
 
         return binding.root
     }
+    private fun getCurrentToken(context: Context): String?{
+        val sharedPref = context.getSharedPreferences("Brandol", AppCompatActivity.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
+
+    /*
+    private fun searchMain() {
+        val token = getCurrentToken(requireContext())
+
+        val call = RetrofitObject.getRetrofitService.getSearchMain("Bearer $token")
+        call.enqueue(object : Callback<RetrofitClient2.ResponseSearchMain>{
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseSearchMain>,
+                response: Response<RetrofitClient2.ResponseSearchMain?>
+            ) {
+                Log.d("sh", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("sh", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            Log.d("sh", response.result.toString())
+
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(
+                call: Call<RetrofitClient2.ResponseSearchMain>,
+                t: Throwable
+            ) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.e("sh", errorMessage)
+            }
+        })
+    }*/
+
+
 }
 
