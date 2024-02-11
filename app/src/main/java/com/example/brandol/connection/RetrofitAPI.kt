@@ -3,6 +3,7 @@ package com.example.brandol.connection
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface RetrofitAPI {
@@ -13,4 +14,9 @@ interface RetrofitAPI {
 
     @GET("/avatar/myitems")
     fun getMyitem()
+
+    @GET("/search/main")
+    fun getSearchMain(@Header("Authorization")token:String): Call<RetrofitClient2.ResponseSearchMain>
+
+
 }
