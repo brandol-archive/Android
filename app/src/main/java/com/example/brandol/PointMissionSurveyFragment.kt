@@ -85,12 +85,13 @@ class PointMissionSurveyFragment : Fragment() {
 
     private fun areAllQuestionsAnswered(): Boolean {
         val isQ1Answered = binding.q1MissionO.isChecked || binding.q1MissionX.isChecked
-        val isQ2Answered = /* Add your check for Q2, for example: */ !binding.q2Edittext.text.isNullOrEmpty()
+        //val isQ2Answered = /* Add your check for Q2, for example: */ !binding.q2Edittext.text.isNullOrEmpty()
         val isQ3Answered = binding.q31stB.isChecked || binding.q32ndB.isChecked || binding.q33rdB.isChecked
 
         // Add similar checks for other questions...
 
-        return isQ1Answered && isQ2Answered && isQ3Answered /* Add other question checks... */
+        //return isQ1Answered && isQ2Answered && isQ3Answered /* Add other question checks... */
+        return isQ1Answered  && isQ3Answered
     }
 
 }
