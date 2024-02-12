@@ -92,6 +92,7 @@ class LoginStartActivity : AppCompatActivity() {
                         val email = "test"
                         val name = "호지니"
                         //이메일 이름 보내서 서버와 연결
+                        Log.d("email", email.toString())
                         loginServer(email!!, name!!)
 
                     }

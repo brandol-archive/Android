@@ -3,6 +3,7 @@ package com.example.brandol
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.brandol.Home.HomeFragment
 import com.example.brandol.avatar.AvatarFragment
 import com.example.brandol.databinding.ActivityMainBinding
 import com.example.brandol.mypage.MypageFragment
