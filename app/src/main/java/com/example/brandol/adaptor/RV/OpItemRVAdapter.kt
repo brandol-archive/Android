@@ -8,10 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.ItemClickListener
-import com.example.brandol.collection.ItemModel2
+import com.example.brandol.collection.ItemModel
 import com.example.brandol.R
 
-class OpItemRVAdapter(private val opItemList: List<ItemModel2>) :
+class OpItemRVAdapter(private val opItemList: List<ItemModel>) :
     RecyclerView.Adapter<OpItemRVAdapter.ItemViewHolder>() {
     var itemClickListener: ItemClickListener? = null
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
