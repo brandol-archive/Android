@@ -10,7 +10,7 @@ class AvatarVPAdapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
-    val tabElement = arrayOf("전체", "헤어", "피부", "상의", "하의", "신발")
+    val tabElement = arrayOf("전체", "피부", "헤어", "상의", "하의", "신발")
     //CategoryFragment 전환에 사용.
     override fun getItemCount(): Int {
         return 6  // 탭의 수에 맞게 조절

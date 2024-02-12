@@ -39,7 +39,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/dialog_brand_name_tv"
+                    android:id="@+id/dialog_item_brandName_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="실리카겔"
@@ -82,11 +82,11 @@
                     android:layout_height="wrap_content"
                     android:text="분류:"
                     android:textColor="@color/white"
-
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/dialog_item_part_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="피부"
@@ -105,11 +105,11 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/dialog_item_price_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100"
                     android:textColor="@color/white"
-
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
