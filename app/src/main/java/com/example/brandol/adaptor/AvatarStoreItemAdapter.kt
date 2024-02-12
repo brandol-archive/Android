@@ -13,11 +13,11 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.brandol.collection.ItemModel2
+import com.example.brandol.collection.ItemModel
 import com.example.brandol.R
 
 
-class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.ViewHolder>(
+class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.ViewHolder>(
     ItemModelDiffCallback()
 ) {
 
@@ -54,7 +54,7 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.Vi
         }
     }
 
-    private fun showDialog(currentItem: ItemModel2, itemView: View) {
+    private fun showDialog(currentItem: ItemModel, itemView: View) {
         val context = itemView.context
 
         // 다이얼로그를 직접 생성하고 커스텀 레이아웃 설정
@@ -89,7 +89,7 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.Vi
         dialog.show()
     }
 
-    private fun showPurchaseDialog(currentItem: ItemModel2, itemView: View) {
+    private fun showPurchaseDialog(currentItem: ItemModel, itemView: View) {
         val context = itemView.context
 
         // 다이얼로그를 직접 생성하고 커스텀 레이아웃 설정
@@ -121,12 +121,12 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.Vi
     }
 }
 
-class ItemModelDiffCallback : DiffUtil.ItemCallback<ItemModel2>() {
-    override fun areItemsTheSame(oldItem: ItemModel2, newItem: ItemModel2): Boolean {
+class ItemModelDiffCallback : DiffUtil.ItemCallback<ItemModel>() {
+    override fun areItemsTheSame(oldItem: ItemModel, newItem: ItemModel): Boolean {
         return oldItem.itemName == newItem.itemName
     }
 
-    override fun areContentsTheSame(oldItem: ItemModel2, newItem: ItemModel2): Boolean {
+    override fun areContentsTheSame(oldItem: ItemModel, newItem: ItemModel): Boolean {
         return oldItem == newItem
     }
 }
