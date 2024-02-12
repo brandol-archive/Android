@@ -1,3 +1,5 @@
+package com.example.brandol.searchCategory
+
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -7,25 +9,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.brandol.adaptor.BrandCategoryAdapter
+import com.example.brandol.adaptor.ContentCategoryAdapter
+import com.example.brandol.adaptor.ContentModel
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
-import com.example.brandol.databinding.FragmentBrandCategoryBinding
+import com.example.brandol.databinding.FragmentContentsCategoryBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BrandCategoryFragment : Fragment() {
+class ContentsCategoryFragment : Fragment() {
 
+    private lateinit var contentAdapter: ContentCategoryAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: BrandCategoryAdapter
-    private lateinit var binding: FragmentBrandCategoryBinding
+    private lateinit var binding: FragmentContentsCategoryBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentBrandCategoryBinding.inflate(inflater, container, false)
+        binding = FragmentContentsCategoryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,17 +37,14 @@ class BrandCategoryFragment : Fragment() {
         return sharedPref.getString("accessToken", null)
     }
 
-
-    private fun getBrandCategoryData() {
+    private fun getContentsCategoryData() {
         val token = getCurrentToken(requireContext())
-        val call = RetrofitObject.getRetrofitService.searchDetailBrands("Bearer $token")
-        Log.d("ikj", "good__1")
-        call.enqueue(object : Callback<RetrofitClient2.SearchDetailBrands> {
+        val call = RetrofitObject.getRetrofitService.searchDetailContents("Bearer $token")
+        call.enqueue(object : Callback<RetrofitClient2.SearchDetailContents> {
             override fun onResponse(
-                call: Call<RetrofitClient2.SearchDetailBrands>,
-                response: Response<RetrofitClient2.SearchDetailBrands>
+                call: Call<RetrofitClient2.SearchDetailContents>,
+                response: Response<RetrofitClient2.SearchDetailContents>
             ) {
-                Log.d("ikj", "good__2")
                 Log.d("ikj", response.toString())
                 if (response.isSuccessful) {
                     val response = response.body()
@@ -59,7 +59,7 @@ class BrandCategoryFragment : Fragment() {
 
                 }
             }
-            override fun onFailure(call: Call<RetrofitClient2.SearchDetailBrands>, t: Throwable) {
+            override fun onFailure(call: Call<RetrofitClient2.SearchDetailContents>, t: Throwable) {
                 val errorMessage = "Call Failed: ${t.message}"
                 Log.d("ikj", errorMessage)
             }
@@ -70,27 +70,30 @@ class BrandCategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // 더미 데이터 생성
+        val dummyDataList = generateDummyData()
+
         // RecyclerView 초기화
-        recyclerView = binding.brandCategotyRv
+        contentAdapter = ContentCategoryAdapter(dummyDataList)
+        recyclerView = binding.contentsCategotyRv
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = contentAdapter
 
-        // Adapter 초기화
-        adapter = BrandCategoryAdapter()
-        recyclerView.adapter = adapter
-
-        // 서버에서 브랜드 데이터 가져오기
-        //getBrandCategoryData()
-
-
-        // RecyclerView에 더미 데이터 추가
-        for (i in 1..10) {
-            adapter.addItem("Brand $i") // BrandCategoryAdapter에 addItem 메서드가 있다고 가정
-        }
-
-        // move_iv 클릭 동작 설정
-        binding.btnBackBrandCategory.setOnClickListener {
+        binding.btnBackContentsCategory.setOnClickListener {
             // 이전 화면으로 돌아가기
             requireActivity().supportFragmentManager.popBackStack()
         }
+
+        getContentsCategoryData()
+    }
+
+
+    private fun generateDummyData(): List<ContentModel> {
+        return listOf(
+            ContentModel("BRANDOL", "게시물 제목", "브랜드 추구 방향성, 문화 \n" + "최근 게시글이 들어감글글글글글", "2023.12.10"),
+            ContentModel("Brand1", "Post Title 1", "Post Content 1", "0000.00.00"),
+            ContentModel("Brand2", "Post Title 2", "Post Content 2", "0000.00.00"),
+            // Add more dummy data as needed
+        )
     }
 }

@@ -1,3 +1,5 @@
+package com.example.brandol.searchCategory
+
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.example.brandol.AvatarStoreTabFragment
 import com.example.brandol.adaptor.AvatarStoreAdapter
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
@@ -40,16 +41,16 @@ class AvatarStoreCategoryFragment : Fragment() {
 
     private fun getUserAvatarAndPointsData() {
         val token = getCurrentToken(requireContext())
-        val call = RetrofitObject.getRetrofitService.getUserAvatarAndPoints("Bearer $token")
-        call.enqueue(object : Callback<RetrofitClient2.GetUserAvatarAndPoints> {
+        val call = RetrofitObject.getRetrofitService.searchDetailUserAvatarAndPoints("Bearer $token")
+        call.enqueue(object : Callback<RetrofitClient2.SearchDetailUserAvatarAndPoints> {
             override fun onResponse(
-                call: Call<RetrofitClient2.GetUserAvatarAndPoints>,
-                response: Response<RetrofitClient2.GetUserAvatarAndPoints>
+                call: Call<RetrofitClient2.SearchDetailUserAvatarAndPoints>,
+                response: Response<RetrofitClient2.SearchDetailUserAvatarAndPoints>
             ) {
                 Log.d("ikj", response.toString())
                 if (response.isSuccessful) {
                     val responseData = response.body()
-                    Log.d("ikj_avatarstore", responseData.toString())
+                    Log.d("ikj", responseData.toString())
                     if (responseData != null && responseData.isSuccess) {
                         // 서버에서 받아온 아바타 이미지를 ImageView에 설정
                         Glide.with(requireContext()).load(responseData.result.memberAvatar)
@@ -60,9 +61,9 @@ class AvatarStoreCategoryFragment : Fragment() {
                     }
                 }
             }
-            override fun onFailure(call: Call<RetrofitClient2.GetUserAvatarAndPoints>, t: Throwable) {
+            override fun onFailure(call: Call<RetrofitClient2.SearchDetailUserAvatarAndPoints>, t: Throwable) {
                 val errorMessage = "Call Failed: ${t.message}"
-                Log.d("ikj_avatarstore", errorMessage)
+                Log.d("ikj", errorMessage)
             }
 
         })
