@@ -107,6 +107,7 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
         var avatarAdapter = AvatarRVAdapter(itemList, this)
         binding.avatartabItemlistRv.adapter =avatarAdapter
         avatarAdapter.notifyDataSetChanged()
+
     }
 
     private fun getCurrentToken(context: Context): String?{
