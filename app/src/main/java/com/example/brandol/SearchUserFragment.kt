@@ -1,11 +1,19 @@
 package com.example.brandol
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentSearchUserBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SearchUserFragment : Fragment() {
     lateinit var binding : FragmentSearchUserBinding
@@ -17,6 +25,48 @@ class SearchUserFragment : Fragment() {
     ): View? {
         binding = FragmentSearchUserBinding.inflate(inflater,container,false)
 
+        searchMain()
+
         return binding.root
+    }
+
+    private fun getCurrentToken(context: Context): String?{
+        val sharedPref = context.getSharedPreferences("Brandol", AppCompatActivity.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
+
+
+    private fun searchMain() {
+        val token = getCurrentToken(requireContext())
+
+        val call = RetrofitObject.getRetrofitService.getSearchMain("Bearer $token")
+        Log.d("search_users", "good_1")
+        call.enqueue(object : Callback<RetrofitClient2.ResponseSearchMain> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseSearchMain>,
+                response: Response<RetrofitClient2.ResponseSearchMain?>
+            ) {
+                Log.d("search_users", "good_2")
+                Log.d("search_users", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("search_users", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            Log.d("search_users", response.result.toString())
+
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(
+                call: Call<RetrofitClient2.ResponseSearchMain>,
+                t: Throwable
+            ) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.e("sseohyeonn", errorMessage)
+            }
+        })
     }
 }

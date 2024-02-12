@@ -36,16 +36,17 @@
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             android:layout_height="450dp"
-            android:src="@drawable/object_default_background"/>
+            android:background="@drawable/img_point_mission_add_brandlist" />
 
         <TextView
             android:id="@+id/mission1_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="11dp"
             android:text="브랜드 리스트에 BRANDOL를 추가하면"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="18dp"/>
 
         <TextView
@@ -59,7 +60,9 @@
         
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <ImageView
                 android:id="@+id/point_mission_before_ib"
