@@ -71,6 +71,7 @@ class SignupNicknameActivity : AppCompatActivity() {
                 } else if (user != null) {
                     Log.d("LHJ", "사용자 정보 요청 성공")
                     val email = user.kakaoAccount?.email
+                    //val email = "j@gmail.com"
                     Log.d("LHJ",email.toString())
                     val termsIdList : List<Long> = listOf<Long>(1, 2, 3, 4, 5, 6)
                     Log.d("LHJ",termsIdList.toString())

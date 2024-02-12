@@ -74,7 +74,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="28dp"
                     android:layout_marginStart="135dp"
                     android:src="@drawable/img_line_l"/>
 
@@ -82,7 +82,7 @@
                     android:id="@+id/brand_name1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginStart="145dp"
                     android:text="BRANDOL"
                     android:textSize="11dp"
@@ -92,7 +92,7 @@
                     android:id="@+id/brand_name1_detail_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="38dp"
+                    android:layout_marginTop="45dp"
                     android:layout_marginStart="145dp"
                     android:text="브랜드 팬덤 커뮤니티"
                     android:textSize="11dp"
@@ -229,7 +229,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="315dp"
+                android:layout_marginStart="327dp"
                 android:src="@drawable/img_plus"
                 app:layout_constraintStart_toEndOf="@id/user_catagory_tv"
                 app:layout_constraintEnd_toEndOf="parent" />
