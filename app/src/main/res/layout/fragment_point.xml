@@ -78,7 +78,7 @@
                 android:id="@+id/point_use_iv"
                 android:layout_width="25dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="200dp"
+                android:layout_marginStart="205dp"
                 android:src="@drawable/btn_point_use" />
 
         </LinearLayout>
