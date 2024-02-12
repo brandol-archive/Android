@@ -59,7 +59,7 @@
         android:layout_marginStart="7dp"
         android:layout_marginTop="5dp"
         android:text="FAN : "
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/brandinfo_brand_cv"
@@ -72,7 +72,7 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="5dp"
         android:text="-"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/brandinfo_fancnt_tv"
@@ -85,7 +85,7 @@
         android:layout_marginStart="7dp"
         android:layout_marginTop="4dp"
         android:text="한 줄 소개, 카피"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/brandinfo_brand_cv"
         app:layout_constraintTop_toBottomOf="@+id/brandinfo_fancnt_tv" />
@@ -97,7 +97,7 @@
         android:layout_marginStart="7dp"
         android:layout_marginTop="6dp"
         android:text="브랜드 명"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/brandinfo_brand_cv"
         app:layout_constraintTop_toBottomOf="@+id/brandinfo_brandintro_tv" />
@@ -146,7 +146,7 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/brandinfo_category_vp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="480dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/brandinfo_categorynav_tl" />

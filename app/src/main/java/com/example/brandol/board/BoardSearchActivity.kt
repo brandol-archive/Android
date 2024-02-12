@@ -1,7 +1,8 @@
-package com.example.brandol
+package com.example.brandol.board
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.brandol.R
 import com.example.brandol.databinding.ActivityBoardSearchBinding
 import com.example.brandol.databinding.ItemBoardBinding
 
