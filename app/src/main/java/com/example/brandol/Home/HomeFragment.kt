@@ -1,6 +1,6 @@
 package com.example.brandol.Home
 
-import BrandCategoryFragment
+import com.example.brandol.searchCategory.BrandCategoryFragment
 import com.example.brandol.adaptor.BrandButtonAdapter
 import android.graphics.Paint
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.brandol.Home.BrandManagementFragment
 import com.example.brandol.ItemClickListener
 import com.example.brandol.R
 import com.example.brandol.brandInfo.BrandInfoFragment

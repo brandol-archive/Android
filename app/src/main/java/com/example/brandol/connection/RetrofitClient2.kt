@@ -183,6 +183,17 @@ class RetrofitClient2 {
         val sequence: Int
     )
 
+    data class UnsubscribeBrand(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: String
+    )
+
     data class SearchDetailBrands(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
@@ -213,7 +224,7 @@ class RetrofitClient2 {
     )
 
 
-    data class GetUserAvatarAndPoints(
+    data class SearchDetailUser(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
         @SerializedName("code")
@@ -221,10 +232,74 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: GetUserAvatarAndPointsResult
+        val result: SearchDetailUserResult
     )
 
-    data class GetUserAvatarAndPointsResult(
+    data class SearchDetailUserResult(
+        @SerializedName("searchDetailUserDto")
+        val searchDetailUserDto: List<SearchDetailUserDto>
+    )
+
+    data class SearchDetailUserDto(
+        @SerializedName("userId")
+        val userId: Int,
+        @SerializedName("userName")
+        val userName: String,
+        @SerializedName("userAvatar")
+        val userAvatar: String
+    )
+
+    data class SearchDetailContents(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: SearchDetailContentsResult
+    )
+
+    data class SearchDetailContentsResult(
+        @SerializedName("searchDetailContentsDto")
+        val searchDetailContentsDto: List<SearchDetailContentsDto>
+    )
+
+    data class SearchDetailContentsDto(
+        @SerializedName("contentsId")
+        val contentsId: Int,
+        @SerializedName("contentsTitle")
+        val contentsTitle: String,
+        @SerializedName("content")
+        val content: String,
+        @SerializedName("images")
+        val images: List<String>,
+        @SerializedName("likeCount")
+        val likeCount: Int,
+        @SerializedName("commentCount")
+        val commentCount: Int,
+        @SerializedName("writerId")
+        val writerId: Int,
+        @SerializedName("writerName")
+        val writerName: String,
+        @SerializedName("writerProfile")
+        val writerProfile: String,
+        @SerializedName("createdDate")
+        val createdDate: String
+    )
+
+    data class SearchDetailUserAvatarAndPoints(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: SearchDetailUserAvatarAndPointsResult
+    )
+
+    data class SearchDetailUserAvatarAndPointsResult(
         @SerializedName("memberId")
         val memberId: Int,
         @SerializedName("memberAvatar")
@@ -233,7 +308,7 @@ class RetrofitClient2 {
         val memberPoints: Int
     )
 
-    data class UnsubscribeBrand(
+    data class SearchDetailAvatarStoreBody(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
         @SerializedName("code")
@@ -241,7 +316,29 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: String
+        val result: SearchDetailAvatarStoreBodyResult
+    )
+
+    data class SearchDetailAvatarStoreBodyResult(
+        @SerializedName("searchDetailAvatarStoreBodyDto")
+        val searchDetailAvatarStoreBodyDto: List<SearchDetailAvatarStoreBodyDto>
+    )
+
+    data class SearchDetailAvatarStoreBodyDto(
+        @SerializedName("itemId")
+        val itemId: Int,
+        @SerializedName("itemsName")
+        val itemsName: String,
+        @SerializedName("itemPart")
+        val itemPart: String,
+        @SerializedName("brandName")
+        val brandName: String,
+        @SerializedName("itemImage")
+        val itemImage: String,
+        @SerializedName("itemDescription")
+        val itemDescription: String,
+        @SerializedName("itemPrice")
+        val itemPrice: Int
     )
 
 }

@@ -7,6 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface RetrofitAPI {
     @POST("/auth/login/kakao")
@@ -23,12 +24,22 @@ interface RetrofitAPI {
     @GET("/users/main")
     fun getHomeFragment(@Header("Authorization")token:String): Call<RetrofitClient2.GetHomeFragment>
 
-    @GET("/search/detail/brands")
-    fun searchDetailBrands(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailBrands>
-
-    @GET("/search/detail/avatar-store/header")
-    fun getUserAvatarAndPoints(@Header("Authorization")token:String): Call<RetrofitClient2.GetUserAvatarAndPoints>
 
     @POST("/users/my-board-list/unsubscribe/{brandId}")
     fun unsubscribeBrand(@Header("Authorization")token:String, @Path("brandId") brandId: Long): Call<RetrofitClient2.UnsubscribeBrand>
+
+    @GET("/search/detail/brands")
+    fun searchDetailBrands(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailBrands>
+
+    @GET("/search/detail/users")
+    fun searchDetailUser(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailUser>
+
+    @GET("/search/detail/contents")
+    fun searchDetailContents(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailContents>
+
+    @GET("/search/detail/avatar-store/header")
+    fun searchDetailUserAvatarAndPoints(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailUserAvatarAndPoints>
+
+    @GET("/search/detail/avatar-store/body")
+    fun searchDetailAvatarStoreBody(@Header("Authorization")token:String, @Query("itemPart") itemPart: String): Call<RetrofitClient2.SearchDetailAvatarStoreBody>
 }
