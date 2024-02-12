@@ -1,14 +1,22 @@
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.example.brandol.AvatarStoreTabFragment
 import com.example.brandol.adaptor.AvatarStoreAdapter
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentAvatarstoreCategoryBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AvatarStoreCategoryFragment : Fragment() {
 
@@ -19,7 +27,45 @@ class AvatarStoreCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAvatarstoreCategoryBinding.inflate(inflater, container, false)
+
+
+        getUserAvatarAndPointsData()
         return binding.root
+    }
+
+    private fun getCurrentToken(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
+
+    private fun getUserAvatarAndPointsData() {
+        val token = getCurrentToken(requireContext())
+        val call = RetrofitObject.getRetrofitService.getUserAvatarAndPoints("Bearer $token")
+        call.enqueue(object : Callback<RetrofitClient2.GetUserAvatarAndPoints> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.GetUserAvatarAndPoints>,
+                response: Response<RetrofitClient2.GetUserAvatarAndPoints>
+            ) {
+                Log.d("ikj", response.toString())
+                if (response.isSuccessful) {
+                    val responseData = response.body()
+                    Log.d("ikj_avatarstore", responseData.toString())
+                    if (responseData != null && responseData.isSuccess) {
+                        // 서버에서 받아온 아바타 이미지를 ImageView에 설정
+                        Glide.with(requireContext()).load(responseData.result.memberAvatar)
+                            .into(binding.characterIv)
+
+                        // 서버에서 받아온 포인트를 TextView에 설정
+                        binding.numPointTv.text = "${responseData.result.memberPoints}P"
+                    }
+                }
+            }
+            override fun onFailure(call: Call<RetrofitClient2.GetUserAvatarAndPoints>, t: Throwable) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.d("ikj_avatarstore", errorMessage)
+            }
+
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,16 +80,9 @@ class AvatarStoreCategoryFragment : Fragment() {
         adapter.addFragment(AvatarStoreTabFragment(), "전체")
         adapter.addFragment(AvatarStoreTabFragment(), "헤어")
         adapter.addFragment(AvatarStoreTabFragment(), "피부")
-        adapter.addFragment(AvatarStoreTabFragment(), "한 벌")
         adapter.addFragment(AvatarStoreTabFragment(), "상의")
         adapter.addFragment(AvatarStoreTabFragment(), "하의")
         adapter.addFragment(AvatarStoreTabFragment(), "신발")
-        adapter.addFragment(AvatarStoreTabFragment(), "배경")
-//        adapter.addFragment(OverallFragment(), "전체")
-//        adapter.addFragment(HairFragment(), "헤어")
-//        adapter.addFragment(SkinFragment(), "피부")
-//        adapter.addFragment(OutfitFragment(), "한 벌")
-//        adapter.addFragment(TopFragment(), "상의")
 
         viewPager.adapter = adapter
 
