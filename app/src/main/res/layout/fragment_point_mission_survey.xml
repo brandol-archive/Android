@@ -447,7 +447,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="   포토그램"
+                android:text="   포토그레이"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -702,7 +702,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/point_mission_survey_before_ib"
+                        android:id="@+id/point_mission_survey_complete_ib"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="10dp"
@@ -712,7 +712,7 @@
                         android:backgroundTint="@color/selectedpurple"/>
 
                     <TextView
-                        android:id="@+id/point_mission_survey_before_tv"
+                        android:id="@+id/point_mission_survey_complete_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="응답 완료!"
