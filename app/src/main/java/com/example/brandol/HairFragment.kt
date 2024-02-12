@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.adaptor.AvatarStoreItemAdapter
-import com.example.brandol.collection.ItemModel
+import com.example.brandol.collection.ItemModel2
 
 class HairFragment : Fragment()
 {
@@ -35,11 +35,11 @@ class HairFragment : Fragment()
         return rootView
     }
 
-    private fun generateItemData(): List<ItemModel> {
+    private fun generateItemData(): List<ItemModel2> {
         // 아이템 데이터 생성 및 반환
         // 여기에서는 더미 데이터로 예시를 작성하였습니다.
         return listOf(
-            ItemModel(R.drawable.ic_launcher_foreground, "Brand1", "|", "Item1", "item1_info", "100p"),
+            ItemModel2(R.drawable.ic_launcher_foreground, "Brand1", "|", "Item1", "item1_info", "100p"),
             // 추가 아이템 데이터 작성
         )
     }

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.adaptor.AvatarStoreItemAdapter
-import com.example.brandol.collection.ItemModel
+import com.example.brandol.collection.ItemModel2
 
 class OverallFragment : Fragment() {
 
@@ -35,18 +35,18 @@ class OverallFragment : Fragment() {
         return rootView
     }
 
-    private fun generateItemData(): List<ItemModel> {
+    private fun generateItemData(): List<ItemModel2> {
         // 아이템 데이터 생성 및 반환
         // 여기에서는 더미 데이터로 예시를 작성하였습니다.
         return listOf(
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "50p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "150p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "150p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "200p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "250p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "270p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "250p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "270p"),
+            ItemModel2(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "50p"),
+            ItemModel2(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "150p"),
+            ItemModel2(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "150p"),
+            ItemModel2(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "200p"),
+            ItemModel2(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "250p"),
+            ItemModel2(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "270p"),
+            ItemModel2(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "250p"),
+            ItemModel2(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "270p"),
             // 추가 아이템 데이터 작성
         )
     }
