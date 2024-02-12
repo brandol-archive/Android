@@ -55,6 +55,7 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
             "상의" -> setTabByCategory("TOP")
             "하의" -> setTabByCategory("BOTTOM")
             "신발" -> setTabByCategory("SHOES")
+
         }
     }
 
