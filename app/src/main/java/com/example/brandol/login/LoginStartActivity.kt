@@ -90,6 +90,7 @@ class LoginStartActivity : AppCompatActivity() {
                         val email = user.kakaoAccount?.email
                         val name = user.kakaoAccount?.profile?.nickname
                         //이메일 이름 보내서 서버와 연결
+                        Log.d("email", email.toString())
                         loginServer(email!!, name!!)
                     }
                 }

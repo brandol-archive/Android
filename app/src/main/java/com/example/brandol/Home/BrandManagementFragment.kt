@@ -1,15 +1,24 @@
-package com.example.brandol
+package com.example.brandol.Home
 
+import android.content.Context
 import com.example.brandol.adaptor.BrandListAdapter
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.brandol.R
 import com.example.brandol.collection.BrandData
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentBrandManagementBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 // BrandManagementFragment.kt
@@ -25,8 +34,43 @@ class BrandManagementFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBrandManagementBinding.inflate(inflater, container, false)
+
+
+        unsubscribeBrandData()
+
         return binding.root
     }
+
+    private fun getCurrentToken(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
+
+    private fun unsubscribeBrandData() {
+        val token = getCurrentToken(requireContext())
+        val call = RetrofitObject.getRetrofitService.unsubscribeBrand("Bearer $token", 1)
+        call.enqueue(object : Callback<RetrofitClient2.UnsubscribeBrand> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.UnsubscribeBrand>,
+                response: Response<RetrofitClient2.UnsubscribeBrand>
+            ) {
+                Log.d("ikj_brand_unsubscribe", response.toString())
+                if (response.isSuccessful) {
+                    val responseData = response.body()
+                    Log.d("ikj_brand_unsubscribe", responseData.toString())
+                    if (responseData != null && responseData.isSuccess) {
+                        // 성공적으로 서버 응답을 받았을 때의 로직
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RetrofitClient2.UnsubscribeBrand>, t: Throwable) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.d("ikj_brand_unsubscribe", errorMessage)
+            }
+        })
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
