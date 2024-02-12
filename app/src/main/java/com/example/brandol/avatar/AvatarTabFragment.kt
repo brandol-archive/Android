@@ -173,6 +173,8 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
             }
 
         })
+
+      
     }
 
 
