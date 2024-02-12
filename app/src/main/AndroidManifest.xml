@@ -10,12 +10,13 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Brandol"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".login.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +24,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -37,48 +40,40 @@
         </activity>
 
         <activity
-            android:name=".SettingActivity"
+            android:name=".login.SignupNicknameActivity"
             android:exported="false" />
 
         <activity
-            android:name=".SignupNicknameActivity"
+            android:name=".login.LoginStartActivity"
             android:exported="false" />
 
         <activity
-            android:name=".LoginStartActivity"
+            android:name=".login.TermsActivity"
             android:exported="false" />
 
         <activity
-            android:name=".TermsActivity"
+            android:name=".login.TermsContentActivity"
             android:exported="false" />
 
         <activity
-            android:name=".TermsContentActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".OpponentAvatarActivity"
+            android:name=".opavatar.OpponentAvatarActivity"
             android:exported="false" />
         <activity
-            android:name=".ChattingActivity"
+            android:name=".chatting.ChattingActivity"
             android:exported="false" />
         <activity
-            android:name=".MessageActivity"
+            android:name=".BoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BoardDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BoardSearchActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
 
-        <activity android:name=".BrandManagementActivity" />
-
-        <activity android:name=".BrandCategoryActivity"/>
-
-        <activity android:name=".UserCategoryActivity"/>
-
-        <activity android:name=".ContentsCategoryFragment"/>
-
-        <activity android:name=".AvatarStoreCategoryFragment"/>
 
     </application>
 

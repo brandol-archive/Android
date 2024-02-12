@@ -1,15 +1,26 @@
 package com.example.brandol
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.brandol.adaptor.SearchPagerAdapter
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitClient2.*
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentSearchBarBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SearchBarFragment : Fragment() {
 
@@ -39,32 +50,35 @@ class SearchBarFragment : Fragment() {
             tab.text = tabTitles[position]
         }.attach()
 
-        // Tab이 선택되었을 때의 색상 변경
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                // 선택된 탭의 색상 변경
-                tab?.text?.let {
-                    when (it) {
-                        "브랜드" -> tab.view.setBackgroundColor(Color.BLUE)
-                        "유저" -> tab.view.setBackgroundColor(Color.BLUE)
-                        "콘텐츠" -> tab.view.setBackgroundColor(Color.BLUE)
-                        "아바타 스토어" -> tab.view.setBackgroundColor(Color.BLUE)
-                    }
-                }
-            }
+//        // Tab이 선택되었을 때의 색상 변경
+//        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+//            override fun onTabSelected(tab: TabLayout.Tab?) {
+//                // 선택된 탭의 색상 변경
+//                tab?.text?.let {
+//                    when (it) {
+//                        "브랜드" -> tab.view.setBackgroundColor(Color.BLUE)
+//                        "유저" -> tab.view.setBackgroundColor(Color.BLUE)
+//                        "콘텐츠" -> tab.view.setBackgroundColor(Color.BLUE)
+//                        "아바타 스토어" -> tab.view.setBackgroundColor(Color.BLUE)
+//                    }
+//                }
+//            }
+//
+//            override fun onTabUnselected(tab: TabLayout.Tab?) {
+//                // 선택 해제된 탭의 색상 초기화
+//                tab?.view?.setBackgroundColor(Color.TRANSPARENT)
+//            }
+//
+//            override fun onTabReselected(tab: TabLayout.Tab?) {
+//                // 재선택된 탭의 색상 변경 (여기서는 동일하게 처리)
+//                onTabSelected(tab)
+//            }
+//        })
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-                // 선택 해제된 탭의 색상 초기화
-                tab?.view?.setBackgroundColor(Color.TRANSPARENT)
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-                // 재선택된 탭의 색상 변경 (여기서는 동일하게 처리)
-                onTabSelected(tab)
-            }
-        })
 
         return binding.root
     }
+
+
 }
 

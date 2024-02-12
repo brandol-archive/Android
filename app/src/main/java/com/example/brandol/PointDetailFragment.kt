@@ -1,13 +1,11 @@
 //package com.example.brandol
-import PointDetailVPAdapter
-import android.graphics.Color
+import com.example.brandol.adaptor.VP.PointDetailVPAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.brandol.databinding.FragmentPointDetailBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class PointDetailFragment : Fragment() {
@@ -35,6 +33,11 @@ class PointDetailFragment : Fragment() {
         TabLayoutMediator(binding.pointUsePageTb, binding.pointUsePageVp) { tab, position ->
             tab.text = tabTitles[position]
         }.attach()
+
+        // 뒤로가기 버튼 클릭 시 Fragment를 닫습니다.
+        binding.pointUsePageBackIv.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
 
     }
 }

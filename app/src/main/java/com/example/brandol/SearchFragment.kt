@@ -1,13 +1,23 @@
 package com.example.brandol
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentSearchBinding
+import com.example.brandol.searchCategory.CatagoryFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,16 +52,13 @@ class SearchFragment : Fragment() {
         // ViewPager2 초기화
         binding.catagoryContentVp.adapter = CategoryPagerAdapter(requireActivity())
 
-        // 검색 버튼 클릭 이벤트 처리
-       /* binding.btnSearchBarIb.setOnClickListener {
-            // SearchBarFragment로 직접 화면 전환
-            val searchBarFragment = SearchBarFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.btn_search_bar_ib, searchBarFragment)
-            //transaction.replace(R.id.btn_search_bar_Fl, searchBarFragment)
-            //transaction.addToBackStack(null)
+        binding.btnSearchBarIb.setOnClickListener {
+            // 서치바 클릭시 서치바 프레그먼트로 화면 전환
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm,SearchBarFragment())
+            transaction.addToBackStack(null)
             transaction.commit()
-        }*/
+        }
 
         return binding.root
         // Inflate the layout for this fragment
@@ -91,6 +98,7 @@ class SearchFragment : Fragment() {
                 }
             }
     }
+
 
 
 }

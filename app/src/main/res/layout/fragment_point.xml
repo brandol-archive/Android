@@ -20,6 +20,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginStart="180dp"
             android:text="포인트"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
 
@@ -36,6 +37,7 @@
                 android:layout_marginStart="20dp"
                 android:text="내 포인트"
                 android:textSize="18dp"
+                android:textColor="@color/black"
                 android:textStyle="bold"/>
 
             <TextView
@@ -69,13 +71,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:text="포인트 이용 내역"
+                android:textColor="@color/black"
                 android:textSize="18dp"/>
 
             <ImageView
                 android:id="@+id/point_use_iv"
                 android:layout_width="25dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="200dp"
+                android:layout_marginStart="205dp"
                 android:src="@drawable/btn_point_use" />
 
         </LinearLayout>
@@ -93,6 +96,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:text="포인트 미션"
+            android:textColor="@color/black"
             android:textSize="18dp"/>
 
         <ImageView
@@ -118,6 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:text="브랜드 리스트에 추가하기!"
+                    android:textColor="@color/black"
                     android:textSize="18dp"/>
 
                 <TextView

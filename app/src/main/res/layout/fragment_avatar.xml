@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AvatarFragment">
+    tools:context=".avatar.AvatarFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,12 +22,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
             <ImageView
                 android:id="@+id/avatar_base_avatar_skin"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:src="@drawable/no1_item_skin" />
-
 
             <ImageView
                 android:id="@+id/avatar_base_avatar_pants"
@@ -104,7 +104,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/avatar_category_tl"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/white"
         app:tabGravity="fill"

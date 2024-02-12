@@ -61,16 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginTop="15dp"
                 android:layout_height="450dp"
-                android:background="#28BFBA">
-
-                <ImageView
-                    android:id="@+id/mission_background_iv"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
-                    android:src="@drawable/img_baemin_mission"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="MissingConstraints" />
+                android:background="@drawable/img_point_mission_survay_brandol">
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -90,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
-                android:text="포인트 1000P 획득!"
+                android:text="포인트 1500P 획득!"
                 android:textSize="18dp"
                 android:textStyle="bold"
                 android:textColor="@color/selectedpurple"/>
@@ -114,8 +105,9 @@
                 android:id="@+id/q1_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BRANDOL의 지윤을 알고 있었나요?"
+                android:text="브랜드마다의 고유한 철학, 정체성, 이미지, 무드, 톤앤매너가 있다고 생각하시나요?"
                 android:textColor="@color/black"
+                android:layout_marginRight="10dp"
                 android:textSize="16dp" />
 
         </LinearLayout>
@@ -123,7 +115,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="190dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -133,7 +125,7 @@
                 <CheckBox
                     android:id="@+id/q1_mission_o"
                     android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_height="130dp"
                     android:background="@drawable/survey_mission_o"
                     android:layout_margin="30dp"
                     android:button="@android:color/transparent"
@@ -150,7 +142,7 @@
                 <CheckBox
                     android:id="@+id/q1_mission_x"
                     android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_height="130dp"
                     android:button="@android:color/transparent"
                     android:background="@drawable/survey_mission_x"
                     android:layout_margin="30dp"
@@ -159,13 +151,11 @@
 
             </LinearLayout>
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
 
                 <TextView
                     android:id="@+id/q2_start_tv"
@@ -180,18 +170,56 @@
                     android:id="@+id/q2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BRANDOL의  아연의 첫인상은 어땠나요?"
+                    android:text="나의 가치관과 브랜드의 방향성이 일치했던 경험이 있나요? (ex. 환경보호 > 파타고니아)"
                     android:textColor="@color/black"
+                    android:layout_marginRight="10dp"
                     android:textSize="16dp" />
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/q2_edittext"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/object_default_background"
-                android:layout_margin="10dp"/>
+                android:layout_height="190dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/object_default_background">
+
+                <CheckBox
+                    android:id="@+id/q2_mission_o"
+                    android:layout_width="100dp"
+                    android:layout_height="130dp"
+                    android:background="@drawable/survey_mission_o"
+                    android:layout_margin="30dp"
+                    android:button="@android:color/transparent"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:background="@color/brightgray"/>
+
+
+                <CheckBox
+                    android:id="@+id/q2_mission_x"
+                    android:layout_width="100dp"
+                    android:layout_height="130dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/survey_mission_x"
+                    android:layout_margin="30dp"
+                    android:layout_weight="1"
+                    android:text="" />
+
+            </LinearLayout>
+
+
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -212,7 +240,7 @@
                     android:id="@+id/q3_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="승헌이는 몇 년생일까요?"
+                    android:text="최애 콜라 브랜드"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -223,7 +251,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="   a."
+                android:text="   코카콜라"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -235,7 +263,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="   b."
+                android:text="   팹시"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -247,12 +275,401 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="   c."
+                android:text="   맥콜"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:button="@android:color/transparent"
                 android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q3_4th_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   노브랜드"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/q4_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q4. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q4_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최애 영화관 브랜드"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/q4_1st_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   롯데시네마"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3" />
+
+            <CheckBox
+                android:id="@+id/q4_2nd_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   CGV"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q4_3rd_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   메가박스"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q4_4th_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   씨네Q"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/q5_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q5. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q5_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최애 셀프사진관 브랜드"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/q5_1st_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   인생네컷"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3" />
+
+            <CheckBox
+                android:id="@+id/q5_2nd_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   하루필름"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q5_3rd_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   포토스트리트"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q5_4th_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   포토그램"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q5_5th_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   포토그레이"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q5_6th_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   포토하임"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q5_7th_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   셀픽스"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+            <CheckBox
+                android:id="@+id/q5_8th_b"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="   포토매틱"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:button="@android:color/transparent"
+                android:background="@drawable/survey_mission_q3"/>
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/q6_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q6. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q6_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내가 가장 좋아하는 소주 or 맥주 브랜드는?"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/q6_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/object_default_background"
+                android:layout_margin="10dp"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/q7_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q7. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q7_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내가 가장 좋아하는 패션 브랜드는?"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/q7_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/object_default_background"
+                android:layout_margin="10dp"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/q8_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q8. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q8_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내가 가장 좋아하는 패스트푸드 브랜드는?"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/q8_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/object_default_background"
+                android:layout_margin="10dp"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/q9_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q9. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q9_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내가 가장 좋아하는 카페 브랜드는?"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/q9_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/object_default_background"
+                android:layout_margin="10dp"/>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/q10_start_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:text="Q10. "
+                    android:textSize="16dp"
+                    android:textColor="@color/selectedpurple"/>
+
+                <TextView
+                    android:id="@+id/q10_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="소개하고 싶은 브랜드는? (ex. 상도동 카페 오길미)"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/q10_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/object_default_background"
+                android:layout_margin="10dp"/>
+
+
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -285,7 +702,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/point_mission_survey_before_ib"
+                        android:id="@+id/point_mission_survey_complete_ib"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="10dp"
@@ -295,7 +712,7 @@
                         android:backgroundTint="@color/selectedpurple"/>
 
                     <TextView
-                        android:id="@+id/point_mission_survey_before_tv"
+                        android:id="@+id/point_mission_survey_complete_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="응답 완료!"

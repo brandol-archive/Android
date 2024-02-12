@@ -9,6 +9,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.brandol.adaptor.DetailCommentRVAdapter
+import com.example.brandol.collection.Usercomment
 import com.example.brandol.databinding.ActivityBoardDetailBinding
 import com.example.brandol.databinding.ItemComcommentBinding
 import com.example.brandol.databinding.ItemCommentBinding
