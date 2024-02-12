@@ -14,6 +14,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentSearchBinding
+import com.example.brandol.searchCategory.CatagoryFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
