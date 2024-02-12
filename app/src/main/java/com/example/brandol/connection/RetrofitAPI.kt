@@ -1,8 +1,10 @@
 package com.example.brandol.connection
 
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -15,6 +17,49 @@ interface RetrofitAPI {
 
     @GET("/avatar/myitems")
     fun getMyitem()
+
+    //페이지 조회 API : 검색 메인 페이지 조회
+    @GET("/search/main")
+    fun getSearchMain(@Header("Authorization")token:String): Call<RetrofitClient2.ResponseSearchMain>
+
+    //미션 관련 API : 포인트 미션 도전
+    @POST("/users/missions/{missionId}")
+    fun completeMission(missionId1: String, @Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionCompletion>
+
+    //미션 관련 API : 포인트 미션 성공
+    /*
+    @POST("/users/missions/{missionId}/success")
+    fun completeMissionSuccess(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionSuccess>
+*/
+    //미션 관련 API : 포인트 미션 목록
+    @GET("/users/missions")
+    fun getMissionList(@Header("Authorization") token: String): Call<RetrofitClient2.ResponseMissionList>
+
+  @GET("/brands/{brandId}/header")
+    fun getBrandHeader(@Header("Authorization")token:String, @Path("brandId") brandId: Long): Call<RetrofitClient2.GetBrandHeader>
+
+    @GET("/users/main")
+    fun getHomeFragment(@Header("Authorization")token:String): Call<RetrofitClient2.GetHomeFragment>
+
+
+    @POST("/users/my-board-list/unsubscribe/{brandId}")
+    fun unsubscribeBrand(@Header("Authorization")token:String, @Path("brandId") brandId: Long): Call<RetrofitClient2.UnsubscribeBrand>
+
+    @GET("/search/detail/brands")
+    fun searchDetailBrands(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailBrands>
+
+    @GET("/search/detail/users")
+    fun searchDetailUser(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailUser>
+
+    @GET("/search/detail/contents")
+    fun searchDetailContents(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailContents>
+
+    @GET("/search/detail/avatar-store/header")
+    fun searchDetailUserAvatarAndPoints(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailUserAvatarAndPoints>
+
+    @GET("/search/detail/avatar-store/body")
+    fun searchDetailAvatarStoreBody(@Header("Authorization")token:String, @Query("itemPart") itemPart: String): Call<RetrofitClient2.SearchDetailAvatarStoreBody>
+
 
     //브랜드 관련 API (피그마 기준 페이지 2의 브랜드 상단 부분 조회, 하단 부분의 팬덤, 컨텐츠, 커뮤니티 조회)
     @POST("/brands/{brandId}/community/new")

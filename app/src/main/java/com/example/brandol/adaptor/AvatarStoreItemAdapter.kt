@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -69,7 +70,7 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
 
         // 브랜드 데이터 정보를 다이얼로그에 설정
         //deleteTextView.text = "정말로 ${brandData.brandName}을(를) 삭제하시겠습니까?"
-        deleteTextView_purchase.text = "해당 아이템을 구매하시겠습니까?\n"
+        deleteTextView_purchase.text = "\n\n\n\n\n해당 아이템을 구매하시겠습니까?\n\n\n\n\n"
 
 
         // 확인 버튼 클릭 시 동작
@@ -102,8 +103,9 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         val okButton: AppCompatButton = dialogView.findViewById(R.id.dialog_yes_btn)
 
         // 구매 정보를 다이얼로그에 설정
-        //purchaseTextView.text = "${currentItem.itemName}을(를) 구매하셨습니다."
-        purchaseTextView.text = "아이템을 성공적으로 구매했습니다.\n아이템은 아바타에서 확인할 수 있습니다."
+        purchaseTextView.text = "\n\n\n아이템을 성공적으로 구매했습니다.\n아이템은 아바타에서 확인할 수 있습니다.\n\n\n"
+
+        okButton.text = "확인"
 
         // 확인 버튼 클릭 시 동작
         okButton.setOnClickListener {

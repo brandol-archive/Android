@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.ItemClickListener
 import com.example.brandol.R
-import com.example.brandol.UserData
+import com.example.brandol.searchCategory.UserData
 
 class UserCategoryAdapter(private val userList: MutableList<UserData>)
     : RecyclerView.Adapter<UserCategoryAdapter.UserViewHolder>() {
