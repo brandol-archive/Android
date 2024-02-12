@@ -98,10 +98,14 @@ class RetrofitClient2 {
     //page4
     // 검색메인
     data class ResponseSearchMain(
-        @SerializedName("isSuccess") val isSuccess: Boolean,
-        @SerializedName("code") val code: String,
-        @SerializedName("message") val message: String,
-        @SerializedName("result") val result: SearchMainResult
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: SearchMainResult
     )
 
     data class SearchMainResult(
@@ -146,6 +150,51 @@ class RetrofitClient2 {
         @SerializedName("itemImage") val itemImage: String,
         @SerializedName("itemDescription") val itemDescription: String,
         @SerializedName("itemPrice") val itemPrice: Long
+    )
+
+    //미션 관련 API : 포인트 미션 도전
+    data class ResponseMissionCompletion(
+        @SerializedName("isSuccess") val isSuccess: Boolean,
+        @SerializedName("code") val code: String,
+        @SerializedName("message") val message: String,
+        @SerializedName("result") val result: MissionCompletionResult
+    )
+
+    data class MissionCompletionResult(
+        @SerializedName("missionSuccess") val missionSuccess: Boolean,
+        @SerializedName("id") val id: Long
+    )
+    
+    //미션 관련 API : 포인트 미션 성공
+    /*
+    data class ResponseMissionSuccess(
+        @SerializedName("isSuccess") val isSuccess: Boolean,
+        @SerializedName("code") val code: String,
+        @SerializedName("message") val message: String,
+        @SerializedName("result") val result: Any
+    )*/
+
+    //미션 관련 API : 포인트 미션 리스트
+    data class ResponseMissionList(
+        @SerializedName("isSuccess") val isSuccess: Boolean,
+        @SerializedName("code") val code: String,
+        @SerializedName("message") val message: String,
+        @SerializedName("result") val result: MissionListResult
+    )
+
+    data class MissionListResult(
+        @SerializedName("memberMissionList") val memberMissionList: List<Mission>,
+        @SerializedName("missionList") val missionList: List<Mission>
+    )
+
+    data class Mission(
+        @SerializedName("missionId") val missionId: Long,
+        @SerializedName("missionName") val missionName: String,
+        @SerializedName("missionPoints") val missionPoints: Long,
+        @SerializedName("missionType") val missionType: String,
+        @SerializedName("missionStatus") val missionStatus: String,
+        @SerializedName("missionImage") val missionImage: String,
+        @SerializedName("brandId") val brandId: Long
     )
 
 }
