@@ -10,6 +10,7 @@ class RetrofitClient2 {
         val name: String
     )
 
+
     data class ResponseLogin(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
