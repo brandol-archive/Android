@@ -340,11 +340,12 @@ class RetrofitClient2 {
         val itemDescription: String,
         @SerializedName("itemPrice")
         val itemPrice: Int
+    )
 
         //page4
     // 검색메인
     data class ResponseSearchMain(
-       @SerializedName("isSuccess")
+        @SerializedName("isSuccess")
         val isSuccess: Boolean,
         @SerializedName("code")
         val code: String,
