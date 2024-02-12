@@ -62,13 +62,13 @@
             android:name=".chatting.ChattingActivity"
             android:exported="false" />
         <activity
-            android:name=".BoardActivity"
+            android:name=".board.BoardActivity"
             android:exported="false" />
         <activity
-            android:name=".BoardDetailActivity"
+            android:name=".board.BoardDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".BoardSearchActivity"
+            android:name=".board.BoardSearchActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
