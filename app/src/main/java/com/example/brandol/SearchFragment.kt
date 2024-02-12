@@ -1,14 +1,22 @@
 package com.example.brandol
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentSearchBinding
-import com.example.brandol.searchCategory.CatagoryFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -89,6 +97,7 @@ class SearchFragment : Fragment() {
                 }
             }
     }
+
 
 
 }

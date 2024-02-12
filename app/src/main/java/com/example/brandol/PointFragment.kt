@@ -2,6 +2,7 @@ package com.example.brandol
 
 import PointDetailFragment
 import PointMissionSurveyFragment
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,9 +11,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentPointBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PointFragment : Fragment() {
     private lateinit var binding: FragmentPointBinding
@@ -46,6 +53,8 @@ class PointFragment : Fragment() {
             transaction.commit()
         }
 
+        getMissionList()
+
         return binding.root
     }
 
@@ -78,4 +87,42 @@ class PointFragment : Fragment() {
 //                }
 //            }
 //    }
+
+    private fun getCurrentToken(context: Context): String?{
+        val sharedPref = context.getSharedPreferences("Brandol", AppCompatActivity.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
+
+
+    private fun getMissionList() {
+        val token = getCurrentToken(requireContext())
+
+        val call = RetrofitObject.getRetrofitService.getMissionList("Bearer $token")
+        Log.d("mission_list", "good_1")
+        call.enqueue(object : Callback<RetrofitClient2.ResponseMissionList> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseMissionList>,
+                response: Response<RetrofitClient2.ResponseMissionList?>
+            ) {
+                Log.d("mission_list", "good_2")
+                Log.d("mission_list", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("mission_list", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            Log.d("mission_list", response.result.toString())
+
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RetrofitClient2.ResponseMissionList>, t: Throwable) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.e("sseohyeonn", errorMessage)
+            }
+        })
+    }
+
 }

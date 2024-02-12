@@ -42,7 +42,7 @@
             android:id="@+id/mission1_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="11dp"
             android:text="브랜드 리스트에 BRANDOL를 추가하면"
             android:textStyle="bold"

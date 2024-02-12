@@ -9,6 +9,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+
 interface RetrofitAPI {
     @POST("/auth/login/kakao")
     fun login(@Body request: RetrofitClient2.RequestLogin): Call<RetrofitClient2.ResponseLogin>
@@ -18,7 +19,24 @@ interface RetrofitAPI {
     @GET("/avatar/myitems")
     fun getMyitem()
 
-    @GET("/brands/{brandId}/header")
+    //페이지 조회 API : 검색 메인 페이지 조회
+    @GET("/search/main")
+    fun getSearchMain(@Header("Authorization")token:String): Call<RetrofitClient2.ResponseSearchMain>
+
+    //미션 관련 API : 포인트 미션 도전
+    @POST("/users/missions/{missionId}")
+    fun completeMission(missionId1: String, @Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionCompletion>
+
+    //미션 관련 API : 포인트 미션 성공
+    /*
+    @POST("/users/missions/{missionId}/success")
+    fun completeMissionSuccess(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionSuccess>
+*/
+    //미션 관련 API : 포인트 미션 목록
+    @GET("/users/missions")
+    fun getMissionList(@Header("Authorization") token: String): Call<RetrofitClient2.ResponseMissionList>
+  
+  @GET("/brands/{brandId}/header")
     fun getBrandHeader(@Header("Authorization")token:String, @Path("brandId") brandId: Long): Call<RetrofitClient2.GetBrandHeader>
 
     @GET("/users/main")
@@ -42,4 +60,5 @@ interface RetrofitAPI {
 
     @GET("/search/detail/avatar-store/body")
     fun searchDetailAvatarStoreBody(@Header("Authorization")token:String, @Query("itemPart") itemPart: String): Call<RetrofitClient2.SearchDetailAvatarStoreBody>
+
 }
