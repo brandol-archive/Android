@@ -3,8 +3,17 @@ package com.example.brandol.login
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.brandol.MainActivity
 import com.example.brandol.R
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
+import com.kakao.sdk.user.UserApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SplashActivity : AppCompatActivity() {
 
@@ -20,6 +29,8 @@ class SplashActivity : AppCompatActivity() {
             startActivity(mainIntent)
             finish() // 현재 액티비티 종료
         }, SPLASH_DELAY)
+
     }
+
 }
 

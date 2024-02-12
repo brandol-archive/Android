@@ -51,7 +51,7 @@
                 android:id="@+id/avatar_base_avatar_shoes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/no1_item_shoes" />
+                android:src="@drawable/base_item_shoes" />
 
         </FrameLayout>
 

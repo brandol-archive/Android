@@ -3,6 +3,7 @@ package com.example.brandol.adaptor.RV
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -10,9 +11,12 @@ import android.view.ViewGroup
 
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.brandol.ItemClickListener
-import com.example.brandol.collection.ItemModel
+import com.example.brandol.collection.ItemModel2
 import com.example.brandol.R
+import com.example.brandol.collection.ItemModel
+import com.squareup.picasso.Picasso
 
 class AvatarRVAdapter(private val itemList: List<ItemModel>, private val listener: ItemClickListener) : RecyclerView.Adapter<AvatarRVAdapter.MyViewHolder>() {
 
@@ -22,7 +26,8 @@ class AvatarRVAdapter(private val itemList: List<ItemModel>, private val listene
         // ViewHolder에서 사용할 뷰들을 정의
         val image: ImageView = itemView.findViewById(R.id.item_stuff_image_iv)
 
-        private var ischeck : Boolean = false
+        var ischeck : Boolean = false
+
         init {
             //클릭이벤트 구현
             itemView.setOnClickListener {
@@ -33,7 +38,8 @@ class AvatarRVAdapter(private val itemList: List<ItemModel>, private val listene
                     image.setBackgroundResource(R.drawable.object_default_background)
                     ischeck = false
                 }
-                listener?.onItemClick(adapterPosition)
+                listener?.onItemClick(adapterPosition,ischeck)
+
             }
 
             //터치 이벤트 구현
@@ -74,7 +80,8 @@ class AvatarRVAdapter(private val itemList: List<ItemModel>, private val listene
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.image.setImageResource(itemList.get(position).brandLogoRes!!)
+        Glide.with(holder.image.context).load(itemList.get(position).image).into(holder.image)
+
     }
 
     override fun getItemCount(): Int {
