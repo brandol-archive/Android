@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.ItemClickListener
-import com.example.brandol.collection.ItemModel
 import com.example.brandol.R
+import com.example.brandol.collection.ItemModel
 
 class OpItemRVAdapter(private val opItemList: List<ItemModel>) :
     RecyclerView.Adapter<OpItemRVAdapter.ItemViewHolder>() {

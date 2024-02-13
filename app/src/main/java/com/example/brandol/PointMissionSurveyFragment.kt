@@ -3,12 +3,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import com.example.brandol.R
-import com.example.brandol.collection.ItemModel
 import com.example.brandol.databinding.FragmentPointMissionSurveyBinding
 
 class PointMissionSurveyFragment : Fragment() {

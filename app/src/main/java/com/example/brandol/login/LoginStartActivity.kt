@@ -36,7 +36,7 @@ class LoginStartActivity : AppCompatActivity() {
 //            startActivity(intent)
 //        }
         // 로그인 정보 확인
-        checkLoginInfo()
+//        checkLoginInfo()
 
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
@@ -87,16 +87,17 @@ class LoginStartActivity : AppCompatActivity() {
                         Log.e("LHJ", "사용자 정보 요청 실패", error)
                     } else if (user != null) {
                         Log.d("LHJ", "사용자 정보 요청 성공")
-                        val email = user.kakaoAccount?.email
-                        val name = user.kakaoAccount?.profile?.nickname
+//                        val email = user.kakaoAccount?.email
+//                        val name = user.kakaoAccount?.profile?.nickname 진짜 코드
+                        val email = "test"
+                        val name = "호지니"
                         //이메일 이름 보내서 서버와 연결
-                        Log.d("email", email.toString())
                         loginServer(email!!, name!!)
+
                     }
                 }
-
-                val intent = Intent(this, TermsActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this, TermsActivity::class.java)
+//                startActivity(intent)
             }
 
         }
@@ -111,10 +112,10 @@ class LoginStartActivity : AppCompatActivity() {
                 LoginClient.instance.loginWithKakaoAccount(this, callback = callback)
             }
 
-            binding.startKakaotalkB.setOnClickListener {
-                val intent = Intent(this, TermsActivity::class.java)
-                startActivity(intent)
-            }
+//            binding.startKakaotalkB.setOnClickListener {
+//                val intent = Intent(this, TermsActivity::class.java)
+//                startActivity(intent)
+//            }
         }
     }
 
@@ -138,11 +139,9 @@ class LoginStartActivity : AppCompatActivity() {
                             startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             finish()
                         } else {
-                            Toast.makeText(
-                                this@LoginStartActivity,
-                                response.message,
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            val intent = Intent(this@LoginStartActivity, TermsActivity::class.java)
+                            startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                            finish()
                         }
                     }
 
@@ -160,24 +159,24 @@ class LoginStartActivity : AppCompatActivity() {
         return false
     }
 
-    private fun checkLoginInfo() {
-        UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
-            if (error != null) {
-                Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
-            } else if (tokenInfo != null) {
-                Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this, MainActivity::class.java)
-//                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-//                finish()
-            }
-        }
-    }
+    //    private fun checkLoginInfo() {
+//        UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
+//            if (error != null) {
+//                Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
+//            } else if (tokenInfo != null) {
+//                Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
+////                val intent = Intent(this, MainActivity::class.java)
+////                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+////                finish()
+//            }
+//        }
+//    }
     private fun saveTokenInfo(context: Context, accessToken: String?,refreshtoken:String?)
     {
         val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
             accessToken?.let { putString("accessToken", it) }
-            Log.d("LHJ",accessToken.toString())
+            Log.d("LHJTOKEN",accessToken.toString())
             refreshtoken?.let { putString("refreshtoken", it) }
             apply()
         }
