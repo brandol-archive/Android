@@ -179,4 +179,3 @@ class AvatarFragment : Fragment() {
 
     }
 }
-
