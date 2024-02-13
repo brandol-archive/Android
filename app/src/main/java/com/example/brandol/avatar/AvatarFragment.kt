@@ -1,33 +1,44 @@
 package com.example.brandol.avatar
 
 import android.content.ContentValues
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Base64
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.brandol.ItemClickListener
 import com.example.brandol.chatting.MessageFragment
 import com.example.brandol.R
 import com.example.brandol.adaptor.VP.AvatarVPAdapter
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentAvatarBinding
 import com.example.brandol.dialog.CustomAnnonceInfoDialog
 import com.example.brandol.dialog.CustomSaveDialog
 import com.google.android.material.tabs.TabLayoutMediator
+import retrofit2.Callback
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileInputStream
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 
 
-class AvatarFragment : Fragment() {
+class AvatarFragment : Fragment(), ItemClickListener {
     lateinit var binding: FragmentAvatarBinding
-
+    var idList: MutableList<Long> = mutableListOf()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,7 +57,6 @@ class AvatarFragment : Fragment() {
         //아바타에 옷힙히기 로직
         wearitem()
 
-
         return binding.root
     }
 
@@ -55,31 +65,68 @@ class AvatarFragment : Fragment() {
             "requestKey",
             viewLifecycleOwner
         ) { key, bundle ->
-            val itemName = bundle.getString("bundleKey")
-            when (itemName) {
-                "상의" -> binding.avatarBaseAvatarShirts.setImageResource(R.drawable.no1_item_shirts)
-                "하의" -> binding.avatarBaseAvatarPants.setImageResource(R.drawable.no1_item_pants)
-                "신발" -> binding.avatarBaseAvatarShoes.setImageResource(R.drawable.no1_item_shoes)
-                "헤어" -> binding.avatarBaseAvatarHair.setImageResource(R.drawable.no1_item_woman_hair)
-                "피부1" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no1_item_skin)
-                "피부2" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no2_item_skin)
-                "피부3" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no3_item_skin)
-                "피부4" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no4_item_skin)
-                "피부5" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no5_item_skin)
+            val itemId = bundle.getLong("id")
+            val itemPart = bundle.getString("part")
+            val itemImage = bundle.getString("image")
+            val check = bundle.getBoolean("check")
+            Log.d("LhJ",check.toString())
+            if (check) {
+                idList.add(itemId)
+                Log.d("LHJ",idList.toString())
+                when (itemPart) {
+                    "TOP" -> Glide.with(binding.avatarBaseAvatarShirts.context).load(itemImage)
+                        .into(binding.avatarBaseAvatarShirts)
+
+                    "BOTTOM" -> Glide.with(binding.avatarBaseAvatarPants.context).load(itemImage)
+                        .into(binding.avatarBaseAvatarPants)
+
+                    "SHOES" -> Glide.with(binding.avatarBaseAvatarPants.context).load(itemImage)
+                        .into(binding.avatarBaseAvatarShoes)
+
+                    "HAIR" -> Glide.with(binding.avatarBaseAvatarPants.context).load(itemImage)
+                        .into(binding.avatarBaseAvatarHair)
+
+                    "SKIN" -> Glide.with(binding.avatarBaseAvatarPants.context).load(itemImage)
+                        .into(binding.avatarBaseAvatarSkin)
+                }
+            } else {
+                idList.remove(itemId)
+                Log.d("LHJ",idList.toString())
+                when (itemPart) {
+                    "TOP" -> binding.avatarBaseAvatarShirts.setImageResource(R.drawable.base_item_shirts)
+                    "BOTTOM" -> binding.avatarBaseAvatarPants.setImageResource(R.drawable.base_item_pants)
+                    "SHOES" -> binding.avatarBaseAvatarShoes.setImageResource(R.drawable.base_item_shoes)
+                    "HAIR" -> binding.avatarBaseAvatarHair.setImageResource(R.drawable.base_item_hair)
+                    "SKIN" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no1_item_skin)
+                }
             }
         }
     }
-
     private fun saveAvatarLogic() {
+        //저장하기 버튼 클릭시
         binding.avatarSaveBtn.setOnClickListener {
+            //아바타 이미지 갤러리에 저장
             val avatarImage = binding.avatarBaseAvatarFl
             val bitmap = drawBitmap(avatarImage)
             saveImage(bitmap)
-
+            //다이얼로그 띄우기
             val dialog = CustomSaveDialog(binding.avatarChattingQuantityTv.context)
             dialog.show()
 
+
+            val imageString = bitmapToBase64(bitmap)
+            val token = getCurrentToken(requireContext())
+
+            val call = RetrofitObject.getRetrofitService.wearMyItem("Bearer $token",RetrofitClient2.ReequestWear(idList,imageString))
+            //call.enqueue(object : Callback<RetrofitClient2.ResponseLogin>
+
         }
+    }
+    fun bitmapToBase64(bitmap: Bitmap): String {
+        val byteArrayOutputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+        val byteArray = byteArrayOutputStream.toByteArray()
+        return Base64.encodeToString(byteArray, Base64.DEFAULT)
     }
 
     private fun goMessage() {
@@ -130,6 +177,10 @@ class AvatarFragment : Fragment() {
 
         return bitmap
     }
+    private fun getCurrentToken(context: Context): String?{
+        val sharedPref = context.getSharedPreferences("Brandol", AppCompatActivity.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
 
     fun saveImage(bitmap: Bitmap) {
         //파일이름
@@ -159,10 +210,11 @@ class AvatarFragment : Fragment() {
 
                 if (image != null) {
                     val fos = FileOutputStream(image.fileDescriptor)
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
+                    val a = bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos).toString()
+
                     //비트맵을 FileOutputStream를 통해 compress한다.
                     fos.close()
-                    Log.d("LHJ", "이미지 저장 성공")
+                    Log.d("LHJ", a)
                     contentValues.clear()
                     contentValues.put(MediaStore.Images.Media.IS_PENDING, 0) // 저장소 독점을 해제한다.
                     contentResolver.update(uri, contentValues, null, null)
@@ -179,4 +231,3 @@ class AvatarFragment : Fragment() {
 
     }
 }
-
