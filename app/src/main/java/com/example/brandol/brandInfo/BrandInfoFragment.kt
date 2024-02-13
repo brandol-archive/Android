@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.brandol.BoardActivity
+import com.example.brandol.board.BoardActivity
 import com.example.brandol.R
 import com.example.brandol.adaptor.CategoryAdapter
 import com.example.brandol.databinding.FragmentBrandinfoBinding
@@ -31,7 +31,7 @@ class BrandInfoFragment: Fragment() {
 
         initViewPager()
         //브랜드 배경 사진 및 로고 설정
-        binding.brandinfoBrandinfoLl.setBackgroundResource(R.drawable.iv_brandinfo_ex)
+        binding.brandinfoBrandinfoLl.setImageResource(R.drawable.iv_brandinfo_ex)
         binding.brandinfoBrandlogoIv.setImageResource(R.drawable.iv_brandlogo_ex)
 
         //브랜드 정보 관련 텍스트 설정
@@ -42,7 +42,8 @@ class BrandInfoFragment: Fragment() {
         binding.brandinfoAddlistBtn.setOnClickListener {
             //list 추가 날짜 및 팬 번호 텍스트 변경 -> 추후에 날짜와 팬 순서 숫자 받아서 다시 해야 함
             binding.brandinfoAddlistTv.text = "2024년 01월 06일  |  6번째 팬"
-            binding.brandinfoAddlistBtn.setBackgroundColor(R.color.white)
+            binding.brandinfoAddlistTv.setTextColor(requireContext().getColor(R.color.black))
+            binding.brandinfoAddlistBtn.setBackgroundResource(R.drawable.border_1dp)
         }
 
         binding.brandinfoLinkBtn.setOnClickListener {
@@ -55,7 +56,7 @@ class BrandInfoFragment: Fragment() {
         }
 
         binding.brandinfoBrandlogoIv.setOnClickListener {
-            val intent = Intent(context,BoardActivity::class.java)
+            val intent = Intent(context, BoardActivity::class.java)
             startActivity(intent)
         }
 

@@ -8,15 +8,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.brandol.collection.ItemModel2
+import com.example.brandol.collection.ItemModel
 import com.example.brandol.R
 
 
-class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.ViewHolder>(
+class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.ViewHolder>(
     ItemModelDiffCallback()
 ) {
 
@@ -53,7 +54,7 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.Vi
         }
     }
 
-    private fun showDialog(currentItem: ItemModel2, itemView: View) {
+    private fun showDialog(currentItem: ItemModel, itemView: View) {
         val context = itemView.context
 
         // 다이얼로그를 직접 생성하고 커스텀 레이아웃 설정
@@ -69,7 +70,7 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.Vi
 
         // 브랜드 데이터 정보를 다이얼로그에 설정
         //deleteTextView.text = "정말로 ${brandData.brandName}을(를) 삭제하시겠습니까?"
-        deleteTextView_purchase.text = "해당 아이템을 구매하시겠습니까?\n"
+        deleteTextView_purchase.text = "\n\n\n\n\n해당 아이템을 구매하시겠습니까?\n\n\n\n\n"
 
 
         // 확인 버튼 클릭 시 동작
@@ -88,7 +89,7 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.Vi
         dialog.show()
     }
 
-    private fun showPurchaseDialog(currentItem: ItemModel2, itemView: View) {
+    private fun showPurchaseDialog(currentItem: ItemModel, itemView: View) {
         val context = itemView.context
 
         // 다이얼로그를 직접 생성하고 커스텀 레이아웃 설정
@@ -102,8 +103,9 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.Vi
         val okButton: AppCompatButton = dialogView.findViewById(R.id.dialog_yes_btn)
 
         // 구매 정보를 다이얼로그에 설정
-        //purchaseTextView.text = "${currentItem.itemName}을(를) 구매하셨습니다."
-        purchaseTextView.text = "아이템을 성공적으로 구매했습니다.\n아이템은 아바타에서 확인할 수 있습니다."
+        purchaseTextView.text = "\n\n\n아이템을 성공적으로 구매했습니다.\n아이템은 아바타에서 확인할 수 있습니다.\n\n\n"
+
+        okButton.text = "확인"
 
         // 확인 버튼 클릭 시 동작
         okButton.setOnClickListener {
@@ -119,12 +121,12 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel2, AvatarStoreItemAdapter.Vi
     }
 }
 
-class ItemModelDiffCallback : DiffUtil.ItemCallback<ItemModel2>() {
-    override fun areItemsTheSame(oldItem: ItemModel2, newItem: ItemModel2): Boolean {
+class ItemModelDiffCallback : DiffUtil.ItemCallback<ItemModel>() {
+    override fun areItemsTheSame(oldItem: ItemModel, newItem: ItemModel): Boolean {
         return oldItem.itemName == newItem.itemName
     }
 
-    override fun areContentsTheSame(oldItem: ItemModel2, newItem: ItemModel2): Boolean {
+    override fun areContentsTheSame(oldItem: ItemModel, newItem: ItemModel): Boolean {
         return oldItem == newItem
     }
 }

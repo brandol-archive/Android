@@ -1,4 +1,4 @@
-package com.example.brandol
+package com.example.brandol.board
 
 import android.content.Intent
 import android.os.Bundle

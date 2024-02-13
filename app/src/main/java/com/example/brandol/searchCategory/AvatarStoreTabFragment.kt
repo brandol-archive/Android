@@ -1,27 +1,37 @@
-package com.example.brandol
+package com.example.brandol.searchCategory
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.R
 import com.example.brandol.adaptor.AvatarStoreItemAdapter
 import com.example.brandol.collection.ItemModel
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class OverallFragment : Fragment() {
+class AvatarStoreTabFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_overall_avatarstore, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_avatarstore_rv, container, false)
 
         // 리사이클러뷰 초기화
-        recyclerView = rootView.findViewById(R.id.overall_rv)
+        recyclerView = rootView.findViewById(R.id.avatarstore_rv)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // 어댑터 설정
@@ -32,7 +42,44 @@ class OverallFragment : Fragment() {
         val itemList = generateItemData()
         adapter.submitList(itemList)
 
+        getAvatarStoreCategoryData()
+
         return rootView
+    }
+
+    private fun getCurrentToken(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
+
+    private fun getAvatarStoreCategoryData() {
+        val token = getCurrentToken(requireContext())
+        val call = RetrofitObject.getRetrofitService.searchDetailAvatarStoreBody("Bearer $token","상의")
+        call.enqueue(object : Callback<RetrofitClient2.SearchDetailAvatarStoreBody> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.SearchDetailAvatarStoreBody>,
+                response: Response<RetrofitClient2.SearchDetailAvatarStoreBody>
+            ) {
+                Log.d("ikj", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("ikj", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            Log.d("ikj",response.result.toString())
+
+
+                        }
+                    }
+
+                }
+            }
+            override fun onFailure(call: Call<RetrofitClient2.SearchDetailAvatarStoreBody>, t: Throwable) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.d("ikj", errorMessage)
+            }
+
+        })
     }
 
     private fun generateItemData(): List<ItemModel> {

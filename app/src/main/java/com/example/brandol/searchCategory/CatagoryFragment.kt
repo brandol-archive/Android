@@ -1,15 +1,12 @@
-package com.example.brandol
+package com.example.brandol.searchCategory
 
-import AvatarStoreCategoryFragment
-import BrandCategoryFragment
-import ContentsCategoryFragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.brandol.R
 import com.example.brandol.databinding.FragmentCatagoryBinding
-import com.example.brandol.databinding.FragmentHomeBinding
 
 class CatagoryFragment : Fragment() {
 
