@@ -1,5 +1,6 @@
 package com.example.brandol.mypage
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,12 +9,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.brandol.R
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
 import com.kakao.sdk.user.UserApiClient
 import com.example.brandol.databinding.FragmentMypageBinding
 import com.example.brandol.dialog.CustomAccountDialog
 import com.example.brandol.dialog.CustomLogoutDialog
 import com.example.brandol.login.LoginStartActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MypageFragment : Fragment() {
     lateinit var binding: FragmentMypageBinding
@@ -26,7 +34,33 @@ class MypageFragment : Fragment() {
 
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
-        setimage()
+        val token = getCurrentToken(requireContext())
+        val call = RetrofitObject.getRetrofitService.getMypageData("Bearer $token")
+        call.enqueue(object : Callback<RetrofitClient2.ResponseMyInfo> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseMyInfo>,
+                response: Response<RetrofitClient2.ResponseMyInfo>
+            ) {
+                Log.d("LHJ", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("LHJ", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            Glide.with(binding.mypageProfileIv.context).load(response.result.avatar).into(binding.mypageProfileIv)
+                            binding.mypageNameTv.text = response.result.nickname
+                            binding.mypagePointQuantityTv.text = response.result.point.toString()
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RetrofitClient2.ResponseMyInfo>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
 
         binding.mypageUserinfoTv.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -103,13 +137,11 @@ class MypageFragment : Fragment() {
         return binding.root
     }
 
+    private fun getCurrentToken(context: Context): String?{
+        val sharedPref = context.getSharedPreferences("Brandol", AppCompatActivity.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
     private fun setimage() {
-        parentFragmentManager.setFragmentResultListener("avatarImage",
-            viewLifecycleOwner
-        ) { key, bundle ->
-            val uriString = bundle.getString("bundlekey")
-            val uri = Uri.parse(uriString)
-            binding.mypageProfileIv.setImageURI(uri)
-        }
+
     }
 }

@@ -23,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
+
             <ImageView
                 android:id="@+id/avatar_base_avatar_skin"
                 android:layout_width="160dp"
@@ -122,6 +123,16 @@
             android:id="@+id/avatar_itemlist_vp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+        
+        <TextView
+            android:id="@+id/avatar_no_item_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:text="현재 보유한 아이템이 없습니다.\n우측 상단의 스토어를 이용해주세요."/>
 
         <Button
             android:id="@+id/avatar_save_btn"

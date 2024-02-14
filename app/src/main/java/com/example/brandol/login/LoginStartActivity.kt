@@ -117,6 +117,10 @@ class LoginStartActivity : AppCompatActivity() {
 //                startActivity(intent)
 //            }
         }
+
+        val sharedPreferences = this.getSharedPreferences("oneTime",Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("bool",true)
     }
 
     private fun loginServer(email: String,name: String): Boolean {
@@ -158,7 +162,6 @@ class LoginStartActivity : AppCompatActivity() {
         })
         return false
     }
-
     //    private fun checkLoginInfo() {
 //        UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
 //            if (error != null) {
