@@ -41,7 +41,6 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
         splitByCategory()
         binding.avatartabItemlistRv.layoutManager = GridLayoutManager(context, 4)
 
-
         return binding.root
     }
 
@@ -84,9 +83,11 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                 val part: String = response.result[i].part
                                 val description: String = response.result[i].description
                                 val image: String = response.result[i].image
+                                val wearingImage : String = response.result[i].wearingImage
                                 val price: Int = response.result[i].price
                                 val createdAt: String = response.result[i].createdAt
                                 val wearing: Boolean = response.result[i].wearing
+                                var ischeck = false
                                 itemList.add(
                                     ItemModel2(
                                         myItemId,
@@ -97,9 +98,10 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                         part,
                                         description,
                                         image,
+                                        //wearingImage,
                                         price,
                                         createdAt,
-                                        wearing
+                                        wearing,
                                     )
                                 )
                             }
@@ -151,9 +153,11 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                     val part: String = response.result[i].part
                                     val description: String = response.result[i].description
                                     val image: String = response.result[i].image
+                                    val wearingImage : String = response.result[i].wearingImage
                                     val price: Int = response.result[i].price
                                     val createdAt: String = response.result[i].createdAt
                                     val wearing: Boolean = response.result[i].wearing
+                                    var ischeck = false
                                     itemList.add(
                                         ItemModel2(
                                             myItemId,
@@ -164,9 +168,10 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                             part,
                                             description,
                                             image,
+                                            //wearingImage,
                                             price,
                                             createdAt,
-                                            wearing
+                                            wearing,
                                         )
                                     )
                                 }
@@ -210,13 +215,13 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
     override fun onItemClick(position: Int,check : Boolean) {
         //클릭시 이름을 보내서 이름을 매개로 정보를 받게
         val itemobject = itemList.get(position)
-        val itemImage = itemobject.image
+        val itemWearingImage = itemobject.image
         val itemPart = itemobject.part
         val itemId = itemobject.itemId
         // Use the Kotlin extension in the fragment-ktx artifact.
         var bundle = Bundle()
         bundle.putString("part",itemPart)
-        bundle.putString("image",itemImage)
+        bundle.putString("wearingImage",itemWearingImage)
         bundle.putLong("id",itemId)
         bundle.putBoolean("check",check)
         parentFragmentManager.setFragmentResult("requestKey", bundle)

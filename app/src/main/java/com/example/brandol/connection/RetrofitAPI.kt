@@ -1,12 +1,17 @@
 package com.example.brandol.connection
 
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Multipart
 import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -27,8 +32,12 @@ interface RetrofitAPI {
     @GET("/avatar/{memberId}/brandList")
     fun getOtherBrand(@Header("Authorization")token: String,@Path("memberId") memberId :Long):Call<RetrofitClient2.ResponseBrand>
 
+    @GET("/avatar/myAvatar")
+    fun getMyAvatar(@Header("Authorization")token:String)
+    @Multipart
     @PATCH("/avatar/myitems/wear")
-    fun wearMyItem(@Header("Authorization")token:String,@Body request: RetrofitClient2.ReequestWear):Call<RetrofitClient2.ResponseWear>
+    fun updateAvatar(@Header("Authorization")token:String, @Part("wearingItemIdList") wearingItemIdList : List<Long>, @Part avatarImage: MultipartBody.Part):Call<RetrofitClient2.ResponseWear>
+
 
     //페이지 조회 API : 검색 메인 페이지 조회
     @GET("/search/main")

@@ -3,6 +3,7 @@ package com.example.brandol.adaptor.RV
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -27,17 +28,6 @@ class AvatarRVAdapter(private val itemList: List<ItemModel2>, private val listen
 
         init {
             //클릭이벤트 구현
-            itemView.setOnClickListener {
-                if (ischeck == false) {
-                    image.setBackgroundResource(R.drawable.selector_click_item)
-                    ischeck = true
-                } else {
-                    image.setBackgroundResource(R.drawable.object_default_background)
-                    ischeck = false
-                }
-                listener?.onItemClick(adapterPosition,ischeck)
-
-            }
 
             //터치 이벤트 구현
             itemView.setOnTouchListener { v, event ->
@@ -77,7 +67,27 @@ class AvatarRVAdapter(private val itemList: List<ItemModel2>, private val listen
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        //입고있던 아바타는 체크
+        if(itemList.get(position).wearing) {
+            holder.image.setBackgroundResource(R.drawable.selector_click_item)
+            holder.ischeck = true
+        }
         Glide.with(holder.image.context).load(itemList.get(position).image).into(holder.image)
+        //만약 내가 클릭한 아이템의 파트가 겹칠때 체크 바꾸기
+//        for (i in 0..itemList.size-1){
+//            val
+//            if(itemList.get(i).part == itemList.get(position).part && itemList.get(i))
+//        }
+        holder.itemView.setOnClickListener {
+            if (holder.ischeck == false) {
+                holder.image.setBackgroundResource(R.drawable.selector_click_item)
+                holder.ischeck = true
+            } else {
+                holder.image.setBackgroundResource(R.drawable.object_default_background)
+                holder.ischeck = false
+            }
+            listener?.onItemClick(position,holder.ischeck)
+        }
 
     }
 

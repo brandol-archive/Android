@@ -88,6 +88,8 @@ class RetrofitClient2 {
         val description : String,
         @SerializedName("image")
         val image : String,
+        @SerializedName("wearingImage")
+        val wearingImage : String,
         @SerializedName("price")
         val price : Int,
         @SerializedName("createdAt")
@@ -138,13 +140,6 @@ class RetrofitClient2 {
         @SerializedName("description") val description: String,
         @SerializedName("profileImage") val profileImage: String,
         @SerializedName("sequence") val sequence: Int
-    )
-
-    data class ReequestWear(
-        @SerializedName("wearingItemIdList")
-        val wearingItemIdList: List<Long>,
-        @SerializedName("avatarImage")
-        val avatarImage: String
     )
 
     data class ResponseWear(
