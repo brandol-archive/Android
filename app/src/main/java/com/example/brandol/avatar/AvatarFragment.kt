@@ -158,40 +158,79 @@ class AvatarFragment : Fragment(), ItemClickListener {
             val dup = bundle.getLong("dupPosition")
 
             Log.d("LHJ", check.toString())
-            if (check == true) {
-                idList.add(itemId)
-                idList.remove(dup)
-                Log.d("LHJ", idList.toString())
-                when (itemPart) {
-                    "TOP" -> Glide.with(binding.avatarBaseAvatarShirts.context)
-                        .load(itemWearingImage)
-                        .into(binding.avatarBaseAvatarShirts)
+            if(dup<900) {
+                if (check == true) {
+                    idList.add(itemId)
+                    idList.remove(dup)
+                    Log.d("LHJ", idList.toString())
+                    when (itemPart) {
+                        "TOP" -> Glide.with(binding.avatarBaseAvatarShirts.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarShirts)
 
-                    "BOTTOM" -> Glide.with(binding.avatarBaseAvatarPants.context)
-                        .load(itemWearingImage)
-                        .into(binding.avatarBaseAvatarPants)
+                        "BOTTOM" -> Glide.with(binding.avatarBaseAvatarPants.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarPants)
 
-                    "SHOES" -> Glide.with(binding.avatarBaseAvatarPants.context)
-                        .load(itemWearingImage)
-                        .into(binding.avatarBaseAvatarShoes)
+                        "SHOES" -> Glide.with(binding.avatarBaseAvatarPants.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarShoes)
 
-                    "HAIR" -> Glide.with(binding.avatarBaseAvatarPants.context)
-                        .load(itemWearingImage)
-                        .into(binding.avatarBaseAvatarHair)
+                        "HAIR" -> Glide.with(binding.avatarBaseAvatarPants.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarHair)
 
-                    "SKIN" -> Glide.with(binding.avatarBaseAvatarPants.context)
-                        .load(itemWearingImage)
-                        .into(binding.avatarBaseAvatarSkin)
+                        "SKIN" -> Glide.with(binding.avatarBaseAvatarPants.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarSkin)
+                    }
+                } else {
+                    idList.remove(itemId)
+                    Log.d("LHJ", idList.toString())
+                    when (itemPart) {
+                        "TOP" -> binding.avatarBaseAvatarShirts.setImageResource(R.drawable.base_item_shirts)
+                        "BOTTOM" -> binding.avatarBaseAvatarPants.setImageResource(R.drawable.base_item_pants)
+                        "SHOES" -> binding.avatarBaseAvatarShoes.setImageResource(R.drawable.no1_item_shoes)
+                        "HAIR" -> binding.avatarBaseAvatarHair.setImageResource(R.drawable.base_item_hair)
+                        "SKIN" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no1_item_skin)
+                    }
                 }
-            } else {
-                idList.remove(itemId)
-                Log.d("LHJ",idList.toString())
-                when (itemPart) {
-                    "TOP" -> binding.avatarBaseAvatarShirts.setImageResource(R.drawable.base_item_shirts)
-                    "BOTTOM" -> binding.avatarBaseAvatarPants.setImageResource(R.drawable.base_item_pants)
-                    "SHOES" -> binding.avatarBaseAvatarShoes.setImageResource(R.drawable.no1_item_shoes)
-                    "HAIR" -> binding.avatarBaseAvatarHair.setImageResource(R.drawable.base_item_hair)
-                    "SKIN" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no1_item_skin)
+
+            }else{
+                if (check == true) {
+                    idList.add(itemId)
+                    Log.d("LHJ", idList.toString())
+                    when (itemPart) {
+                        "TOP" -> Glide.with(binding.avatarBaseAvatarShirts.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarShirts)
+
+                        "BOTTOM" -> Glide.with(binding.avatarBaseAvatarPants.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarPants)
+
+                        "SHOES" -> Glide.with(binding.avatarBaseAvatarPants.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarShoes)
+
+                        "HAIR" -> Glide.with(binding.avatarBaseAvatarPants.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarHair)
+
+                        "SKIN" -> Glide.with(binding.avatarBaseAvatarPants.context)
+                            .load(itemWearingImage)
+                            .into(binding.avatarBaseAvatarSkin)
+                    }
+                } else {
+                    idList.remove(itemId)
+                    Log.d("LHJ", idList.toString())
+                    when (itemPart) {
+                        "TOP" -> binding.avatarBaseAvatarShirts.setImageResource(R.drawable.base_item_shirts)
+                        "BOTTOM" -> binding.avatarBaseAvatarPants.setImageResource(R.drawable.base_item_pants)
+                        "SHOES" -> binding.avatarBaseAvatarShoes.setImageResource(R.drawable.no1_item_shoes)
+                        "HAIR" -> binding.avatarBaseAvatarHair.setImageResource(R.drawable.base_item_hair)
+                        "SKIN" -> binding.avatarBaseAvatarSkin.setImageResource(R.drawable.no1_item_skin)
+                    }
                 }
             }
         }

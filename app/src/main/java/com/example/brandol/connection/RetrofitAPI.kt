@@ -22,24 +22,32 @@ interface RetrofitAPI {
     @POST("/auth/signup")
     fun signup(@Body request: RetrofitClient2.RequestSignup): Call<RetrofitClient2.ResponseSignup>
 
+    //구매아이템 조회
     @GET("/avatar/myitems")
     fun getMyItemData(@Header("Authorization")token:String):Call<RetrofitClient2.ResponseItem>
+    //타유저 아이템 조회
     @GET("/avatar/{memberId}/items")
     fun getOtherItemData(@Header("Authorization")token: String, @Path("memberId") memberId :Long):Call<RetrofitClient2.ResponseItem>
-
+    //타유저 게시물 조회
     @GET("/avatar/{memberId}/community")
     fun getOtherCommunityData(@Header("Authorization")token: String,@Path("memberId") memberId :Long,@Query("page") page: Int):Call<RetrofitClient2.ResponseCommunity>
+   //타유저 브랜드도회
     @GET("/avatar/{memberId}/brandsList")
     fun getOtherBrand(@Header("Authorization")token: String, @Path("memberId") memberId :Long):Call<RetrofitClient2.ResponseBrand>
-
+    //타유저 아바타 조회
     @GET("/users/{memberId}/avatar")
     fun getOtherAvatar(@Header("Authorization")token: String,@Path("memberId") memberId :Long): Call<RetrofitClient2.ResponseOtherAvatar>
-    @GET("/avatar/myAvatar")
-    fun getMyAvatar(@Header("Authorization")token:String)
+    // 아바타 서버에 업로드
     @Multipart
     @PATCH("/avatar/myitems/wear")
     fun updateAvatar(@Header("Authorization")token:String, @Part("wearingItemIdList") wearingItemIdList : List<Long>, @Part avatarImage: MultipartBody.Part):Call<RetrofitClient2.ResponseWear>
 
+
+    //마이페이지 정보 조회
+    @GET("/auth/info")
+    fun getMypageData(@Header("Authorization")token:String) : Call<RetrofitClient2.ResponseMyInfo>
+
+    //닉네임 수정
 
     //페이지 조회 API : 검색 메인 페이지 조회
     @GET("/search/main")

@@ -23,23 +23,24 @@ class AvatarRVAdapter(private val itemList: List<ItemModel2>, private val listen
         // ViewHolder에서 사용할 뷰들을 정의
         val image: ImageView = itemView.findViewById(R.id.item_stuff_image_iv)
 
+
         init {
             itemView.setOnClickListener {
                 if(duplicateCheck(adapterPosition) != -1){
                     val dupPosition = duplicateCheck(adapterPosition)
                     itemList.get(dupPosition).ischeck = false
-                    notifyItemChanged(dupPosition)
                     itemList.get(adapterPosition).ischeck = true
+                    notifyItemChanged(dupPosition)
                     notifyItemChanged(adapterPosition)
                     listener?.onItemClick(adapterPosition,itemList.get(adapterPosition).ischeck,itemList.get(dupPosition).itemId)
                 }else if (itemList.get(adapterPosition).ischeck == false) {
                     itemList.get(adapterPosition).ischeck = true
                     notifyItemChanged(adapterPosition)
-                    listener?.onItemClick(adapterPosition,itemList.get(adapterPosition).ischeck,1)
+                    listener?.onItemClick(adapterPosition,itemList.get(adapterPosition).ischeck,999)
                 } else {
                     itemList.get(adapterPosition).ischeck = false
                     notifyItemChanged(adapterPosition)
-                    listener?.onItemClick(adapterPosition,itemList.get(adapterPosition).ischeck,1)
+                    listener?.onItemClick(adapterPosition,itemList.get(adapterPosition).ischeck,999)
                 }
 
             }
@@ -95,12 +96,9 @@ class AvatarRVAdapter(private val itemList: List<ItemModel2>, private val listen
         if(itemList.get(position).wearing){
             itemList.get(position).ischeck =true
         }
-
         if (itemList.get(position).ischeck == false) {
-            Log.d("LHJ",itemList.get(position).itemName)
             holder.image.setBackgroundResource(R.drawable.object_default_background)
         }else{
-            Log.d("LHJ",itemList.get(position).itemName)
             holder.image.setBackgroundResource(R.drawable.selector_click_item)
         }
         //이미지 설정

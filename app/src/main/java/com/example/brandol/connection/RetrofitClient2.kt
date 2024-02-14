@@ -175,6 +175,35 @@ class RetrofitClient2 {
         val result: String
     )
 
+    data class ResponseMyInfo(
+        val isSuccess: Boolean,
+        val code: String,
+        val message: String,
+        val result: MyInfo
+    )
+
+    data class MyInfo(
+        val memberId: Long,
+        val nickname: String,
+        val avatar: String,
+        val point: Int
+    )
+
+    data class RequestNickname(
+        val nickname : String
+    )
+
+    data class ResponseNickname(
+        val isSuccess: Boolean,
+        val code: String,
+        val message: String,
+        val result: Nickname
+    )
+
+    data class Nickname(
+        val memberId: Long,
+        val nickname: String
+    )
     data class GetBrandHeader(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,

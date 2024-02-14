@@ -67,14 +67,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="500P"
+        android:text="500"
         android:textColor="@color/selectedpurple"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/mypage_point_tv"
         app:layout_constraintStart_toEndOf="@id/mypage_point_tv" />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P"
+        android:textColor="@color/selectedpurple"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/mypage_point_quantity_tv"
+        app:layout_constraintBottom_toBottomOf="@id/mypage_point_quantity_tv"/>
     <View
         android:id="@+id/mypage_v"
         android:layout_width="match_parent"

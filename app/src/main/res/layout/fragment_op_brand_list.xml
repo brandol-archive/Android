@@ -8,6 +8,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/brand_list_rv"
         android:layout_width="match_parent"
+        android:padding="5dp"
         android:layout_height="wrap_content"/>
 
 </FrameLayout>
