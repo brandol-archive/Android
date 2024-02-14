@@ -29,9 +29,11 @@ interface RetrofitAPI {
 
     @GET("/avatar/{memberId}/community")
     fun getOtherCommunityData(@Header("Authorization")token: String,@Path("memberId") memberId :Long,@Query("page") page: Int):Call<RetrofitClient2.ResponseCommunity>
-    @GET("/avatar/{memberId}/brandList")
-    fun getOtherBrand(@Header("Authorization")token: String,@Path("memberId") memberId :Long):Call<RetrofitClient2.ResponseBrand>
+    @GET("/avatar/{memberId}/brandsList")
+    fun getOtherBrand(@Header("Authorization")token: String, @Path("memberId") memberId :Long):Call<RetrofitClient2.ResponseBrand>
 
+    @GET("/users/{memberId}/avatar")
+    fun getOtherAvatar(@Header("Authorization")token: String,@Path("memberId") memberId :Long): Call<RetrofitClient2.ResponseOtherAvatar>
     @GET("/avatar/myAvatar")
     fun getMyAvatar(@Header("Authorization")token:String)
     @Multipart

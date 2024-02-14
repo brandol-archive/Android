@@ -19,16 +19,30 @@ import com.example.brandol.collection.ItemModel2
 class AvatarRVAdapter(private val itemList: List<ItemModel2>, private val listener: ItemClickListener) : RecyclerView.Adapter<AvatarRVAdapter.MyViewHolder>() {
 
     private var handler = Handler(Looper.getMainLooper())
-
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // ViewHolder에서 사용할 뷰들을 정의
         val image: ImageView = itemView.findViewById(R.id.item_stuff_image_iv)
 
-        var ischeck : Boolean = false
-
         init {
-            //클릭이벤트 구현
+            itemView.setOnClickListener {
+                if(duplicateCheck(adapterPosition) != -1){
+                    val dupPosition = duplicateCheck(adapterPosition)
+                    itemList.get(dupPosition).ischeck = false
+                    notifyItemChanged(dupPosition)
+                    itemList.get(adapterPosition).ischeck = true
+                    notifyItemChanged(adapterPosition)
+                    listener?.onItemClick(adapterPosition,itemList.get(adapterPosition).ischeck,itemList.get(dupPosition).itemId)
+                }else if (itemList.get(adapterPosition).ischeck == false) {
+                    itemList.get(adapterPosition).ischeck = true
+                    notifyItemChanged(adapterPosition)
+                    listener?.onItemClick(adapterPosition,itemList.get(adapterPosition).ischeck,1)
+                } else {
+                    itemList.get(adapterPosition).ischeck = false
+                    notifyItemChanged(adapterPosition)
+                    listener?.onItemClick(adapterPosition,itemList.get(adapterPosition).ischeck,1)
+                }
 
+            }
             //터치 이벤트 구현
             itemView.setOnTouchListener { v, event ->
                 when(event.actionMasked){
@@ -66,28 +80,31 @@ class AvatarRVAdapter(private val itemList: List<ItemModel2>, private val listen
         return MyViewHolder(itemView)
     }
 
+
+    fun duplicateCheck(position: Int): Int {
+        for(i in 0..itemList.size-1){
+            //같은 파트의 다른 아이템이 눌러져 있을때
+            if(i != position && itemList.get(i).part == itemList.get(position).part && itemList.get(i).ischeck){
+                return i
+            }
+        }
+        return -1
+    }
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         //입고있던 아바타는 체크
-        if(itemList.get(position).wearing) {
+        if(itemList.get(position).wearing){
+            itemList.get(position).ischeck =true
+        }
+
+        if (itemList.get(position).ischeck == false) {
+            Log.d("LHJ",itemList.get(position).itemName)
+            holder.image.setBackgroundResource(R.drawable.object_default_background)
+        }else{
+            Log.d("LHJ",itemList.get(position).itemName)
             holder.image.setBackgroundResource(R.drawable.selector_click_item)
-            holder.ischeck = true
         }
+        //이미지 설정
         Glide.with(holder.image.context).load(itemList.get(position).image).into(holder.image)
-        //만약 내가 클릭한 아이템의 파트가 겹칠때 체크 바꾸기
-//        for (i in 0..itemList.size-1){
-//            val
-//            if(itemList.get(i).part == itemList.get(position).part && itemList.get(i))
-//        }
-        holder.itemView.setOnClickListener {
-            if (holder.ischeck == false) {
-                holder.image.setBackgroundResource(R.drawable.selector_click_item)
-                holder.ischeck = true
-            } else {
-                holder.image.setBackgroundResource(R.drawable.object_default_background)
-                holder.ischeck = false
-            }
-            listener?.onItemClick(position,holder.ischeck)
-        }
 
     }
 

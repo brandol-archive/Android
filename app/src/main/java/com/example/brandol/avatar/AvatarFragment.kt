@@ -44,7 +44,7 @@ import java.io.IOException
 
 class AvatarFragment : Fragment(), ItemClickListener {
     lateinit var binding: FragmentAvatarBinding
-    var idList = ArrayList<Long>(5)
+    var idList = ArrayList<Long>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -72,14 +72,14 @@ class AvatarFragment : Fragment(), ItemClickListener {
         return binding.root
     }
 
-    private fun executeFunctionOnce(){
-        val sharedPreferences = context?.getSharedPreferences("oneTime",AppCompatActivity.MODE_PRIVATE)
-        val pref = sharedPreferences?.getBoolean("bool",false)
-        if(pref == true){
+    private fun executeFunctionOnce() {
+        val sharedPreferences =
+            context?.getSharedPreferences("oneTime", AppCompatActivity.MODE_PRIVATE)
+        val pref = sharedPreferences?.getBoolean("bool", false)
+        if (pref == true) {
             showShortDialog()
         }
-       sharedPreferences?.edit()
-           ?.putBoolean("bool",false)
+        sharedPreferences?.edit()?.putBoolean("bool", false)
 
     }
 
@@ -155,9 +155,12 @@ class AvatarFragment : Fragment(), ItemClickListener {
             val itemPart = bundle.getString("part")
             val itemWearingImage = bundle.getString("wearingImage")
             val check = bundle.getBoolean("check")
-            Log.d("LhJ", check.toString())
-            if (check) {
+            val dup = bundle.getLong("dupPosition")
+
+            Log.d("LHJ", check.toString())
+            if (check == true) {
                 idList.add(itemId)
+                idList.remove(dup)
                 Log.d("LHJ", idList.toString())
                 when (itemPart) {
                     "TOP" -> Glide.with(binding.avatarBaseAvatarShirts.context)
@@ -182,7 +185,7 @@ class AvatarFragment : Fragment(), ItemClickListener {
                 }
             } else {
                 idList.remove(itemId)
-                Log.d("LHJ", idList.toString())
+                Log.d("LHJ",idList.toString())
                 when (itemPart) {
                     "TOP" -> binding.avatarBaseAvatarShirts.setImageResource(R.drawable.base_item_shirts)
                     "BOTTOM" -> binding.avatarBaseAvatarPants.setImageResource(R.drawable.base_item_pants)
@@ -212,12 +215,12 @@ class AvatarFragment : Fragment(), ItemClickListener {
             val avatarImagePart =
                 MultipartBody.Part.createFormData("avatarImage", file.name, requestFile)
 
+            //배열 중복 제거
             val token = getCurrentToken(requireContext())
-
             val call = RetrofitObject.getRetrofitService.updateAvatar(
-                "Bearer $token", idList , avatarImagePart
+                "Bearer $token", idList, avatarImagePart
             )
-            Log.d("LHJ","idList : " + idList.toString())
+            Log.d("LHJ", "idList : " + idList.toString())
 
             call.enqueue(object : Callback<RetrofitClient2.ResponseWear> {
                 override fun onResponse(

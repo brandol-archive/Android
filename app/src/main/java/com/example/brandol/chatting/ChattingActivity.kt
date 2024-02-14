@@ -34,7 +34,7 @@ class ChattingActivity : AppCompatActivity() {
         adapterForChat.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int) {
                 val userInfo = chatList[position]
-                intent.putExtra("from","Chatting")
+                intent.putExtra("from", "Chatting")
                 intent.putExtra("chatkey", userInfo.name)
                 startActivity(intent)
             }
@@ -47,7 +47,7 @@ class ChattingActivity : AppCompatActivity() {
         binding.chattingSendBtn.setOnClickListener {
             var chattext = binding.chattingEdittextEt.text.toString()
             chatList.add(Chat(email, chattext, R.drawable.demo_avatar3, "호진"))
-            adapterForChat.notifyItemInserted(chatList.size-1)
+            adapterForChat.notifyItemInserted(chatList.size - 1)
             binding.chattingEdittextEt.text.clear()
             /*// 메시지 보내고 받는 시간 받기
             val calendar: Calendar = Calendar.getInstance() // 캘린더 객체 인스턴스 calendar
@@ -56,16 +56,6 @@ class ChattingActivity : AppCompatActivity() {
         }
 
         backbtn()
-    }
-
-    private fun hideKeyBoard() {
-        var view = this.currentFocus
-        if (view == null) {
-            view = View(this);
-        }
-        val inputMethodManager =
-            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun backbtn() {

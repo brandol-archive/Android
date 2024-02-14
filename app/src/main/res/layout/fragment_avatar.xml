@@ -23,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
+
             <ImageView
                 android:id="@+id/avatar_base_avatar_skin"
                 android:layout_width="160dp"

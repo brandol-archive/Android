@@ -106,21 +106,21 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: Community
+        val result: List<Community>
     )
 
     data class Community(
-        val writerId: Long,
-        val writerName: String,
-        val writerProfile: String,
-        val articleType: String,
-        val id: Long,
-        val title: String,
-        val content: String,
-        val images: List<String>,
-        val likeCount: Int,
-        val commentCount: Int,
-        val writtenDate: String
+        @SerializedName("writerId") val writerId: Long,
+        @SerializedName("writerName") val writerName: String,
+        @SerializedName("writerProfile") val writerProfile: String,
+        @SerializedName("articleType") val articleType: String,
+        @SerializedName("id") val id: Long,
+        @SerializedName("title") val title: String,
+        @SerializedName("content") val content: String,
+        @SerializedName("images") val images: List<String>,
+        @SerializedName("likeCount") val likeCount: Int,
+        @SerializedName("commentCount") val commentCount: Int,
+        @SerializedName("writtenDate") val writtenDate: String
     )
 
     data class ResponseBrand(
@@ -131,16 +131,38 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: Brand
+        val result: List<Brand>
     )
 
     data class Brand(
-        @SerializedName("brandId") val brandId: Int,
-        @SerializedName("brandName") val brandName: String,
-        @SerializedName("description") val description: String,
-        @SerializedName("profileImage") val profileImage: String,
-        @SerializedName("sequence") val sequence: Int
+        @SerializedName("brandId")
+        val brandId: Int,
+        @SerializedName("brandName")
+        val brandName: String,
+        @SerializedName("description")
+        val description: String,
+        @SerializedName("profileImage")
+        val profileImage: String,
+        @SerializedName("sequence")
+        val sequence: Int
     )
+
+    data class ResponseOtherAvatar(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result") val result: OtherAvatar
+    )
+
+    data class OtherAvatar(
+        @SerializedName("memberId") val memberId: Long,
+        @SerializedName("avatar") val avatar: String,
+        @SerializedName("nickname") val nickname: String
+    )
+
 
     data class ResponseWear(
         @SerializedName("isSuccess")

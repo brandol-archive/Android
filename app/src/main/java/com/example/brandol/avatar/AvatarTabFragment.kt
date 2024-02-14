@@ -98,10 +98,11 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                         part,
                                         description,
                                         image,
-                                        //wearingImage,
+                                        wearingImage,
                                         price,
                                         createdAt,
                                         wearing,
+                                        false
                                     )
                                 )
                             }
@@ -157,7 +158,6 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                     val price: Int = response.result[i].price
                                     val createdAt: String = response.result[i].createdAt
                                     val wearing: Boolean = response.result[i].wearing
-                                    var ischeck = false
                                     itemList.add(
                                         ItemModel2(
                                             myItemId,
@@ -168,10 +168,11 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                             part,
                                             description,
                                             image,
-                                            //wearingImage,
+                                            wearingImage,
                                             price,
                                             createdAt,
                                             wearing,
+                                            false
                                         )
                                     )
                                 }
@@ -212,18 +213,20 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
         }
     }
 
-    override fun onItemClick(position: Int,check : Boolean) {
+    override fun onItemClick(position: Int , check : Boolean,dup : Long) {
         //클릭시 이름을 보내서 이름을 매개로 정보를 받게
         val itemobject = itemList.get(position)
-        val itemWearingImage = itemobject.image
+        val itemWearingImage = itemobject.wearingImage
         val itemPart = itemobject.part
         val itemId = itemobject.itemId
+
         // Use the Kotlin extension in the fragment-ktx artifact.
         var bundle = Bundle()
         bundle.putString("part",itemPart)
         bundle.putString("wearingImage",itemWearingImage)
         bundle.putLong("id",itemId)
         bundle.putBoolean("check",check)
+        bundle.putLong("dupPosition",dup)
         parentFragmentManager.setFragmentResult("requestKey", bundle)
 
     }

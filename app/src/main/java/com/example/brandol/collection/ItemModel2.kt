@@ -9,8 +9,9 @@ data class ItemModel2(
     val part : String,
     val description : String,
     val image : String,
-    //val wearingImage : String,
+    val wearingImage : String,
     val price : Int,
     val createdAt : String,
     val wearing : Boolean,
+    var ischeck : Boolean
 )

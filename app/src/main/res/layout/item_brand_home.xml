@@ -62,14 +62,23 @@
             app:layout_constraintTop_toBottomOf="@id/brand_name_tv" />
 
         <TextView
+            android:id="@+id/fan_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="n"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/brand_info_tv"
+            app:layout_constraintTop_toBottomOf="@id/brand_info_tv"/>
+
+        <TextView
             android:id="@+id/fan_count_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:text="n번째 팬"
+            android:text="번째 팬"
             android:textSize="12dp"
             android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintStart_toEndOf="@id/classification_v"
+            app:layout_constraintStart_toEndOf="@id/fan_count"
             app:layout_constraintTop_toBottomOf="@id/brand_info_tv" />
 
         <Button
