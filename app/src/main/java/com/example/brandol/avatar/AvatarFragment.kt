@@ -104,30 +104,29 @@ class AvatarFragment : Fragment(), ItemClickListener {
                             for (i in 0..response.result.size - 1) {
                                 val itemId: Long = response.result[i].itemId
                                 val part: String = response.result[i].part
-                                val image: String = response.result[i].image
                                 val wearingImage: String = response.result[i].wearingImage
                                 val wearing: Boolean = response.result[i].wearing
                                 if (wearing) {
                                     idList.add(itemId)
                                     when (part) {
                                         "TOP" -> Glide.with(binding.avatarBaseAvatarShirts.context)
-                                            .load(image)
+                                            .load(wearingImage)
                                             .into(binding.avatarBaseAvatarShirts)
 
                                         "BOTTOM" -> Glide.with(binding.avatarBaseAvatarPants.context)
-                                            .load(image)
+                                            .load(wearingImage)
                                             .into(binding.avatarBaseAvatarPants)
 
                                         "SHOES" -> Glide.with(binding.avatarBaseAvatarPants.context)
-                                            .load(image)
+                                            .load(wearingImage)
                                             .into(binding.avatarBaseAvatarShoes)
 
                                         "HAIR" -> Glide.with(binding.avatarBaseAvatarPants.context)
-                                            .load(image)
+                                            .load(wearingImage)
                                             .into(binding.avatarBaseAvatarHair)
 
                                         "SKIN" -> Glide.with(binding.avatarBaseAvatarPants.context)
-                                            .load(image)
+                                            .load(wearingImage)
                                             .into(binding.avatarBaseAvatarSkin)
                                     }
                                 }
@@ -155,13 +154,13 @@ class AvatarFragment : Fragment(), ItemClickListener {
             val itemPart = bundle.getString("part")
             val itemWearingImage = bundle.getString("wearingImage")
             val check = bundle.getBoolean("check")
-            val dup = bundle.getLong("dupPosition")
+            val dupId = bundle.getLong("dupPosition")
 
             Log.d("LHJ", check.toString())
-            if(dup<900) {
+            if(dupId<900) {
                 if (check == true) {
                     idList.add(itemId)
-                    idList.remove(dup)
+                    idList.remove(dupId)
                     Log.d("LHJ", idList.toString())
                     when (itemPart) {
                         "TOP" -> Glide.with(binding.avatarBaseAvatarShirts.context)
