@@ -47,8 +47,12 @@ interface RetrofitAPI {
     @GET("/auth/info")
     fun getMypageData(@Header("Authorization")token:String) : Call<RetrofitClient2.ResponseMyInfo>
 
+    //회원탈퇴
+    @PATCH("/auth/status")
+    fun deleteAccount(@Header("Authorization")token:String) : Call<RetrofitClient2.ResponseStatus>
     //닉네임 수정
-
+    @PATCH("/auth/nickname")
+    fun changeNickname(@Header("Authorization")token:String,@Body request : RetrofitClient2.RequestNickname) : Call<RetrofitClient2.ResponseNickname>
     //페이지 조회 API : 검색 메인 페이지 조회
     @GET("/search/main")
     fun getSearchMain(@Header("Authorization")token:String): Call<RetrofitClient2.ResponseSearchMain>

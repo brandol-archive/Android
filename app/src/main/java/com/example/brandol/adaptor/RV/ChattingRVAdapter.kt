@@ -19,6 +19,7 @@ class ChattingRVAdapter(private var chatList: List<Chat>, private val myemail: S
         val userprofile: ImageView = itemView.findViewById(R.id.avatar_iv)
         val chattext: TextView = itemView.findViewById(R.id.chat_tv)
 
+        //프로필 클릭 이벤트를 ChattingActivity에서 구현
         init {
             userprofile.setOnClickListener {
                 itemClickListener?.onItemClick(adapterPosition)
@@ -49,6 +50,7 @@ class ChattingRVAdapter(private var chatList: List<Chat>, private val myemail: S
         holder.username.text = chatList.get(position).name
     }
 
+    //이메일을 받아와서 내 이메일이면 1반환 아니면 2반환
     override fun getItemViewType(position: Int): Int {
         if (chatList.get(position).email.equals(myemail)) {
             return 1

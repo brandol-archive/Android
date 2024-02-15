@@ -16,8 +16,8 @@
 
         <ImageButton
             android:id="@+id/message_back_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_marginStart="20dp"
             android:background="@color/white"
             android:scaleType="fitXY"

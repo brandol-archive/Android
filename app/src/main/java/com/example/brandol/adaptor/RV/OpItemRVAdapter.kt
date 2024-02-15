@@ -32,7 +32,7 @@ class OpItemRVAdapter(private val opItemList: List<ItemModel2>,private var liste
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_avatar_store, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_op_avatar, parent, false)
         return ItemViewHolder(itemView)
     }
 

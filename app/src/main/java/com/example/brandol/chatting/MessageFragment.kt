@@ -24,7 +24,9 @@ class MessageFragment : Fragment(), ItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMessageBinding.inflate(inflater, container, false)
+        //뒤로가기
         backbtn()
+        //메세지리스트 초기화
         initMessageList()
         binding.messageChattinglistRv.layoutManager = LinearLayoutManager(activity)
         binding.messageChattinglistRv.adapter = messageAdapter
@@ -34,6 +36,7 @@ class MessageFragment : Fragment(), ItemClickListener {
     override fun showCustomDialog(position: Int) {
         val context = context
         val dialog = CustomChatroomDialog(context!!, messageList.get(position).name, {
+            //채팅방 나가기
             messageList.removeAt(position)
             messageAdapter.notifyItemRemoved(position)
         }, {
@@ -42,6 +45,7 @@ class MessageFragment : Fragment(), ItemClickListener {
         dialog.show()
     }
     override fun onItemClick(position: Int) {
+        //메세지 리스트 클릭시
         val intent = Intent(activity, ChattingActivity::class.java)
         val message = messageList[position]
         intent.putExtra("messagekey", message.name)
@@ -49,23 +53,17 @@ class MessageFragment : Fragment(), ItemClickListener {
     }
 
 
+    //메세지리스트 초기화
     private fun initMessageList() {
         messageList.apply {
-            add(
-                Message(
-                    R.drawable.demo_avatar,
-                    "이호진",
-                    "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
-                    "4:58",
-                    5
-                )
-            )
+            add(Message(R.drawable.demo_avatar, "이호진", "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ", "4:58", 5))
             add(Message(R.drawable.demo_avatar2, "김용기", "나 좀 잘생기지 않았냐ㅋㅋ", "4:58", 4))
             add(Message(R.drawable.demo_avatar3, "박준용", "안녕하세요~", "4:58", 16))
             add(Message(R.drawable.demo_avatar4, "임경진", " ", "4:58", 15))
         }
     }
 
+    //뒤로가기
     private fun backbtn() {
         binding.messageBackBtn.setOnClickListener {
             parentFragmentManager.beginTransaction()

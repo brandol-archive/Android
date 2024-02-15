@@ -13,6 +13,7 @@ import com.example.brandol.R
 class CustomAccountDialog(
     context: Context,
     private val message: String,
+    private val nickname : String,
     private val onConfirm: () -> Unit,
     private val onCancel: () -> Unit
 ) : Dialog(context) {
@@ -36,7 +37,7 @@ class CustomAccountDialog(
 
         acyesButton.setOnClickListener {
 
-            if(editText.text.trim().isEmpty()) {
+            if(editText.text.trim().isEmpty() || editText.text.toString() != nickname) {
                 Toast.makeText(context,"닉네임을 적어 주세요",Toast.LENGTH_SHORT).show()
             }else {
                 onConfirm.invoke()

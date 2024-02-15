@@ -61,28 +61,28 @@ class MypageFragment : Fragment() {
 
         })
 
-
+        //회원정보
         binding.mypageUserinfoTv.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, MypageUserinfoFragment())
                 .addToBackStack(null)
                 .commit()
         }
-
+        //푸시알림
         binding.mypagePushAlarmTv.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, MypagePushalarmFragment())
                 .addToBackStack(null)
                 .commit()
         }
-
+        //차단목록
         binding.mypageBlacklistTv.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, MypageBlacklistFragment())
                 .addToBackStack(null)
                 .commit()
         }
-
+        //이용약관
         binding.mypageTermuseTv.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, MypageTermuseFragment())
@@ -122,8 +122,35 @@ class MypageFragment : Fragment() {
             val dialog = CustomAccountDialog(
                 context!!, "정말로 계정을 탈퇴하시겠습니까?\n" +
                         "탈퇴를 계속하기 원하신다면\n" +
-                        "닉네임 입력 후 확인을 눌러주세요.",
+                        "닉네임 입력 후 확인을 눌러주세요.",binding.mypageNameTv.text.toString(),
                 {
+                    val token = getCurrentToken(requireContext())
+                    val call = RetrofitObject.getRetrofitService.deleteAccount("Bearer $token")
+                    call.enqueue(object :Callback<RetrofitClient2.ResponseStatus>{
+                        override fun onResponse(
+                            call: Call<RetrofitClient2.ResponseStatus>,
+                            response: Response<RetrofitClient2.ResponseStatus>
+                        ) {
+                            Log.d("LHJ", response.toString())
+                            if (response.isSuccessful) {
+                                val response = response.body()
+                                Log.d("LHJ", response.toString())
+                                if (response != null) {
+                                    if (response.isSuccess) {
+
+                                    }
+                                }
+                            }
+                        }
+
+                        override fun onFailure(
+                            call: Call<RetrofitClient2.ResponseStatus>,
+                            t: Throwable
+                        ) {
+                            TODO("Not yet implemented")
+                        }
+
+                    })
                     activity?.finish()
                 },
                 {
