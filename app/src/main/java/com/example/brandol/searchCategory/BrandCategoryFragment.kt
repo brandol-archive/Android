@@ -9,6 +9,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.Home.BrandManagementFragment
+import com.example.brandol.R
+import com.example.brandol.SearchBarFragment
+import com.example.brandol.SearchFragment
 import com.example.brandol.adaptor.BrandCategoryAdapter
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
@@ -28,6 +32,25 @@ class BrandCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBrandCategoryBinding.inflate(inflater, container, false)
+
+
+        binding.btnSearchBarIb.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+        binding.btnSearchIc.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+
+
         return binding.root
     }
 

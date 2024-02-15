@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.R
+import com.example.brandol.SearchBarFragment
 import com.example.brandol.adaptor.ContentCategoryAdapter
 import com.example.brandol.adaptor.ContentModel
 import com.example.brandol.connection.RetrofitClient2
@@ -29,6 +31,25 @@ class ContentsCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentContentsCategoryBinding.inflate(inflater, container, false)
+
+
+        binding.btnSearchBarIb.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+        binding.btnSearchIc.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+
+
         return binding.root
     }
 
