@@ -4,4 +4,7 @@
     <dimen name="dialog_width">300dp</dimen>
     <!-- Add this dimension for dialog height -->
     <dimen name="dialog_height">350dp</dimen>
+
+    <dimen name="margin_left">16dp</dimen>
+    <dimen name="margin_top">20dp</dimen>
 </resources>

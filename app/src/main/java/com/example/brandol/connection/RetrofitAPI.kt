@@ -2,10 +2,7 @@ package com.example.brandol.connection
 
 import okhttp3.MultipartBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Multipart
@@ -78,7 +75,7 @@ interface RetrofitAPI {
 
 
     @POST("/users/my-board-list/unsubscribe/{brandId}")
-    fun unsubscribeBrand(@Header("Authorization")token:String, @Path("brandId") brandId: Long): Call<RetrofitClient2.UnsubscribeBrand>
+    fun unsubscribeBrand(@Header("Authorization") token:String, @Path("brandId") brandId: Int): Call<RetrofitClient2.UnsubscribeBrand>
 
     @GET("/search/detail/brands")
     fun searchDetailBrands(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailBrands>

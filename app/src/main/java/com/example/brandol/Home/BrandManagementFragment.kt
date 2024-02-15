@@ -36,7 +36,8 @@ class BrandManagementFragment : Fragment() {
         binding = FragmentBrandManagementBinding.inflate(inflater, container, false)
 
 
-        unsubscribeBrandData()
+        //unsubscribeBrandData()
+        getBrandListData()
 
         return binding.root
     }
@@ -46,30 +47,44 @@ class BrandManagementFragment : Fragment() {
         return sharedPref.getString("accessToken", null)
     }
 
-    private fun unsubscribeBrandData() {
+    private fun getBrandListData() {
         val token = getCurrentToken(requireContext())
-        val call = RetrofitObject.getRetrofitService.unsubscribeBrand("Bearer $token", 1)
-        call.enqueue(object : Callback<RetrofitClient2.UnsubscribeBrand> {
+        val call = RetrofitObject.getRetrofitService.getHomeFragment("Bearer $token")
+        Log.d("ikj", "good_1")
+        call.enqueue(object : Callback<RetrofitClient2.GetHomeFragment> {
             override fun onResponse(
-                call: Call<RetrofitClient2.UnsubscribeBrand>,
-                response: Response<RetrofitClient2.UnsubscribeBrand>
+                call: Call<RetrofitClient2.GetHomeFragment>,
+                response: Response<RetrofitClient2.GetHomeFragment>
             ) {
-                Log.d("ikj_brand_unsubscribe", response.toString())
+                Log.d("ikj", "good_2")
+                Log.d("ikj", response.toString())
                 if (response.isSuccessful) {
-                    val responseData = response.body()
-                    Log.d("ikj_brand_unsubscribe", responseData.toString())
-                    if (responseData != null && responseData.isSuccess) {
-                        // 성공적으로 서버 응답을 받았을 때의 로직
+                    val response = response.body()
+                    Log.d("ikj", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            Log.d("ikj", response.result.toString())
+                            val responseData = response.result
+
+                            // Check if brand list is empty
+                            if (responseData?.memberBrandListDtoList.isNullOrEmpty()) {
+                                brandListAdapter.setEmptyBrandList()
+                            } else {
+                                // Update brand button data
+                                responseData?.memberBrandListDtoList?.let { brandListAdapter.setBrandList(it) }
+                            }
+                        }
                     }
                 }
             }
 
-            override fun onFailure(call: Call<RetrofitClient2.UnsubscribeBrand>, t: Throwable) {
+            override fun onFailure(call: Call<RetrofitClient2.GetHomeFragment>, t: Throwable) {
                 val errorMessage = "Call Failed: ${t.message}"
-                Log.d("ikj_brand_unsubscribe", errorMessage)
+                Log.d("ikj", errorMessage)
             }
         })
     }
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -80,11 +95,11 @@ class BrandManagementFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // 더미 데이터 생성
-        val brandDataList = listOf(
-            BrandData("BRANDOL", "브랜드 팬덤 커뮤니티", R.drawable.img_brandol),
-            BrandData("빙그레", "행복한 맛!", R.drawable.img_binggrae),
-            BrandData("배달의민족", "대한민국 1등 배달앱", R.drawable.img_baemin),
-        )
+//        val brandDataList = listOf(
+//            BrandData("BRANDOL", "브랜드 팬덤 커뮤니티", R.drawable.img_brandol),
+//            BrandData("빙그레", "행복한 맛!", R.drawable.img_binggrae),
+//            BrandData("배달의민족", "대한민국 1등 배달앱", R.drawable.img_baemin),
+//        )
 
         // 어댑터 초기화 및 리사이클러뷰에 설정
         brandListAdapter = BrandListAdapter(mutableListOf())
@@ -101,7 +116,7 @@ class BrandManagementFragment : Fragment() {
         brandListAdapter.attachItemTouchHelper(recyclerView)
 
         // 어댑터에 더미 데이터 설정
-        brandListAdapter.setBrandList(brandDataList)
+        //brandListAdapter.setBrandList(brandDataList)
     }
 }
 
