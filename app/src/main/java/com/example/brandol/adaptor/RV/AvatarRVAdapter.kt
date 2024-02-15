@@ -22,8 +22,6 @@ class AvatarRVAdapter(private val itemList: List<ItemModel2>, private val listen
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // ViewHolder에서 사용할 뷰들을 정의
         val image: ImageView = itemView.findViewById(R.id.item_stuff_image_iv)
-
-
         init {
             itemView.setOnClickListener {
                 if(duplicateCheck(adapterPosition) != -1){
@@ -93,9 +91,6 @@ class AvatarRVAdapter(private val itemList: List<ItemModel2>, private val listen
     }
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         //입고있던 아바타는 체크
-        if(itemList.get(position).wearing){
-            itemList.get(position).ischeck =true
-        }
         if (itemList.get(position).ischeck == false) {
             holder.image.setBackgroundResource(R.drawable.object_default_background)
         }else{

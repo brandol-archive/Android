@@ -12,6 +12,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.example.brandol.ItemClickListener
 import com.example.brandol.adaptor.RV.AvatarRVAdapter
 import com.example.brandol.collection.ItemModel2
@@ -88,6 +89,9 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                 val createdAt: String = response.result[i].createdAt
                                 val wearing: Boolean = response.result[i].wearing
                                 var ischeck = false
+                                if(wearing){
+                                    ischeck =true
+                                }
                                 itemList.add(
                                     ItemModel2(
                                         myItemId,
@@ -102,7 +106,7 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                         price,
                                         createdAt,
                                         wearing,
-                                        false
+                                        ischeck
                                     )
                                 )
                             }
@@ -122,12 +126,41 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
 
         })
 
-        var avatarAdapter = AvatarRVAdapter(itemList, this)
-        binding.avatartabItemlistRv.adapter =avatarAdapter
-        avatarAdapter.notifyDataSetChanged()
-
     }
 
+    private fun loadMyAvatar() {
+        val token = getCurrentToken(requireContext())
+        val call = RetrofitObject.getRetrofitService.getMyItemData("Bearer $token")
+        call.enqueue(object : Callback<RetrofitClient2.ResponseItem> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseItem>,
+                response: Response<RetrofitClient2.ResponseItem>
+            ) {
+                Log.d("LHJ", response.toString())
+                if (response.isSuccessful) {
+                    var response = response.body()
+                    //Log.d("LHJ", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            for (i in 0..response.result.size - 1) {
+                                val wearing: Boolean = response.result[i].wearing
+                                if (wearing) {
+                                    itemList.get(i).ischeck = true
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            override fun onFailure(call: Call<RetrofitClient2.ResponseItem>, t: Throwable) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.d("LHJ", errorMessage)
+            }
+
+        })
+    }
     private fun setTabByCategory(category: String) {
         itemList.clear()
         val token = getCurrentToken(requireContext())
@@ -158,6 +191,10 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                     val price: Int = response.result[i].price
                                     val createdAt: String = response.result[i].createdAt
                                     val wearing: Boolean = response.result[i].wearing
+                                    var ischeck = false
+                                    if(wearing){
+                                        ischeck =true
+                                    }
                                     itemList.add(
                                         ItemModel2(
                                             myItemId,
@@ -172,7 +209,7 @@ class AvatarTabFragment : Fragment(), ItemClickListener {
                                             price,
                                             createdAt,
                                             wearing,
-                                            false
+                                            ischeck
                                         )
                                     )
                                 }

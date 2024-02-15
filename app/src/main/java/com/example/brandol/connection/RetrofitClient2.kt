@@ -175,6 +175,12 @@ class RetrofitClient2 {
         val result: String
     )
 
+    data class ResponseStatus(
+        val isSuccess: Boolean,
+        val code: String,
+        val message: String,
+        val result: String
+    )
     data class ResponseMyInfo(
         val isSuccess: Boolean,
         val code: String,

@@ -34,7 +34,7 @@ class OpponentAvatarActivity : AppCompatActivity() {
         val from = intent.getStringExtra("from")
         var username : String = ""
 
-
+        //여기에서 인텐트로 멤버 아이디 받음
         if (from == "Chatting"){
             username = intent.getStringExtra("chatkey").toString()
             binding.opponentAvatarNameTv.text = username
@@ -44,6 +44,7 @@ class OpponentAvatarActivity : AppCompatActivity() {
         }
 
         viewPageConnect()
+
         //멤버아이디 받아서
         val token = getCurrentToken(this)
         val call = RetrofitObject.getRetrofitService.getOtherAvatar("Bearer $token",1)

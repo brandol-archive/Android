@@ -26,10 +26,14 @@ class ChattingActivity : AppCompatActivity() {
         binding = ActivityChattingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //상단에 이름 바인딩 추후 백엔드 연결
         binding.chattingNameTv.text = intent.getStringExtra("messagekey")
 
+        //리사이클러뷰 연결
         binding.chattingContentsRv.layoutManager = LinearLayoutManager(this)
         binding.chattingContentsRv.adapter = adapterForChat
+
+        //유저 프로필 클릭시 상대 아바타 방으로 이동
         val intent = Intent(this, OpponentAvatarActivity::class.java)
         adapterForChat.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int) {
@@ -39,11 +43,12 @@ class ChattingActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        //상대
         chatList.apply {
             add(Chat("w", "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", R.drawable.demo_avatar3, "용기리우스"))
         }
 
-
+        //보내기 버튼 눌렀을때 동작 추후에 백엔드 연결
         binding.chattingSendBtn.setOnClickListener {
             var chattext = binding.chattingEdittextEt.text.toString()
             chatList.add(Chat(email, chattext, R.drawable.demo_avatar3, "호진"))
