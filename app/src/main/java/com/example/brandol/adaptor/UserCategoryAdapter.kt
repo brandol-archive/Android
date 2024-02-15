@@ -103,6 +103,11 @@ import com.example.brandol.ItemClickListener
 import com.example.brandol.R
 import com.example.brandol.connection.RetrofitClient2
 
+interface ItemClickListener {
+    fun onItemClick(position: Int, brandId: Int)
+}
+
+
 class UserCategoryAdapter
     : RecyclerView.Adapter<UserCategoryAdapter.UserViewHolder>() {
 
@@ -162,7 +167,14 @@ class UserCategoryAdapter
 //                .load(userData.userImageResourceId)
 //                .into(userAvatar)
             // 필요한 경우 여기에 다른 위젯들에 대한 데이터 바인딩을 추가할 수 있습니다.
+
+            // 아이템 클릭 시 브랜드 아이디 전달
+            itemView.setOnClickListener {
+                itemClickListener?.onItemClick(adapterPosition, userData.userId)
+            }
         }
+
+
 
         init {
             itemView.setOnClickListener {

@@ -141,6 +141,7 @@
 package com.example.brandol.searchCategory
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -149,10 +150,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.adaptor.ItemClickListener
 import com.example.brandol.adaptor.UserCategoryAdapter
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentUserCategoryBinding
+import com.example.brandol.opavatar.OpponentAvatarActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -209,6 +212,13 @@ class UserCategoryFragment : Fragment() {
         })
     }
 
+    private fun navigateToOpponentAvatar(brandId: Int) {
+        val intent = Intent(requireContext(), OpponentAvatarActivity::class.java)
+        // 다른 데이터 추가 가능
+        intent.putExtra("brandid", brandId)
+        startActivity(intent)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -223,6 +233,14 @@ class UserCategoryFragment : Fragment() {
 
         // 서버에서 유저 데이터 가져오기
         getUserCategoryData()
+
+        // 아이템 클릭 시 브랜드 아이디 전달
+        userAdapter.itemClickListener = object : ItemClickListener,
+            com.example.brandol.ItemClickListener {
+            override fun onItemClick(position: Int, brandId: Int) {
+                navigateToOpponentAvatar(brandId)
+            }
+        }
 
         // 뒤로가기 버튼
         binding.btnBackUserCategory.setOnClickListener {
