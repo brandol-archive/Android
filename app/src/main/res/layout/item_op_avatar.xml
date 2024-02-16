@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/object_default_background"
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/brand_logo_store_iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="7dp"
+        android:background="@drawable/object_default_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/brand_name_store_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="브랜드 명"
+        android:textStyle="bold"
+        android:layout_marginLeft="7dp"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintStart_toEndOf="@id/brand_logo_store_iv"
+        app:layout_constraintTop_toTopOf="@id/brand_logo_store_iv" />
+
+    <TextView
+        android:id="@+id/classification_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textStyle="bold"
+        android:layout_marginLeft="7dp"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintStart_toEndOf="@id/brand_name_store_tv"
+        app:layout_constraintTop_toTopOf="@id/brand_logo_store_iv" />
+
+    <TextView
+        android:id="@+id/item_name_store_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이템 명"
+        android:textStyle="bold"
+        android:layout_marginLeft="7dp"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintStart_toEndOf="@id/classification_tv"
+        app:layout_constraintTop_toTopOf="@id/brand_logo_store_iv" />
+
+    <TextView
+        android:id="@+id/what_category_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="분류 : "
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintStart_toStartOf="@id/brand_name_store_tv"
+        app:layout_constraintTop_toBottomOf="@id/brand_name_store_tv" />
+
+    <TextView
+        android:id="@+id/tab_category_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintStart_toEndOf="@id/what_category_tv"
+        app:layout_constraintTop_toBottomOf="@id/brand_name_store_tv" />
+
+    <TextView
+        android:id="@+id/item_info_store_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이템 설명"
+        android:textSize="10dp"
+        android:textColor="@color/cardview_dark_background"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="7dp"
+        app:layout_constraintStart_toEndOf="@id/brand_logo_store_iv"
+        app:layout_constraintTop_toBottomOf="@id/tab_category_tv" />
+
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/item_purchase_button"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="6dp"
+        android:textSize="17sp"
+        android:text="150"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/selectedpurple"
+        android:background="@drawable/object_default_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

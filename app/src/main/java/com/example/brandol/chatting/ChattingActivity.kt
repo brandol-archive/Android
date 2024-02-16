@@ -26,28 +26,33 @@ class ChattingActivity : AppCompatActivity() {
         binding = ActivityChattingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //상단에 이름 바인딩 추후 백엔드 연결
         binding.chattingNameTv.text = intent.getStringExtra("messagekey")
 
+        //리사이클러뷰 연결
         binding.chattingContentsRv.layoutManager = LinearLayoutManager(this)
         binding.chattingContentsRv.adapter = adapterForChat
+
+        //유저 프로필 클릭시 상대 아바타 방으로 이동
         val intent = Intent(this, OpponentAvatarActivity::class.java)
         adapterForChat.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int) {
                 val userInfo = chatList[position]
-                intent.putExtra("from","Chatting")
+                intent.putExtra("from", "Chatting")
                 intent.putExtra("chatkey", userInfo.name)
                 startActivity(intent)
             }
         }
+        //상대
         chatList.apply {
             add(Chat("w", "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", R.drawable.demo_avatar3, "용기리우스"))
         }
 
-
+        //보내기 버튼 눌렀을때 동작 추후에 백엔드 연결
         binding.chattingSendBtn.setOnClickListener {
             var chattext = binding.chattingEdittextEt.text.toString()
             chatList.add(Chat(email, chattext, R.drawable.demo_avatar3, "호진"))
-            adapterForChat.notifyItemInserted(chatList.size-1)
+            adapterForChat.notifyItemInserted(chatList.size - 1)
             binding.chattingEdittextEt.text.clear()
             /*// 메시지 보내고 받는 시간 받기
             val calendar: Calendar = Calendar.getInstance() // 캘린더 객체 인스턴스 calendar
@@ -56,16 +61,6 @@ class ChattingActivity : AppCompatActivity() {
         }
 
         backbtn()
-    }
-
-    private fun hideKeyBoard() {
-        var view = this.currentFocus
-        if (view == null) {
-            view = View(this);
-        }
-        val inputMethodManager =
-            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun backbtn() {

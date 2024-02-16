@@ -1,13 +1,20 @@
 package com.example.brandol.connection
 
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Multipart
+import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
+
 
 interface RetrofitAPI {
     @POST("/auth/login/kakao")
@@ -15,27 +22,57 @@ interface RetrofitAPI {
     @POST("/auth/signup")
     fun signup(@Body request: RetrofitClient2.RequestSignup): Call<RetrofitClient2.ResponseSignup>
 
+    //구매아이템 조회
     @GET("/avatar/myitems")
-    fun getMyitem()
+    fun getMyItemData(@Header("Authorization")token:String):Call<RetrofitClient2.ResponseItem>
+    //타유저 아이템 조회
+    @GET("/avatar/{memberId}/items")
+    fun getOtherItemData(@Header("Authorization")token: String, @Path("memberId") memberId :Long):Call<RetrofitClient2.ResponseItem>
+    //타유저 게시물 조회
+    @GET("/avatar/{memberId}/community")
+    fun getOtherCommunityData(@Header("Authorization")token: String,@Path("memberId") memberId :Long,@Query("page") page: Int):Call<RetrofitClient2.ResponseCommunity>
+   //타유저 브랜드도회
+    @GET("/avatar/{memberId}/brandsList")
+    fun getOtherBrand(@Header("Authorization")token: String, @Path("memberId") memberId :Long):Call<RetrofitClient2.ResponseBrand>
+    //타유저 아바타 조회
+    @GET("/users/{memberId}/avatar")
+    fun getOtherAvatar(@Header("Authorization")token: String,@Path("memberId") memberId :Long): Call<RetrofitClient2.ResponseOtherAvatar>
+    // 아바타 서버에 업로드
+    @Multipart
+    @PATCH("/avatar/myitems/wear")
+    fun updateAvatar(@Header("Authorization")token:String, @Part("wearingItemIdList") wearingItemIdList : List<Long>, @Part avatarImage: MultipartBody.Part):Call<RetrofitClient2.ResponseWear>
 
+
+    //마이페이지 정보 조회
+    @GET("/auth/info")
+    fun getMypageData(@Header("Authorization")token:String) : Call<RetrofitClient2.ResponseMyInfo>
+
+    //회원탈퇴
+    @PATCH("/auth/status")
+    fun deleteAccount(@Header("Authorization")token:String) : Call<RetrofitClient2.ResponseStatus>
+    //닉네임 수정
+    @PATCH("/auth/nickname")
+    fun changeNickname(@Header("Authorization")token:String,@Body request : RetrofitClient2.RequestNickname) : Call<RetrofitClient2.ResponseNickname>
+
+    //서현 시작
     //페이지 조회 API : 검색 메인 페이지 조회
     @GET("/search/main")
     fun getSearchMain(@Header("Authorization")token:String): Call<RetrofitClient2.ResponseSearchMain>
 
-    //미션 관련 API : 포인트 미션 도전
-    @POST("/users/missions/{missionId}")
-    fun completeMission(missionId1: String, @Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionCompletion>
+    //브랜드 추가 미션 도전
+    @POST("/missions/{missionId}/add")
+    fun challengeAddMission(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseChallengeAddMission>
 
-    //미션 관련 API : 포인트 미션 성공
-    /*
-    @POST("/users/missions/{missionId}/success")
-    fun completeMissionSuccess(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionSuccess>
-*/
+    //브랜드 추가 미션 성공
+    @PATCH("/missions/{missionId}/add/success")
+    fun completeAddMissionSuccess(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionSuccess>
+
     //미션 관련 API : 포인트 미션 목록
     @GET("/users/missions")
     fun getMissionList(@Header("Authorization") token: String): Call<RetrofitClient2.ResponseMissionList>
+    //서현 끝
 
-  @GET("/brands/{brandId}/header")
+    @GET("/brands/{brandId}/header")
     fun getBrandHeader(@Header("Authorization")token:String, @Path("brandId") brandId: Long): Call<RetrofitClient2.GetBrandHeader>
 
     @GET("/users/main")
@@ -59,7 +96,6 @@ interface RetrofitAPI {
 
     @GET("/search/detail/avatar-store/body")
     fun searchDetailAvatarStoreBody(@Header("Authorization")token:String, @Query("itemPart") itemPart: String): Call<RetrofitClient2.SearchDetailAvatarStoreBody>
-
 
     //브랜드 관련 API (피그마 기준 페이지 2의 브랜드 상단 부분 조회, 하단 부분의 팬덤, 컨텐츠, 커뮤니티 조회)
     @POST("/brands/{brandId}/community/new")
@@ -179,4 +215,5 @@ interface RetrofitAPI {
     ): Call<RetrofitClient2.CommunityFeedbackResponse>
     @GET("/brands/communities/{communityId}")
     fun communityBoardDetailView(@Path("communityId") communityId: Long): Call<RetrofitClient2.CommunityBoardDetailResponse>
+
 }

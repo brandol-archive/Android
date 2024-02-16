@@ -1,8 +1,6 @@
 package com.example.brandol.connection
 
 import com.google.gson.annotations.SerializedName
-import java.lang.reflect.Array
-import java.util.Date
 
 class RetrofitClient2 {
     data class RequestLogin(
@@ -62,7 +60,7 @@ class RetrofitClient2 {
         val signUp: Boolean
     )
 
-    data class ResponseMyItem(
+    data class ResponseItem(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
         @SerializedName("code")
@@ -70,10 +68,10 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: ItemResult
+        val result: List<Item>
     )
 
-    data class ItemResult(
+    data class Item(
         @SerializedName("myItemId")
         val myItemId: Long,
         @SerializedName("itemId")
@@ -90,6 +88,8 @@ class RetrofitClient2 {
         val description : String,
         @SerializedName("image")
         val image : String,
+        @SerializedName("wearingImage")
+        val wearingImage : String,
         @SerializedName("price")
         val price : Int,
         @SerializedName("createdAt")
@@ -1152,8 +1152,119 @@ class RetrofitClient2 {
         @SerializedName("writtenDate")
         val writtenDate: Date
     )
+    
+    data class ResponseCommunity(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: List<Community>
+    )
+
+    data class Community(
+        @SerializedName("writerId") val writerId: Long,
+        @SerializedName("writerName") val writerName: String,
+        @SerializedName("writerProfile") val writerProfile: String,
+        @SerializedName("articleType") val articleType: String,
+        @SerializedName("id") val id: Long,
+        @SerializedName("title") val title: String,
+        @SerializedName("content") val content: String,
+        @SerializedName("images") val images: List<String>,
+        @SerializedName("likeCount") val likeCount: Int,
+        @SerializedName("commentCount") val commentCount: Int,
+        @SerializedName("writtenDate") val writtenDate: String
+    )
+
+    data class ResponseBrand(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: List<Brand>
+    )
+
+    data class Brand(
+        @SerializedName("brandId")
+        val brandId: Int,
+        @SerializedName("brandName")
+        val brandName: String,
+        @SerializedName("description")
+        val description: String,
+        @SerializedName("profileImage")
+        val profileImage: String,
+        @SerializedName("sequence")
+        val sequence: Int
+    )
+
+    data class ResponseOtherAvatar(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result") val result: OtherAvatar
+    )
+
+    data class OtherAvatar(
+        @SerializedName("memberId") val memberId: Long,
+        @SerializedName("avatar") val avatar: String,
+        @SerializedName("nickname") val nickname: String
+    )
 
 
+    data class ResponseWear(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: String
+    )
+
+    data class ResponseStatus(
+        val isSuccess: Boolean,
+        val code: String,
+        val message: String,
+        val result: String
+    )
+    data class ResponseMyInfo(
+        val isSuccess: Boolean,
+        val code: String,
+        val message: String,
+        val result: MyInfo
+    )
+
+    data class MyInfo(
+        val memberId: Long,
+        val nickname: String,
+        val avatar: String,
+        val point: Int
+    )
+
+    data class RequestNickname(
+        val nickname : String
+    )
+
+    data class ResponseNickname(
+        val isSuccess: Boolean,
+        val code: String,
+        val message: String,
+        val result: Nickname
+    )
+
+    data class Nickname(
+        val memberId: Long,
+        val nickname: String
+    )
     data class GetBrandHeader(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
@@ -1399,7 +1510,8 @@ class RetrofitClient2 {
         val itemPrice: Int
     )
 
-        //page4
+    //서현 시작
+    //page4
     // 검색메인
     data class ResponseSearchMain(
         @SerializedName("isSuccess")
@@ -1456,27 +1568,32 @@ class RetrofitClient2 {
         @SerializedName("itemPrice") val itemPrice: Long
     )
 
-    //미션 관련 API : 포인트 미션 도전
-    data class ResponseMissionCompletion(
+
+    //미션 관련 API : 브랜드 추가 미션 도전
+    data class ResponseChallengeAddMission(
         @SerializedName("isSuccess") val isSuccess: Boolean,
         @SerializedName("code") val code: String,
         @SerializedName("message") val message: String,
-        @SerializedName("result") val result: MissionCompletionResult
+        @SerializedName("result") val result: ChallengeAddMissionResult?
     )
 
-    data class MissionCompletionResult(
+    data class ChallengeAddMissionResult(
         @SerializedName("missionSuccess") val missionSuccess: Boolean,
         @SerializedName("id") val id: Long
     )
 
-    //미션 관련 API : 포인트 미션 성공
-    /*
+    //미션 관련 API : 브랜드 추가 미션 성공
     data class ResponseMissionSuccess(
         @SerializedName("isSuccess") val isSuccess: Boolean,
         @SerializedName("code") val code: String,
         @SerializedName("message") val message: String,
-        @SerializedName("result") val result: Any
-    )*/
+        @SerializedName("result") val result: MissionAddSuccessResult?
+    )
+
+    data class MissionAddSuccessResult(
+        @SerializedName("missionSuccess") val missionSuccess: Boolean,
+        @SerializedName("id") val id: Long
+    )
 
     //미션 관련 API : 포인트 미션 리스트
     data class ResponseMissionList(
@@ -1501,5 +1618,6 @@ class RetrofitClient2 {
         @SerializedName("brandId") val brandId: Long
 
     )
+    //서현 끝
 
 }
