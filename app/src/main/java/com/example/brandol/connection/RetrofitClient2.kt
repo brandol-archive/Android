@@ -455,7 +455,8 @@ class RetrofitClient2 {
         val itemPrice: Int
     )
 
-        //page4
+    //서현 시작
+    //page4
     // 검색메인
     data class ResponseSearchMain(
         @SerializedName("isSuccess")
@@ -512,27 +513,32 @@ class RetrofitClient2 {
         @SerializedName("itemPrice") val itemPrice: Long
     )
 
-    //미션 관련 API : 포인트 미션 도전
-    data class ResponseMissionCompletion(
+
+    //미션 관련 API : 브랜드 추가 미션 도전
+    data class ResponseChallengeAddMission(
         @SerializedName("isSuccess") val isSuccess: Boolean,
         @SerializedName("code") val code: String,
         @SerializedName("message") val message: String,
-        @SerializedName("result") val result: MissionCompletionResult
+        @SerializedName("result") val result: ChallengeAddMissionResult?
     )
 
-    data class MissionCompletionResult(
+    data class ChallengeAddMissionResult(
         @SerializedName("missionSuccess") val missionSuccess: Boolean,
         @SerializedName("id") val id: Long
     )
-    
-    //미션 관련 API : 포인트 미션 성공
-    /*
+
+    //미션 관련 API : 브랜드 추가 미션 성공
     data class ResponseMissionSuccess(
         @SerializedName("isSuccess") val isSuccess: Boolean,
         @SerializedName("code") val code: String,
         @SerializedName("message") val message: String,
-        @SerializedName("result") val result: Any
-    )*/
+        @SerializedName("result") val result: MissionAddSuccessResult?
+    )
+
+    data class MissionAddSuccessResult(
+        @SerializedName("missionSuccess") val missionSuccess: Boolean,
+        @SerializedName("id") val id: Long
+    )
 
     //미션 관련 API : 포인트 미션 리스트
     data class ResponseMissionList(
@@ -557,5 +563,6 @@ class RetrofitClient2 {
         @SerializedName("brandId") val brandId: Long
 
     )
+    //서현 끝
 
 }
