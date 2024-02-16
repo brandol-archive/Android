@@ -63,5 +63,10 @@ dependencies {
 
     implementation ("com.github.bumptech.glide:glide:4.12.0")
 
+    //사진 선택 도구
+    implementation ("androidx.activity:activity-ktx:1.6.0")
+    implementation("io.coil-kt:coil-compose:2.3.0")
+    implementation("io.coil-kt:coil-video:2.3.0")
+    implementation("io.coil-kt:coil-gif:2.3.0")
 
 }

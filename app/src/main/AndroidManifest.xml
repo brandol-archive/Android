@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Brandol"
         tools:targetApi="31">
+
         <activity
             android:name=".login.SplashActivity"
             android:exported="true">

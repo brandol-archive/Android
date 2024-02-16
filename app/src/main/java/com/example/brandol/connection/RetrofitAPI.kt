@@ -68,13 +68,13 @@ interface RetrofitAPI {
     fun addBrand(@Body request: RetrofitClient2.AddBrandRequest): Call<RetrofitClient2.AddBrandResponse>
     @GET("/brands/{brandId}/my-written/comments")
     fun myComments(
-        @Path("brandId") brandId: Long,
-        @Query("memberId") memberId: Long
+        @Path("brandId") brandId: Long?,
+        @Query("memberId") memberId: Long?
     ): Call<RetrofitClient2.MyWrittenCommentsResponse>
     @GET("/brands/{brandId}/my-written/articles")
     fun myArticles(
-        @Path("brandId") brandId: Long,
-        @Query("memberId") memberId: Long
+        @Path("brandId") brandId: Long?,
+        @Query("memberId") memberId: Long?
     ): Call<RetrofitClient2.MyWrittenArticlesResponse>
     @GET("/brands/{brandId}/header")
     fun brandheader(@Path("brandId") brandId: Long): Call<RetrofitClient2.BrandHeader>

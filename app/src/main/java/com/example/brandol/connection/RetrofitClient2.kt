@@ -192,6 +192,8 @@ class RetrofitClient2 {
         val articleInfo: String,
         @SerializedName("title")
         val title: String,
+        @SerializedName("content")
+        val content: String,
         @SerializedName("images")
         val images: String,
         @SerializedName("likeCount")

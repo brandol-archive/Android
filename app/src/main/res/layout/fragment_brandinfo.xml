@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_container">
 
     <ImageView
-        android:id="@+id/brandinfo_brandinfo_ll"
+        android:id="@+id/brandinfo_brandinfo_iv"
         android:layout_width="match_parent"
         android:layout_height="219dp"
         android:background="#dddddd"
@@ -41,7 +42,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="16dp"
         app:cardCornerRadius="14dp"
-        app:layout_constraintBottom_toBottomOf="@id/brandinfo_brandinfo_ll"
+        app:layout_constraintBottom_toBottomOf="@id/brandinfo_brandinfo_iv"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -113,7 +114,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/brandinfo_brandinfo_ll">
+        app:layout_constraintTop_toBottomOf="@+id/brandinfo_brandinfo_iv">
 
         <TextView
             android:id="@+id/brandinfo_addlist_tv"
@@ -146,7 +147,9 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/brandinfo_category_vp"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="328dp"
+        android:layout_marginBottom="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/brandinfo_categorynav_tl" />

@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/comtents_plus1_btn"
+            android:id="@+id/contents_plus1_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_plus"
@@ -376,7 +376,7 @@
             app:layout_constraintTop_toBottomOf="@id/contents_post2_cl" />
 
         <ImageButton
-            android:id="@+id/comtents_plus2_btn"
+            android:id="@+id/contents_plus2_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_plus"
@@ -727,7 +727,7 @@
             app:layout_constraintTop_toBottomOf="@id/contents_post4_cl" />
 
         <ImageButton
-            android:id="@+id/comtents_plus3_btn"
+            android:id="@+id/contents_plus3_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_plus"
