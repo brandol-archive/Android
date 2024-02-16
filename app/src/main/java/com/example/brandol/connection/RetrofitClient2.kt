@@ -1,6 +1,7 @@
 package com.example.brandol.connection
 
 import com.google.gson.annotations.SerializedName
+import java.util.Date
 
 class RetrofitClient2 {
     data class RequestLogin(
@@ -106,7 +107,7 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: Array,
+        val images: Array<String>,
         @SerializedName("communityType")
         val communityType: String
     )
