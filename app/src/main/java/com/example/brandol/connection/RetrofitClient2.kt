@@ -455,7 +455,8 @@ class RetrofitClient2 {
         val itemPrice: Int
     )
 
-        //page4
+    //서현 시작
+    //page4
     // 검색메인
     data class ResponseSearchMain(
         @SerializedName("isSuccess")
@@ -512,27 +513,79 @@ class RetrofitClient2 {
         @SerializedName("itemPrice") val itemPrice: Long
     )
 
-    //미션 관련 API : 포인트 미션 도전
-    data class ResponseMissionCompletion(
+    //미션 관련 API : 설문지 미션 도전
+    data class ResponseChallengeSurveyMission(
         @SerializedName("isSuccess") val isSuccess: Boolean,
         @SerializedName("code") val code: String,
         @SerializedName("message") val message: String,
-        @SerializedName("result") val result: MissionCompletionResult
+        @SerializedName("result") val result: ChallengeSurveyMissionResult?
     )
 
-    data class MissionCompletionResult(
+    data class ChallengeSurveyMissionResult(
+        @SerializedName("missionId") val missionId: Long,
+        @SerializedName("survey") val survey: List<SurveyItem>
+    )
+
+    data class SurveyItem(
+        @SerializedName("surveyQuestionId") val surveyQuestionId: Long,
+        @SerializedName("surveyQuestion") val surveyQuestion: String,
+        @SerializedName("surveyQuestionType") val surveyQuestionType: String,
+        @SerializedName("surveyExamples") val surveyExamples: List<SurveyExampleItem>
+    )
+
+    data class SurveyExampleItem(
+        @SerializedName("surveyExampleId") val surveyExampleId: Long,
+        @SerializedName("surveyExample") val surveyExample: String
+    )
+
+    //미션 관련 API : 브랜드 추가 미션 도전
+    data class ResponseChallengeAddMission(
+        @SerializedName("isSuccess") val isSuccess: Boolean,
+        @SerializedName("code") val code: String,
+        @SerializedName("message") val message: String,
+        @SerializedName("result") val result: ChallengeAddMissionResult?
+    )
+
+    data class ChallengeAddMissionResult(
         @SerializedName("missionSuccess") val missionSuccess: Boolean,
         @SerializedName("id") val id: Long
     )
-    
-    //미션 관련 API : 포인트 미션 성공
-    /*
+
+    //미션 관련 API : 설문지 미션 성공
+    data class RequestSurveySuccess(
+        val questionResponses: List<SurveyResponse>
+    )
+
+    data class SurveyResponse(
+        val surveyQuestionID: Long,
+        val surveyQuestionType: String,
+        val response: String
+    )
+
+    data class ResponseSurveyMissionSuccess(
+        @SerializedName("isSuccess") val isSuccess: Boolean,
+        @SerializedName("code") val code: String,
+        @SerializedName("message") val message: String,
+        @SerializedName("result") val result: MissionSuccessResult?
+    )
+
+    data class MissionSuccessResult(
+        @SerializedName("missionSuccess") val missionSuccess: Boolean,
+        @SerializedName("id") val id: Long
+    )
+
+    //미션 관련 API : 브랜드 추가 미션 성공
     data class ResponseMissionSuccess(
         @SerializedName("isSuccess") val isSuccess: Boolean,
         @SerializedName("code") val code: String,
         @SerializedName("message") val message: String,
-        @SerializedName("result") val result: Any
-    )*/
+        @SerializedName("result") val result: MissionAddSuccessResult?
+    )
+
+    data class MissionAddSuccessResult(
+        @SerializedName("missionSuccess") val missionSuccess: Boolean,
+        @SerializedName("id") val id: Long
+    )
 
     //미션 관련 API : 포인트 미션 리스트
     data class ResponseMissionList(
@@ -557,5 +610,6 @@ class RetrofitClient2 {
         @SerializedName("brandId") val brandId: Long
 
     )
+    //서현 끝
 
 }

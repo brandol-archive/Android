@@ -53,24 +53,34 @@ interface RetrofitAPI {
     //닉네임 수정
     @PATCH("/auth/nickname")
     fun changeNickname(@Header("Authorization")token:String,@Body request : RetrofitClient2.RequestNickname) : Call<RetrofitClient2.ResponseNickname>
+
+    //서현 시작
     //페이지 조회 API : 검색 메인 페이지 조회
     @GET("/search/main")
     fun getSearchMain(@Header("Authorization")token:String): Call<RetrofitClient2.ResponseSearchMain>
 
-    //미션 관련 API : 포인트 미션 도전
-    @POST("/users/missions/{missionId}")
-    fun completeMission(missionId1: String, @Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionCompletion>
+    //미션 관련 API : 설문지 미션 도전
+    @POST("/missions/{missionId}/survey")
+    fun challengeSurveyMission(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseChallengeSurveyMission>
 
-    //미션 관련 API : 포인트 미션 성공
-    /*
-    @POST("/users/missions/{missionId}/success")
-    fun completeMissionSuccess(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionSuccess>
-*/
+    //브랜드 추가 미션 도전
+    @POST("/missions/{missionId}/add")
+    fun challengeAddMission(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseChallengeAddMission>
+
+    //미션 관련 API : 설문지 미션 성공
+    @PATCH("/missions/{missionId}/survey/success")
+    fun completeSurveyMissionSuccess(@Path("missionId") missionId: Long, @Body request: RetrofitClient2.RequestSurveySuccess): Call<RetrofitClient2.ResponseSurveyMissionSuccess>
+
+    //브랜드 추가 미션 성공
+    @PATCH("/missions/{missionId}/add/success")
+    fun completeAddMissionSuccess(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionSuccess>
+
     //미션 관련 API : 포인트 미션 목록
     @GET("/users/missions")
     fun getMissionList(@Header("Authorization") token: String): Call<RetrofitClient2.ResponseMissionList>
-  
-  @GET("/brands/{brandId}/header")
+    //서현 끝
+
+    @GET("/brands/{brandId}/header")
     fun getBrandHeader(@Header("Authorization")token:String, @Path("brandId") brandId: Long): Call<RetrofitClient2.GetBrandHeader>
 
     @GET("/users/main")
