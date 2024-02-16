@@ -59,17 +59,9 @@ interface RetrofitAPI {
     @GET("/search/main")
     fun getSearchMain(@Header("Authorization")token:String): Call<RetrofitClient2.ResponseSearchMain>
 
-    //미션 관련 API : 설문지 미션 도전
-    @POST("/missions/{missionId}/survey")
-    fun challengeSurveyMission(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseChallengeSurveyMission>
-
     //브랜드 추가 미션 도전
     @POST("/missions/{missionId}/add")
     fun challengeAddMission(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseChallengeAddMission>
-
-    //미션 관련 API : 설문지 미션 성공
-    @PATCH("/missions/{missionId}/survey/success")
-    fun completeSurveyMissionSuccess(@Path("missionId") missionId: Long, @Body request: RetrofitClient2.RequestSurveySuccess): Call<RetrofitClient2.ResponseSurveyMissionSuccess>
 
     //브랜드 추가 미션 성공
     @PATCH("/missions/{missionId}/add/success")
