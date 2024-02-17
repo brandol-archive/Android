@@ -1,7 +1,7 @@
 package com.example.brandol.collection
 
 data class ItemModel(
-    val brandLogoRes: Int,
+    val brandLogoRes: String,
     val brandName: String,
     val tabCategory: String,
     val itemName: String,

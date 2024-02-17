@@ -12,6 +12,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.brandol.R
 import com.example.brandol.collection.ItemModel
 
@@ -39,7 +40,9 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         val currentItem = getItem(position)
 
         // 아이템 데이터를 뷰에 설정
-        holder.brandLogo.setImageResource(currentItem.brandLogoRes)
+        Glide.with(holder.itemView.context)
+            .load(currentItem.brandLogoRes) // brandLogo가 이미지 URL이라고 가정
+            .into(holder.brandLogo)
         holder.brandName.text = currentItem.brandName
         holder.tabCategory.text = currentItem.tabCategory
         holder.itemName.text = currentItem.itemName
