@@ -9,8 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.R
+import com.example.brandol.SearchBarFragment
 import com.example.brandol.adaptor.ContentCategoryAdapter
-import com.example.brandol.adaptor.ContentModel
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentContentsCategoryBinding
@@ -29,6 +30,25 @@ class ContentsCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentContentsCategoryBinding.inflate(inflater, container, false)
+
+
+        binding.btnSearchBarIb.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+        binding.btnSearchIc.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+
+
         return binding.root
     }
 
@@ -45,42 +65,31 @@ class ContentsCategoryFragment : Fragment() {
                 call: Call<RetrofitClient2.SearchDetailContents>,
                 response: Response<RetrofitClient2.SearchDetailContents>
             ) {
-                Log.d("ikj", response.toString())
                 if (response.isSuccessful) {
-                    val response = response.body()
-                    Log.d("ikj", response.toString())
-                    if (response != null) {
-                        if (response.isSuccess) {
-                            Log.d("ikj",response.result.toString())
-
-
-                        }
+                    val responseData = response.body()
+                    if (responseData != null && responseData.isSuccess) {
+                        val contentsDataList = responseData.result.searchDetailContentsDto
+                        contentAdapter.setData(contentsDataList)
                     }
-
                 }
             }
+
             override fun onFailure(call: Call<RetrofitClient2.SearchDetailContents>, t: Throwable) {
                 val errorMessage = "Call Failed: ${t.message}"
                 Log.d("ikj", errorMessage)
             }
-
         })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 더미 데이터 생성
-        val dummyDataList = generateDummyData()
-
-        // RecyclerView 초기화
-        contentAdapter = ContentCategoryAdapter(dummyDataList)
+        contentAdapter = ContentCategoryAdapter(emptyList()) // 초기화할 때 빈 리스트 전달
         recyclerView = binding.contentsCategotyRv
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = contentAdapter
 
         binding.btnBackContentsCategory.setOnClickListener {
-            // 이전 화면으로 돌아가기
             requireActivity().supportFragmentManager.popBackStack()
         }
 
@@ -88,12 +97,12 @@ class ContentsCategoryFragment : Fragment() {
     }
 
 
-    private fun generateDummyData(): List<ContentModel> {
-        return listOf(
-            ContentModel("BRANDOL", "게시물 제목", "브랜드 추구 방향성, 문화 \n" + "최근 게시글이 들어감글글글글글", "2023.12.10"),
-            ContentModel("Brand1", "Post Title 1", "Post Content 1", "0000.00.00"),
-            ContentModel("Brand2", "Post Title 2", "Post Content 2", "0000.00.00"),
-            // Add more dummy data as needed
-        )
-    }
+//    private fun generateDummyData(): List<ContentModel> {
+//        return listOf(
+//            ContentModel("BRANDOL", "게시물 제목", "브랜드 추구 방향성, 문화 \n" + "최근 게시글이 들어감글글글글글", "2023.12.10"),
+//            ContentModel("Brand1", "Post Title 1", "Post Content 1", "0000.00.00"),
+//            ContentModel("Brand2", "Post Title 2", "Post Content 2", "0000.00.00"),
+//            // Add more dummy data as needed
+//        )
+//    }
 }

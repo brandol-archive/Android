@@ -38,11 +38,16 @@ class AvatarStoreTabFragment : Fragment() {
         val adapter = AvatarStoreItemAdapter()  // YourAdapter는 실제 어댑터 클래스로 대체해야 합니다.
         recyclerView.adapter = adapter
 
-        // 아이템 데이터 생성 및 추가
-        val itemList = generateItemData()
+        // 초기에 빈 목록을 생성
+        val itemList = listOf<ItemModel>()
+
+        // 어댑터에 빈 목록을 설정
         adapter.submitList(itemList)
 
-        getAvatarStoreCategoryData()
+        // 각 탭에 대한 데이터 가져오기
+        getAvatarStoreCategoryData("상의")
+        getAvatarStoreCategoryData("하의")
+        // 필요한 만큼 더 탭을 추가하세요
 
         return rootView
     }
@@ -52,26 +57,20 @@ class AvatarStoreTabFragment : Fragment() {
         return sharedPref.getString("accessToken", null)
     }
 
-    private fun getAvatarStoreCategoryData() {
+    private fun getAvatarStoreCategoryData(itemPart: String) {
         val token = getCurrentToken(requireContext())
-        val call = RetrofitObject.getRetrofitService.searchDetailAvatarStoreBody("Bearer $token","상의")
+        val call = RetrofitObject.getRetrofitService.searchDetailAvatarStoreBody("Bearer $token", itemPart)
         call.enqueue(object : Callback<RetrofitClient2.SearchDetailAvatarStoreBody> {
             override fun onResponse(
                 call: Call<RetrofitClient2.SearchDetailAvatarStoreBody>,
                 response: Response<RetrofitClient2.SearchDetailAvatarStoreBody>
             ) {
-                Log.d("ikj", response.toString())
                 if (response.isSuccessful) {
-                    val response = response.body()
-                    Log.d("ikj", response.toString())
-                    if (response != null) {
-                        if (response.isSuccess) {
-                            Log.d("ikj",response.result.toString())
-
-
-                        }
+                    val responseData = response.body()
+                    if (responseData != null && responseData.isSuccess) {
+                        val itemList = responseData.result.searchDetailAvatarStoreBodyDto
+                        updateAdapter(itemList)
                     }
-
                 }
             }
             override fun onFailure(call: Call<RetrofitClient2.SearchDetailAvatarStoreBody>, t: Throwable) {
@@ -81,6 +80,21 @@ class AvatarStoreTabFragment : Fragment() {
 
         })
     }
+
+    private fun updateAdapter(itemList: List<RetrofitClient2.SearchDetailAvatarStoreBodyDto>) {
+        val adapter = recyclerView.adapter as? AvatarStoreItemAdapter
+        adapter?.submitList(itemList.map { dto ->
+            ItemModel(
+                R.drawable.img_avatar_item,
+                dto.itemsName,
+                dto.itemPart,  // ItemModel에 itemPart 추가
+                dto.brandName,
+                dto.itemDescription,
+                dto.itemPrice.toString() + "p"
+            )
+        })
+    }
+
 
     private fun generateItemData(): List<ItemModel> {
         // 아이템 데이터 생성 및 반환
