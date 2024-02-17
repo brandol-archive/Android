@@ -8,10 +8,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.example.brandol.R
-
 class CustomDeleteDialog(
     context: Context,
     private val message: String,
+    private val confirmButtonText: String,  // 추가: 확인 버튼 텍스트
     private val onConfirm: () -> Unit,
     private val onCancel: () -> Unit
 ) : Dialog(context) {
@@ -26,6 +26,8 @@ class CustomDeleteDialog(
         var textView: TextView = findViewById(R.id.dialog_delete_tv)
 
         textView.text = message
+        yesButton.text = confirmButtonText  // 추가: 확인 버튼 텍스트 설정
+
         yesButton.setOnClickListener {
             onConfirm.invoke()
             dismiss()
@@ -35,7 +37,5 @@ class CustomDeleteDialog(
             onCancel.invoke()
             dismiss()
         }
-
     }
-
 }

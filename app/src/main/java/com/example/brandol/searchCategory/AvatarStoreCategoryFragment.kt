@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.example.brandol.R
+import com.example.brandol.SearchBarFragment
 import com.example.brandol.adaptor.AvatarStoreAdapter
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
@@ -28,6 +30,21 @@ class AvatarStoreCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAvatarstoreCategoryBinding.inflate(inflater, container, false)
+
+        binding.btnSearchBarIb.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+        binding.btnSearchIc.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
 
         getUserAvatarAndPointsData()
