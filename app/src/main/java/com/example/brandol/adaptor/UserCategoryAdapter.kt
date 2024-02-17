@@ -105,6 +105,7 @@ import com.example.brandol.connection.RetrofitClient2
 
 interface ItemClickListener {
     fun onItemClick(position: Int, brandId: Int)
+    fun onItemClick(brandId: Int)
 }
 
 

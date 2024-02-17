@@ -79,6 +79,9 @@ interface RetrofitAPI {
     @POST("/users/my-board-list/unsubscribe/{brandId}")
     fun unsubscribeBrand(@Header("Authorization") token:String, @Path("brandId") brandId: Int): Call<RetrofitClient2.UnsubscribeBrand>
 
+    @POST("/avatar/items/{itemId}")
+    fun purchaseItem(@Header("Authorization") token:String, @Path("itemId") brandId: Int): Call<RetrofitClient2.PurchaseItem>
+
     @GET("/search/detail/brands")
     fun searchDetailBrands(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailBrands>
 
@@ -109,8 +112,11 @@ interface RetrofitAPI {
         @Path("brandId") brandId: Long?,
         @Query("memberId") memberId: Long?
     ): Call<RetrofitClient2.MyWrittenArticlesResponse>
+
+
     @GET("/brands/{brandId}/header")
     fun brandheader(@Path("brandId") brandId: Long): Call<RetrofitClient2.BrandHeader>
+
     @GET("/brands/{brandId}/fandom")
     fun fandomLatest(@Path("brandId") brandId: Long): Call<RetrofitClient2.FandomResponse>
     @GET("/brands/{brandId}/contents")

@@ -6,5 +6,6 @@ data class ItemModel(
     val tabCategory: String,
     val itemName: String,
     val itemInfo: String,
-    val itemPoint: String
+    val itemPoint: String,
+    val itemId: Int
 )
