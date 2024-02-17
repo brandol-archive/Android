@@ -298,7 +298,7 @@ class BrandInfoFragment: Fragment() {
 
         //ViewPager, TabLayout 연결
         TabLayoutMediator(binding.brandinfoCategorynavTl, binding.brandinfoCategoryVp) { tab, position ->
-            Log.e("YMC", "ViewPager position: ${position}")
+            Log.d("loadViewPager", "ViewPager position: ${position}")
             when (position) {
                 0 -> tab.text = "FANDOM"
                 1 -> tab.text = "컨텐츠"
