@@ -1,9 +1,11 @@
 package com.example.brandol.board
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.brandol.connection.RetrofitAPI
 import com.example.brandol.connection.RetrofitClient2
@@ -69,9 +71,10 @@ class BoardActivity : AppCompatActivity() {
     private fun fetchBrandHeader() {
         // BoardActivity에서 결과 설정 및 액티비티 종료
         val brandId = intent.getIntExtra("brandId", 1001)
+        val token = getCurrentToken(this)
 
         // Make network call to fetch brand header
-        val call: Call<RetrofitClient2.BrandHeader> = retrofitAPI.brandheader(brandId.toLong())  //추후 여기에 적절한 브랜드 아이디(brandId)를 전달해야 함
+        val call: Call<RetrofitClient2.BrandHeader> = RetrofitObject.getRetrofitService.brandheader("Bearer $token", brandId.toLong())  //추후 여기에 적절한 브랜드 아이디(brandId)를 전달해야 함
         call.enqueue(object : Callback<RetrofitClient2.BrandHeader> {
             override fun onResponse(call: Call<RetrofitClient2.BrandHeader>, response: Response<RetrofitClient2.BrandHeader>) {
                 if (response.isSuccessful) {
@@ -82,6 +85,7 @@ class BoardActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<RetrofitClient2.BrandHeader>, t: Throwable) {
                 // Handle network call failure
+                Log.d("BoardActivity", "브랜드 커뮤니티 불러오기 실패")
             }
         })
     }
@@ -96,5 +100,10 @@ class BoardActivity : AppCompatActivity() {
             binding.boardNowcateTv.text = brandPosition
             // Update other UI elements if needed
         }
+    }
+
+    private fun getCurrentToken(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
     }
 }

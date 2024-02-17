@@ -80,48 +80,69 @@ interface RetrofitAPI {
     fun unsubscribeBrand(@Header("Authorization") token:String, @Path("brandId") brandId: Int): Call<RetrofitClient2.UnsubscribeBrand>
 
     @GET("/search/detail/brands")
-    fun searchDetailBrands(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailBrands>
+    fun searchDetailBrands(@Header("Authorization") token:String): Call<RetrofitClient2.SearchDetailBrands>
 
     @GET("/search/detail/users")
-    fun searchDetailUser(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailUser>
+    fun searchDetailUser(@Header("Authorization") token:String): Call<RetrofitClient2.SearchDetailUser>
 
     @GET("/search/detail/contents")
-    fun searchDetailContents(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailContents>
+    fun searchDetailContents(@Header("Authorization") token:String): Call<RetrofitClient2.SearchDetailContents>
 
     @GET("/search/detail/avatar-store/header")
-    fun searchDetailUserAvatarAndPoints(@Header("Authorization")token:String): Call<RetrofitClient2.SearchDetailUserAvatarAndPoints>
+    fun searchDetailUserAvatarAndPoints(@Header("Authorization") token:String): Call<RetrofitClient2.SearchDetailUserAvatarAndPoints>
 
     @GET("/search/detail/avatar-store/body")
-    fun searchDetailAvatarStoreBody(@Header("Authorization")token:String, @Query("itemPart") itemPart: String): Call<RetrofitClient2.SearchDetailAvatarStoreBody>
+    fun searchDetailAvatarStoreBody(@Header("Authorization") token:String, @Query("itemPart") itemPart: String): Call<RetrofitClient2.SearchDetailAvatarStoreBody>
 
     //브랜드 관련 API (피그마 기준 페이지 2의 브랜드 상단 부분 조회, 하단 부분의 팬덤, 컨텐츠, 커뮤니티 조회)
     @POST("/brands/{brandId}/community/new")
-    fun addBoard(@Body request: RetrofitClient2.AddBoardRequest): Call<RetrofitClient2.AddBoardResponse>
+    fun addBoard(
+        @Header("Authorization") token:String,
+        @Body request: RetrofitClient2.AddBoardRequest
+    ): Call<RetrofitClient2.AddBoardResponse>
     @POST("/brands/new")
-    fun addBrand(@Body request: RetrofitClient2.AddBrandRequest): Call<RetrofitClient2.AddBrandResponse>
+    fun addBrand(
+        @Header("Authorization") token:String,
+        @Body request: RetrofitClient2.AddBrandRequest
+    ): Call<RetrofitClient2.AddBrandResponse>
     @GET("/brands/{brandId}/my-written/comments")
     fun myComments(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long?,
         @Query("memberId") memberId: Long?
     ): Call<RetrofitClient2.MyWrittenCommentsResponse>
     @GET("/brands/{brandId}/my-written/articles")
     fun myArticles(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long?,
         @Query("memberId") memberId: Long?
     ): Call<RetrofitClient2.MyWrittenArticlesResponse>
     @GET("/brands/{brandId}/header")
-    fun brandheader(@Path("brandId") brandId: Long): Call<RetrofitClient2.BrandHeader>
+    fun brandheader(
+        @Header("Authorization") token:String,
+        @Path("brandId") brandId: Long
+    ): Call<RetrofitClient2.BrandHeader>
     @GET("/brands/{brandId}/fandom")
-    fun fandomLatest(@Path("brandId") brandId: Long): Call<RetrofitClient2.FandomResponse>
+    fun fandomLatest(
+        @Header("Authorization") token:String,
+        @Path("brandId") brandId: Long
+    ): Call<RetrofitClient2.FandomResponse>
     @GET("/brands/{brandId}/contents")
-    fun contentsLatest(@Path("brandId") brandId: Long): Call<RetrofitClient2.ContentsResponse>
+    fun contentsLatest(
+        @Header("Authorization") token:String,
+        @Path("brandId") brandId: Long
+    ): Call<RetrofitClient2.ContentsResponse>
     @GET("/brands/{brandId}/community")
-    fun communityLatest(@Path("brandId") brandId: Long): Call<RetrofitClient2.CommunityResponse>
+    fun communityLatest(
+        @Header("Authorization") token:String,
+        @Path("brandId") brandId: Long
+    ): Call<RetrofitClient2.CommunityResponse>
 
 
     //댓글 관련 API
     @POST("/fandom/{fandom_id}/comments/{commentId}")
     fun fandomWriteComcomment(
+        @Header("Authorization") token:String,
         @Path("fandom_id") fandomId: Long,
         @Query("memberId") memberId: Long,
         @Query("commentId") commentId: Long,
@@ -129,12 +150,14 @@ interface RetrofitAPI {
     ): Call<RetrofitClient2.FandomComcommentResponse>
     @POST("/fandom/{fandom_id}/comments/new")
     fun fandomWriteComment(
+        @Header("Authorization") token:String,
         @Path("fandom_id") fandomId: Long,
         @Query("memberId") memberId: Long,
         @Body request: RetrofitClient2.FandomCommentRequest
     ): Call<RetrofitClient2.FandomCommentResponse>
     @POST("/contents/{contents_id}/comments/{commentId}")
     fun contentsWriteComcomment(
+        @Header("Authorization") token:String,
         @Path("contents_id") contentsId: Long,
         @Query("memberId") memberId: Long,
         @Query("commentId") commentId: Long,
@@ -142,12 +165,14 @@ interface RetrofitAPI {
     ): Call<RetrofitClient2.ContentsComcommentResponse>
     @POST("/contents/{contents_id}/comments/new")
     fun contentsWriteComment(
+        @Header("Authorization") token:String,
         @Path("contents_id") contentsId: Long,
         @Query("memberId") memberId: Long,
         @Body request: RetrofitClient2.ContentsCommentRequest
     ): Call<RetrofitClient2.ContentsCommentResponse>
     @POST("/communities/{community_id}/comments/{commentId}")
     fun communityWriteComcomment(
+        @Header("Authorization") token:String,
         @Path("community_id") communityId: Long,
         @Query("memberId") memberId: Long,
         @Query("commentId") commentId: Long,
@@ -155,62 +180,88 @@ interface RetrofitAPI {
     ): Call<RetrofitClient2.CommunityComcommentResponse>
     @POST("/communities/{community_id}/comments/new")
     fun communityWriteComment(
+        @Header("Authorization") token:String,
         @Path("community_id") communityId: Long,
         @Query("memberId") memberId: Long,
         @Body request: RetrofitClient2.CommunityCommentRequest
     ): Call<RetrofitClient2.CommunityCommentResponse>
     @GET("/fandoms/{fandomId}/comments/all")
-    fun fandomArticleViewComment(@Path("fandomId") fandomId: Long): Call<RetrofitClient2.FandomArticleResponse>
+    fun fandomArticleViewComment(
+        @Header("Authorization") token:String,
+        @Path("fandomId") fandomId: Long
+    ): Call<RetrofitClient2.FandomArticleResponse>
     @GET("/contents/{contentsId}/comments/all")
-    fun contentsArticleViewComment(@Path("contentsId") contentsId: Long): Call<RetrofitClient2.ContentsArticleResponse>
+    fun contentsArticleViewComment(
+        @Header("Authorization") token:String,
+        @Path("contentsId") contentsId: Long
+    ): Call<RetrofitClient2.ContentsArticleResponse>
     @GET("/communities/{communityId}/comments/all")
-    fun communityArticleViewComment(@Path("communityId") communityId:Long): Call<RetrofitClient2.CommunityArticleResponse>
+    fun communityArticleViewComment(
+        @Header("Authorization") token:String,
+        @Path("communityId") communityId:Long
+    ): Call<RetrofitClient2.CommunityArticleResponse>
 
     //팬덤 게시판 관련 API
     @GET("/brands/{brandId}/fandom-cultures")
     fun fandomCultureBoardView(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long,
         @Query("page") page: Int
     ): Call<RetrofitClient2.FandomCultureBoardResponse>
     @GET("/brands/{brandId}/fandom-announcements")
     fun fandomAnnouncementBoardView(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long,
         @Query("page") page: Int
     ): Call<RetrofitClient2.FandomAnnouncementBoardResponse>
     @GET("/brands/fandoms/{fandomId}")
-    fun fandomBoardDetailView(@Path("fandomId") fandomId:Long): Call<RetrofitClient2.FandomBoardDetailResponse>
+    fun fandomBoardDetailView(
+        @Header("Authorization") token:String,
+        @Path("fandomId") fandomId:Long
+    ): Call<RetrofitClient2.FandomBoardDetailResponse>
 
     //콘텐츠 게시판 관련 API
     @GET("/brands/{brandId}/contents-videos")
     fun contentsVideoView(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long,
         @Query("page") page: Int
     ): Call<RetrofitClient2.ContentsVideoResponse>
     @GET("/brands/{brandId}/contents-events")
     fun contentsEventView(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long,
         @Query("page") page: Int
     ): Call<RetrofitClient2.ContentsEventResponse>
     @GET("/brands/{brandId}/contents-cardnews")
     fun contentsCardnewsView(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long,
         @Query("page") page:Int
     ): Call<RetrofitClient2.ContentsCardnewsResponse>
     @GET("/brands/contents/{contentsId}")
-    fun contentsBoardDetailView(@Path("contentsId") contentsId: Long): Call<RetrofitClient2.ContentsBoardDetail>
+    fun contentsBoardDetailView(
+        @Header("Authorization") token:String,
+        @Path("contentsId") contentsId: Long
+    ): Call<RetrofitClient2.ContentsBoardDetail>
 
     //커뮤니티 게시판 관련 API
     @GET("/brands/{brandId}/community-free")
     fun communityFreeView(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long,
         @Query("page") page: Int
     ): Call<RetrofitClient2.CommunityFreeResponse>
     @GET("/brands/{brandId}/community-feedback")
     fun communityFeedbackView(
+        @Header("Authorization") token:String,
         @Path("brandId") brandId: Long,
         @Query("page") page: Int
     ): Call<RetrofitClient2.CommunityFeedbackResponse>
     @GET("/brands/communities/{communityId}")
-    fun communityBoardDetailView(@Path("communityId") communityId: Long): Call<RetrofitClient2.CommunityBoardDetailResponse>
+    fun communityBoardDetailView(
+        @Header("Authorization") token:String,
+        @Path("communityId") communityId: Long
+    ): Call<RetrofitClient2.CommunityBoardDetailResponse>
 
 }
