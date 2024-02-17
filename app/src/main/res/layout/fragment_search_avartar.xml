@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
         <FrameLayout
@@ -17,62 +18,9 @@
 
             <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
             <ImageView
-                android:id="@+id/search_A_brand_box1_iv"
+                android:id="@+id/avartar_box1_iv"
                 android:layout_width="395dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/object_default_background"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <ImageView
-                android:id="@+id/search_A_drandol_logo1_iv"
-                android:layout_width="95dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="27dp"
-                android:src="@drawable/img_brandol_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginStart="135dp"
-                android:src="@drawable/img_line_l"/>
-
-            <TextView
-                android:id="@+id/search_A_brand_name1_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:layout_marginStart="145dp"
-                android:text="BRANDOL"
-                android:textSize="11dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/search_A_brand_name1_detail_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:layout_marginStart="145dp"
-                android:text="브랜드 팬덤 커뮤니티"
-                android:textSize="11dp"
-                android:textStyle="bold"/>
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
-            <ImageView
-                android:id="@+id/search_A_brand_box2_iv"
-                android:layout_width="395dp"
-                android:layout_height="75dp"
+                android:layout_height="115dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="10dp"
@@ -81,51 +29,56 @@
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <ImageView
-                android:id="@+id/search_A_drandol_logo2_iv"
-                android:layout_width="95dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="25dp"
+                android:id="@+id/avartar_store_item1_iv"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="27dp"
-                android:src="@drawable/img_brandol_logo"/>
+                android:src="@drawable/avartar_store_item1"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginStart="135dp"
-                android:src="@drawable/img_line_l"/>
 
             <TextView
-                android:id="@+id/search_A_brand_name2_tv"
+                android:id="@+id/avartar_store_item1_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:layout_marginStart="145dp"
-                android:text="BRANDOL"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="100dp"
+                android:text="실리카겔 - 김춘추의 창백한 피부"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/avartar_store_item1_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="100dp"
+                android:text="분류 : 피부"
                 android:textSize="11dp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/search_A_brand_name2_detail_tv"
-                android:layout_width="wrap_content"
+                android:id="@+id/avartar_store_item1_content_tv"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:layout_marginStart="145dp"
-                android:text="브랜드 팬덤 커뮤니티"
-                android:textSize="11dp"
-                android:textStyle="bold"/>
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="100dp"
+                android:text="김춘추가 촬영 오기 전에 급히 김밥을먹다가 체하는 바람에 창백해 졌다.
+                    그의 피부에서 착안했다."
+                android:textSize="11dp" />
 
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
             <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
             <ImageView
-                android:id="@+id/search_A_brand_box3_iv"
+                android:id="@+id/avartar_box2_iv"
                 android:layout_width="395dp"
-                android:layout_height="75dp"
+                android:layout_height="115dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="10dp"
@@ -134,42 +87,103 @@
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <ImageView
-                android:id="@+id/search_A_drandol_logo3_iv"
-                android:layout_width="95dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="25dp"
+                android:id="@+id/avartar_store_item2_iv"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="27dp"
-                android:src="@drawable/img_brandol_logo"/>
+                android:src="@drawable/avartar_store_item1"/>
+
+
+            <TextView
+                android:id="@+id/avartar_store_item2_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="100dp"
+                android:text="실리카겔 - 김춘추의 창백한 피부"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/avartar_store_item2_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="100dp"
+                android:text="분류 : 피부"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/avartar_store_item2_content_tv"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="100dp"
+                android:text="김춘추가 촬영 오기 전에 급히 김밥을먹다가 체하는 바람에 창백해 졌다.
+                    그의 피부에서 착안했다."
+                android:textSize="11dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+            <ImageView
+                android:id="@+id/avartar_box3_iv"
+                android:layout_width="395dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/object_default_background"
+                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginStart="135dp"
-                android:src="@drawable/img_line_l"/>
+                android:id="@+id/avartar_store_item3_iv"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="27dp"
+                android:src="@drawable/avartar_store_item1"/>
+
 
             <TextView
-                android:id="@+id/search_A_brand_name3_tv"
+                android:id="@+id/avartar_store_item3_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:layout_marginStart="145dp"
-                android:text="BRANDOL"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="100dp"
+                android:text="실리카겔 - 김춘추의 창백한 피부"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/avartar_store_item3_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="100dp"
+                android:text="분류 : 피부"
                 android:textSize="11dp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/search_A_brand_name3_detail_tv"
-                android:layout_width="wrap_content"
+                android:id="@+id/avartar_store_item3_content_tv"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:layout_marginStart="145dp"
-                android:text="브랜드 팬덤 커뮤니티"
-                android:textSize="11dp"
-                android:textStyle="bold"/>
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="100dp"
+                android:text="김춘추가 촬영 오기 전에 급히 김밥을먹다가 체하는 바람에 창백해 졌다.
+                    그의 피부에서 착안했다."
+                android:textSize="11dp" />
 
         </FrameLayout>
     </LinearLayout>
-
 
 </ScrollView>

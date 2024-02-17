@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -54,30 +56,25 @@ class SearchBarFragment : Fragment() {
             tab.text = tabTitles[position]
         }.attach()
 
-//        // Tab이 선택되었을 때의 색상 변경
-//        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-//            override fun onTabSelected(tab: TabLayout.Tab?) {
-//                // 선택된 탭의 색상 변경
-//                tab?.text?.let {
-//                    when (it) {
-//                        "브랜드" -> tab.view.setBackgroundColor(Color.BLUE)
-//                        "유저" -> tab.view.setBackgroundColor(Color.BLUE)
-//                        "콘텐츠" -> tab.view.setBackgroundColor(Color.BLUE)
-//                        "아바타 스토어" -> tab.view.setBackgroundColor(Color.BLUE)
-//                    }
-//                }
-//            }
-//
-//            override fun onTabUnselected(tab: TabLayout.Tab?) {
-//                // 선택 해제된 탭의 색상 초기화
-//                tab?.view?.setBackgroundColor(Color.TRANSPARENT)
-//            }
-//
-//            override fun onTabReselected(tab: TabLayout.Tab?) {
-//                // 재선택된 탭의 색상 변경 (여기서는 동일하게 처리)
-//                onTabSelected(tab)
-//            }
-//        })
+        // 탭의 선택된 상태에 대한 스타일 정의
+        binding.searchBarTb.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tab?.apply {
+                    // 선택된 탭의 텍스트 색상 변경
+                    view?.findViewById<TextView>(com.google.android.material.R.id.title)?.setTextColor(
+                        ContextCompat.getColor(requireContext(), R.color.puple)
+                    )
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                // 선택되지 않은 탭의 텍스트 색상 변경 (원래의 색 또는 다른 색)
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                // 탭이 이미 선택된 상태에서 다시 선택될 때의 동작
+            }
+        })
 
 
         return binding.root

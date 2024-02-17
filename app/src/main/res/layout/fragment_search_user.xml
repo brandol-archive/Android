@@ -7,165 +7,108 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
             <ImageView
-                android:id="@+id/search_U_brand_box1_iv"
-                android:layout_width="395dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="10dp"
+                android:id="@+id/user_box1_iv"
+                android:layout_width="130dp"
+                android:layout_height="160dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/object_default_background"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/img_box"
+                app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <ImageView
-                android:id="@+id/search_U_drandol_logo1_iv"
-                android:layout_width="95dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="27dp"
-                android:src="@drawable/img_brandol_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginStart="135dp"
-                android:src="@drawable/img_line_l"/>
+                android:id="@+id/user_char1_iv"
+                android:layout_width="71dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="45dp"
+                android:src="@drawable/img_user_char"/>
 
             <TextView
-                android:id="@+id/search_U_brand_name1_tv"
+                android:id="@+id/user_char1_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:layout_marginStart="145dp"
-                android:text="BRANDOL"
-                android:textSize="11dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/search_U_brand_name1_detail_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:layout_marginStart="145dp"
-                android:text="브랜드 팬덤 커뮤니티"
-                android:textSize="11dp"
+                android:layout_marginTop="140dp"
+                android:layout_marginStart="50dp"
+                android:text="서혀닝"
+                android:textSize="10dp"
                 android:textStyle="bold"/>
 
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
             <ImageView
-                android:id="@+id/search_U_brand_box2_iv"
-                android:layout_width="395dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="0dp"
+                android:id="@+id/user_box2_iv"
+                android:layout_width="130dp"
+                android:layout_height="160dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/object_default_background"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/img_box"
+                app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <ImageView
-                android:id="@+id/search_U_drandol_logo2_iv"
-                android:layout_width="95dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="27dp"
-                android:src="@drawable/img_brandol_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginStart="135dp"
-                android:src="@drawable/img_line_l"/>
+                android:id="@+id/user_char2_iv"
+                android:layout_width="71dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="45dp"
+                android:src="@drawable/img_user_char"/>
 
             <TextView
-                android:id="@+id/search_U_brand_name2_tv"
+                android:id="@+id/user_char2_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:layout_marginStart="145dp"
-                android:text="BRANDOL"
-                android:textSize="11dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/search_U_brand_name2_detail_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:layout_marginStart="145dp"
-                android:text="브랜드 팬덤 커뮤니티"
-                android:textSize="11dp"
+                android:layout_marginTop="140dp"
+                android:layout_marginStart="50dp"
+                android:text="서혀닝"
+                android:textSize="10dp"
                 android:textStyle="bold"/>
 
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
             <ImageView
-                android:id="@+id/search_U_brand_box3_iv"
-                android:layout_width="395dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="0dp"
+                android:id="@+id/user_box3_iv"
+                android:layout_width="130dp"
+                android:layout_height="160dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/object_default_background"
-                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/img_box"
+                app:layout_constraintTop_toBottomOf="@id/user_catagory_tv"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <ImageView
-                android:id="@+id/search_U_drandol_logo3_iv"
-                android:layout_width="95dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="27dp"
-                android:src="@drawable/img_brandol_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginStart="135dp"
-                android:src="@drawable/img_line_l"/>
+                android:id="@+id/user_char3_iv"
+                android:layout_width="71dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="45dp"
+                android:src="@drawable/img_user_char"/>
 
             <TextView
-                android:id="@+id/search_U_brand_name3_tv"
+                android:id="@+id/user_char3_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:layout_marginStart="145dp"
-                android:text="BRANDOL"
-                android:textSize="11dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/search_U_brand_name3_detail_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:layout_marginStart="145dp"
-                android:text="브랜드 팬덤 커뮤니티"
-                android:textSize="11dp"
+                android:layout_marginTop="140dp"
+                android:layout_marginStart="50dp"
+                android:text="서혀닝"
+                android:textSize="10dp"
                 android:textStyle="bold"/>
 
         </FrameLayout>

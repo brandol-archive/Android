@@ -32,13 +32,13 @@
                 android:layout_width="95dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="35dp"
                 android:src="@drawable/img_brandol_logo"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginStart="135dp"
                 android:src="@drawable/img_line_l"/>
 
@@ -46,7 +46,7 @@
                 android:id="@+id/search_B_brand_name1_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="31dp"
                 android:layout_marginStart="145dp"
                 android:text="BRANDOL"
                 android:textSize="11dp"
@@ -56,7 +56,7 @@
                 android:id="@+id/search_B_brand_name1_detail_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginStart="145dp"
                 android:text="브랜드 팬덤 커뮤니티"
                 android:textSize="11dp"
