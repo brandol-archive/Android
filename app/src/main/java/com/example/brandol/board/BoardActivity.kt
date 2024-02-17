@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.brandol.connection.RetrofitAPI
 import com.example.brandol.connection.RetrofitClient2
@@ -82,6 +83,7 @@ class BoardActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<RetrofitClient2.BrandHeader>, t: Throwable) {
                 // Handle network call failure
+                Log.d("BoardActivity", "브랜드 커뮤니티 불러오기 실패")
             }
         })
     }
