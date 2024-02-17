@@ -20,7 +20,7 @@ class BoardSearchActivity : AppCompatActivity() {
         _binding.itemLikecntTv.text = "99"
         _binding.itemCommentcntTv.text = "99"
         _binding.itemPosttimeTv.text = "2023.12.25"
-        _binding.itemImageIv.setImageResource(R.drawable.iv_image_ex)
+        //_binding.itemImageIv.setImageResource(R.drawable.iv_image_ex)
 
         //뒤로가기 버튼 클릭
         goBack()
