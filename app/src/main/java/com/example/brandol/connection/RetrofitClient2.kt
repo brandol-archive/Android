@@ -107,7 +107,7 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: Array<String>,
+        val images: List<String>,
         @SerializedName("communityType")
         val communityType: String
     )
@@ -179,7 +179,7 @@ class RetrofitClient2 {
         @SerializedName("totalArticleCount")
         val totalArticleCount: Int,
         @SerializedName("memberWrittenDtoList")
-        val memberWrittenDtoList: MyWrittenCommentsMemberWrittenDtoList
+        val memberWrittenDtoList: List<MyWrittenCommentsMemberWrittenDtoList>
     )
 
     data class MyWrittenCommentsMemberWrittenDtoList(
@@ -196,13 +196,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //멤버 작성 글 조회 (MyFragment)
@@ -221,7 +221,7 @@ class RetrofitClient2 {
         @SerializedName("totalArticleCount")
         val totalArticleCount: Int,
         @SerializedName("memberWrittenDtoList")
-        val memberWrittenDtoList: MyWrittenArticlesMemberWrittenDtoList
+        val memberWrittenDtoList: List<MyWrittenArticlesMemberWrittenDtoList>
     )
 
     data class MyWrittenArticlesMemberWrittenDtoList(
@@ -238,13 +238,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //브랜드 프로필,배경이미지, 구독자 수등 브랜드 상세정보 헤더를 조회
@@ -303,9 +303,9 @@ class RetrofitClient2 {
 
     data class FandomResult(
         @SerializedName("brandFandomCultureDtoList")
-        val brandFandomCultureDtoList: BrandFandomCultureDtoList,
+        val brandFandomCultureDtoList: List<BrandFandomCultureDtoList>,
         @SerializedName("brandFandomAnnouncementDtoList")
-        val brandFandomAnnouncementDtoList: BrandFandomAnnouncementDtoList
+        val brandFandomAnnouncementDtoList: List<BrandFandomAnnouncementDtoList>
     )
 
     data class BrandFandomCultureDtoList(
@@ -322,13 +322,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     data class BrandFandomAnnouncementDtoList(
@@ -345,13 +345,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //브랜드 콘텐츠에 종속된 브랜드 이벤트, 브랜드 카드뉴스, 브랜드 비디오 최신 2건을 조회
@@ -368,11 +368,11 @@ class RetrofitClient2 {
 
     data class ContentsResult(
         @SerializedName("brandContentsEventDtoList")
-        val brandContentsEventDtoList: BrandContentsEventDtoList,
+        val brandContentsEventDtoList: List<BrandContentsEventDtoList>,
         @SerializedName("brandContentsCardNewsDtoList")
-        val brandContentsCardNewsDtoList: BrandContentsCardNewsDtoList,
+        val brandContentsCardNewsDtoList: List<BrandContentsCardNewsDtoList>,
         @SerializedName("brandContentsVideoDtoList")
-        val brandContentsVideoDtoList: BrandContentsVideoDtoList
+        val brandContentsVideoDtoList: List<BrandContentsVideoDtoList>
     )
 
     data class BrandContentsEventDtoList(
@@ -389,13 +389,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     data class BrandContentsCardNewsDtoList(
@@ -412,13 +412,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     data class BrandContentsVideoDtoList(
@@ -435,7 +435,7 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("video")
         val video: String,
         @SerializedName("likeCount")
@@ -443,7 +443,7 @@ class RetrofitClient2 {
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //브랜드 콘텐츠에 종속된 브랜드 자유게시판, 피드백 게시판 최신 2건을 조회
@@ -460,9 +460,9 @@ class RetrofitClient2 {
 
     data class CommunityResult(
         @SerializedName("brandCommunityBoardDtoList")
-        val brandCommunityBoardDtoList: BrandCommunityBoardDtoList,
+        val brandCommunityBoardDtoList: List<BrandCommunityBoardDtoList>,
         @SerializedName("brandCommunityFeedBackBoardDtoList")
-        val brandCommunityFeedBackBoardDtoList: BrandCommunityFeedBackBoardDtoList
+        val brandCommunityFeedBackBoardDtoList: List<BrandCommunityFeedBackBoardDtoList>
     )
 
     data class BrandCommunityBoardDtoList(
@@ -479,13 +479,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     data class BrandCommunityFeedBackBoardDtoList(
@@ -502,13 +502,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //댓글 및 대댓글 작성
@@ -623,14 +623,14 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: FandomArticleResult
+        val result: List<FandomArticleResult>
     )
 
     data class FandomArticleResult(
         @SerializedName("parentDto")
-        val parentDto: FandomArticleParentDto,
+        val parentDto: List<FandomArticleParentDto>,
         @SerializedName("childDtoList")
-        val childDtoList: FandomArticleChildDtoList
+        val childDtoList: List<FandomArticleChildDtoList>
     )
 
     data class FandomArticleParentDto(
@@ -651,7 +651,7 @@ class RetrofitClient2 {
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     data class FandomArticleChildDtoList(
@@ -672,7 +672,7 @@ class RetrofitClient2 {
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //해당 콘텐츠 게시글의 댓글 전체 조회
@@ -684,14 +684,14 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: ContentsArticleResult
+        val result: List<ContentsArticleResult>
     )
 
     data class ContentsArticleResult(
         @SerializedName("parentDto")
-        val parentDto: ContentsArticleParentDto,
+        val parentDto: List<ContentsArticleParentDto>,
         @SerializedName("childDtoList")
-        val childDtoList: ContentsArticleChildDtoList
+        val childDtoList: List<ContentsArticleChildDtoList>
     )
 
     data class ContentsArticleParentDto(
@@ -712,7 +712,7 @@ class RetrofitClient2 {
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     data class ContentsArticleChildDtoList(
@@ -733,7 +733,7 @@ class RetrofitClient2 {
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //해당 커뮤니티 게시글의 댓글 전체 조회
@@ -745,14 +745,14 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: CommunityArticleResult
+        val result: List<CommunityArticleResult>
     )
 
     data class CommunityArticleResult(
         @SerializedName("parentDto")
-        val parentDto: CommunityArticleParentDto,
+        val parentDto: List<CommunityArticleParentDto>,
         @SerializedName("childDtoList")
-        val childDtoList: CommunityArticleChildDtoList
+        val childDtoList: List<CommunityArticleChildDtoList>
     )
 
     data class CommunityArticleParentDto(
@@ -773,7 +773,7 @@ class RetrofitClient2 {
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     data class CommunityArticleChildDtoList(
@@ -794,7 +794,7 @@ class RetrofitClient2 {
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //팬덤 컬처 게시물 전체 조회(페이징: 0페이지 부터 시작)
@@ -806,7 +806,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: FandomCultureBoardResult
+        val result: List<FandomCultureBoardResult>
     )
 
     data class FandomCultureBoardResult(
@@ -823,13 +823,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //팬덤 아나운스먼트 게시물 전체 조회(페이징: 0페이지 부터 시작)
@@ -858,13 +858,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //팬덤 게시글 상세조회
@@ -876,7 +876,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: FandomBoardDetailResult
+        val result: List<FandomBoardDetailResult>
     )
 
     data class FandomBoardDetailResult(
@@ -893,13 +893,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //콘텐츠 비디오 게시판 전체 조회(페이징: 0페이지 부터 시작)
@@ -911,7 +911,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: ContentsVideoResult
+        val result: List<ContentsVideoResult>
     )
 
     data class ContentsVideoResult(
@@ -928,7 +928,7 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("file")
         val file: String,
         @SerializedName("likeCount")
@@ -936,7 +936,7 @@ class RetrofitClient2 {
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //콘텐츠 이벤트 게사판 전체 조회(페이징: 0페이지 부터 시작)
@@ -948,7 +948,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: ContentsEventResult
+        val result: List<ContentsEventResult>
     )
 
     data class ContentsEventResult(
@@ -965,7 +965,7 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("file")
         val file: String,
         @SerializedName("likeCount")
@@ -973,7 +973,7 @@ class RetrofitClient2 {
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //콘텐츠 카드뉴스 게시판 전체 조회(페이징: 0페이지 부터 시작)
@@ -985,7 +985,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: ContentsCardnewsResult
+        val result: List<ContentsCardnewsResult>
     )
 
     data class ContentsCardnewsResult(
@@ -1002,7 +1002,7 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("file")
         val file: String,
         @SerializedName("likeCount")
@@ -1010,7 +1010,7 @@ class RetrofitClient2 {
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //콘텐츠 게시글 상세조회
@@ -1022,7 +1022,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: ContentsBoardDetailResult
+        val result: List<ContentsBoardDetailResult>
     )
 
     data class ContentsBoardDetailResult(
@@ -1039,7 +1039,7 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("file")
         val file: String,
         @SerializedName("likeCount")
@@ -1047,7 +1047,7 @@ class RetrofitClient2 {
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     data class CommunityFreeResponse(
@@ -1058,7 +1058,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: CommunityFreeResult
+        val result: List<CommunityFreeResult>
     )
 
     data class CommunityFreeResult(
@@ -1075,13 +1075,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //커뮤니티 피드게시판 전체 조회(페이징: 0페이지 부터 시작)
@@ -1093,7 +1093,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: CommunityFeedbackResult
+        val result: List<CommunityFeedbackResult>
     )
 
     data class CommunityFeedbackResult(
@@ -1110,13 +1110,13 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
 
     //커뮤니티 게시글 상세조회
@@ -1128,7 +1128,7 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String,
         @SerializedName("result")
-        val result: CommunityBoardDetailResult
+        val result: List<CommunityBoardDetailResult>
     )
 
     data class CommunityBoardDetailResult(
@@ -1145,15 +1145,15 @@ class RetrofitClient2 {
         @SerializedName("content")
         val content: String,
         @SerializedName("images")
-        val images: String,
+        val images: List<String>,
         @SerializedName("likeCount")
         val likeCount: Int,
         @SerializedName("commentCount")
         val commentCount: Int,
         @SerializedName("writtenDate")
-        val writtenDate: Date
+        val writtenDate: String
     )
-    
+
     data class ResponseCommunity(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
