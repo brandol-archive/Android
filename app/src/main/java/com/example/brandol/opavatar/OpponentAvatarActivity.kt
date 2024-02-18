@@ -34,6 +34,10 @@ class OpponentAvatarActivity : AppCompatActivity() {
         val from = intent.getStringExtra("from")
         var username : String = ""
 
+        // 여기서 userId를 받아옴
+        val memberId = intent.getIntExtra("userId", -1)
+
+
         //여기에서 인텐트로 멤버 아이디 받음
         if (from == "Chatting"){
             username = intent.getStringExtra("chatkey").toString()
@@ -47,7 +51,7 @@ class OpponentAvatarActivity : AppCompatActivity() {
 
         //멤버아이디 받아서
         val token = getCurrentToken(this)
-        val call = RetrofitObject.getRetrofitService.getOtherAvatar("Bearer $token",1)
+        val call = RetrofitObject.getRetrofitService.getOtherAvatar("Bearer $token",memberId.toLong())
         call.enqueue(object : Callback<RetrofitClient2.ResponseOtherAvatar> {
             override fun onResponse(
                 call: Call<RetrofitClient2.ResponseOtherAvatar>,

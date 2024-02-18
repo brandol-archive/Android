@@ -1,10 +1,13 @@
 package com.example.brandol.adaptor
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.brandol.R
 import com.example.brandol.connection.RetrofitClient2
 
@@ -32,16 +35,26 @@ class ContentCategoryAdapter(private var contentList: List<RetrofitClient2.Searc
     }
 
     inner class ContentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val brandNameTextView: TextView = itemView.findViewById(R.id.content_brand_name_tv)
-        private val postTitleTextView: TextView = itemView.findViewById(R.id.post_title_tv)
-        private val postContentTextView: TextView = itemView.findViewById(R.id.post_content_tv)
-        private val contentInfoTextView: TextView = itemView.findViewById(R.id.content_info_tv)
+        private val brandNameTextView: TextView? = itemView.findViewById(R.id.content_brand_name_tv)
+        private val postTitleTextView: TextView? = itemView.findViewById(R.id.post_title_tv)
+        private val postContentTextView: TextView? = itemView.findViewById(R.id.post_content_tv)
+        private val contentInfoTextView: TextView? = itemView.findViewById(R.id.content_info_tv)
+        private val contentImagesView: ImageView? = itemView.findViewById(R.id.contents_iv)
 
         fun bind(content: RetrofitClient2.SearchDetailContentsDto) {
-            brandNameTextView.text = content.writerName // 작성자 이름으로 설정
-            postTitleTextView.text = content.contentsTitle
-            postContentTextView.text = content.content
-            contentInfoTextView.text = content.createdDate
+            // Null 체크를 추가하여 뷰가 null이 아닌 경우에만 작업을 수행합니다.
+            brandNameTextView?.text = content.writerName
+            postTitleTextView?.text = content.contentsTitle
+            postContentTextView?.text = content.content
+            contentInfoTextView?.text = content.createdDate
+
+            if (content.images.isNotEmpty()) {
+                Log.d("content", "content.images.isNotEmpty()")
+                contentImagesView?.let { Glide.with(itemView.context).load(content.images[0]).into(it) }
+            } else {
+                //contentImagesView?.visibility = View.GONE
+            }
         }
     }
+
 }

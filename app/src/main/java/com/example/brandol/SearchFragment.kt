@@ -10,11 +10,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentSearchBinding
 import com.example.brandol.searchCategory.CatagoryFragment
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,10 +62,60 @@ class SearchFragment : Fragment() {
             transaction.commit()
         }
 
+
+        // 데이터 가져오기 및 화면 갱신
+//        lifecycleScope.launch {
+//            searchMain()
+//        }
+
+
         return binding.root
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_search, container, false)
     }
+
+//    private fun getCurrentToken(context: Context): String?{
+//        val sharedPref = context.getSharedPreferences("Brandol", AppCompatActivity.MODE_PRIVATE)
+//        return sharedPref.getString("accessToken", null)
+//    }
+//
+//    private fun searchMain() {
+//        val token = getCurrentToken(requireContext())
+//
+//        val call = RetrofitObject.getRetrofitService.getSearchMain("Bearer $token")
+//        Log.d("search_brand", "good_1")
+//        call.enqueue(object : Callback<RetrofitClient2.ResponseSearchMain> {
+//            override fun onResponse(
+//                call: Call<RetrofitClient2.ResponseSearchMain>,
+//                response: Response<RetrofitClient2.ResponseSearchMain?>
+//            ) {
+//                Log.d("search_brand", "good_2")
+//                Log.d("search_brand", response.toString())
+//                if (response.isSuccessful) {
+//                    val response = response.body()
+//                    Log.d("search_brand", response.toString())
+//                    if (response != null) {
+//                        if (response.isSuccess) {
+//                            Log.d("search_brand", response.result.toString())
+//
+//                        }
+//                    }
+//                }
+//            }
+//
+//            override fun onFailure(
+//                call: Call<RetrofitClient2.ResponseSearchMain>,
+//                t: Throwable
+//            ) {
+//                val errorMessage = "Call Failed: ${t.message}"
+//                Log.e("sseohyeonn", errorMessage)
+//            }
+//        })
+//    }
+
+
+
+
     private inner class CategoryPagerAdapter(fragmentActivity: FragmentActivity) :
         FragmentStateAdapter(fragmentActivity) {
 

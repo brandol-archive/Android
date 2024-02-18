@@ -1266,6 +1266,8 @@ class RetrofitClient2 {
         val memberId: Long,
         val nickname: String
     )
+    
+    //브랜드 공통 헤더 조회
     data class GetBrandHeader(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
@@ -1307,6 +1309,7 @@ class RetrofitClient2 {
         @SerializedName("fan_sequence")
         val fan_sequence: Int
     )
+    //
 
     data class GetHomeFragment(
         @SerializedName("isSuccess")
@@ -1349,6 +1352,8 @@ class RetrofitClient2 {
         val brandName: String,
         @SerializedName("profileImage")
         val profileImage: String,
+        @SerializedName("brandDescription")
+        val brandDescription: String,
         @SerializedName("sequence")
         val sequence: Int
     )
@@ -1526,10 +1531,14 @@ class RetrofitClient2 {
     )
 
     data class SearchMainResult(
-        @SerializedName("searchMainBrandDto") val searchMainBrandDto: List<BrandDto>,
-        @SerializedName("searchMainUserDto") val searchMainUserDto: List<UserDto>,
-        @SerializedName("searchMainContentsDto") val searchMainContentsDto: List<ContentsDto>,
-        @SerializedName("searchMainAvatarStoreDto") val searchMainAvatarStoreDto: List<AvatarStoreDto>
+        @SerializedName("searchMainBrandDto")
+        val searchMainBrandDto: List<BrandDto>,
+        @SerializedName("searchMainUserDto")
+        val searchMainUserDto: List<UserDto>,
+        @SerializedName("searchMainContentsDto")
+        val searchMainContentsDto: List<ContentsDto>,
+        @SerializedName("searchMainAvatarStoreDto")
+        val searchMainAvatarStoreDto: List<AvatarStoreDto>
     )
 
     // 검색 메인 페이지에서 사용될 데이터 클래스들을 정의합니다.
@@ -1620,5 +1629,122 @@ class RetrofitClient2 {
 
     )
     //서현 끝
+
+
+    data class TryBrandAdditionMission(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: TryBrandAdditionMissionResult
+    )
+
+    data class TryBrandAdditionMissionResult(
+        @SerializedName("missionSuccess")
+        val missionSuccess: Boolean,
+        @SerializedName("id")
+        val id: Int
+    )
+
+    data class TrySurveyMission(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: TrySurveyMissionResult
+    )
+
+    data class TrySurveyMissionResult(
+        @SerializedName("missionId")
+        val missionId: Int,
+        @SerializedName("survey")
+        val survey: List<Survey>
+    )
+
+    data class Survey(
+        @SerializedName("surveyQuestionId")
+        val surveyQuestionId: Int,
+        @SerializedName("surveyQuestion")
+        val surveyQuestion: String,
+        @SerializedName("surveyQuestionType")
+        val surveyQuestionType: String,
+        @SerializedName("surveyExamples")
+        val surveyExamples: List<SurveyExamples>
+    )
+
+    data class SurveyExamples(
+        @SerializedName("surveyExampleId")
+        val surveyExampleId: Int,
+        @SerializedName("surveyExample")
+        val surveyExample: String
+    )
+
+
+    data class CompleteSurveyMissionSuccess(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: List<SurveyMissionEmptyResult>
+    )
+    data class SurveyMissionEmptyResult (
+        val surveyResult: String
+    )
+
+    data class RequestSurveyMission (
+        val requestSurveyMission: List<QuestionResponse>
+    )
+    data class QuestionResponse(
+        val surveyQuestionID: Int,
+        val surveyQuestionType: String,
+        val response: String
+    )
+
+    data class PointHistory(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: PointHistoryResult
+    )
+
+    data class PointHistoryResult(
+        @SerializedName("result")
+        val result: List<UserPointHistory>
+    )
+
+    data class UserPointHistory(
+        @SerializedName("history")
+        val history: String,
+        @SerializedName("points")
+        val points: Int,
+        @SerializedName("date")
+        val date: String
+    )
+
+
+
+    data class PurchaseItem(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: String
+    )
 
 }

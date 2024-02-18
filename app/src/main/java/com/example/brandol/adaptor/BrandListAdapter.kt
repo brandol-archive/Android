@@ -81,6 +81,8 @@ class BrandListAdapter(private val brandList: MutableList<RetrofitClient2.member
 
             deleteTextView.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
+            brandInfoTextView.text = brandData.brandDescription
+
             // 삭제 텍스트를 클릭했을 때의 동작 설정
             deleteTextView.setOnClickListener {
                 showDeleteDialog(brandData)

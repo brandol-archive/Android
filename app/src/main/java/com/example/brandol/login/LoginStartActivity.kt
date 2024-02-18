@@ -88,9 +88,9 @@ class LoginStartActivity : AppCompatActivity() {
                     } else if (user != null) {
                         Log.d("LHJ", "사용자 정보 요청 성공")
 //                        val email = user.kakaoAccount?.email
-//                        val name = user.kakaoAccount?.profile?.nickname 진짜 코드
-                        val email = "kim"
-                        val name = "kim"
+//                        val name = user.kakaoAccount?.profile?.nickname
+                        val email = "jujupdan"
+                        val name = "jujupdan"
                         //이메일 이름 보내서 서버와 연결
                         loginServer(email!!, name!!)
 
@@ -179,8 +179,9 @@ class LoginStartActivity : AppCompatActivity() {
         val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
             accessToken?.let { putString("accessToken", it) }
-            Log.d("LHJTOKEN",accessToken.toString())
+            Log.d("accessTOKEN",accessToken.toString())
             refreshtoken?.let { putString("refreshtoken", it) }
+            Log.d("refreshTOKEN",refreshtoken.toString())
             apply()
         }
     }

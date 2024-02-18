@@ -252,6 +252,7 @@ class HomeFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
 
 
+
         //브랜드 클릭해서 brandInfoFragment로 화면 전환
         brandButtonAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int) {
@@ -263,6 +264,7 @@ class HomeFragment : Fragment() {
                     .commit()
             }
         }
+
 
         binding.brandPlusButton.setOnClickListener {
             // 브랜드 관리 프래그먼트로 전환
@@ -297,13 +299,6 @@ class HomeFragment : Fragment() {
         val sharedPref = context.getSharedPreferences("Brandol", MODE_PRIVATE)
         return sharedPref.getString("accessToken", null)
     }
-
-
-    // Inside HomeFragment class
-
-    // HomeFragment 클래스 내부
-
-    // Inside HomeFragment class
 
     private fun getHomeFragmentData() {
         val token = getCurrentToken(requireContext())
