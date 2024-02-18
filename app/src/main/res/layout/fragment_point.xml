@@ -155,8 +155,8 @@
                     android:layout_marginStart="120dp"
                     android:layout_marginTop="14dp"
                     android:text="+300p"
-                    android:textSize="15dp"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
 
 
             </FrameLayout>

@@ -65,7 +65,7 @@ interface RetrofitAPI {
     fun completeAddMissionSuccess(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionSuccess>
 
     //미션 관련 API : 포인트 미션 목록
-    @GET("/users/missions")
+    @GET("/missions")
     fun getMissionList(@Header("Authorization") token: String): Call<RetrofitClient2.ResponseMissionList>
     //서현 끝
 
@@ -78,6 +78,15 @@ interface RetrofitAPI {
 
     @POST("/users/my-board-list/unsubscribe/{brandId}")
     fun unsubscribeBrand(@Header("Authorization") token:String, @Path("brandId") brandId: Int): Call<RetrofitClient2.UnsubscribeBrand>
+
+    @POST("/missions/{missionId}/add")
+    fun tryBrandAdditionMission(@Header("Authorization") token:String, @Path("missionId") missionId: Int): Call<RetrofitClient2.TryBrandAdditionMission>
+
+    @POST("/missions/{missionId}/survey")
+    fun trySurveyMission(@Header("Authorization") token:String, @Path("missionId") missionId: Int): Call<RetrofitClient2.TrySurveyMission>
+
+    @PATCH("/missions/{missionId}/survey/success")
+    fun completeSurveyMissionSuccess(@Header("Authorization") token:String,@Path("missionId") missionId: Int,@Body request : RetrofitClient2.RequestSurveyMission): Call<RetrofitClient2.CompleteSurveyMissionSuccess>
 
     @POST("/avatar/items/{itemId}")
     fun purchaseItem(@Header("Authorization") token:String, @Path("itemId") brandId: Int): Call<RetrofitClient2.PurchaseItem>

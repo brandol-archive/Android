@@ -105,15 +105,15 @@ class CatagoryFragment : Fragment() {
                     // 브랜드
                     updateImage(searchData!!.searchMainBrandDto[0].brandProfileImage, binding.drandolLogo1Iv)
                     updateImage(searchData.searchMainBrandDto[1].brandProfileImage, binding.drandolLogo2Iv)
-                    updateImage(searchData.searchMainBrandDto[2].brandProfileImage, binding.drandolLogo3Iv)
+                    //updateImage(searchData.searchMainBrandDto[2].brandProfileImage, binding.drandolLogo3Iv)
 
                     updateTextView(searchData.searchMainBrandDto[0].brandName, binding.brandName1Tv)
                     updateTextView(searchData.searchMainBrandDto[1].brandName, binding.brandName2Tv)
-                    updateTextView(searchData.searchMainBrandDto[2].brandName, binding.brandName3Tv)
+                    //updateTextView(searchData.searchMainBrandDto[2].brandName, binding.brandName3Tv)
 
                     updateTextView(searchData.searchMainBrandDto[0].brandDescription, binding.brandName1DetailTv)
                     updateTextView(searchData.searchMainBrandDto[1].brandDescription, binding.brandName2DetailTv)
-                    updateTextView(searchData.searchMainBrandDto[2].brandDescription, binding.brandName3DetailTv)
+                    //updateTextView(searchData.searchMainBrandDto[2].brandDescription, binding.brandName3DetailTv)
 
                     // 유저
                     updateImage(searchData.searchMainUserDto[0].userAvatar, binding.userChar1Iv)

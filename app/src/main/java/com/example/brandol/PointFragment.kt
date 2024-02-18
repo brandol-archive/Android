@@ -11,9 +11,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentPointBinding
@@ -93,10 +96,8 @@ class PointFragment : Fragment() {
         return sharedPref.getString("accessToken", null)
     }
 
-
     private fun getMissionList() {
         val token = getCurrentToken(requireContext())
-
         val call = RetrofitObject.getRetrofitService.getMissionList("Bearer $token")
         Log.d("mission_list", "good_1")
         call.enqueue(object : Callback<RetrofitClient2.ResponseMissionList> {
@@ -107,12 +108,21 @@ class PointFragment : Fragment() {
                 Log.d("mission_list", "good_2")
                 Log.d("mission_list", response.toString())
                 if (response.isSuccessful) {
-                    val response = response.body()
-                    Log.d("mission_list", response.toString())
-                    if (response != null) {
-                        if (response.isSuccess) {
-                            Log.d("mission_list", response.result.toString())
+                    val responseData = response.body()
+                    val missionListResult = responseData?.result
+                    Log.d("mission_list", responseData.toString())
+                    if (responseData != null && missionListResult != null) {
+                        if (responseData.isSuccess) {
+                            Log.d("mission_list", missionListResult.toString())
 
+                            // 예시: 첫 번째 미션 데이터를 가져와서 UI 업데이트
+                            if (missionListResult.memberMissionList.isNotEmpty()) {
+                                val firstMission = missionListResult.memberMissionList[0]
+
+                                // 미션 데이터를 UI에 업데이트하는 함수 호출
+                                //updateMissionData(firstMission)
+                                        //updateMissionData(missionListResult.memberMissionList)
+                            }
                         }
                     }
                 }
@@ -123,6 +133,42 @@ class PointFragment : Fragment() {
                 Log.e("sseohyeonn", errorMessage)
             }
         })
+    }
+
+    // 미션 데이터를 UI에 업데이트하는 함수
+    private fun updateMissionData(missions: List<RetrofitClient2.Mission>) {
+        // UI 업데이트 코드 작성
+        for ((index, mission) in missions.withIndex()) {
+            // 예시: 두 개의 미션만 처리하도록 설정
+            if (index == 0) {
+                updateTextView(mission.missionName, binding.myPointTv)
+                updateTextView(mission.missionPoints.toString() + "p", binding.myPointPTv)
+                updateImage(mission.missionImage, binding.pointMision1Iv)
+            } else if (index == 1) {
+                // 두 번째 미션 데이터를 활용하여 다른 UI 업데이트 작업 수행
+                // updateTextView(mission.missionName, binding.anotherTextView)
+                // updateImage(mission.missionImage, binding.anotherImageView)
+            }
+            // 더 많은 미션 데이터에 대한 처리 추가 가능
+        }
+    }
+
+
+    // 이미지뷰를 업데이트하는 함수
+    private fun updateImage(brandProfileImage: String, imageView: ImageView) {
+        Glide.with(requireContext()).load(brandProfileImage).into(imageView)
+    }
+
+
+    // 텍스트뷰를 업데이트하는 함수
+    private fun updateTextView(text: String?, textView: TextView) {
+        if (!text.isNullOrBlank()) {
+            textView.text = text
+        } else {
+            // 텍스트가 비어있는 경우 기본 텍스트 또는 다른 처리를 수행할 수 있습니다.
+            // 예를 들어, 기본 텍스트를 설정하거나 숨김 처리를 할 수 있습니다.
+            textView.visibility = View.GONE
+        }
     }
 
 }
