@@ -103,17 +103,17 @@ class CatagoryFragment : Fragment() {
 
 
                     // 브랜드
-                    updateImage(searchData!!.searchMainBrandDto[0].brandProfileImage, binding.drandolLogo1Iv)
-                    updateImage(searchData.searchMainBrandDto[1].brandProfileImage, binding.drandolLogo2Iv)
-                    updateImage(searchData.searchMainBrandDto[2].brandProfileImage, binding.drandolLogo3Iv)
+                    brandUpdateImage(searchData!!.searchMainBrandDto[0].brandProfileImage, binding.drandolLogo1Iv)
+                    brandUpdateImage(searchData.searchMainBrandDto[1].brandProfileImage, binding.drandolLogo2Iv)
+                    //updateImage(searchData.searchMainBrandDto[2].brandProfileImage, binding.drandolLogo3Iv)
 
                     updateTextView(searchData.searchMainBrandDto[0].brandName, binding.brandName1Tv)
                     updateTextView(searchData.searchMainBrandDto[1].brandName, binding.brandName2Tv)
-                    updateTextView(searchData.searchMainBrandDto[2].brandName, binding.brandName3Tv)
+                    //updateTextView(searchData.searchMainBrandDto[2].brandName, binding.brandName3Tv)
 
                     updateTextView(searchData.searchMainBrandDto[0].brandDescription, binding.brandName1DetailTv)
                     updateTextView(searchData.searchMainBrandDto[1].brandDescription, binding.brandName2DetailTv)
-                    updateTextView(searchData.searchMainBrandDto[2].brandDescription, binding.brandName3DetailTv)
+                    //updateTextView(searchData.searchMainBrandDto[2].brandDescription, binding.brandName3DetailTv)
 
                     // 유저
                     updateImage(searchData.searchMainUserDto[0].userAvatar, binding.userChar1Iv)
@@ -201,6 +201,9 @@ class CatagoryFragment : Fragment() {
         Glide.with(requireContext()).load(brandProfileImage).into(imageView)
     }
 
+    private fun brandUpdateImage(brandProfileImage: String, imageView: ImageView) {
+        Glide.with(requireContext()).load(brandProfileImage).centerCrop().into(imageView)
+    }
     // 콘텐츠 이미지뷰를 업데이트하는 함수 (이미지가 있는 경우에만 업데이트)
     private fun updateContentImage(contentDto: RetrofitClient2.ContentsDto, imageView: ImageView) {
         if (contentDto.images.isNotEmpty()) {

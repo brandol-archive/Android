@@ -17,13 +17,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/popup"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="235dp"
-            android:layout_marginStart="115dp"
-            android:text="확인"
-            android:textSize="14dp"/>
     </FrameLayout>
 
 

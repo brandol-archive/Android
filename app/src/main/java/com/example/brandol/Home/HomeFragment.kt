@@ -300,13 +300,6 @@ class HomeFragment : Fragment() {
         return sharedPref.getString("accessToken", null)
     }
 
-
-    // Inside HomeFragment class
-
-    // HomeFragment 클래스 내부
-
-    // Inside HomeFragment class
-
     private fun getHomeFragmentData() {
         val token = getCurrentToken(requireContext())
         val call = RetrofitObject.getRetrofitService.getHomeFragment("Bearer $token")

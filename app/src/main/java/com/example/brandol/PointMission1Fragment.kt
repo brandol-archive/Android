@@ -28,23 +28,24 @@ class PointMission1Fragment: Fragment() {
         //val missionId = 2L
         //completeMission(missionId)
 
+        tryBrandAdditionMission(1)
+
         return binding.root
     }
-/*
+
     private fun getCurrentToken(context: Context): String?{
         val sharedPref = context.getSharedPreferences("Brandol", AppCompatActivity.MODE_PRIVATE)
         return sharedPref.getString("accessToken", null)
     }
 
-    private fun completeMission(missionId: Long) {
+    private fun tryBrandAdditionMission(missionId: Int) {
         val token = getCurrentToken(requireContext())
-
-        val call = RetrofitObject.getRetrofitService.completeMission("Bearer $token", missionId)
+        val call = RetrofitObject.getRetrofitService.tryBrandAdditionMission("Bearer $token", missionId)
         Log.d("complete_mission", "good_1")
-        call.enqueue(object : Callback<RetrofitClient2.ResponseMissionCompletion> {
+        call.enqueue(object : Callback<RetrofitClient2.TryBrandAdditionMission> {
             override fun onResponse(
-                call: Call<RetrofitClient2.ResponseMissionCompletion>,
-                response: Response<RetrofitClient2.ResponseMissionCompletion?>
+                call: Call<RetrofitClient2.TryBrandAdditionMission>,
+                response: Response<RetrofitClient2.TryBrandAdditionMission?>
             ) {
                 Log.d("complete_mission", "good_2")
                 Log.d("complete_mission", response.toString())
@@ -61,14 +62,14 @@ class PointMission1Fragment: Fragment() {
             }
 
             override fun onFailure(
-                call: Call<RetrofitClient2.ResponseMissionCompletion>,
+                call: Call<RetrofitClient2.TryBrandAdditionMission>,
                 t: Throwable
             ) {
                 val errorMessage = "Call Failed: ${t.message}"
                 Log.e("sseohyeonn", errorMessage)
             }
         })
-    }*/
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
