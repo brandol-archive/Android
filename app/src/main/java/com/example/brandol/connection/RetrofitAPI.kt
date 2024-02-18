@@ -88,6 +88,9 @@ interface RetrofitAPI {
     @PATCH("/missions/{missionId}/survey/success")
     fun completeSurveyMissionSuccess(@Header("Authorization") token:String,@Path("missionId") missionId: Int,@Body request : RetrofitClient2.RequestSurveyMission): Call<RetrofitClient2.CompleteSurveyMissionSuccess>
 
+    @GET("/users/points-history")
+    fun pointHistory(@Header("Authorization") token:String): Call<RetrofitClient2.PointHistory>
+
     @POST("/avatar/items/{itemId}")
     fun purchaseItem(@Header("Authorization") token:String, @Path("itemId") brandId: Int): Call<RetrofitClient2.PurchaseItem>
 
@@ -105,6 +108,8 @@ interface RetrofitAPI {
 
     @GET("/search/detail/avatar-store/body")
     fun searchDetailAvatarStoreBody(@Header("Authorization") token:String, @Query("itemPart") itemPart: String): Call<RetrofitClient2.SearchDetailAvatarStoreBody>
+
+
 
     //브랜드 관련 API (피그마 기준 페이지 2의 브랜드 상단 부분 조회, 하단 부분의 팬덤, 컨텐츠, 커뮤니티 조회)
     @POST("/brands/{brandId}/community/new")

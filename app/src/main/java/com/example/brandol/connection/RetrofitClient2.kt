@@ -1702,6 +1702,32 @@ class RetrofitClient2 {
         val response: String
     )
 
+    data class PointHistory(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: PointHistoryResult
+    )
+
+    data class PointHistoryResult(
+        @SerializedName("result")
+        val result: List<UserPointHistory>
+    )
+
+    data class UserPointHistory(
+        @SerializedName("history")
+        val history: String,
+        @SerializedName("points")
+        val points: Int,
+        @SerializedName("date")
+        val date: String
+    )
+
+
 
     data class PurchaseItem(
         @SerializedName("isSuccess")

@@ -56,7 +56,7 @@ class BrandButtonAdapter : RecyclerView.Adapter<BrandButtonAdapter.ButtonViewHol
         // ViewHolder data binding
         fun bind(brand: RetrofitClient2.memberBrandListDtoList) {
             // Set brand profile image (use an image loading library)
-            Glide.with(itemView.context).load(brand.profileImage).into(brandImageView)
+            Glide.with(itemView.context).load(brand.profileImage).centerCrop().into(brandImageView)
 
             // Set brand name
             brandNameTextView.text = brand.brandName

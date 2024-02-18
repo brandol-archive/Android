@@ -58,6 +58,36 @@ class PointFragment : Fragment() {
 
         getMissionList()
 
+        val token = getCurrentToken(requireContext())
+        val call = RetrofitObject.getRetrofitService.getMypageData("Bearer $token")
+        call.enqueue(object : Callback<RetrofitClient2.ResponseMyInfo> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseMyInfo>,
+                response: Response<RetrofitClient2.ResponseMyInfo>
+            ) {
+                Log.d("LHJ", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("LHJ", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            //Glide.with(binding.mypageProfileIv.context).load(response.result.avatar).into(binding.mypageProfileIv)
+                            binding.myPointPupleTv.text = response.result.point.toString()
+                            //binding.mypageNameTv.text = response.result.nickname
+                            //binding.mypagePointQuantityTv.text = response.result.point.toString()
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RetrofitClient2.ResponseMyInfo>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+
+
         return binding.root
     }
 

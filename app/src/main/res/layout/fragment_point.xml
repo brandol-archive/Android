@@ -41,11 +41,21 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/my_point_p_tv"
+                android:id="@+id/my_point_puple_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="500p"
+                android:text="500"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/selectedpurple"/>
+
+            <TextView
+                android:id="@+id/my_point_p_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:text="p"
                 android:textSize="18dp"
                 android:textStyle="bold"
                 android:textColor="@color/selectedpurple"/>

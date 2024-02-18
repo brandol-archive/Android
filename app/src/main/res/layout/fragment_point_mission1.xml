@@ -31,12 +31,13 @@
 
         </FrameLayout>
 
+
         <ImageView
             android:id="@+id/mission_background_iv"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
-            android:layout_height="550dp"
-            android:src="@drawable/point_mission_like"/>
+            android:layout_height="450dp"
+            android:background="@drawable/point_mission_like"/>
 
         <TextView
             android:id="@+id/mission1_name_tv"
