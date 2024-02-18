@@ -49,7 +49,7 @@
             android:id="@+id/brandinfo_brandlogo_iv"
             android:layout_width="78dp"
             android:layout_height="78dp"
-            android:background="#aaaaaa" />
+            android:background="@color/white" />
 
     </androidx.cardview.widget.CardView>
 
@@ -88,6 +88,7 @@
         android:text="한 줄 소개, 카피"
         android:textColor="@color/white"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/brandinfo_brand_cv"
         app:layout_constraintTop_toBottomOf="@+id/brandinfo_fancnt_tv" />
 
@@ -100,6 +101,7 @@
         android:text="브랜드 명"
         android:textColor="@color/white"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/brandinfo_brand_cv"
         app:layout_constraintTop_toBottomOf="@+id/brandinfo_brandintro_tv" />
 
@@ -149,7 +151,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="328dp"
-        android:layout_marginBottom="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/brandinfo_categorynav_tl" />

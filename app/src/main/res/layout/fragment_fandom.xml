@@ -108,12 +108,13 @@
 
             <TextView
                 android:id="@+id/fandom_postcontent1_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="1dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fandom_posttitle1_tv" />
@@ -185,16 +186,6 @@
                 android:layout_marginTop="7dp"
                 app:layout_constraintStart_toEndOf="@id/fandom_division1_tv"
                 app:layout_constraintTop_toBottomOf="@id/fandom_postcontent1_tv" />
-
-            <ImageView
-                android:id="@+id/fandom_image1_iv"
-                android:layout_width="76dp"
-                android:layout_height="76dp"
-                android:background="#D9D9D9"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -272,12 +263,13 @@
 
             <TextView
                 android:id="@+id/fandom_postcontent2_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="1dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fandom_posttitle2_tv" />
@@ -349,16 +341,6 @@
                 android:layout_marginTop="7dp"
                 app:layout_constraintStart_toEndOf="@id/fandom_division2_tv"
                 app:layout_constraintTop_toBottomOf="@id/fandom_postcontent2_tv" />
-
-            <ImageView
-                android:id="@+id/fandom_image2_iv"
-                android:layout_width="76dp"
-                android:layout_height="76dp"
-                android:background="#D9D9D9"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -459,12 +441,13 @@
 
             <TextView
                 android:id="@+id/fandom_postcontent3_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="1dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fandom_posttitle3_tv" />
@@ -536,16 +519,6 @@
                 android:layout_marginTop="7dp"
                 app:layout_constraintStart_toEndOf="@id/fandom_division3_tv"
                 app:layout_constraintTop_toBottomOf="@id/fandom_postcontent3_tv" />
-
-            <ImageView
-                android:id="@+id/fandom_image3_iv"
-                android:layout_width="76dp"
-                android:layout_height="76dp"
-                android:background="#D9D9D9"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -623,12 +596,13 @@
 
             <TextView
                 android:id="@+id/fandom_postcontent4_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="브랜드 추구 방향성, 문화 \n최근 게시글이 들어감글글글글글"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="1dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fandom_posttitle4_tv" />
@@ -700,16 +674,6 @@
                 android:layout_marginTop="7dp"
                 app:layout_constraintStart_toEndOf="@id/fandom_division4_tv"
                 app:layout_constraintTop_toBottomOf="@id/fandom_postcontent4_tv" />
-
-            <ImageView
-                android:id="@+id/fandom_image4_iv"
-                android:layout_width="76dp"
-                android:layout_height="76dp"
-                android:background="#D9D9D9"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
