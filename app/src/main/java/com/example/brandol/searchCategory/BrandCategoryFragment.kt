@@ -57,7 +57,6 @@ class BrandCategoryFragment : Fragment() {
         //브랜드 클릭해서 brandInfoFragment로 화면 전환
         CategoryBrandAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(position: Int, brandId: Int) {
-                TODO("Not yet implemented")
             }
 
             override fun onItemClick(position: Long) {
