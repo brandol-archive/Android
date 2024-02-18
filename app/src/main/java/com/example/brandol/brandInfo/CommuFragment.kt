@@ -178,6 +178,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.brandol.board.BoardActivity
+import com.example.brandol.board.BoardDetailActivity
 import com.example.brandol.connection.RetrofitAPI
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
@@ -215,6 +216,18 @@ class CommuFragment : Fragment() {
         intent.putExtra("category", category)
         intent.putExtra("boardText", boardText)
         startActivityForResult(intent, requestCode)
+    }
+
+    private fun navigateToBoardDetailActivity(Profile: String, Usernick: String, Posttitle: String, Postcontent: String, Likecnt: Int, Commentcnt: Int, Posttime: String) {
+        val intent = Intent(requireContext(), BoardDetailActivity::class.java)
+        intent.putExtra("Profile", Profile)
+        intent.putExtra("Usernick", Usernick)
+        intent.putExtra("Posttitle", Posttitle)
+        intent.putExtra("Postcontent", Postcontent)
+        intent.putExtra("Likecnt", Likecnt)
+        intent.putExtra("Commentcnt", Commentcnt)
+        intent.putExtra("Posttime", Posttime)
+        startActivity(intent)
     }
 
     private fun loadCommunityCategory(brandId: Long?) {
@@ -283,6 +296,20 @@ class CommuFragment : Fragment() {
             binding.commuCommentcnt2Tv.text = it.commentCount.toString()
             binding.commuPosttime2Tv.text = it.writtenDate.toString()
         }
+
+        //첫 번째 게시글 클릭 이벤트
+        binding.commuPost1Cl.setOnClickListener {
+            FreeBoard?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
+
+        //두 번째 게시글 클릭 이벤트
+        binding.commuPost2Cl.setOnClickListener {
+            FreeBoard?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
     }
 
     private fun updateFeedbackBoard(response: RetrofitClient2.CommunityResponse) {
@@ -320,6 +347,21 @@ class CommuFragment : Fragment() {
             binding.commuCommentcnt4Tv.text = it.commentCount.toString()
             binding.commuPosttime4Tv.text = it.writtenDate.toString()
         }
+
+        //첫 번째 게시글 클릭 이벤트
+        binding.commuPost3Cl.setOnClickListener {
+            FeedbackBoard?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
+
+        //두 번째 게시글 클릭 이벤트
+        binding.commuPost4Cl.setOnClickListener {
+            FeedbackBoard?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
+
     }
 
     override fun onDestroyView() {
