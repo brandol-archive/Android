@@ -27,6 +27,20 @@ import retrofit2.Response
 
 class BrandInfoFragment: Fragment() {
     lateinit var binding: FragmentBrandinfoBinding
+
+    companion object {
+        private const val ARG_BRAND_ID = "brandId"
+
+        fun newInstance(brandId: Int): BrandInfoFragment {
+            val fragment = BrandInfoFragment()
+            val args = Bundle()
+            args.putLong(ARG_BRAND_ID, brandId.toLong())
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+
     @SuppressLint("ResourceAsColor")
     override fun onCreateView(
         inflater: LayoutInflater,

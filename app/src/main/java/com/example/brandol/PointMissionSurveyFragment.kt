@@ -26,10 +26,7 @@ class PointMissionSurveyFragment : Fragment() {
     ): View? {
         binding = FragmentPointMissionSurveyBinding.inflate(inflater, container, false)
 
-
-
         trySurveyMission(5)
-
 
         return binding.root
     }
@@ -182,8 +179,8 @@ class PointMissionSurveyFragment : Fragment() {
 
         // 미션 완료 성공시 뜨는 팝업
         binding.pointMissionSurveyCompleteIb.setOnClickListener {
-            showDialog()
             completeSurveyMissionSuccess(5)
+            showDialog()
         }
 
         // Q1 문제에 대한 체크 상태 변경 리스너

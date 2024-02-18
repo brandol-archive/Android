@@ -62,7 +62,7 @@ interface RetrofitAPI {
 
     //브랜드 추가 미션 성공
     @PATCH("/missions/{missionId}/add/success")
-    fun completeAddMissionSuccess(@Path("missionId") missionId: Long): Call<RetrofitClient2.ResponseMissionSuccess>
+    fun completeAddMissionSuccess(@Header("Authorization")token:String,@Path("missionId") missionId: Int): Call<RetrofitClient2.ResponseMissionSuccess>
 
     //미션 관련 API : 포인트 미션 목록
     @GET("/missions")

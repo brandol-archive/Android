@@ -71,6 +71,40 @@ class PointMission1Fragment: Fragment() {
         })
     }
 
+
+    private fun completeAddMissionSuccess(missionId: Int) {
+        val token = getCurrentToken(requireContext())
+        val call = RetrofitObject.getRetrofitService.completeAddMissionSuccess("Bearer $token", missionId)
+        Log.d("complete_mission", "good_1")
+        call.enqueue(object : Callback<RetrofitClient2.ResponseMissionSuccess> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseMissionSuccess>,
+                response: Response<RetrofitClient2.ResponseMissionSuccess?>
+            ) {
+                Log.d("complete_mission", "good_2")
+                Log.d("complete_mission", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("complete_mission", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            Log.d("complete_mission", response.result.toString())
+                        }
+                    }
+
+                }
+            }
+
+            override fun onFailure(
+                call: Call<RetrofitClient2.ResponseMissionSuccess>,
+                t: Throwable
+            ) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.e("sseohyeonn", errorMessage)
+            }
+        })
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -79,6 +113,75 @@ class PointMission1Fragment: Fragment() {
             requireActivity().supportFragmentManager.popBackStack()
         }
 
+        binding.pointMissionBeforeIb.setOnClickListener {
+            completeAddMissionSuccess(1)
+        }
+
     }
 
 }
+
+//class PointMission1Fragment : Fragment() {
+//
+//    private lateinit var binding: FragmentPointMission1Binding
+//
+//    // Track the current mission state
+//    private var missionState: MissionState = MissionState.NOT_STARTED
+//
+//    // Define mission states
+//    enum class MissionState {
+//        NOT_STARTED,
+//        IN_PROGRESS,
+//        COMPLETED
+//    }
+//
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        // Set the click listener for starting the mission
+//        binding.pointMissionBeforeIb.setOnClickListener {
+//            startMission()
+//        }
+//
+//        // Additional code for handling UI based on the current mission state
+//        updateUIBasedOnMissionState()
+//    }
+//
+//    // Function to start the mission
+//    private fun startMission() {
+//        // Call the function to initiate the mission on the server
+//        tryBrandAdditionMission(1)
+//    }
+//
+//    // Function to update UI based on the current mission state
+//    private fun updateUIBasedOnMissionState() {
+//        when (missionState) {
+//            MissionState.NOT_STARTED -> {
+//                binding.pointMissionBeforeIb.visibility = View.VISIBLE
+//                binding.pointMissionIngIb.visibility = View.GONE
+//                binding.pointMissionFinishIb.visibility = View.GONE
+//            }
+//            MissionState.IN_PROGRESS -> {
+//                binding.pointMissionBeforeIb.visibility = View.GONE
+//                binding.pointMissionIngIb.visibility = View.VISIBLE
+//                binding.pointMissionFinishIb.visibility = View.GONE
+//            }
+//            MissionState.COMPLETED -> {
+//                binding.pointMissionBeforeIb.visibility = View.GONE
+//                binding.pointMissionIngIb.visibility = View.GONE
+//                binding.pointMissionFinishIb.visibility = View.VISIBLE
+//            }
+//        }
+//    }
+//
+//    // Function to handle the result when the mission is completed
+//    private fun onMissionCompleted() {
+//        // Update the mission state
+//        missionState = MissionState.COMPLETED
+//
+//        // Update the UI based on the new mission state
+//        updateUIBasedOnMissionState()
+//    }
+//
+//    // Rest of your code...
+//}
