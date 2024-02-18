@@ -81,7 +81,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 2,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 2
+                response = "Yes" // Replace with your actual response for question 2
             ),
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 3,
@@ -91,7 +91,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 4,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 4
+                response = "Yes" // Replace with your actual response for question 4
             ),
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 5,
@@ -101,7 +101,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 6,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 6
+                response = "Yes" // Replace with your actual response for question 6
             ),
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 7,
@@ -111,7 +111,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 8,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 8
+                response = "Yes" // Replace with your actual response for question 8
             ),
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 9,
@@ -121,7 +121,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 10,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 10
+                response = "Yes" // Replace with your actual response for question 10
             )
             // Add more QuestionResponse instances if needed
         )

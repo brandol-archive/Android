@@ -284,4 +284,23 @@ interface RetrofitAPI {
         @Path("communityId") communityId: Long
     ): Call<RetrofitClient2.CommunityBoardDetailResponse>
 
+    //채팅 관련 API
+    @POST("/chat/room")
+    fun makeChatRoom(
+        @Header("Authorization") token:String,
+        @Query("receiver") receiver: Long
+    ): Call<RetrofitClient2.MakeChatRoomResponse>
+    @GET("/chat/room/{roomId}")
+    fun getMessages(
+        @Header("Authorization") token:String,
+        @Path("roomId") roomId: Long,
+        @Query("lastIndex") lastIndex: Long
+    ): Call<RetrofitClient2.GetMessagesResponse>
+    @POST("/chat/room/{roomId}")
+    fun sendMessages(
+        @Header("Authorization") token:String,
+        @Path("roomId") roomId: Long,
+        @Body request: RetrofitClient2.SendMessagesRequest
+    ): Call<RetrofitClient2.SendMessagesResponse>
+
 }
