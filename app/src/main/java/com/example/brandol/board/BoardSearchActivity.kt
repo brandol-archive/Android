@@ -34,9 +34,8 @@ class BoardSearchActivity : AppCompatActivity() {
     }
 
     private fun goBack() {
-        binding.searchBackBtn.setOnClickListener {
-            finish()
-        }
+        // 뒤로가기 버튼 클릭 시 Fragment를 닫습니다.
+        finish()
     }
 
     private fun search() {

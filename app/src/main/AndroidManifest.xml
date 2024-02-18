@@ -71,6 +71,8 @@
         <activity
             android:name=".board.BoardSearchActivity"
             android:exported="false" />
+        <activity android:name=".board.WriteBoardActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"></activity>

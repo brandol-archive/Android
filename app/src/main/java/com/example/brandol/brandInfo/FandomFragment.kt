@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.brandol.R
 import com.example.brandol.board.BoardActivity
+import com.example.brandol.board.BoardDetailActivity
 import com.example.brandol.connection.RetrofitAPI
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
@@ -54,6 +55,18 @@ class FandomFragment : Fragment() {
         intent.putExtra("category", category)
         intent.putExtra("boardText", boardText)
         startActivityForResult(intent, requestCode)
+    }
+
+    private fun navigateToBoardDetailActivity(Profile: String, Usernick: String, Posttitle: String, Postcontent: String, Likecnt: Int, Commentcnt: Int, Posttime: String) {
+        val intent = Intent(requireContext(), BoardDetailActivity::class.java)
+        intent.putExtra("Profile", Profile)
+        intent.putExtra("Usernick", Usernick)
+        intent.putExtra("Posttitle", Posttitle)
+        intent.putExtra("Postcontent", Postcontent)
+        intent.putExtra("Likecnt", Likecnt)
+        intent.putExtra("Commentcnt", Commentcnt)
+        intent.putExtra("Posttime", Posttime)
+        startActivity(intent)
     }
 
     private fun loadFandomCategory(brandId: Long?) {
@@ -124,6 +137,19 @@ class FandomFragment : Fragment() {
             binding.fandomCommentcnt2Tv.text = it.commentCount.toString()
             binding.fandomPosttime2Tv.text = it.writtenDate.toString()
         }
+        //첫 번째 게시글 클릭 이벤트
+        binding.fandomPost1Cl.setOnClickListener {
+            Culture?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
+
+        //두 번째 게시글 클릭 이벤트
+        binding.fandomPost2Cl.setOnClickListener {
+            Culture?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
     }
 
     private fun updateNotice(response: RetrofitClient2.FandomResponse) {
@@ -143,7 +169,7 @@ class FandomFragment : Fragment() {
 //                .into(binding.fandomImage3Iv)
             binding.fandomLikecnt3Tv.text = it.likeCount.toString()
             binding.fandomCommentcnt3Tv.text = it.commentCount.toString()
-            //binding.fandomPosttime3Tv.text = it.writtenDate.toString()
+            binding.fandomPosttime3Tv.text = it.writtenDate.toString()
         }
 
         //두 번째 게시글
@@ -159,7 +185,21 @@ class FandomFragment : Fragment() {
 //                .into(binding.fandomImage4Iv)
             binding.fandomLikecnt4Tv.text = it.likeCount.toString()
             binding.fandomCommentcnt4Tv.text = it.commentCount.toString()
-            //binding.fandomPosttime4Tv.text = it.writtenDate.toString()
+            binding.fandomPosttime4Tv.text = it.writtenDate.toString()
+        }
+
+        //첫 번째 게시글 클릭 이벤트
+        binding.fandomPost3Cl.setOnClickListener {
+            Notice?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
+
+        //두 번째 게시글 클릭 이벤트
+        binding.fandomPost4Cl.setOnClickListener {
+            Notice?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
         }
     }
 
