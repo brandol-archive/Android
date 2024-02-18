@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.R
 import com.example.brandol.SearchBarFragment
 import com.example.brandol.adaptor.BrandCategoryAdapter
+import com.example.brandol.adaptor.CategoryBrandAdapter
+import com.example.brandol.adaptor.ItemClickListener
 import com.example.brandol.brandInfo.BrandInfoFragment
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
@@ -53,10 +55,44 @@ class BrandCategoryFragment : Fragment(), CategoryItemClickListener {
             transaction.commit()
         }
 
+        //브랜드 클릭해서 brandInfoFragment로 화면 전환
+        CategoryBrandAdapter.itemClickListener = object : ItemClickListener {
+            override fun onItemClick(position: Int, brandId: Int) {
+            }
 
+            override fun onItemClick(position: Long) {
+                //클릭한 아이템 정보를 가져와서 넘겨줌
+                //val brand = dummyDataList[position]
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.main_frm, BrandInfoFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
 
         return binding.root
     }
+
+//    private fun navigateToBrandInfo(brandId: Long) {
+//        val bundle = Bundle().apply {
+//            putLong("brandId", brandId)
+//        }
+//
+//        val brandInfoFragment = BrandInfoFragment()
+//        brandInfoFragment.arguments = bundle
+//
+//        requireActivity().supportFragmentManager.beginTransaction()
+//            .replace(R.id.fragment_container, brandInfoFragment)
+//            .addToBackStack(null)
+//            .commit()
+//    }
+//
+//    // ... (다른 필요한 메서드 및 코드)
+//
+//    // CategoryBrandAdapter에서 브랜드 클릭 시 호출될 메서드
+//    fun onBrandClicked(brandId: Long) {
+//        navigateToBrandInfo(brandId)
+//    }
 
 
 

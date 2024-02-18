@@ -8,6 +8,7 @@ import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.brandol.R
 import com.example.brandol.adaptor.RV.BoardRVAdapter
 import com.example.brandol.adaptor.RV.OpBrandRVAdapter
 import com.example.brandol.collection.OpBrand

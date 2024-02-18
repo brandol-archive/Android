@@ -15,9 +15,15 @@ class DetailCommentRVAdapter(private var userComment: List<Usercomment>, private
     private var iscoomcombtnChecked: Boolean = false  //대댓글 다이얼로그 버튼 체크 여부 확인 및 false로 초기화
 
     inner class CommentViewHodler(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val userprofile: ImageView = itemView.findViewById(R.id.avatar_iv)
-        val username: TextView = itemView.findViewById(R.id.name_tv)
-        val commenttext: TextView = itemView.findViewById(R.id.chat_tv)
+        val userprofile: ImageView = itemView.findViewById(R.id.item_comment_profile_iv)
+        val username: TextView = itemView.findViewById(R.id.item_comment_usernick_tv)
+        val commenttext: TextView = itemView.findViewById(R.id.item_comment_content_tv)
+
+        init {
+            requireNotNull(userprofile) { "userprofile must not be null" }
+            requireNotNull(username) { "username must not be null" }
+            requireNotNull(commenttext) { "commenttext must not be null" }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentViewHodler {
@@ -30,6 +36,9 @@ class DetailCommentRVAdapter(private var userComment: List<Usercomment>, private
             itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_comcomment, parent, false)
         }
+
+        // itemView가 null이 아닌지 확인
+        requireNotNull(itemView) { "itemView must not be null" }
 
         return CommentViewHodler(itemView)
     }
