@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 
+//class CategoryAdapter (fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 class CategoryAdapter (fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
     var fragments: ArrayList<Fragment> = ArrayList()
 

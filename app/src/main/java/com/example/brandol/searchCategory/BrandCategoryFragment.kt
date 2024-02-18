@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.brandol.R
 import com.example.brandol.SearchBarFragment
 import com.example.brandol.adaptor.BrandCategoryAdapter
+import com.example.brandol.adaptor.ItemClickListener
 import com.example.brandol.brandInfo.BrandInfoFragment
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
@@ -65,6 +66,8 @@ class BrandCategoryFragment : Fragment() {
 //        }
 
 
+
+
         return binding.root
     }
 
@@ -110,6 +113,20 @@ class BrandCategoryFragment : Fragment() {
 
         // Adapter 초기화
         adapter = BrandCategoryAdapter()
+//        BrandCategoryAdapter.itemClickListener = object : ItemClickListener {
+//            override fun onItemClick(position: Int, brandId: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onItemClick(position: Int) {
+//                //클릭한 아이템 정보를 가져와서 넘겨줌
+//                //val brand = dummyDataList[position]
+//                parentFragmentManager.beginTransaction()
+//                    .replace(R.id.main_frm, BrandInfoFragment())
+//                    .addToBackStack(null)
+//                    .commit()
+//            }
+//        }
 
 
         recyclerView.adapter = adapter

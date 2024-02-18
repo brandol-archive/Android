@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.brandol.R
+import com.example.brandol.brandInfo.BrandInfoFragment
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.searchCategory.CategoryItemClickListener
 
@@ -52,9 +53,13 @@ class BrandCategoryAdapter(private val itemClickListener: CategoryItemClickListe
             brandDescription.text = brandData.brandDescription
             brandFans.text = brandData.brandFans.toString()
 
+//            itemView.setOnClickListener {
+//                itemClickListener?.onItemClick(brandData.brandId.toLong())
+//            }
             itemView.setOnClickListener {
                 itemClickListener?.onItemClick(brandData.brandId.toLong())
             }
         }
     }
+
 }
