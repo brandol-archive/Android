@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.brandol.ItemClickListener
 import com.example.brandol.R
 import com.example.brandol.connection.RetrofitClient2
 
@@ -15,6 +14,7 @@ import com.example.brandol.connection.RetrofitClient2
 class CategoryBrandAdapter : RecyclerView.Adapter<CategoryBrandAdapter.CategoryBrandViewHolder>() {
     private val brandItems = mutableListOf<RetrofitClient2.BrandDto>()
     var itemClickListener: ItemClickListener? = null
+
 
 
     // Data setting and updating
@@ -50,7 +50,7 @@ class CategoryBrandAdapter : RecyclerView.Adapter<CategoryBrandAdapter.CategoryB
 
         init {
             itemView.setOnClickListener {
-                itemClickListener?.onItemClick(adapterPosition)
+                itemClickListener?.onItemClick(adapterPosition.toLong())
             }
         }
 
@@ -71,5 +71,9 @@ class CategoryBrandAdapter : RecyclerView.Adapter<CategoryBrandAdapter.CategoryB
         }
     }
 
+
+    companion object {
+        var itemClickListener: ItemClickListener? = null
+    }
 
 }

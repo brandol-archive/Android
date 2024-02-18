@@ -69,6 +69,7 @@ interface RetrofitAPI {
     fun getMissionList(@Header("Authorization") token: String): Call<RetrofitClient2.ResponseMissionList>
     //서현 끝
 
+    //브랜드 공통 헤더 조회
     @GET("/brands/{brandId}/header")
     fun getBrandHeader(@Header("Authorization")token:String, @Path("brandId") brandId: Long): Call<RetrofitClient2.GetBrandHeader>
 
