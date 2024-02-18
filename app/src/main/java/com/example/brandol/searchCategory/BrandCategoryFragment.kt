@@ -22,11 +22,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 interface CategoryItemClickListener {
-    fun onItemClick(brandId: Long)
+    fun onItemClick(brandId: Int)
 }
 
 
-class BrandCategoryFragment : Fragment() {
+//class BrandCategoryFragment : Fragment() {
+class BrandCategoryFragment : Fragment(), CategoryItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: BrandCategoryAdapter
@@ -134,21 +135,8 @@ class BrandCategoryFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Adapter 초기화
-        adapter = BrandCategoryAdapter()
-//        BrandCategoryAdapter.itemClickListener = object : ItemClickListener {
-//            override fun onItemClick(position: Int, brandId: Int) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onItemClick(position: Int) {
-//                //클릭한 아이템 정보를 가져와서 넘겨줌
-//                //val brand = dummyDataList[position]
-//                parentFragmentManager.beginTransaction()
-//                    .replace(R.id.main_frm, BrandInfoFragment())
-//                    .addToBackStack(null)
-//                    .commit()
-//            }
-//        }
+        //adapter = BrandCategoryAdapter()
+        adapter = BrandCategoryAdapter(this)
 
 
         recyclerView.adapter = adapter
@@ -168,4 +156,25 @@ class BrandCategoryFragment : Fragment() {
             requireActivity().supportFragmentManager.popBackStack()
         }
     }
+
+    override fun onItemClick(brandId: Int) {
+        // Handle the item click event here
+        // brandId contains the selected brand's ID
+        // You can now navigate to BrandInfoFragment and pass this ID
+        val brandInfoFragment = BrandInfoFragment.newInstance(brandId)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, brandInfoFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+//    fun onItemClick(brandId: Long) {
+//        // 항목을 클릭했을 때 호출되는 메서드
+//        // brandId를 사용하여 BrandInfoFragment로 전환하는 코드 작성
+//        val brandInfoFragment = BrandInfoFragment.newInstance(brandId)
+//        parentFragmentManager.beginTransaction()
+//            .replace(R.id.main_frm, brandInfoFragment)
+//            .addToBackStack(null)
+//            .commit()
+//    }
 }

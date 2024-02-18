@@ -1747,4 +1747,61 @@ class RetrofitClient2 {
         val result: String
     )
 
+    data class MakeChatRoomResponse(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: String
+    )
+
+    data class GetMessagesResponse(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: GetMessagesResponseResult
+    )
+
+    data class GetMessagesResponseResult(
+        @SerializedName("messageDtoList")
+        val messageDtoList: List<MessageDto>,
+        @SerializedName("lastIndex")
+        val lastIndex: Int
+    )
+
+    data class MessageDto(
+        @SerializedName("memberId")
+        val memberId: Int,
+        @SerializedName("memberName")
+        val memberName: String,
+        @SerializedName("memberAvatar")
+        val memberAvatar: String,
+        @SerializedName("content")
+        val content: String,
+        @SerializedName("time")
+        val time: String
+    )
+
+    data class SendMessagesRequest(
+        val content: String
+    )
+
+    data class SendMessagesResponse(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: String
+    )
+
 }
