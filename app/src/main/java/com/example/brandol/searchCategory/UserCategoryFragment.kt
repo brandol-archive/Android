@@ -125,7 +125,7 @@ class UserCategoryFragment : Fragment() {
                 navigateToOpponentAvatar(userId)
             }
 
-            override fun onItemClick(userId: Int) {
+            override fun onItemClick(userId: Long) {
                 TODO("Not yet implemented")
             }
         }

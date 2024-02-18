@@ -1266,6 +1266,8 @@ class RetrofitClient2 {
         val memberId: Long,
         val nickname: String
     )
+    
+    //브랜드 공통 헤더 조회
     data class GetBrandHeader(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
@@ -1307,6 +1309,7 @@ class RetrofitClient2 {
         @SerializedName("fan_sequence")
         val fan_sequence: Int
     )
+    //
 
     data class GetHomeFragment(
         @SerializedName("isSuccess")
