@@ -1,5 +1,7 @@
 package com.example.brandol.adaptor
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +14,14 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.brandol.R
 import com.example.brandol.collection.ItemModel
+import com.example.brandol.connection.RetrofitClient2
+import com.example.brandol.connection.RetrofitObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.ViewHolder>(
@@ -39,7 +47,9 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         val currentItem = getItem(position)
 
         // 아이템 데이터를 뷰에 설정
-        holder.brandLogo.setImageResource(currentItem.brandLogoRes)
+        Glide.with(holder.itemView.context)
+            .load(currentItem.brandLogoRes) // brandLogo가 이미지 URL이라고 가정
+            .into(holder.brandLogo)
         holder.brandName.text = currentItem.brandName
         holder.tabCategory.text = currentItem.tabCategory
         holder.itemName.text = currentItem.itemName
@@ -49,12 +59,13 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         // 버튼 클릭 이벤트 처리
         holder.purchaseButton.setOnClickListener {
             // 현재 아이템에 접근하여 showDeleteDialog 메서드 호출
-            showDialog(currentItem, holder.itemView)
+            showDialog(currentItem, holder.itemView.context)
         }
+
     }
 
-    private fun showDialog(currentItem: ItemModel, itemView: View) {
-        val context = itemView.context
+    private fun showDialog(currentItem: ItemModel, context: Context) {
+        //val context = itemView.context
 
         // 다이얼로그를 직접 생성하고 커스텀 레이아웃 설정
         val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_delete_brand, null)
@@ -74,9 +85,8 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
 
         // 확인 버튼 클릭 시 동작
         yesButton.setOnClickListener {
-            //removeItem(brandData)
             dialog.dismiss()
-            showPurchaseDialog(currentItem, itemView)
+            showPurchaseDialog(currentItem, context)
         }
 
         // 취소 버튼 클릭 시 동작
@@ -88,8 +98,8 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         dialog.show()
     }
 
-    private fun showPurchaseDialog(currentItem: ItemModel, itemView: View) {
-        val context = itemView.context
+    private fun showPurchaseDialog(currentItem: ItemModel, context: Context) {
+        //val context = itemView.context
 
         // 다이얼로그를 직접 생성하고 커스텀 레이아웃 설정
         val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_delete_brand, null)
@@ -109,6 +119,7 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         // 확인 버튼 클릭 시 동작
         okButton.setOnClickListener {
             dialog.dismiss()
+            purchaseItem(context, currentItem.itemId)
         }
 
         // 취소 버튼 제거
@@ -118,6 +129,39 @@ class AvatarStoreItemAdapter : ListAdapter<ItemModel, AvatarStoreItemAdapter.Vie
         // 다이얼로그 표시
         dialog.show()
     }
+
+    private fun getCurrentToken(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
+        return sharedPref.getString("accessToken", null)
+    }
+
+    private fun purchaseItem(context: Context, itemId: Int) {
+        val token = getCurrentToken(context)
+        val call = RetrofitObject.getRetrofitService.purchaseItem("Bearer $token", itemId.toInt())
+        call.enqueue(object : Callback<RetrofitClient2.PurchaseItem> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.PurchaseItem>,
+                response: Response<RetrofitClient2.PurchaseItem>
+            ) {
+                Log.d("ikj", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("ikj", response.toString())
+                    if (response != null && response.isSuccess) {
+                        //Log.d("ikj", response.result)
+                        Log.d("ikj", "성공")
+                        // 아이템 구매 성공 시 처리 로직을 추가하세요
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RetrofitClient2.PurchaseItem>, t: Throwable) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.d("ikj", errorMessage)
+            }
+        })
+    }
+
 }
 
 class ItemModelDiffCallback : DiffUtil.ItemCallback<ItemModel>() {

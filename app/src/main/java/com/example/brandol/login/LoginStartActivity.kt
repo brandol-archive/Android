@@ -179,8 +179,9 @@ class LoginStartActivity : AppCompatActivity() {
         val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
             accessToken?.let { putString("accessToken", it) }
-            Log.d("LHJTOKEN",accessToken.toString())
+            Log.d("accessTOKEN",accessToken.toString())
             refreshtoken?.let { putString("refreshtoken", it) }
+            Log.d("refreshTOKEN",refreshtoken.toString())
             apply()
         }
     }

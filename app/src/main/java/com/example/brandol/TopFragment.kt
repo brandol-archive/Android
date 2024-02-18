@@ -29,42 +29,42 @@ class TopFragment : Fragment() {
         recyclerView.adapter = adapter
 
         // 아이템 데이터 생성 및 추가
-        val itemList = generateItemData()
-        adapter.submitList(itemList)
+//        val itemList = generateItemData()
+//        adapter.submitList(itemList)
 
         return rootView
     }
 
-    private fun generateItemData(): List<ItemModel> {
-        // 아이템 데이터 생성 및 반환
-        // 여기에서는 더미 데이터로 예시를 작성하였습니다.
-        return listOf(
-            ItemModel(
-                R.drawable.ic_launcher_foreground,
-                "Brand1",
-                "|",
-                "Item1",
-                "item1_info",
-                "100p"
-            ),
-            ItemModel(
-                R.drawable.ic_launcher_foreground,
-                "Brand2",
-                "|",
-                "Item2",
-                "item2_info",
-                "200p"
-            ),
-            ItemModel(
-                R.drawable.ic_launcher_foreground,
-                "Brand3",
-                "|",
-                "Item3",
-                "item3_info",
-                "150p"
-            ),
-            // 추가 아이템 데이터 작성
-        )
-    }
+//    private fun generateItemData(): List<ItemModel> {
+//        // 아이템 데이터 생성 및 반환
+//        // 여기에서는 더미 데이터로 예시를 작성하였습니다.
+//        return listOf(
+//            ItemModel(
+//                R.drawable.ic_launcher_foreground,
+//                "Brand1",
+//                "|",
+//                "Item1",
+//                "item1_info",
+//                "100p"
+//            ),
+//            ItemModel(
+//                R.drawable.ic_launcher_foreground,
+//                "Brand2",
+//                "|",
+//                "Item2",
+//                "item2_info",
+//                "200p"
+//            ),
+//            ItemModel(
+//                R.drawable.ic_launcher_foreground,
+//                "Brand3",
+//                "|",
+//                "Item3",
+//                "item3_info",
+//                "150p"
+//            ),
+//            // 추가 아이템 데이터 작성
+//        )
+//    }
 
 }
