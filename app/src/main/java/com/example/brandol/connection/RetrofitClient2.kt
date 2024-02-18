@@ -1526,10 +1526,14 @@ class RetrofitClient2 {
     )
 
     data class SearchMainResult(
-        @SerializedName("searchMainBrandDto") val searchMainBrandDto: List<BrandDto>,
-        @SerializedName("searchMainUserDto") val searchMainUserDto: List<UserDto>,
-        @SerializedName("searchMainContentsDto") val searchMainContentsDto: List<ContentsDto>,
-        @SerializedName("searchMainAvatarStoreDto") val searchMainAvatarStoreDto: List<AvatarStoreDto>
+        @SerializedName("searchMainBrandDto")
+        val searchMainBrandDto: List<BrandDto>,
+        @SerializedName("searchMainUserDto")
+        val searchMainUserDto: List<UserDto>,
+        @SerializedName("searchMainContentsDto")
+        val searchMainContentsDto: List<ContentsDto>,
+        @SerializedName("searchMainAvatarStoreDto")
+        val searchMainAvatarStoreDto: List<AvatarStoreDto>
     )
 
     // 검색 메인 페이지에서 사용될 데이터 클래스들을 정의합니다.
