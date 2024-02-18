@@ -1349,6 +1349,8 @@ class RetrofitClient2 {
         val brandName: String,
         @SerializedName("profileImage")
         val profileImage: String,
+        @SerializedName("brandDescription")
+        val brandDescription: String,
         @SerializedName("sequence")
         val sequence: Int
     )

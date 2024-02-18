@@ -63,10 +63,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabGravity="fill"
-        app:tabIndicatorColor="#BB18FF"
+        app:tabIndicatorColor="@color/selectedpurple"
         app:tabIndicatorHeight="5dp"
         android:background="@color/white"
-        app:tabSelectedTextColor="#BB18FF"
+        app:tabSelectedTextColor="@color/selectedpurple"
         app:tabTextColor="@color/black" />
 
     <androidx.viewpager2.widget.ViewPager2
