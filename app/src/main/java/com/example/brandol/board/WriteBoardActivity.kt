@@ -1,8 +1,12 @@
 package com.example.brandol.board
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.brandol.databinding.FragmentBrandinfoWriteBoardBinding
 
@@ -11,8 +15,23 @@ class WriteBoardActivity : AppCompatActivity() {
     lateinit var binding: FragmentBrandinfoWriteBoardBinding
     val imageCount: Int = 0  //게시물의 사진 개수 초기화
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    val pickMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(10)) { uris ->
+        // Callback is invoked after the user selects media items or closes the photo picker.
+        if (uris.isNotEmpty()) {
+            Log.d("PhotoPicker", "Number of items selected: ${uris.size}")
+            // 권한 부여
+            val flag = Intent.FLAG_GRANT_READ_URI_PERMISSION
+            uris.forEach { uri ->
+                applicationContext.contentResolver.takePersistableUriPermission(uri, flag)
+            }
+        } else {
+            Log.d("PhotoPicker", "No media selected")
+        }
+    }
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         //게시글 사진 개수 세기
         val intent = Intent(this, WriteBoardActivity::class.java)
@@ -26,7 +45,7 @@ class WriteBoardActivity : AppCompatActivity() {
         //뒤로가기
         goBack()
         //갤러리 사진 가져오기
-        goCustomGallery()
+        viewImgPicker()
         //게시물 등록
         addPost()
         //게시글 사진 관련 코드
@@ -44,9 +63,11 @@ class WriteBoardActivity : AppCompatActivity() {
         }
     }
 
-    private fun goCustomGallery() {
+    private fun viewImgPicker() {
         binding.writeGalleryBtn.setOnClickListener {
-            //커스텀 갤러리 화면으로 이동
+            //커스텀 갤러리 화면
+            // Launch the photo picker and let the user choose images and videos.
+            pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
         }
     }
 

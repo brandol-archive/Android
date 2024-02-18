@@ -170,7 +170,6 @@ class BrandButtonAdapter : RecyclerView.Adapter<BrandButtonAdapter.ButtonViewHol
             // Set brand name
             brandNameTextView.text = brand.brandName
 
-            //brandInfoTextView.text = brand.
 
             // Set a brief description of the brand
             //brandInfoTextView.text = brand.description ?: ""

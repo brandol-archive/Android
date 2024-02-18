@@ -66,6 +66,68 @@
         app:layout_constraintStart_toStartOf="@+id/nickname_tv"
         tools:ignore="MissingConstraints" />
 
+
+    <TextView
+        android:id="@+id/gender_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nickname_et" />
+
+
+    <CheckBox
+        android:id="@+id/male_cb"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:button="@android:color/transparent"
+        android:background="@drawable/checkbox"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="32dp"
+        android:text=""
+        tools:ignore="MissingConstraints"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender_tv" />
+
+    <TextView
+        android:id="@+id/male_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="남자"
+        android:layout_marginStart="32dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/male_cb"
+        app:layout_constraintTop_toTopOf="@+id/male_cb" />
+
+    <CheckBox
+        android:id="@+id/female_cb"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:button="@android:color/transparent"
+        android:background="@drawable/checkbox"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="40dp"
+        android:text=""
+        tools:ignore="MissingConstraints"
+        app:layout_constraintStart_toEndOf="@+id/male_tv"
+        app:layout_constraintTop_toBottomOf="@+id/gender_tv" />
+
+    <TextView
+        android:id="@+id/female_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="여자"
+        android:layout_marginStart="32dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/female_cb"
+        app:layout_constraintTop_toTopOf="@+id/female_cb" />
+
         <Button
             android:id="@+id/sign_up_ok_b"
             android:layout_width="match_parent"

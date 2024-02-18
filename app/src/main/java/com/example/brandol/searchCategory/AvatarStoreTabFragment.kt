@@ -23,6 +23,16 @@ class AvatarStoreTabFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
+    companion object {
+        fun newInstance(category: String): AvatarStoreTabFragment {
+            val fragment = AvatarStoreTabFragment()
+            val args = Bundle()
+            args.putString("category", category)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +55,11 @@ class AvatarStoreTabFragment : Fragment() {
         adapter.submitList(itemList)
 
         // 각 탭에 대한 데이터 가져오기
-        getAvatarStoreCategoryData("상의")
-        getAvatarStoreCategoryData("하의")
+        //getAvatarStoreCategoryData("상의")
+        //getAvatarStoreCategoryData("하의")
         // 필요한 만큼 더 탭을 추가하세요
+
+        getAvatarStoreCategoryData()
 
         return rootView
     }
@@ -57,27 +69,34 @@ class AvatarStoreTabFragment : Fragment() {
         return sharedPref.getString("accessToken", null)
     }
 
-    private fun getAvatarStoreCategoryData(itemPart: String) {
+//
+    private fun getAvatarStoreCategoryData() {
         val token = getCurrentToken(requireContext())
-        val call = RetrofitObject.getRetrofitService.searchDetailAvatarStoreBody("Bearer $token", itemPart)
+        val category = arguments?.getString("category") ?: ""
+
+        val call = RetrofitObject.getRetrofitService.searchDetailAvatarStoreBody("Bearer $token", category)
         call.enqueue(object : Callback<RetrofitClient2.SearchDetailAvatarStoreBody> {
             override fun onResponse(
                 call: Call<RetrofitClient2.SearchDetailAvatarStoreBody>,
                 response: Response<RetrofitClient2.SearchDetailAvatarStoreBody>
             ) {
+                Log.d("ikj", response.toString())
                 if (response.isSuccessful) {
                     val responseData = response.body()
+                    Log.d("ikj", responseData.toString())
                     if (responseData != null && responseData.isSuccess) {
-                        val itemList = responseData.result.searchDetailAvatarStoreBodyDto
-                        updateAdapter(itemList)
+                        // 서버에서 받아온 데이터를 처리
+                        Log.d("ikj", responseData.result.toString())
+                        // 어댑터를 업데이트하는 메서드 호출
+                        updateAdapter(responseData.result.searchDetailAvatarStoreBodyDto)
                     }
                 }
             }
+
             override fun onFailure(call: Call<RetrofitClient2.SearchDetailAvatarStoreBody>, t: Throwable) {
                 val errorMessage = "Call Failed: ${t.message}"
                 Log.d("ikj", errorMessage)
             }
-
         })
     }
 
@@ -85,30 +104,16 @@ class AvatarStoreTabFragment : Fragment() {
         val adapter = recyclerView.adapter as? AvatarStoreItemAdapter
         adapter?.submitList(itemList.map { dto ->
             ItemModel(
-                R.drawable.img_avatar_item,
+                dto.itemImage,
                 dto.itemsName,
                 dto.itemPart,  // ItemModel에 itemPart 추가
                 dto.brandName,
                 dto.itemDescription,
-                dto.itemPrice.toString() + "p"
+                dto.itemPrice.toString() + "p",
+                dto.itemId
             )
         })
     }
 
 
-    private fun generateItemData(): List<ItemModel> {
-        // 아이템 데이터 생성 및 반환
-        // 여기에서는 더미 데이터로 예시를 작성하였습니다.
-        return listOf(
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "50p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "150p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "150p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "200p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "250p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "270p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "250p"),
-            ItemModel(R.drawable.img_avatar_item, "실리카겔", "피부", "김춘추의 창백한 피부", "김춘추가 촬영 오기 전에 급히 김밥을 \n" + "먹다가 체하는 바람에 창백해 졌다.\n" + "그의 피부에서 착안했다.", "270p"),
-            // 추가 아이템 데이터 작성
-        )
-    }
 }

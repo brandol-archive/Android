@@ -9,17 +9,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.brandol.Home.BrandManagementFragment
 import com.example.brandol.R
 import com.example.brandol.SearchBarFragment
-import com.example.brandol.SearchFragment
 import com.example.brandol.adaptor.BrandCategoryAdapter
+import com.example.brandol.adaptor.ItemClickListener
+import com.example.brandol.brandInfo.BrandInfoFragment
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
 import com.example.brandol.databinding.FragmentBrandCategoryBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+interface CategoryItemClickListener {
+    fun onItemClick(brandId: Long)
+}
+
 
 class BrandCategoryFragment : Fragment() {
 
@@ -49,10 +53,25 @@ class BrandCategoryFragment : Fragment() {
             transaction.commit()
         }
 
+        //브랜드 클릭해서 brandInfoFragment로 화면 전환
+//        brandButtonAdapter.itemClickListener = object : ItemClickListener {
+//            override fun onItemClick(position: Int) {
+//                //클릭한 아이템 정보를 가져와서 넘겨줌
+//                //val brand = dummyDataList[position]
+//                parentFragmentManager.beginTransaction()
+//                    .replace(R.id.main_frm, BrandInfoFragment())
+//                    .addToBackStack(null)
+//                    .commit()
+//            }
+//        }
+
+
 
 
         return binding.root
     }
+
+
 
     private fun getCurrentToken(context: Context): String? {
         val sharedPref = context.getSharedPreferences("Brandol", Context.MODE_PRIVATE)
@@ -94,6 +113,22 @@ class BrandCategoryFragment : Fragment() {
 
         // Adapter 초기화
         adapter = BrandCategoryAdapter()
+//        BrandCategoryAdapter.itemClickListener = object : ItemClickListener {
+//            override fun onItemClick(position: Int, brandId: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onItemClick(position: Int) {
+//                //클릭한 아이템 정보를 가져와서 넘겨줌
+//                //val brand = dummyDataList[position]
+//                parentFragmentManager.beginTransaction()
+//                    .replace(R.id.main_frm, BrandInfoFragment())
+//                    .addToBackStack(null)
+//                    .commit()
+//            }
+//        }
+
+
         recyclerView.adapter = adapter
 
         // 서버에서 브랜드 데이터 가져오기

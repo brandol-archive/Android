@@ -93,14 +93,12 @@ class AvatarStoreCategoryFragment : Fragment() {
         val tabLayout: TabLayout = binding.avatarStoreTabs
 
         val adapter = AvatarStoreAdapter(requireActivity())
-
-        // 탭 프래그먼트를 하나로 하고 서버에서 정보 받아올 때 다르게 할 예정
-        adapter.addFragment(AvatarStoreTabFragment(), "전체")
-        adapter.addFragment(AvatarStoreTabFragment(), "헤어")
-        adapter.addFragment(AvatarStoreTabFragment(), "피부")
-        adapter.addFragment(AvatarStoreTabFragment(), "상의")
-        adapter.addFragment(AvatarStoreTabFragment(), "하의")
-        adapter.addFragment(AvatarStoreTabFragment(), "신발")
+        adapter.addFragment(AvatarStoreTabFragment.newInstance("전체"), "전체")
+        adapter.addFragment(AvatarStoreTabFragment.newInstance("HAIR"), "헤어")
+        adapter.addFragment(AvatarStoreTabFragment.newInstance("SKIN"), "피부")
+        adapter.addFragment(AvatarStoreTabFragment.newInstance("TOP"), "상의")
+        adapter.addFragment(AvatarStoreTabFragment.newInstance("BOTTOM"), "하의")
+        adapter.addFragment(AvatarStoreTabFragment.newInstance("SHOES"), "신발")
 
         viewPager.adapter = adapter
 

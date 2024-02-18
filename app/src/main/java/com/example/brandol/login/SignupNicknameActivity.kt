@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.brandol.MainActivity
@@ -63,6 +64,32 @@ class SignupNicknameActivity : AppCompatActivity() {
         binding.nicknameBackBtn.setOnClickListener {
             finish()
         }
+
+        // 각 체크박스들의 체크 상태 변경 시
+        val checkBoxChangeListener = CompoundButton.OnCheckedChangeListener { _, _ ->
+            // 모든 체크박스들의 상태를 확인하여 다음 버튼을 표시하거나 숨김
+            updateNextButtonVisibility()
+        }
+
+        // 각 체크박스들에 리스너 등록
+        binding.maleCb.setOnCheckedChangeListener(checkBoxChangeListener)
+        binding.femaleCb.setOnCheckedChangeListener(checkBoxChangeListener)
+
+        // 체크 상태 변경 리스너
+        binding.maleCb.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.femaleCb.isChecked = false
+            }
+            updateNextButtonVisibility()
+        }
+        binding.femaleCb.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.maleCb.isChecked = false
+            }
+            updateNextButtonVisibility()
+        }
+
+
 
         binding.signUpOkB.setOnClickListener {
             UserApiClient.instance.me { user, error ->
@@ -162,6 +189,25 @@ class SignupNicknameActivity : AppCompatActivity() {
             memberId?.let { putLong("memberId", it) }
             signUp?.let { putBoolean("signUp", it) }
             apply()
+        }
+    }
+
+
+    private fun updateNextButtonVisibility() {
+        // 모든 하위 체크박스들의 상태 확인
+        val isCheckboxMaleChecked = binding.maleCb.isChecked
+        val isCheckboxFemaleChecked = binding.femaleCb.isChecked
+
+
+        // 모든 체크박스가 선택되었을 때
+        if (isCheckboxFemaleChecked || isCheckboxMaleChecked ) {
+            // 다음 버튼 표시, 회색 버튼 숨김
+            binding.signUpOkB.visibility = android.view.View.VISIBLE
+            binding.signUpNoB.visibility = android.view.View.GONE
+        } else {
+            // 그 외의 경우 다음 버튼 숨김, 회색 버튼 표시
+            binding.signUpOkB.visibility = android.view.View.GONE
+            binding.signUpNoB.visibility = android.view.View.VISIBLE
         }
     }
 
