@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.brandol.R
+import com.example.brandol.SearchBarFragment
 import com.example.brandol.adaptor.ItemClickListener
 import com.example.brandol.adaptor.UserCategoryAdapter
 import com.example.brandol.connection.RetrofitClient2
@@ -36,6 +38,21 @@ class UserCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentUserCategoryBinding.inflate(inflater, container, false)
+
+        binding.btnSearchBarIb.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+        binding.btnSearchIc.setOnClickListener {
+            val searchBarFragment = SearchBarFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frm, searchBarFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         getUserCategoryData()
 

@@ -88,9 +88,9 @@ class LoginStartActivity : AppCompatActivity() {
                     } else if (user != null) {
                         Log.d("LHJ", "사용자 정보 요청 성공")
 //                        val email = user.kakaoAccount?.email
-//                        val name = user.kakaoAccount?.profile?.nickname 진짜 코드
-                        val email = "kimyongi"
-                        val name = "김용기"
+//                        val name = user.kakaoAccount?.profile?.nickname
+                        val email = "jujupdan"
+                        val name = "jujupdan"
                         //이메일 이름 보내서 서버와 연결
                         loginServer(email!!, name!!)
 

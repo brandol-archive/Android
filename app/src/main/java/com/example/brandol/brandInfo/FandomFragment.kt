@@ -51,8 +51,8 @@ class FandomFragment : Fragment() {
 
     private fun navigateToBoardActivity(category: String, boardText: String, requestCode: Int) {
         val intent = Intent(requireContext(), BoardActivity::class.java)
-        intent.putExtra("boardNowcateText", category)
-        intent.putExtra("boardNowboardText", boardText)
+        intent.putExtra("category", category)
+        intent.putExtra("boardText", boardText)
         startActivityForResult(intent, requestCode)
     }
 
