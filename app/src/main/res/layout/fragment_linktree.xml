@@ -52,10 +52,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linktree_topbar_cl" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/linktree_homepage_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:text=""
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="11dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="3dp"
@@ -76,10 +79,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linktree_homepage_btn" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/linktree_download_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:text=""
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="11dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="3dp"
@@ -100,10 +106,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linktree_download_btn" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/linktree_sns1_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:text=""
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="11dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="3dp"
@@ -112,10 +121,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linktree_sns_tv" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/linktree_sns2_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:text=""
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="11dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="3dp"
@@ -124,10 +136,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linktree_sns1_btn" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/linktree_sns3_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:text=""
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="11dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="3dp"
@@ -148,10 +163,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linktree_sns3_btn" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/linktree_store_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:text=""
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="11dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="3dp"
