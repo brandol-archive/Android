@@ -66,7 +66,8 @@
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
             <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
             <ImageView
@@ -83,10 +84,10 @@
             <ImageView
                 android:id="@+id/search_B_drandol_logo2_iv"
                 android:layout_width="95dp"
-                android:layout_height="20dp"
+                android:layout_height="65dp"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="27dp"
-                android:src="@drawable/img_brandol_logo"/>
+                android:layout_marginTop="5dp"
+                android:src="@drawable/er_119"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -101,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="23dp"
                 android:layout_marginStart="145dp"
-                android:text="BRANDOL"
+                android:text="119REO"
                 android:textSize="11dp"
                 android:textStyle="bold"/>
 
@@ -111,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="38dp"
                 android:layout_marginStart="145dp"
-                android:text="브랜드 팬덤 커뮤니티"
+                android:text="방화복 업싸이클링 브랜드"
                 android:textSize="11dp"
                 android:textStyle="bold"/>
 
