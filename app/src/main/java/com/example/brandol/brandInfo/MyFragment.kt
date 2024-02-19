@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.brandol.R
 import com.example.brandol.board.BoardActivity
+import com.example.brandol.board.BoardDetailActivity
 import com.example.brandol.connection.RetrofitAPI
 import com.example.brandol.connection.RetrofitClient2
 import com.example.brandol.connection.RetrofitObject
@@ -53,6 +54,19 @@ class MyFragment : Fragment() {
         intent.putExtra("boardText", boardText)
         startActivityForResult(intent, requestCode)
     }
+
+    private fun navigateToBoardDetailActivity(Profile: String, Usernick: String, Posttitle: String, Postcontent: String, Likecnt: Int, Commentcnt: Int, Posttime: String) {
+        val intent = Intent(requireContext(), BoardDetailActivity::class.java)
+        intent.putExtra("Profile", Profile)
+        intent.putExtra("Usernick", Usernick)
+        intent.putExtra("Posttitle", Posttitle)
+        intent.putExtra("Postcontent", Postcontent)
+        intent.putExtra("Likecnt", Likecnt)
+        intent.putExtra("Commentcnt", Commentcnt)
+        intent.putExtra("Posttime", Posttime)
+        startActivity(intent)
+    }
+
 
     private fun loadMyCategory(brandId: Long?, memberId: Long?) {
         // Retrofit을 사용하여 API 호출
@@ -134,6 +148,20 @@ class MyFragment : Fragment() {
             binding.myCommentcnt2Tv.text = it.commentCount.toString()
             binding.myPosttime2Tv.text = it.writtenDate.toString()
         }
+
+        //첫 번째 게시글 클릭 이벤트
+        binding.myPost1Cl.setOnClickListener {
+            firstArticle?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
+
+        //두 번째 게시글 클릭 이벤트
+        binding.myPost2Cl.setOnClickListener {
+            secondArticle?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
     }
 
     private fun updateComment(response: RetrofitClient2.MyWrittenCommentsResponse) {
@@ -170,6 +198,20 @@ class MyFragment : Fragment() {
             binding.myLikecnt4Tv.text = it.likeCount.toString()
             binding.myCommentcnt4Tv.text = it.commentCount.toString()
             binding.myPosttime4Tv.text = it.writtenDate.toString()
+        }
+
+        //첫 번째 댓글 클릭 이벤트
+        binding.myPost3Cl.setOnClickListener {
+            firstComment?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
+        }
+
+        //두 번째 댓글 클릭 이벤트
+        binding.myPost4Cl.setOnClickListener {
+            secondComment?.let {
+                navigateToBoardDetailActivity(it.writerProfile, it.writerName, it.title, it.content, it.likeCount, it.commentCount, it.writtenDate)
+            }
         }
     }
 

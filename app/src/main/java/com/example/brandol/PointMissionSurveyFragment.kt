@@ -26,10 +26,7 @@ class PointMissionSurveyFragment : Fragment() {
     ): View? {
         binding = FragmentPointMissionSurveyBinding.inflate(inflater, container, false)
 
-
-
         trySurveyMission(5)
-
 
         return binding.root
     }
@@ -84,7 +81,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 2,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 2
+                response = "Yes" // Replace with your actual response for question 2
             ),
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 3,
@@ -94,7 +91,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 4,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 4
+                response = "Yes" // Replace with your actual response for question 4
             ),
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 5,
@@ -104,7 +101,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 6,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 6
+                response = "Yes" // Replace with your actual response for question 6
             ),
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 7,
@@ -114,7 +111,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 8,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 8
+                response = "Yes" // Replace with your actual response for question 8
             ),
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 9,
@@ -124,7 +121,7 @@ class PointMissionSurveyFragment : Fragment() {
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 10,
                 surveyQuestionType = "YESORNO",
-                response = "No" // Replace with your actual response for question 10
+                response = "Yes" // Replace with your actual response for question 10
             )
             // Add more QuestionResponse instances if needed
         )
@@ -182,8 +179,8 @@ class PointMissionSurveyFragment : Fragment() {
 
         // 미션 완료 성공시 뜨는 팝업
         binding.pointMissionSurveyCompleteIb.setOnClickListener {
-            showDialog()
             completeSurveyMissionSuccess(5)
+            showDialog()
         }
 
         // Q1 문제에 대한 체크 상태 변경 리스너
