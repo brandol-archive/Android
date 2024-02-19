@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- ... 브랜드 박스들의 이미지뷰들 ... -->
+            <ImageView
+                android:id="@+id/avartar_box_iv"
+                android:layout_width="395dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/object_default_background"
+                app:layout_constraintTop_toBottomOf="@id/brand_catagory_tv"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/avartar_store_item_iv"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="27dp"
+                android:src="@drawable/avartar_store_item1"/>
+
+
+            <TextView
+                android:id="@+id/avartar_store_item_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="100dp"
+                android:text="실리카겔 - 김춘추의 창백한 피부"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/avartar_store_item_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="100dp"
+                android:text="분류 : 피부"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/avartar_store_item_content_tv"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="100dp"
+                android:text="김춘추가 촬영 오기 전에 급히 김밥을먹다가 체하는 바람에 창백해 졌다.
+                        그의 피부에서 착안했다."
+                android:textSize="11dp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
