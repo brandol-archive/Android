@@ -207,6 +207,7 @@ import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
+
     lateinit var binding: FragmentHomeBinding
 
     private lateinit var mainBannerViewPager: ViewPager2

@@ -107,7 +107,16 @@ class SignupNicknameActivity : AppCompatActivity() {
                     val gender : String = "MALE"
                     val age = 23
                     signupServer(email, termsIdList, nickname, gender, age)
-                    val intent = Intent(this@SignupNicknameActivity, LoginStartActivity::class.java)
+                    //val intent = Intent(this@SignupNicknameActivity, LoginStartActivity::class.java)
+//                    val intent = Intent(this@SignupNicknameActivity, MainActivity::class.java)
+//                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+//                    finish()
+                    // 이때, 새로운 계정 정보를 Intent에 추가
+                    val intent = Intent(this@SignupNicknameActivity, MainActivity::class.java)
+                    intent.putExtra("email", email)
+                    intent.putExtra("nickname", nickname)
+                    intent.putExtra("gender", gender)
+                    intent.putExtra("age", age)
                     startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                     finish()
                 }

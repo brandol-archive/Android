@@ -17,6 +17,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // MainActivity로 전달된 데이터 받아오기
+        val email = intent.getStringExtra("email")
+        val nickname = intent.getStringExtra("nickname")
+        val gender = intent.getStringExtra("gender")
+        val age = intent.getIntExtra("age", 0)
+
         //바텀 네비게이션
         initBottomnavigation()
 
@@ -40,6 +46,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initBottomnavigation() {
+        // MainActivity로 전달된 데이터 받아오기
+        val email = intent.getStringExtra("email")
+        val nickname = intent.getStringExtra("nickname")
+        val gender = intent.getStringExtra("gender")
+        val age = intent.getIntExtra("age", 0)
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_frm, HomeFragment())
             .commitAllowingStateLoss()
