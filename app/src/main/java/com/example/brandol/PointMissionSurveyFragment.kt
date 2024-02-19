@@ -72,6 +72,60 @@ class PointMissionSurveyFragment : Fragment() {
 
     private fun completeSurveyMissionSuccess(missionId: Int) {
         // Create an instance of RequestSurveyMission with your data
+//        val surveyResponses = listOf(
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 1,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 1
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 2,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 2
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 3,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 3
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 4,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 4
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 5,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 5
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 6,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 6
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 7,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 7
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 8,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 8
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 9,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 9
+//            ),
+//            RetrofitClient2.QuestionResponse(
+//                surveyQuestionID = 10,
+//                surveyQuestionType = "YESORNO",
+//                response = "Yes" // Replace with your actual response for question 10
+//            )
+//            // Add more QuestionResponse instances if needed
+//        )
+
         val surveyResponses = listOf(
             RetrofitClient2.QuestionResponse(
                 surveyQuestionID = 1,
@@ -125,6 +179,7 @@ class PointMissionSurveyFragment : Fragment() {
             )
             // Add more QuestionResponse instances if needed
         )
+
 
 
         val requestSurveyMission = RetrofitClient2.RequestSurveyMission(surveyResponses)
