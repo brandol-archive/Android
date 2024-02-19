@@ -14,6 +14,7 @@ class BoardSearchActivity : AppCompatActivity() {
         binding = ActivityBoardSearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         // ItemBoardBinding을 초기화할 때 사용하는 뷰 요소들만 초기화합니다.
         itemBinding = ItemBoardBinding.bind(binding.root)
 
@@ -44,4 +45,6 @@ class BoardSearchActivity : AppCompatActivity() {
             // 코드 작성
         }
     }
+
+
 }

@@ -8,6 +8,9 @@ import com.example.brandol.SearchAvartarFragment
 import com.example.brandol.SearchBrandFragment
 import com.example.brandol.SearchContentFragment
 import com.example.brandol.SearchUserFragment
+import com.example.brandol.adaptor.VP.SearchBrandAdapter
+import com.example.brandol.adaptor.VP.SearchContentsAdapter
+import com.example.brandol.adaptor.VP.SearchUserAdapter
 
 class SearchPagerAdapter(fragment: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragment, lifecycle) {
 
@@ -23,3 +26,4 @@ class SearchPagerAdapter(fragment: FragmentManager, lifecycle: Lifecycle) : Frag
         }
     }
 }
+
