@@ -1519,6 +1519,89 @@ class RetrofitClient2 {
     //서현 시작
     //page4
     // 검색메인
+
+    data class SearchResponse(
+        @SerializedName("isSuccess")
+        val isSuccess: Boolean,
+        @SerializedName("code")
+        val code: String,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("result")
+        val result: SearchResult
+    )
+
+    data class SearchResult(
+        @SerializedName("searchMainBrandDto")
+        val searchMainBrandDto: List<SearchBrandDto>,
+        @SerializedName("searchMainUserDto")
+        val searchMainUserDto: List<SearchUserDto>,
+        @SerializedName("searchMainContentsDto")
+        val searchMainContentsDto: List<SearchContentsDto>,
+        @SerializedName("searchMainAvatarStoreDto")
+        val searchMainAvatarStoreDto: List<SearchAvatarStoreDto>
+    )
+
+    data class SearchBrandDto(
+        @SerializedName("brandId")
+        val brandId: Long,
+        @SerializedName("brandName")
+        val brandName: String,
+        @SerializedName("brandProfileImage")
+        val brandProfileImage: String,
+        @SerializedName("brandDescription")
+        val brandDescription: String
+    )
+
+    data class SearchUserDto(
+        @SerializedName("userId")
+        val userId: Long,
+        @SerializedName("userName")
+        val userName: String,
+        @SerializedName("userAvatar")
+        val userAvatar: String
+    )
+
+    data class SearchContentsDto(
+        @SerializedName("contentsId")
+        val contentsId: Long,
+        @SerializedName("contentsTitle")
+        val contentsTitle: String,
+        @SerializedName("content")
+        val content: String,
+        @SerializedName("images")
+        val images: List<String>,
+        @SerializedName("likeCount")
+        val likeCount: Int,
+        @SerializedName("commentCount")
+        val commentCount: Int,
+        @SerializedName("writerId")
+        val writerId: Long,
+        @SerializedName("writerName")
+        val writerName: String,
+        @SerializedName("writerProfile")
+        val writerProfile: String,
+        @SerializedName("createdDate")
+        val createdDate: String
+    )
+
+    data class SearchAvatarStoreDto(
+        @SerializedName("itemId")
+        val itemId: Long,
+        @SerializedName("itemsName")
+        val itemsName: String,
+        @SerializedName("itemPart")
+        val itemPart: String,
+        @SerializedName("brandName")
+        val brandName: String,
+        @SerializedName("itemImage")
+        val itemImage: String,
+        @SerializedName("itemDescription")
+        val itemDescription: String,
+        @SerializedName("itemPrice")
+        val itemPrice: Int
+    )
+
     data class ResponseSearchMain(
         @SerializedName("isSuccess")
         val isSuccess: Boolean,
@@ -1803,5 +1886,42 @@ class RetrofitClient2 {
         @SerializedName("result")
         val result: String
     )
+
+    data class ContentItem(
+        val boxImageResId: Int,
+        val contentImageResId: Int,
+        val miniCharImageResId: Int,
+        val contentName: String,
+        val contentTitle: String,
+        val contentContent: String,
+        val recentText: String,
+        val likeCount: Int,
+        val chatCount: Int,
+        val date: String
+    )
+    data class UserItem(
+        val boxImageResId: Int,
+        val charImageResId: Int,
+        val charName: String
+    )
+
+    data class SearchBrandItem(
+        val boxImageResId: Int,
+        val logoImageResId: Int,
+        val brandName: String,
+        val brandDetail: String
+    )
+
+    data class AvatarStoreItem(
+        val boxImageResId: Int,
+        val itemImageResId: Int,
+        val itemName: String,
+        val itemType: String,
+        val itemContent: String
+    )
+
+
+
+
 
 }
