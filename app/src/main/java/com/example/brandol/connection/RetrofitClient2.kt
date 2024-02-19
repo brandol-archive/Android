@@ -1780,15 +1780,20 @@ class RetrofitClient2 {
         val result: List<SurveyMissionEmptyResult>
     )
     data class SurveyMissionEmptyResult (
+        @SerializedName("surveyResult")
         val surveyResult: String
     )
 
     data class RequestSurveyMission (
+        @SerializedName("requestSurveyMission")
         val requestSurveyMission: List<QuestionResponse>
     )
     data class QuestionResponse(
+        @SerializedName("surveyQuestionID")
         val surveyQuestionID: Int,
+        @SerializedName("surveyQuestionType")
         val surveyQuestionType: String,
+        @SerializedName("response")
         val response: String
     )
 

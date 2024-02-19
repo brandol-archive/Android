@@ -31,7 +31,7 @@
                 android:layout_height="71dp"
                 android:layout_marginStart="33dp"
                 android:layout_marginTop="45dp"
-                android:src="@drawable/img_user_char"/>
+                android:src="@drawable/img_user_character_5"/>
 
             <TextView
                 android:id="@+id/user_char1_tv"
@@ -65,7 +65,7 @@
                 android:layout_height="71dp"
                 android:layout_marginStart="33dp"
                 android:layout_marginTop="45dp"
-                android:src="@drawable/img_user_char"/>
+                android:src="@drawable/img_user_character_3"/>
 
             <TextView
                 android:id="@+id/user_char2_tv"
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="140dp"
                 android:layout_marginStart="50dp"
-                android:text="서혀닝"
+                android:text="vcc"
                 android:textSize="10dp"
                 android:textStyle="bold"/>
 
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="140dp"
                 android:layout_marginStart="50dp"
-                android:text="서혀닝"
+                android:text="이호진"
                 android:textSize="10dp"
                 android:textStyle="bold"/>
 

@@ -84,7 +84,7 @@
                     android:layout_marginEnd="20dp"
                     android:textSize="15dp"
                     android:textStyle="bold"
-                    android:text="게시물 내용" />
+                    android:text="브랜드 팬덤 커뮤니티" />
 
                 <TextView
                     android:id="@+id/content1_content_tv"
@@ -95,7 +95,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="20dp"
                     android:textSize="15dp"
-                    android:text="브랜드 추구 방향성 문화" />
+                    android:text="브랜돌입니다" />
 
 
                 <TextView
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:layout_marginStart="10dp"
-                    android:text="최근 게시글 들어감"
+                    android:text=" "
                     android:textSize="15dp"/>
 
                 <LinearLayout
@@ -193,7 +193,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_brandol_big" />
+                    android:src="@drawable/brand_category_banner" />
 
 
             </androidx.cardview.widget.CardView>
@@ -240,7 +240,7 @@
                     android:layout_marginEnd="20dp"
                     android:textSize="15dp"
                     android:textStyle="bold"
-                    android:text="게시물 내용" />
+                    android:text="브랜돌에 대하" />
 
                 <TextView
                     android:id="@+id/content2_content_tv"
@@ -260,7 +260,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:layout_marginStart="10dp"
-                    android:text="최근 게시글 들어감"
+                    android:text=""
                     android:textSize="15dp"/>
 
                 <LinearLayout
