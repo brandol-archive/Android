@@ -52,6 +52,10 @@ interface RetrofitAPI {
     fun changeNickname(@Header("Authorization")token:String,@Body request : RetrofitClient2.RequestNickname) : Call<RetrofitClient2.ResponseNickname>
 
     //서현 시작
+    //페이지 조회 API : 직접 검색
+    @GET("/search")
+    fun searchContents(@Query("searchContents") searchContents: String): Call<RetrofitClient2.SearchResponse>
+
     //페이지 조회 API : 검색 메인 페이지 조회
     @GET("/search/main")
     fun getSearchMain(@Header("Authorization")token:String): Call<RetrofitClient2.ResponseSearchMain>
